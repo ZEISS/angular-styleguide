@@ -1,19 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Product} from '../../../model/product';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductServiceService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) {
+  }
+
+  loadProducts(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>('http://www.mocky.io/v2/5b6d4e87330000211aa36ca7');
+  }
 }
 
-export const PRODUCTS: Product[] = [
-  { id: 1, title: 'Calippo', image: 'assets/product-images/Calippo.png'},
-  { id: 2, title: 'Cornetto', image: 'assets/product-images/Cornetto.png'},
-  { id: 3, title: 'Kinder Ice Cream', image: 'assets/product-images/Kinder.png'},
-  { id: 4, title: 'Klassiker', image: 'assets/product-images/Klassiker.png'},
-  { id: 5, title: 'Cremissimo', image: 'assets/product-images/Cremissimo.png'},
-  { id: 6, title: 'Solero', image: 'assets/product-images/Solero.png'}
-];
+
