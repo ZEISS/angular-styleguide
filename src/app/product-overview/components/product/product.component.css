@@ -1,10 +1,15 @@
 .product {
   border-style: solid;
   border-width: 2px;
-  border-color: darkgray;
+  border-color: #b4b4b4;
+}
+
+.product:hover {
+  border-color: #ffa500;
 }
 
 #product-title {
   text-align: right;
   padding-right: 20px;
+  font-size: 25px;
 }

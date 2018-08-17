@@ -6,13 +6,25 @@ import {ProductOverviewActions} from './store/actions';
 import {ProductOverviewEpics} from './store/epics';
 import {ProductServiceService} from './services/product-service.service';
 import {HttpClientModule} from '@angular/common/http';
+import {ProductOverviewRoutingModule} from './product-overview.routing-module';
 
 @NgModule({
   imports: [
-    CommonModule, HttpClientModule
+    CommonModule,
+    HttpClientModule,
+    ProductOverviewRoutingModule
   ],
-  declarations: [ProductOverviewComponent, ProductComponent],
-  exports: [ProductOverviewComponent],
-  providers: [ProductOverviewActions, ProductOverviewEpics, ProductServiceService]
+  declarations: [
+    ProductOverviewComponent,
+    ProductComponent
+  ],
+  exports: [
+    ProductOverviewComponent
+  ],
+  providers: [
+    ProductOverviewActions,
+    ProductOverviewEpics,
+    ProductServiceService
+  ]
 })
 export class ProductOverviewModule { }

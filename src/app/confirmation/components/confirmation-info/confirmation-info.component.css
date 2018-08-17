@@ -1,0 +1,35 @@
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  margin-top: 100px;
+}
+
+h2 {
+  font-size: 35px;
+  font-weight: 100;
+  line-height: 50%;
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: 100;
+  margin-bottom: 0px;
+  line-height: 50%;
+}
+
+#back-button {
+  margin: 50px;
+  border: 3px solid #ffa500;
+  padding: 15px 32px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+#confirmation-info {
+  background-color: #ffa500;
+  padding: 20px;
+}
