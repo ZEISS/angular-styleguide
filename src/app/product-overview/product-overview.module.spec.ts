@@ -1,6 +1,6 @@
 import { ProductOverviewModule } from './product-overview.module';
 
-describe('ProductOverviewModule', () => {
+describe('SharedModule', () => {
   let productOverviewModule: ProductOverviewModule;
 
   beforeEach(() => {
