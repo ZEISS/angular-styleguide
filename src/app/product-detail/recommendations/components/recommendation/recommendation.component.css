@@ -23,11 +23,7 @@ h2 {
   justify-items: center;
 }
 
-:host >>> app-product #product-title {
-  font-size: 20px;
-}
-
-:host >>> app-product #product-image {
+:host >>> app-product .product-image {
   width: 190px;
   height: 190px;
 }

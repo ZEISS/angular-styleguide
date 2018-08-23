@@ -1,3 +1,11 @@
+:host(.small) {
+  font-size: 20px;
+}
+
+:host(.big) {
+  font-size: 25px;
+}
+
 .product {
   border-style: solid;
   border-width: 2px;
@@ -8,12 +16,12 @@
   border-color: #ffa500;
 }
 
-#product-title {
+.product-title {
   text-align: right;
   padding-right: 20px;
-  font-size: 25px;
 }
 
-#product-image {
+.product-image {
   padding-top: 10px;
 }
+

@@ -6,7 +6,7 @@
 </div>
 
 <div class="grid-container">
-  <app-product *ngFor="let product of (products$ | async)"
+  <app-product class="big" *ngFor="let product of (products$ | async)"
                   [product]="product">
   </app-product>
 </div>
