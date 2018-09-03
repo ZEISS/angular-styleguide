@@ -1,16 +1,15 @@
 import {isDevMode, NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {DevToolsExtension, NgRedux, NgReduxModule} from '@angular-redux/store';
 import {deepFreeze} from 'typescript-immutable-helper';
 import {RootEpics} from './root.epics';
 import {INITIAL_ROOTSTATE, rootReducer, RootState} from './root.reducer';
 import {createEpicMiddleware} from 'redux-observable';
-import {ProductOverviewModule} from '../../app/product-overview/product-overview.module';
+import {ProductModule} from '../../app/product/product.module';
 
 @NgModule({
   imports: [
     NgReduxModule,
-    ProductOverviewModule
+    ProductModule
   ],
   // Root Epics anbieten
   providers: [RootEpics]

@@ -2,12 +2,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {ProductOverviewModule} from './product-overview/product-overview.module';
 import {NgReduxModule} from '@angular-redux/store';
 import {StoreModule} from '../support/store/store.module';
 import {AppRoutingModule} from './app.routing-module';
-import {ProductDetailModule} from './product-detail/product-detail.module';
-import {ConfirmationModule} from './confirmation/confirmation.module';
+import {OrderModule} from './order/order.module';
+import {ProductModule} from './product/product.module';
 
 @NgModule({
   declarations: [
@@ -15,11 +14,10 @@ import {ConfirmationModule} from './confirmation/confirmation.module';
   ],
   imports: [
     BrowserModule,
-    ProductOverviewModule,
     NgReduxModule,
     StoreModule,
-    ProductDetailModule,
-    ConfirmationModule,
+    ProductModule,
+    OrderModule,
     AppRoutingModule
   ],
   providers: [],

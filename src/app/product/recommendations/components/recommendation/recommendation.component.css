@@ -1,0 +1,23 @@
+.recommandations {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #b4b4b4;
+  margin: auto;
+  width: 60%;
+  padding: 25px;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.grid-container {
+  display: grid;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  justify-items: center;
+}

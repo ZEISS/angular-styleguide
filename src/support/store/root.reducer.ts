@@ -1,17 +1,17 @@
 // State als Datentyp
 import {combineReducers, Reducer} from 'redux';
-import {InitialProductOverviewState, productOverviewReducer, ProductOverviewState} from '../../app/product-overview/store/reducers';
+import {InitialProductState, productReducer, ProductState} from '../../app/product/store/reducers';
 
 export interface RootState {
-  productOverview: ProductOverviewState;
+  product: ProductState;
 }
 
 // Initialer State
 export const INITIAL_ROOTSTATE: RootState = {
-  productOverview: InitialProductOverviewState
+  product: InitialProductState
 };
 
 // Kombination der Reducer
 export const rootReducer: Reducer<RootState> = combineReducers<RootState>({
-  productOverview: productOverviewReducer
+  product: productReducer
 });
