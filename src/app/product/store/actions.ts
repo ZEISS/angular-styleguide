@@ -3,7 +3,7 @@ import {Action} from '../../../support/store/root.actions';
 import {Injectable} from '@angular/core';
 import {Product} from '../../../model/product';
 
-export interface ProductAction extends Action<void | Product[]> {};
+export interface ProductAction extends Action<void | Product[]> {}
 
 // Zur Injektion in UI-Komponenten oder Epics
 @Injectable()

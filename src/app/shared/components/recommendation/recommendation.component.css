@@ -1,0 +1,21 @@
+.recommendation {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #b4b4b4;
+  height: 100%;
+}
+
+.recommendation-title {
+  text-align: right;
+  padding-right: 20px;
+  padding-left: 20px;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 20px;
+}
+
+.recommendation-image {
+  padding-top: 10px;
+  width: 100%;
+}

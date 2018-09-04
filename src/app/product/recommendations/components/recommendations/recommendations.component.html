@@ -1,0 +1,9 @@
+<div class="recommendations">
+  <h2>More ice cream</h2>
+  <div class="grid-container">
+    <app-recommendation *ngFor="let recommendation of (recommendations$ | async)"
+                 [recommendation]="recommendation">
+    </app-recommendation>
+  </div>
+</div>
+

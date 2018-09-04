@@ -1,7 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RecommendationComponent } from './components/recommendation/recommendation.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RecommendationsComponent} from './components/recommendations/recommendations.component';
 import {SharedModule} from '../../shared/shared.module';
+import {RecommendationActions} from './store/actions';
+import {RecommendationEpics} from './store/epics';
+import {RecommendationService} from './services/recommendation.service';
 
 @NgModule({
   imports: [
@@ -9,8 +12,13 @@ import {SharedModule} from '../../shared/shared.module';
     SharedModule
   ],
   exports: [
-    RecommendationComponent
+    RecommendationsComponent
   ],
-  declarations: [RecommendationComponent]
+  declarations: [RecommendationsComponent],
+  providers: [
+  RecommendationActions,
+  RecommendationEpics,
+  RecommendationService
+]
 })
 export class RecommendationsModule { }

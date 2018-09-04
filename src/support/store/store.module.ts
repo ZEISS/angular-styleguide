@@ -5,11 +5,13 @@ import {RootEpics} from './root.epics';
 import {INITIAL_ROOTSTATE, rootReducer, RootState} from './root.reducer';
 import {createEpicMiddleware} from 'redux-observable';
 import {ProductModule} from '../../app/product/product.module';
+import {RecommendationsModule} from '../../app/product/recommendations/recommendations.module';
 
 @NgModule({
   imports: [
     NgReduxModule,
-    ProductModule
+    ProductModule,
+    RecommendationsModule
   ],
   // Root Epics anbieten
   providers: [RootEpics]
