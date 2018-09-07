@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app.routing-module';
 import {OrderModule} from './order/order.module';
 import {ProductModule} from './product/product.module';
 import {RecommendationsModule} from './product/recommendations/recommendations.module';
+import {NgReduxRouterModule} from '@angular-redux/router';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {RecommendationsModule} from './product/recommendations/recommendations.m
   imports: [
     BrowserModule,
     NgReduxModule,
+    NgReduxRouterModule.forRoot(),
     StoreModule,
     ProductModule,
     OrderModule,

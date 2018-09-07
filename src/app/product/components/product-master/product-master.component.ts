@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgRedux, select} from '@angular-redux/store';
 import {getProducts} from '../../store/selectors';
 import {Observable} from 'rxjs';
@@ -22,5 +22,4 @@ export class ProductMasterComponent implements OnInit {
   ngOnInit() {
     this.ngRedux.dispatch(this.productActions.loadProductsStart());
   }
-
 }

@@ -6,6 +6,8 @@ import {INITIAL_ROOTSTATE, rootReducer, RootState} from './root.reducer';
 import {createEpicMiddleware} from 'redux-observable';
 import {ProductModule} from '../../app/product/product.module';
 import {RecommendationsModule} from '../../app/product/recommendations/recommendations.module';
+import {NgReduxRouter} from '@angular-redux/router';
+import {NavigationActions} from './navigation.actions';
 
 @NgModule({
   imports: [
@@ -14,11 +16,11 @@ import {RecommendationsModule} from '../../app/product/recommendations/recommend
     RecommendationsModule
   ],
   // Root Epics anbieten
-  providers: [RootEpics]
+  providers: [RootEpics, NavigationActions]
 })
 export class StoreModule {
   // Injektion der DevTool und der Root Epics
-  constructor(store: NgRedux<RootState>, devTools: DevToolsExtension, rootEpics: RootEpics) {
+  constructor(store: NgRedux<RootState>, ngReduxRouter: NgReduxRouter, devTools: DevToolsExtension, rootEpics: RootEpics) {
     // Definition der Middlewares
     const middlewares = createEpicMiddleware();
     // Definition der Store-Enhancer
@@ -34,5 +36,7 @@ export class StoreModule {
       storeEnhancer
     );
     middlewares.run(rootEpics.createEpic());
+
+    ngReduxRouter.initialize();
   }
 }
