@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Epic} from 'redux-observable';
-import {map, switchMap} from 'rxjs/operators';
-import {RecommendationService} from '../services/recommendation.service';
+import { Injectable } from '@angular/core';
+import { Epic } from 'redux-observable';
+import { map, switchMap } from 'rxjs/operators';
+import { RecommendationService } from '../services/recommendation.service';
 import { RecommendationAction, RecommendationActions, RecommendationActionTypes } from './actions';
-import {RecommendationState} from './reducers';
+import { RecommendationState } from './reducers';
 
 @Injectable()
 export class RecommendationEpics {

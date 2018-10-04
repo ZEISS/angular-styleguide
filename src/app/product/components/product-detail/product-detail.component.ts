@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Product} from '@models/product';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {ProductService} from '../../services/product.service';
-import {switchMap} from 'rxjs/operators';
-import {NavigationActions} from '@store/navigation.actions';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Product } from '@models/product';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ProductService } from '../../services/product.service';
+import { switchMap } from 'rxjs/operators';
+import { NavigationActions } from '@store/navigation.actions';
 
 @Component({
   selector: 'app-product-detail',

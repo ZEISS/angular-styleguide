@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {Product} from '@models/product';
-import {NavigationActions} from '@store/navigation.actions';
+import { Component, Input } from '@angular/core';
+import { Product } from '@models/product';
+import { NavigationActions } from '@store/navigation.actions';
 
 @Component({
   selector: 'app-product',

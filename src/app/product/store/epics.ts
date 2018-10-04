@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {ProductService} from '../services/product.service';
+import { Injectable } from '@angular/core';
+import { ProductService } from '../services/product.service';
 import { ProductAction, ProductActions, ProductActionTypes } from './actions';
-import {Epic} from 'redux-observable';
-import {ProductState} from './reducers';
-import {map, switchMap} from 'rxjs/operators';
+import { Epic } from 'redux-observable';
+import { ProductState } from './reducers';
+import { map, switchMap } from 'rxjs/operators';
 
 @Injectable()
 export class ProductEpics {

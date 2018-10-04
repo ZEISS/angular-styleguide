@@ -1,6 +1,6 @@
-import {UPDATE_LOCATION as ROUTER_UPDATE_LOCATION} from '@angular-redux/router';
-import { Action, ActionCreator, Dispatchable, PayloadAction } from './root.actions';
-import {Injectable} from '@angular/core';
+import { UPDATE_LOCATION as ROUTER_UPDATE_LOCATION } from '@angular-redux/router';
+import { ActionCreator, Dispatchable, PayloadAction } from './root.actions';
+import { Injectable } from '@angular/core';
 import { RootState } from './root.reducer';
 import { NgRedux } from '@angular-redux/store';
 

@@ -1,13 +1,13 @@
-import {isDevMode, NgModule} from '@angular/core';
-import {DevToolsExtension, NgRedux, NgReduxModule} from '@angular-redux/store';
-import {deepFreeze} from 'typescript-immutable-helper';
-import {RootEpics} from './root.epics';
-import {INITIAL_ROOTSTATE, rootReducer, RootState} from './root.reducer';
-import {createEpicMiddleware} from 'redux-observable';
-import {ProductModule} from '@app/product/product.module';
-import {RecommendationsModule} from '@app/product/recommendations/recommendations.module';
-import {NgReduxRouter} from '@angular-redux/router';
-import {NavigationActions} from './navigation.actions';
+import { isDevMode, NgModule } from '@angular/core';
+import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store';
+import { deepFreeze } from 'typescript-immutable-helper';
+import { RootEpics } from './root.epics';
+import { INITIAL_ROOTSTATE, rootReducer, RootState } from './root.reducer';
+import { createEpicMiddleware } from 'redux-observable';
+import { ProductModule } from '@app/product/product.module';
+import { RecommendationsModule } from '@app/product/recommendations/recommendations.module';
+import { NgReduxRouter } from '@angular-redux/router';
+import { NavigationActions } from './navigation.actions';
 
 @NgModule({
   imports: [
