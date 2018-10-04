@@ -1,8 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {Product} from '../../../../model/product';
-import {RootState} from '../../../../support/store/root.reducer';
-import {NgRedux} from '@angular-redux/store';
-import {NavigationActions} from '../../../../support/store/navigation.actions';
+import {Product} from '@models/product';
+import {NavigationActions} from '@store/navigation.actions';
 
 @Component({
   selector: 'app-product',
@@ -12,9 +10,10 @@ import {NavigationActions} from '../../../../support/store/navigation.actions';
 export class ProductComponent {
 
   @Input() product: Product;
-  constructor(private ngRedux: NgRedux<RootState>, private navigationActions: NavigationActions) { }
+
+  constructor(private navigationActions: NavigationActions) { }
 
   showProduct(productId: number) {
-    this.ngRedux.dispatch(this.navigationActions.navigate(`/product/${productId}`));
+    this.navigationActions.dispatch().navigate(`/product/${productId}`);
   }
 }

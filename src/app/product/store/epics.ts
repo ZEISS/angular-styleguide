@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ProductService} from '../services/product.service';
-import {ProductAction, ProductActions} from './actions';
+import { ProductAction, ProductActions, ProductActionTypes } from './actions';
 import {Epic} from 'redux-observable';
 import {ProductState} from './reducers';
 import {map, switchMap} from 'rxjs/operators';
@@ -15,7 +15,7 @@ export class ProductEpics {
   public createLoadProductsEpic(): Epic<ProductAction, ProductAction, ProductState> {
     return (action$, store) => action$
     // Abfrage des ActionTypes
-      .ofType(ProductActions.LOAD_PRODUCTS_START)
+      .ofType(ProductActionTypes.START_LOAD_PRODUCTS)
       .pipe(
         // Service aufrufen
         switchMap(a => this.service.loadProducts()),

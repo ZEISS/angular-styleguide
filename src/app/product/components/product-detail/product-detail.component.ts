@@ -1,12 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Product} from '../../../../model/product';
+import {Product} from '@models/product';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {ProductService} from '../../services/product.service';
 import {switchMap} from 'rxjs/operators';
-import {RootState} from '../../../../support/store/root.reducer';
-import {NavigationActions} from '../../../../support/store/navigation.actions';
-import {NgRedux} from '@angular-redux/store';
+import {NavigationActions} from '@store/navigation.actions';
 
 @Component({
   selector: 'app-product-detail',
@@ -21,7 +19,6 @@ export class ProductDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private service: ProductService,
-    private ngRedux: NgRedux<RootState>,
     private navigationActions: NavigationActions) {
   }
 
@@ -33,10 +30,10 @@ export class ProductDetailComponent implements OnInit {
   }
 
   backToProductOverview() {
-    this.ngRedux.dispatch(this.navigationActions.navigate('/'));
+    this.navigationActions.dispatch().navigate('/');
   }
 
   showConfirmation() {
-    this.ngRedux.dispatch(this.navigationActions.navigate('/order'));
+    this.navigationActions.dispatch().navigate('/order');
   }
 }

@@ -1,24 +1,44 @@
 // Implementierung eines spezielleren Action Datentyps als Erweiterung des generellen
-import {Action} from '../../../support/store/root.actions';
-import {Injectable} from '@angular/core';
-import {Product} from '../../../model/product';
+import { ActionCreator, Dispatchable, EmptyAction, PayloadAction } from '@store/root.actions';
+import { Injectable } from '@angular/core';
+import { Product } from '@models/product';
+import { RootState } from '@store/root.reducer';
+import { NgRedux } from '@angular-redux/store';
 
-export interface ProductAction extends Action<void | Product[]> {}
+export enum ProductActionTypes {
+  START_LOAD_PRODUCTS = 'product::START_LOAD_PRODUCT',
+  LOAD_PRODUCTS_SUCCESSFUL = 'product::LOAD_PRODUCTS_SUCCESSFUL',
+}
+
+export interface StartLoadProductsAction extends EmptyAction<ProductActionTypes.START_LOAD_PRODUCTS> {
+}
+
+export interface LoadProductsSuccessfulAction extends PayloadAction<ProductActionTypes.LOAD_PRODUCTS_SUCCESSFUL, Product[]> {
+}
+
+export type ProductAction = StartLoadProductsAction | LoadProductsSuccessfulAction;
 
 // Zur Injektion in UI-Komponenten oder Epics
 @Injectable()
-export class ProductActions {
-  // ActionTypes
-  static readonly LOAD_PRODUCTS_START = 'LOAD_PRODUCTS_START';
-  static readonly LOAD_PRODUCTS_SUCCESSFUL = 'LOAD_PRODUCTS_SUCCESSFUL';
+export class ProductActions extends ActionCreator<ProductActions, RootState> {
 
-  // ActionCreators
-  loadProductsStart = (): ProductAction => ({
-    type: ProductActions.LOAD_PRODUCTS_START,
-  });
+  constructor(protected ngRedux: NgRedux<RootState>) {
+    super();
+  }
 
-  loadProductsSuccessful = (products: Product[]): ProductAction => ({
-    type: ProductActions.LOAD_PRODUCTS_SUCCESSFUL,
-    payload: products,
-  });
+// ActionCreators
+  @Dispatchable()
+  startLoadProducts(): ProductAction {
+    return {
+      type: ProductActionTypes.START_LOAD_PRODUCTS,
+    };
+  }
+
+  @Dispatchable()
+  loadProductsSuccessful(products: Product[]): ProductAction {
+    return {
+      type: ProductActionTypes.LOAD_PRODUCTS_SUCCESSFUL,
+      payload: products,
+    };
+  }
 }

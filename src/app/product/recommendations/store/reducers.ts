@@ -1,7 +1,7 @@
-import {Reducer} from 'redux';
-import {ReplicationBuilder} from 'typescript-immutable-helper';
-import {RecommendationAction, RecommendationActions} from './actions';
-import {Recommendation} from '../../../../model/recommendation';
+import { Reducer } from 'redux';
+import { ReplicationBuilder } from 'typescript-immutable-helper';
+import { RecommendationAction, RecommendationActionTypes } from './actions';
+import { Recommendation } from '@models/recommendation';
 
 export interface RecommendationState {
   recommendations: Recommendation[];
@@ -14,9 +14,9 @@ export const InitialRecommendationState: RecommendationState = {
 export const recommendationReducer: Reducer<RecommendationState> = (state: RecommendationState = InitialRecommendationState, action: RecommendationAction) => {
 
   switch (action.type) {
-    case RecommendationActions.LOAD_RECOMMENDATIONS_SUCCESSFUL:
+    case RecommendationActionTypes.LOAD_RECOMMENDATIONS_SUCCESSFUL:
       return ReplicationBuilder.forObject(state)
-        .replaceValueOf('recommendations').with(action.payload as Recommendation[])
+        .replaceValueOf('recommendations').with(action.payload)
         .build();
     default: {
       return state;

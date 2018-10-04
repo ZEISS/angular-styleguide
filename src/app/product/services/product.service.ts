@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {Product} from '../../../model/product';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {catchError, map, tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Product } from '@models/product';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ProductService {

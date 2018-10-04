@@ -1,24 +1,44 @@
 // Implementierung eines spezielleren Action Datentyps als Erweiterung des generellen
-import {Injectable} from '@angular/core';
-import {Recommendation} from '../../../../model/recommendation';
-import {Action} from '../../../../support/store/root.actions';
+import { Injectable } from '@angular/core';
+import { Recommendation } from '@models/recommendation';
+import { ActionCreator, Dispatchable, EmptyAction, PayloadAction } from '@store/root.actions';
+import { NgRedux } from '@angular-redux/store';
+import { RootState } from '@store/root.reducer';
 
-export interface RecommendationAction extends Action<void | Recommendation[]> {}
+export enum RecommendationActionTypes {
+  START_LOAD_RECOMMENDATIONS = 'product::START_LOAD_RECOMMENDATIONS',
+  LOAD_RECOMMENDATIONS_SUCCESSFUL = 'product::LOAD_RECOMMENDATIONS_SUCCESSFUL',
+}
+
+export interface StartLoadRecommendationsAction extends EmptyAction<RecommendationActionTypes.START_LOAD_RECOMMENDATIONS> {
+}
+
+export interface LoadRecommendationsSuccessfulAction extends PayloadAction<RecommendationActionTypes.LOAD_RECOMMENDATIONS_SUCCESSFUL, Recommendation[]> {
+}
+
+export type RecommendationAction = StartLoadRecommendationsAction | LoadRecommendationsSuccessfulAction;
 
 // Zur Injektion in UI-Komponenten oder Epics
 @Injectable()
-export class RecommendationActions {
-  // ActionTypes
-  static readonly LOAD_RECOMMENDATIONS_START = 'LOAD_RECOMMENDATIONS_START';
-  static readonly LOAD_RECOMMENDATIONS_SUCCESSFUL = 'LOAD_RECOMMENDATIONS_SUCCESSFUL';
+export class RecommendationActions extends ActionCreator<RecommendationActions, RootState> {
+
+  constructor(protected ngRedux: NgRedux<RootState>) {
+    super();
+  }
 
   // ActionCreators
-  loadRecommendationsStart = (): RecommendationAction => ({
-    type: RecommendationActions.LOAD_RECOMMENDATIONS_START,
-  });
+  @Dispatchable()
+  startLoadRecommendations(): RecommendationAction {
+    return {
+      type: RecommendationActionTypes.START_LOAD_RECOMMENDATIONS,
+    };
+  }
 
-  loadRecommendationsSuccessful = (recommendations: Recommendation[]): RecommendationAction => ({
-    type: RecommendationActions.LOAD_RECOMMENDATIONS_SUCCESSFUL,
-    payload: recommendations,
-  });
+  @Dispatchable()
+  loadRecommendationsSuccessful(recommendations: Recommendation[]): RecommendationAction {
+    return {
+      type: RecommendationActionTypes.LOAD_RECOMMENDATIONS_SUCCESSFUL,
+      payload: recommendations,
+    };
+  }
 }

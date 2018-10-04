@@ -1,7 +1,7 @@
 // State als Datentyp
 import {combineReducers, Reducer} from 'redux';
-import {InitialProductState, productReducer, ProductState} from '../../app/product/store/reducers';
-import {InitialRecommendationState, recommendationReducer, RecommendationState} from '../../app/product/recommendations/store/reducers';
+import {InitialProductState, productReducer, ProductState} from '@app/product/store/reducers';
+import {InitialRecommendationState, recommendationReducer, RecommendationState} from '@app/product/recommendations/store/reducers';
 import {routerReducer} from '@angular-redux/router';
 
 export interface RootState {

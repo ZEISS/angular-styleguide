@@ -1,10 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {NgRedux, select} from '@angular-redux/store';
-import {Observable} from 'rxjs';
-import {RecommendationActions} from '../../store/actions';
-import {RootState} from '../../../../../support/store/root.reducer';
-import {getRecommendations} from '../../store/selectors';
-import {Recommendation} from '../../../../../model/recommendation';
+import { Component, OnInit } from '@angular/core';
+import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs';
+import { RecommendationActions } from '../../store/actions';
+import { getRecommendations } from '../../store/selectors';
+import { Recommendation } from '@models/recommendation';
 
 @Component({
   selector: 'app-recommendations',
@@ -16,10 +15,10 @@ export class RecommendationsComponent implements OnInit {
   @select(getRecommendations)
   recommendations$: Observable<Recommendation[]>;
 
-  constructor(private recommendationActions: RecommendationActions, private ngRedux: NgRedux<RootState>) { }
+  constructor(private recommendationActions: RecommendationActions) { }
 
   ngOnInit() {
-    this.ngRedux.dispatch(this.recommendationActions.loadRecommendationsStart());
+    this.recommendationActions.dispatch().startLoadRecommendations();
   }
 
 }

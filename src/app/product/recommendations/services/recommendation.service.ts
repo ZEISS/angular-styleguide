@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
-import {Recommendation} from '../../../../model/recommendation';
-import {HttpClient} from '../../../../../node_modules/@angular/common/http';
+import { Observable } from 'rxjs';
+import { Recommendation } from '@models/recommendation';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class RecommendationService {

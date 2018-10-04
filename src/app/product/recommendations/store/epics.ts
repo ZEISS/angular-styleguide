@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Epic} from 'redux-observable';
 import {map, switchMap} from 'rxjs/operators';
 import {RecommendationService} from '../services/recommendation.service';
-import {RecommendationAction, RecommendationActions} from './actions';
+import { RecommendationAction, RecommendationActions, RecommendationActionTypes } from './actions';
 import {RecommendationState} from './reducers';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class RecommendationEpics {
   public createLoadRecommendationsEpic(): Epic<RecommendationAction, RecommendationAction, RecommendationState> {
     return (action$, store) => action$
     // Abfrage des ActionTypes
-      .ofType(RecommendationActions.LOAD_RECOMMENDATIONS_START)
+      .ofType(RecommendationActionTypes.START_LOAD_RECOMMENDATIONS)
       .pipe(
         // Service aufrufen
         switchMap(a => this.service.loadRecommendations()),
