@@ -24,7 +24,7 @@ describe('ProductActions', () => {
     });
   });
 
-  fit('should generate a valid StartLoadProducts action', inject([ProductActions], (productActions: ProductActions) => {
+  it('should generate a valid StartLoadProducts action', inject([ProductActions], (productActions: ProductActions) => {
     // preparation
 
     // execution
@@ -36,7 +36,7 @@ describe('ProductActions', () => {
     });
   }));
 
-  fit('should generate a valid LoadProductsSuccessful action', inject([ProductActions], (productActions: ProductActions) => {
+  it('should generate a valid LoadProductsSuccessful action', inject([ProductActions], (productActions: ProductActions) => {
     // preparation
 
     // execution

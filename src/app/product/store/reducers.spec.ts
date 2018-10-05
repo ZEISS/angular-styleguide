@@ -17,7 +17,7 @@ describe('ProductReducer', () => {
     }
   };
 
-  fit('should handle LoadProductSuccessfulAction correctly', () => {
+  it('should handle LoadProductSuccessfulAction correctly', () => {
     // preparation
     const productState: ProductState = InitialProductState;
 
@@ -35,7 +35,7 @@ describe('ProductReducer', () => {
     });
   });
 
-  fit('should not change state when processing unrelated actions', () => {
+  it('should not change state when processing unrelated actions', () => {
     // preparation
     const productState: ProductState = {
       products: mocks.products

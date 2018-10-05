@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationActions } from '@store/navigation.actions';
 
 @Component({
   selector: 'app-order-confirmation',
@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
 })
 export class OrderConfirmationComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(private navigationActions: NavigationActions) {
   }
 
   ngOnInit() {
   }
 
   backToProductOverview() {
-    this.router.navigate(['']);
+    this.navigationActions.dispatch().navigate('/');
   }
 
 }

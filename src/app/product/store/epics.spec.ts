@@ -45,7 +45,7 @@ describe('ProductEpic', () => {
     });
   });
 
-  fit('should load products from service and dispatch successful action', inject([
+  it('should load products from service and dispatch successful action', inject([
     ProductEpics,
     ProductService,
     ProductActions,

@@ -17,7 +17,7 @@ describe('ProductSelectors', () => {
     }
   };
 
-  fit('should return products on getProducts call', () => {
+  it('should return products on getProducts call', () => {
     // preparations
     const state: RootState = {
       product: {

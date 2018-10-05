@@ -6,12 +6,7 @@ import { Recommendation } from '@models/recommendation';
   templateUrl: './recommendation.component.html',
   styleUrls: ['./recommendation.component.css']
 })
-export class RecommendationComponent implements OnInit {
+export class RecommendationComponent {
 
   @Input() recommendation: Recommendation;
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

@@ -1,6 +1,6 @@
 <div class="product">
-  <a (click)="showProduct(product.id-1)">
-  <img class="product-image" src="{{product.image}}" alt="product image">
+  <a (click)="showProduct(product?.id-1)">
+  <img class="product-image" src="{{product?.image}}" alt="product image">
   </a>
-    <p class="product-title">{{product.title}}</p>
+    <p class="product-title">{{product?.title}}</p>
 </div>
