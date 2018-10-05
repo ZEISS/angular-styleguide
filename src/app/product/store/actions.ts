@@ -26,7 +26,7 @@ export class ProductActions extends ActionCreator<ProductActions, RootState> {
     super();
   }
 
-// ActionCreators
+  // ActionCreators
   @Dispatchable()
   startLoadProducts(): ProductAction {
     return {

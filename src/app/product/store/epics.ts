@@ -14,11 +14,11 @@ export class ProductEpics {
   // Definition des Epics
   public createLoadProductsEpic(): Epic<ProductAction, ProductAction, ProductState> {
     return (action$, store) => action$
-    // Abfrage des ActionTypes
+      // Abfrage des ActionTypes
       .ofType(ProductActionTypes.START_LOAD_PRODUCTS)
       .pipe(
         // Service aufrufen
-        switchMap(a => this.service.loadProducts()),
+        switchMap(() => this.service.loadProducts()),
         map(products => this.productActions.loadProductsSuccessful(products)));
   }
 }

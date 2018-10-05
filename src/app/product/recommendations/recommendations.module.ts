@@ -16,9 +16,10 @@ import { RecommendationService } from './services/recommendation.service';
   ],
   declarations: [RecommendationsComponent],
   providers: [
-  RecommendationActions,
-  RecommendationEpics,
-  RecommendationService
-]
+    RecommendationActions,
+    RecommendationEpics,
+    RecommendationService
+  ]
 })
-export class RecommendationsModule { }
+export class RecommendationsModule {
+}
