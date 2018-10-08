@@ -7,6 +7,6 @@
 
 <div class="grid-container">
   <app-product class="big" *ngFor="let product of (products$ | async)"
-               [product]="product">
+               [product]="product" (productImageClicked)="loadProductDetails(product.id)">
   </app-product>
 </div>

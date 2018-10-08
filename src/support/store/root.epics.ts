@@ -12,6 +12,7 @@ export class RootEpics {
   public createEpic() {
     return combineEpics(
       this.productEpic.createLoadProductsEpic(),
+      this.productEpic.createLoadProductDetailsEpic(),
       this.recommendationEpic.createLoadRecommendationsEpic(),
     ) as Epic<Action<any>>;
   }

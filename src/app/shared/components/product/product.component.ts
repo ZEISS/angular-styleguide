@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '@models/product';
-import { NavigationActions } from '@store/navigation.actions';
 
 @Component({
   selector: 'app-product',
@@ -10,10 +9,9 @@ import { NavigationActions } from '@store/navigation.actions';
 export class ProductComponent {
 
   @Input() product: Product;
+  @Output() productImageClicked: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private navigationActions: NavigationActions) { }
-
-  showProduct(productId: number) {
-    this.navigationActions.dispatch().navigate(`/product/${productId}`);
+  imageClicked() {
+    this.productImageClicked.emit();
   }
 }

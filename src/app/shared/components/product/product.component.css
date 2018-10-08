@@ -6,6 +6,10 @@
   font-size: 25px;
 }
 
+img {
+  cursor: pointer;
+}
+
 .product {
   border-style: solid;
   border-width: 2px;

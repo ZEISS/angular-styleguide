@@ -32,13 +32,15 @@ describe('ProductReducer', () => {
     // verification
     expect(newProductState).toEqual({
       products: mocks.products,
+      currentProductDetails: null,
     });
   });
 
   it('should not change state when processing unrelated actions', () => {
     // preparation
     const productState: ProductState = {
-      products: mocks.products
+      products: mocks.products,
+      currentProductDetails: null,
     };
 
     const anotherAction: EmptyAction<string> = {
@@ -51,6 +53,7 @@ describe('ProductReducer', () => {
     // verification
     expect(newProductState).toEqual({
       products: mocks.products,
+      currentProductDetails: null,
     });
   });
 });

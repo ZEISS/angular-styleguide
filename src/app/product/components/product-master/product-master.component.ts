@@ -21,4 +21,8 @@ export class ProductMasterComponent implements OnInit {
   ngOnInit() {
     this.productActions.dispatch().startLoadProducts();
   }
+
+  loadProductDetails(id: number) {
+    this.productActions.dispatch().startLoadProductDetails(id);
+  }
 }

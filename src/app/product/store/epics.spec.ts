@@ -11,6 +11,7 @@ import {
 import { ActionsObservable } from 'redux-observable';
 import { Product } from '@models/product';
 import { Observable } from 'rxjs';
+import { NavigationActions } from '@store/navigation.actions';
 
 describe('ProductEpic', () => {
 
@@ -35,12 +36,14 @@ describe('ProductEpic', () => {
   beforeEach(() => {
     const productServiceStub: ProductService = new ProductService(null);
     const productActionsStub: ProductActions = new ProductActions(null);
+    const navigationActionsStub: NavigationActions = new NavigationActions(null);
 
     TestBed.configureTestingModule({
       providers: [
         ProductEpics,
         {provide: ProductService, useValue: productServiceStub},
         {provide: ProductActions, useValue: productActionsStub},
+        {provide: NavigationActions, useValue: navigationActionsStub},
       ],
     });
   });
