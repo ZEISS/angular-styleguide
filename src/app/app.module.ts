@@ -1,13 +1,14 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import {AppComponent} from './app.component';
-import {ProductOverviewModule} from './product-overview/product-overview.module';
-import {NgReduxModule} from '@angular-redux/store';
-import {StoreModule} from '../support/store/store.module';
-import {AppRoutingModule} from './app.routing-module';
-import {ProductDetailModule} from './product-detail/product-detail.module';
-import {ConfirmationModule} from './confirmation/confirmation.module';
+import { AppComponent } from './app.component';
+import { NgReduxModule } from '@angular-redux/store';
+import { StoreModule } from '@store/store.module';
+import { AppRoutingModule } from './app.routing-module';
+import { OrderModule } from './order/order.module';
+import { ProductModule } from './product/product.module';
+import { RecommendationsModule } from './product/recommendations/recommendations.module';
+import { NgReduxRouterModule } from '@angular-redux/router';
 
 @NgModule({
   declarations: [
@@ -15,11 +16,12 @@ import {ConfirmationModule} from './confirmation/confirmation.module';
   ],
   imports: [
     BrowserModule,
-    ProductOverviewModule,
     NgReduxModule,
+    NgReduxRouterModule.forRoot(),
     StoreModule,
-    ProductDetailModule,
-    ConfirmationModule,
+    ProductModule,
+    OrderModule,
+    RecommendationsModule,
     AppRoutingModule
   ],
   providers: [],

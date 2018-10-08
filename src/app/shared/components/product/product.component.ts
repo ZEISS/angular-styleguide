@@ -1,17 +1,17 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Product} from '../../../../model/product';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Product } from '@models/product';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
 
   @Input() product: Product;
-  constructor() { }
+  @Output() productImageClicked: EventEmitter<void> = new EventEmitter<void>();
 
-  ngOnInit() {
+  imageClicked() {
+    this.productImageClicked.emit();
   }
-
 }
