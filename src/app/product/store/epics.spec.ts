@@ -12,23 +12,15 @@ import { ActionsObservable } from 'redux-observable';
 import { Product } from '@models/product';
 import { Observable } from 'rxjs';
 import { NavigationActions } from '@store/navigation.actions';
+import { ProductTestData } from '@models/product.testdata';
 
 describe('ProductEpic', () => {
 
   const mocks = {
-    get products(): Product[] {
-      return [{
-        id: 1,
-        title: 'test',
-        image: 'none',
-        price: '1.99€',
-        description: 'empty',
-      }];
-    },
     get loadProductSuccessfulAction(): LoadProductsSuccessfulAction {
       return {
         type: ProductActionTypes.LOAD_PRODUCTS_SUCCESSFUL,
-        payload: mocks.products,
+        payload: ProductTestData.validProductList,
       };
     },
   };
@@ -55,7 +47,7 @@ describe('ProductEpic', () => {
   ], (productEpics: ProductEpics, service: ProductService, actions: ProductActions) => {
 
     // preparation
-    const serviceSpy = spyOn(service, 'loadProducts').and.returnValue(mocks.products);
+    const serviceSpy = spyOn(service, 'loadProducts').and.returnValue(ProductTestData.validProductList);
     const actionsSpy = spyOn(actions, 'loadProductsSuccessful').and.returnValue(mocks.loadProductSuccessfulAction);
 
     const startAction: StartLoadProductsAction = {
@@ -70,6 +62,6 @@ describe('ProductEpic', () => {
     // verification
     expect(resultObservable$).toEmitValues([mocks.loadProductSuccessfulAction]);
     expect(serviceSpy).toHaveBeenCalled();
-    expect(actionsSpy).toHaveBeenCalledWith(...mocks.products);
+    expect(actionsSpy).toHaveBeenCalledWith(...ProductTestData.validProductList);
   }));
 });

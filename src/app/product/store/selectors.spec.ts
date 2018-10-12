@@ -2,26 +2,15 @@ import { getProducts } from '@app/product/store/selectors';
 import { ProductState } from '@app/product/store/reducers';
 import { Product } from '@models/product';
 import { RootState } from '@store/root.reducer';
+import { ProductTestData } from '@models/product.testdata';
 
 describe('ProductSelectors', () => {
-
-  const mocks = {
-    get products(): Product[] {
-      return [{
-        id: 1,
-        title: 'test',
-        image: 'none',
-        price: '1.99€',
-        description: 'empty',
-      }];
-    }
-  };
 
   it('should return products on getProducts call', () => {
     // preparations
     const state: RootState = {
       product: {
-        products: mocks.products,
+        products: ProductTestData.validProductList,
       }
     } as RootState;
 
@@ -29,6 +18,6 @@ describe('ProductSelectors', () => {
     const products = getProducts(state);
 
     // verification
-    expect(products).toEqual(mocks.products);
+    expect(products).toEqual(ProductTestData.validProductList);
   });
 });

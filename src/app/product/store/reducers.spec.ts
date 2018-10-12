@@ -2,20 +2,9 @@ import { InitialProductState, productReducer, ProductState } from '@app/product/
 import { LoadProductsSuccessfulAction, ProductActionTypes } from '@app/product/store/actions';
 import { Product } from '@models/product';
 import { EmptyAction } from '@store/root.actions';
+import { ProductTestData } from '@models/product.testdata';
 
 describe('ProductReducer', () => {
-
-  const mocks = {
-    get products(): Product[] {
-      return [{
-        id: 1,
-        title: 'test',
-        image: 'none',
-        price: '1.99€',
-        description: 'empty',
-      }];
-    }
-  };
 
   it('should handle LoadProductSuccessfulAction correctly', () => {
     // preparation
@@ -23,7 +12,7 @@ describe('ProductReducer', () => {
 
     const loadProductSuccessfulAction: LoadProductsSuccessfulAction = {
       type: ProductActionTypes.LOAD_PRODUCTS_SUCCESSFUL,
-      payload: mocks.products,
+      payload: ProductTestData.validProductList,
     };
 
     // execution
@@ -31,7 +20,7 @@ describe('ProductReducer', () => {
 
     // verification
     expect(newProductState).toEqual({
-      products: mocks.products,
+      products: ProductTestData.validProductList,
       currentProductDetails: null,
     });
   });
@@ -39,7 +28,7 @@ describe('ProductReducer', () => {
   it('should not change state when processing unrelated actions', () => {
     // preparation
     const productState: ProductState = {
-      products: mocks.products,
+      products: ProductTestData.validProductList,
       currentProductDetails: null,
     };
 
@@ -52,7 +41,7 @@ describe('ProductReducer', () => {
 
     // verification
     expect(newProductState).toEqual({
-      products: mocks.products,
+      products: ProductTestData.validProductList,
       currentProductDetails: null,
     });
   });
