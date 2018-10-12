@@ -11,7 +11,8 @@ export const InitialRecommendationState: RecommendationState = {
   recommendations: [],
 };
 
-export const recommendationReducer: Reducer<RecommendationState> = (state: RecommendationState = InitialRecommendationState, action: RecommendationAction) => {
+export const recommendationReducer: Reducer<RecommendationState> =
+  (state: RecommendationState = InitialRecommendationState, action: RecommendationAction) => {
 
   switch (action.type) {
     case RecommendationActionTypes.LOAD_RECOMMENDATIONS_SUCCESSFUL:

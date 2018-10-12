@@ -13,7 +13,8 @@ export enum RecommendationActionTypes {
 export interface StartLoadRecommendationsAction extends EmptyAction<RecommendationActionTypes.START_LOAD_RECOMMENDATIONS> {
 }
 
-export interface LoadRecommendationsSuccessfulAction extends PayloadAction<RecommendationActionTypes.LOAD_RECOMMENDATIONS_SUCCESSFUL, Recommendation[]> {
+export interface LoadRecommendationsSuccessfulAction
+  extends PayloadAction<RecommendationActionTypes.LOAD_RECOMMENDATIONS_SUCCESSFUL, Recommendation[]> {
 }
 
 export type RecommendationAction = StartLoadRecommendationsAction | LoadRecommendationsSuccessfulAction;
