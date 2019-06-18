@@ -9,8 +9,7 @@ import {
   StartLoadProductsAction
 } from '@app/product/store/actions';
 import { ActionsObservable } from 'redux-observable';
-import { Product } from '@models/product';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { NavigationActions } from '@store/navigation.actions';
 import { ProductTestData } from '@models/product.testdata';
 
@@ -47,7 +46,7 @@ describe('ProductEpic', () => {
   ], (productEpics: ProductEpics, service: ProductService, actions: ProductActions) => {
 
     // preparation
-    const serviceSpy = spyOn(service, 'loadProducts').and.returnValue(ProductTestData.validProductList);
+    const serviceSpy = spyOn(service, 'loadProducts').and.returnValue(of(ProductTestData.validProductList));
     const actionsSpy = spyOn(actions, 'loadProductsSuccessful').and.returnValue(mocks.loadProductSuccessfulAction);
 
     const startAction: StartLoadProductsAction = {
@@ -62,6 +61,6 @@ describe('ProductEpic', () => {
     // verification
     expect(resultObservable$).toEmitValues([mocks.loadProductSuccessfulAction]);
     expect(serviceSpy).toHaveBeenCalled();
-    expect(actionsSpy).toHaveBeenCalledWith(...ProductTestData.validProductList);
+    expect(actionsSpy).toHaveBeenCalledWith(ProductTestData.validProductList);
   }));
 });

@@ -2,7 +2,7 @@ import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing'
 
 import { RecommendationsComponent } from './recommendations.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RecommendationActions } from '@app/product/recommendations/store/actions';
+import { RecommendationAction, RecommendationActions } from '@app/product/recommendations/store/actions';
 
 describe('RecommendationsComponent', () => {
   let component: RecommendationsComponent;
@@ -22,8 +22,11 @@ describe('RecommendationsComponent', () => {
   }));
 
   beforeEach(inject([RecommendationActions], (recommendationActions: RecommendationActions) => {
+    // @ts-ignore
     spyOn(recommendationActions, 'dispatch').and.returnValue({
-      startLoadRecommendations() {}
+      startLoadRecommendations(): RecommendationAction {
+        return null;
+      }
     });
     fixture = TestBed.createComponent(RecommendationsComponent);
     component = fixture.componentInstance;
