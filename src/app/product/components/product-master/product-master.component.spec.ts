@@ -2,7 +2,7 @@ import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing'
 
 import { ProductMasterComponent } from './product-master.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ProductActions, StartLoadProductsAction } from '@app/product/store/actions';
+import { ProductActions } from '@app/product/store/actions';
 
 describe('ProductMasterComponent', () => {
   let component: ProductMasterComponent;
@@ -22,12 +22,9 @@ describe('ProductMasterComponent', () => {
   }));
 
   beforeEach(inject([ProductActions], (productActions: ProductActions) => {
-    // @ts-ignore
     spyOn(productActions, 'dispatch').and.returnValue({
-      startLoadProducts(): StartLoadProductsAction {
-        return null;
-      }
-    });
+      startLoadProducts() {}
+    } as ProductActions);
     fixture = TestBed.createComponent(ProductMasterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
