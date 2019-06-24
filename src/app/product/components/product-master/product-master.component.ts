@@ -8,7 +8,7 @@ import { ProductActions } from '../../store/actions';
 @Component({
   selector: 'app-product-master',
   templateUrl: './product-master.component.html',
-  styleUrls: ['./product-master.component.css']
+  styleUrls: ['./product-master.component.scss']
 })
 export class ProductMasterComponent implements OnInit {
 

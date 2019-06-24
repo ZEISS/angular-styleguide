@@ -8,7 +8,7 @@ import { Recommendation } from '@models/recommendation';
 @Component({
   selector: 'app-recommendations',
   templateUrl: './recommendations.component.html',
-  styleUrls: ['./recommendations.component.css']
+  styleUrls: ['./recommendations.component.scss']
 })
 export class RecommendationsComponent implements OnInit {
 
