@@ -1,8 +1,0 @@
-@@ set
-  url                 http://bs-local.com:4200
-  browserstack_hub    http://${browserstack.username}:${browserstack.key}@hub-cloud.browserstack.com/wd/hub
-  mobile_size         1280x720
-
-Product page on Browserstack
-  selenium grid ${browserstack_hub} --page ${url} --size ${mobile_size} --dc.project "saxonia-angular-styleguide" --dc.browserstack.local true
-    check layout-tests/src/product-master.gspec
