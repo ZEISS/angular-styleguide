@@ -30,7 +30,7 @@
 
   content:
     centered horizontally inside viewport
-    width ~ 55 % of viewport/width
+    width ~ 58 % of viewport/width
 
   @forEach [content.product-*] as product
     ${product}:
