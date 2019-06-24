@@ -24,7 +24,7 @@ describe('ProductMasterComponent', () => {
   beforeEach(inject([ProductActions], (productActions: ProductActions) => {
     spyOn(productActions, 'dispatch').and.returnValue({
       startLoadProducts() {}
-    });
+    } as ProductActions);
     fixture = TestBed.createComponent(ProductMasterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

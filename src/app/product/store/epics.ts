@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { ProductAction, ProductActions, ProductActionTypes, StartLoadProductDetailsAction } from './actions';
-import { Epic } from 'redux-observable';
+import { Epic, ofType } from 'redux-observable';
 import { ProductState } from './reducers';
 import { flatMap, map, switchMap } from 'rxjs/operators';
 import { NavigationAction, NavigationActions } from '@store/navigation.actions';
@@ -17,9 +17,9 @@ export class ProductEpics {
   // Definition des Epics
   public createLoadProductsEpic(): Epic<ProductAction, ProductAction, ProductState> {
     return (action$, store) => action$
-      // Abfrage des ActionTypes
-      .ofType(ProductActionTypes.START_LOAD_PRODUCTS)
       .pipe(
+        // Abfrage des ActionTypes
+        ofType(ProductActionTypes.START_LOAD_PRODUCTS),
         // Service aufrufen
         switchMap(() => this.service.loadProducts()),
         map((products: Product[]) => this.productActions.loadProductsSuccessful(products)));
@@ -28,9 +28,9 @@ export class ProductEpics {
   // Definition des Epics
   public createLoadProductDetailsEpic(): Epic<ProductAction, ProductAction | NavigationAction | any, ProductState> {
     return (action$, store) => action$
-      // Abfrage des ActionTypes
-      .ofType(ProductActionTypes.START_LOAD_PRODUCT_DETAILS)
       .pipe(
+        // Abfrage des ActionTypes
+        ofType(ProductActionTypes.START_LOAD_PRODUCT_DETAILS),
         // Service aufrufen
         switchMap((action: StartLoadProductDetailsAction) => this.service.getProduct(action.meta.id)),
         flatMap((product: Product) => {

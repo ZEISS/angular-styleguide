@@ -24,7 +24,7 @@ describe('RecommendationsComponent', () => {
   beforeEach(inject([RecommendationActions], (recommendationActions: RecommendationActions) => {
     spyOn(recommendationActions, 'dispatch').and.returnValue({
       startLoadRecommendations() {}
-    });
+    } as RecommendationActions);
     fixture = TestBed.createComponent(RecommendationsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
