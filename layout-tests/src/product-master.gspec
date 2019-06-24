@@ -34,8 +34,8 @@
 
   @forEach [content.product-*] as product
     ${product}:
-      height 250 to 300 px
-      width 150 to 200 px
+      height 230 to 280 px
+      width 130 to 180 px
       component product.component.gspec
 
   @for [1 - 2] as index

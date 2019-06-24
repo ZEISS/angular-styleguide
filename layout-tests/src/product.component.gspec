@@ -7,7 +7,7 @@
 == Product ==
 
   image:
-    width ~ 100 % of parent/width
+    width ~ 98 % of parent/width
 
   title:
     below image
