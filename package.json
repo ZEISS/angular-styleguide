@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "galen": "galen"
+    "galen": "galen",
+    "layout-tests:browserstack": "bash ./layout-tests/run-tests-on-browserstack.sh"
   },
   "private": true,
   "dependencies": {
