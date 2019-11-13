@@ -1,0 +1,13 @@
+# app-product component
+
+@objects
+  image .product-image
+  title .product-title
+
+== Product ==
+
+  image:
+    width ~ 98 % of parent/width
+
+  title:
+    below image
