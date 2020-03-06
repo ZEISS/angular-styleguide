@@ -5,8 +5,8 @@
 
 @@ parameterized
     | deviceName             | tags      | capabilities |
-    | Google Pixel 3         | mobile    | --dc.device "Google Pixel 3" --dc.os_version "9.0" --dc.real_mobile true |
-    | OS X Mojave Chrome 76  | desktop   | --size ${desktop_size} --browser chrome --dc.browser_version 76 --dc.os "OS X" --dc.os_version Mojave |
+    | Google Pixel 4         | mobile    | --dc.device "Google Pixel 4" --dc.os_version "10.0" --dc.real_mobile true |
+    | OS X Mojave Chrome 80  | desktop   | --size ${desktop_size} --browser chrome --dc.browser_version 80 --dc.os "OS X" --dc.os_version Mojave |
     | Win 10 Edge 18         | desktop   | --size ${desktop_size} --browser edge --dc.browser_version "18.0" --dc.os Windows --dc.os_version 10 |
 Product page on Browserstack - ${deviceName}
   selenium grid ${browserstack_hub} --page ${url} --dc.project "saxonia-angular-styleguide" --dc.browserstack.local true ${capabilities}
