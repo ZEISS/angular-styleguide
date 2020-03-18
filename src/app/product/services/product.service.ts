@@ -7,17 +7,18 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class ProductService {
 
+  private readonly productUrl = 'http://www.mocky.io/v2/5b752bc12e00006f00535f00';
 
   constructor(private httpClient: HttpClient) {
   }
 
   loadProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>('http://www.mocky.io/v2/5b752bc12e00006f00535f00');
+    return this.httpClient.get<Product[]>(this.productUrl);
   }
 
   getProduct(id: number | string): Observable<Product> {
-    return this.httpClient.get<Product[]>('http://www.mocky.io/v2/5b752bc12e00006f00535f00').pipe(
-      map(products => products[id])
+    return this.httpClient.get<Product[]>(this.productUrl).pipe(
+      map(products => products.find(product => product.id === id))
     );
   }
 }
