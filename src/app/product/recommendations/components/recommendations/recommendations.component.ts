@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
 import { select } from '@angular-redux/store';
+import { Component, OnInit } from '@angular/core';
+import { Recommendation } from '@models/recommendation';
 import { Observable } from 'rxjs';
 import { RecommendationActions } from '../../store/actions';
 import { getRecommendations } from '../../store/selectors';
-import { Recommendation } from '@models/recommendation';
 
 @Component({
   selector: 'app-recommendations',
   templateUrl: './recommendations.component.html',
-  styleUrls: ['./recommendations.component.scss']
+  styleUrls: ['./recommendations.component.scss'],
 })
 export class RecommendationsComponent implements OnInit {
 
   @select(getRecommendations)
-  recommendations$: Observable<Recommendation[]>;
+  public recommendations$: Observable<Recommendation[]>;
 
   constructor(private recommendationActions: RecommendationActions) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.recommendationActions.dispatch().startLoadRecommendations();
   }
 

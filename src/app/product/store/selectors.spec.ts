@@ -1,8 +1,8 @@
-import { getProducts } from '@app/product/store/selectors';
 import { ProductState } from '@app/product/store/reducers';
+import { getProducts } from '@app/product/store/selectors';
 import { Product } from '@models/product';
-import { RootState } from '@store/root.reducer';
 import { ProductTestData } from '@models/product.testdata';
+import { RootState } from '@store/root.reducer';
 
 describe('ProductSelectors', () => {
 
@@ -11,7 +11,7 @@ describe('ProductSelectors', () => {
     const state: RootState = {
       product: {
         products: ProductTestData.validProductList,
-      }
+      },
     } as RootState;
 
     // executions

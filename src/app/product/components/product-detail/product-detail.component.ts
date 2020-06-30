@@ -1,28 +1,28 @@
+import { select } from '@angular-redux/store';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { getCurrentProductDetail } from '@app/product/store/selectors';
 import { Product } from '@models/product';
 import { NavigationActions } from '@store/navigation.actions';
-import { select } from '@angular-redux/store';
-import { getCurrentProductDetail } from '@app/product/store/selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.scss']
+  styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent {
 
   @select(getCurrentProductDetail)
-  product$: Observable<Product>;
+  public product$: Observable<Product>;
 
   constructor(private navigationActions: NavigationActions) {
   }
 
-  backToProductOverview() {
+  public backToProductOverview() {
     this.navigationActions.dispatch().navigate('/');
   }
 
-  showConfirmation() {
+  public showConfirmation() {
     this.navigationActions.dispatch().navigate('/order');
   }
 }

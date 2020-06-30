@@ -4,9 +4,9 @@ import { Recommendation } from '@models/recommendation';
 @Component({
   selector: 'app-recommendation',
   templateUrl: './recommendation.component.html',
-  styleUrls: ['./recommendation.component.scss']
+  styleUrls: ['./recommendation.component.scss'],
 })
 export class RecommendationComponent {
 
-  @Input() recommendation: Recommendation;
+  @Input() public recommendation: Recommendation;
 }

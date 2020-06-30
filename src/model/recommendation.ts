@@ -1,5 +1,5 @@
 export class Recommendation {
-  id: number;
-  title: string;
-  image: string;
+  public id: number;
+  public title: string;
+  public image: string;
 }

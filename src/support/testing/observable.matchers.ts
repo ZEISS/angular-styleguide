@@ -19,7 +19,7 @@ const observableMatchers: jasmine.CustomMatcherFactories = {
     return {
       compare(actual$: Observable<T>, expected: T[]): CustomMatcherResult {
         const values = [];
-        actual$.subscribe(val => values.push(val), error => console.warn(`Error received: ${error}`));
+        actual$.subscribe((val) => values.push(val), (error) => console.warn(`Error received: ${error}`));
 
         const pass = util.equals(values, expected, customEqualityTesters);
 
@@ -36,7 +36,7 @@ const observableMatchers: jasmine.CustomMatcherFactories = {
     return {
       compare(actual$: Observable<T>): CustomMatcherResult {
         const values = [];
-        actual$.subscribe(val => values.push(val));
+        actual$.subscribe((val) => values.push(val));
 
         const pass = util.equals(values, [], customEqualityTesters);
 
@@ -54,7 +54,7 @@ const observableMatchers: jasmine.CustomMatcherFactories = {
       compare(actual$: Observable<T>, expected: E): CustomMatcherResult {
         let error;
         actual$.subscribe(() => {
-        }, err => error = err);
+        }, (err) => error = err);
 
         const pass = util.equals(error, expected, customEqualityTesters);
 
@@ -72,7 +72,7 @@ const observableMatchers: jasmine.CustomMatcherFactories = {
       compare(actual$: Observable<T>): CustomMatcherResult {
         let error;
         actual$.subscribe(() => {
-        }, err => error = err);
+        }, (err) => error = err);
 
         const pass = !Boolean(error);
 
@@ -87,6 +87,6 @@ const observableMatchers: jasmine.CustomMatcherFactories = {
   },
 };
 
-beforeEach(function () {
+beforeEach(() => {
   jasmine.addMatchers(observableMatchers);
 });

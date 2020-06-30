@@ -1,8 +1,8 @@
 // Implementierung eines spezielleren Action Datentyps als Erweiterung des generellen
+import { NgRedux } from '@angular-redux/store';
 import { Injectable } from '@angular/core';
 import { Recommendation } from '@models/recommendation';
 import { ActionCreator, Dispatchable, EmptyAction, PayloadAction } from '@store/root.actions';
-import { NgRedux } from '@angular-redux/store';
 import { RootState } from '@store/root.reducer';
 
 export enum RecommendationActionTypes {
@@ -29,14 +29,14 @@ export class RecommendationActions extends ActionCreator<RecommendationActions, 
 
   // ActionCreators
   @Dispatchable()
-  startLoadRecommendations(): RecommendationAction {
+  public startLoadRecommendations(): RecommendationAction {
     return {
       type: RecommendationActionTypes.START_LOAD_RECOMMENDATIONS,
     };
   }
 
   @Dispatchable()
-  loadRecommendationsSuccessful(recommendations: Recommendation[]): RecommendationAction {
+  public loadRecommendationsSuccessful(recommendations: Recommendation[]): RecommendationAction {
     return {
       type: RecommendationActionTypes.LOAD_RECOMMENDATIONS_SUCCESSFUL,
       payload: recommendations,

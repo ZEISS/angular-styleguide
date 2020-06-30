@@ -1,8 +1,8 @@
-import { InitialProductState, productReducer, ProductState } from '@app/product/store/reducers';
 import { LoadProductsSuccessfulAction, ProductActionTypes } from '@app/product/store/actions';
+import { InitialProductState, productReducer, ProductState } from '@app/product/store/reducers';
 import { Product } from '@models/product';
-import { EmptyAction } from '@store/root.actions';
 import { ProductTestData } from '@models/product.testdata';
+import { EmptyAction } from '@store/root.actions';
 
 describe('ProductReducer', () => {
 

@@ -33,13 +33,13 @@ export function Dispatchable(): MethodDecorator {
 export abstract class ActionCreator<A, S> {
   protected abstract ngRedux: NgRedux<S>;
 
-  dispatch(): A {
+  public dispatch(): A {
     const methods =
       (Object.getOwnPropertyNames(this) as (string | symbol)[])
         .concat(Object.getOwnPropertyNames(Object.getPrototypeOf(this)))
         .concat(Object.getOwnPropertySymbols(this))
         .concat(Object.getOwnPropertySymbols(Object.getPrototypeOf(this)))
-        .filter(key => Reflect.has(this[key], DISPATCHABLE_KEY));
+        .filter((key) => Reflect.has(this[key], DISPATCHABLE_KEY));
 
     return methods.reduce((dispatcher, creator) =>
       Object.assign({},

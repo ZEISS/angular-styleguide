@@ -1,8 +1,8 @@
 // State als Datentyp
-import { combineReducers, Reducer } from 'redux';
-import { InitialProductState, productReducer, ProductState } from '@app/product/store/reducers';
-import { InitialRecommendationState, recommendationReducer, RecommendationState } from '@app/product/recommendations/store/reducers';
 import { routerReducer } from '@angular-redux/router';
+import { InitialRecommendationState, recommendationReducer, RecommendationState } from '@app/product/recommendations/store/reducers';
+import { InitialProductState, productReducer, ProductState } from '@app/product/store/reducers';
+import { combineReducers, Reducer } from 'redux';
 
 export interface RootState {
   product: ProductState;
@@ -13,7 +13,7 @@ export interface RootState {
 // Initialer State
 export const INITIAL_ROOTSTATE: RootState = {
   product: InitialProductState,
-  recommendation: InitialRecommendationState
+  recommendation: InitialRecommendationState,
 };
 
 // Kombination der Reducer

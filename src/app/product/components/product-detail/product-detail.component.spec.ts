@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductDetailComponent } from './product-detail.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavigationActions } from '@store/navigation.actions';
+import { ProductDetailComponent } from './product-detail.component';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
@@ -18,7 +18,7 @@ describe('ProductDetailComponent', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: NavigationActions, useValue: navigationActionsStub },
-      ]
+      ],
     })
       .compileComponents();
   }));

@@ -18,7 +18,7 @@ export class RecommendationEpics {
         // Abfrage des ActionTypes
         ofType(RecommendationActionTypes.START_LOAD_RECOMMENDATIONS),
         // Service aufrufen
-        switchMap(a => this.service.loadRecommendations()),
-        map(recommendations => this.recommendationActions.loadRecommendationsSuccessful(recommendations)));
+        switchMap((a) => this.service.loadRecommendations()),
+        map((recommendations) => this.recommendationActions.loadRecommendationsSuccessful(recommendations)));
   }
 }
