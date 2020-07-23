@@ -4,6 +4,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavigationActions } from '@store/navigation.actions';
 import { ProductDetailComponent } from './product-detail.component';
+import { provideMockStore } from '@ngrx/store/testing';
+import { productFeatureKey } from '@app/product/product.reducer';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
@@ -17,7 +19,8 @@ describe('ProductDetailComponent', () => {
       imports: [RouterTestingModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        { provide: NavigationActions, useValue: navigationActionsStub },
+        {provide: NavigationActions, useValue: navigationActionsStub},
+        provideMockStore({initialState: {[productFeatureKey]: {}}})
       ],
     })
       .compileComponents();
@@ -32,4 +35,6 @@ describe('ProductDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // TODO Append tests
 });
