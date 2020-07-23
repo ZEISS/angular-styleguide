@@ -1,9 +1,10 @@
-import { select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '@models/product';
 import { Observable } from 'rxjs';
-import { ProductActions } from '../../store/actions';
-import { getProducts } from '../../store/selectors';
+import { Store } from '@ngrx/store';
+import { State } from '@app/reducers';
+import { loadProductDetails, loadProducts } from '@app/product/product.actions';
+import { selectProducts } from '@app/product/product.selectors';
 
 @Component({
   selector: 'app-product-master',
@@ -12,17 +13,16 @@ import { getProducts } from '../../store/selectors';
 })
 export class ProductMasterComponent implements OnInit {
 
-  @select(getProducts)
-  public products$: Observable<Product[]>;
+  products$: Observable<Product[]> = this.store.select(selectProducts);
 
-  constructor(private productActions: ProductActions) {
+  constructor(private store: Store<State>) {
   }
 
-  public ngOnInit() {
-    this.productActions.dispatch().startLoadProducts();
+  ngOnInit() {
+    this.store.dispatch(loadProducts());
   }
 
-  public loadProductDetails(id: number) {
-    this.productActions.dispatch().startLoadProductDetails(id);
+  loadProductDetails(id: number) {
+    this.store.dispatch(loadProductDetails({productId: id}));
   }
 }

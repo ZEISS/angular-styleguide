@@ -9,6 +9,8 @@ import { RecommendationsModule } from './recommendations/recommendations.module'
 import { ProductService } from './services/product.service';
 import { ProductActions } from './store/actions';
 import { ProductEpics } from './store/epics';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './product.effects';
 
 @NgModule({
   imports: [
@@ -17,6 +19,7 @@ import { ProductEpics } from './store/epics';
     ProductRoutingModule,
     RecommendationsModule,
     SharedModule,
+    EffectsModule.forFeature([ProductEffects]),
   ],
   declarations: [
     ProductDetailComponent,

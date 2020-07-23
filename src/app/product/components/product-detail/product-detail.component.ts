@@ -1,9 +1,10 @@
-import { select } from '@angular-redux/store';
 import { Component } from '@angular/core';
-import { getCurrentProductDetail } from '@app/product/store/selectors';
 import { Product } from '@models/product';
 import { NavigationActions } from '@store/navigation.actions';
 import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { State } from '@app/reducers';
+import { selectCurrentProductDetails } from '@app/product/product.selectors';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,17 +13,16 @@ import { Observable } from 'rxjs';
 })
 export class ProductDetailComponent {
 
-  @select(getCurrentProductDetail)
-  public product$: Observable<Product>;
+  product$: Observable<Product> = this.store.select(selectCurrentProductDetails);
 
-  constructor(private navigationActions: NavigationActions) {
+  constructor(private navigationActions: NavigationActions, private store: Store<State>) {
   }
 
-  public backToProductOverview() {
+  backToProductOverview() {
     this.navigationActions.dispatch().navigate('/');
   }
 
-  public showConfirmation() {
+  showConfirmation() {
     this.navigationActions.dispatch().navigate('/order');
   }
 }
