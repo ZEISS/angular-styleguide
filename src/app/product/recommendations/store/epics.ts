@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Epic, ofType } from 'redux-observable';
+import { Epic, ofType } from 'redux-observable-es6-compat';
 import { map, switchMap } from 'rxjs/operators';
 import { RecommendationService } from '../services/recommendation.service';
 import { RecommendationAction, RecommendationActions, RecommendationActionTypes } from './actions';

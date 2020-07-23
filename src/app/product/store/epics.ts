@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '@models/product';
 import { NavigationAction, NavigationActions } from '@store/navigation.actions';
-import { Epic, ofType } from 'redux-observable';
+import { Epic, ofType } from 'redux-observable-es6-compat';
 import { of } from 'rxjs';
 import { flatMap, map, switchMap } from 'rxjs/operators';
 import { ProductService } from '../services/product.service';

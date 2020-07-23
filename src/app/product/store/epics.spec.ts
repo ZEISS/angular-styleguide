@@ -10,7 +10,7 @@ import {
 import { ProductEpics } from '@app/product/store/epics';
 import { ProductTestData } from '@models/product.testdata';
 import { NavigationActions } from '@store/navigation.actions';
-import { ActionsObservable } from 'redux-observable';
+import { ActionsObservable } from 'redux-observable-es6-compat';
 import { Observable, of } from 'rxjs';
 
 describe('ProductEpic', () => {

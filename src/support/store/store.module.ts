@@ -3,7 +3,7 @@ import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store'
 import { isDevMode, NgModule } from '@angular/core';
 import { ProductModule } from '@app/product/product.module';
 import { RecommendationsModule } from '@app/product/recommendations/recommendations.module';
-import { createEpicMiddleware } from 'redux-observable';
+import { createEpicMiddleware } from 'redux-observable-es6-compat';
 import { deepFreeze } from 'typescript-immutable-helper';
 import { NavigationActions } from './navigation.actions';
 import { RootEpics } from './root.epics';
