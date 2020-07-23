@@ -1,5 +1,5 @@
-import { TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
+import { async, TestBed } from '@angular/core/testing';
+import { NavigationExtras, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
@@ -25,31 +25,33 @@ describe('NavigationEffects', () => {
     router = TestBed.inject(Router);
   });
 
-  it('should navigate on navigate action', () => {
-    spyOn(router, 'navigateByUrl').and.returnValue(Promise.resolve(true));
+  describe('navigate$', () => {
+    it('should navigate to url and dispatch no action if navigation succeded', () => {
+      spyOn(router, 'navigateByUrl').and.returnValue(Promise.resolve(true));
 
-    const url = 'some/url';
-    const navigationExtras = {};
+      const url = 'some/url';
+      const navigationExtras = {queryParams: {foo: 'bar'}};
 
-    actions$ = of(navigate({url, navigationExtras}));
+      actions$ = of(navigate({url, navigationExtras}));
 
-    const result$ = effects.navigate$;
-    expect(result$).toEmitNoValues();
-    expect(router.navigateByUrl).toHaveBeenCalledWith(url, navigationExtras);
-  });
+      const result$ = effects.navigate$;
+      expect(result$).toEmitNoValues();
+      expect(router.navigateByUrl).toHaveBeenCalledWith(url, navigationExtras);
+    });
 
-  xit('should dispatch navigation failed action on navigate action', () => {
-    spyOn(router, 'navigateByUrl').and.returnValue(Promise.reject('navigation failed'));
+    it('should dispatch navigationFailed if navigation failed', (done) => {
+      spyOn(router, 'navigateByUrl').and.returnValue(Promise.reject('navigation failed'));
 
-    const url = 'some/url';
-    const navigationExtras = {};
+      const url = 'some/url';
+      const navigationExtras = {queryParams: {foo: 'bar'}};
 
-    actions$ = of(navigate({url, navigationExtras}));
+      actions$ = of(navigate({url, navigationExtras}));
 
-    const result$ = effects.navigate$;
-    result$.subscribe(r => console.log('angekommen', r));
-    expect(result$).toEmitValues([navigationFailed({error: 'navigation failed'})]);
-    expect(result$).toEmitNoError();
-    expect(router.navigateByUrl).toHaveBeenCalledWith(url, navigationExtras);
+      effects.navigate$.subscribe(result => {
+        expect(result).toEqual(navigationFailed({error: 'navigation failed'}));
+        done();
+      });
+      expect(router.navigateByUrl).toHaveBeenCalledWith(url, navigationExtras);
+    });
   });
 });
