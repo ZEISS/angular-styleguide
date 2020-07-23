@@ -14,6 +14,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '@environment';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from '@app/product/product.effects';
+import { NavigationEffects } from '@app/shared/navigation/navigation.effects';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { ProductEffects } from '@app/product/product.effects';
       metaReducers
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([ProductEffects]),
+    EffectsModule.forRoot([ProductEffects, NavigationEffects]),
   ],
   // Root Epics anbieten
   providers: [RootEpics, NavigationActions],

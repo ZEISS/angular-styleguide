@@ -8,7 +8,7 @@ import { ProductService } from '@app/product/services/product.service';
 import { ProductTestData } from '@models/product.testdata';
 import { loadProductDetails, loadProductDetailsSuccess, loadProducts, loadProductsSuccess } from '@app/product/product.actions';
 
-fdescribe('ProductEffects', () => {
+describe('ProductEffects', () => {
   let actions$: Observable<any>;
   let effects: ProductEffects;
 
