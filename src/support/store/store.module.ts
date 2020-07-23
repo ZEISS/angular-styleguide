@@ -10,6 +10,8 @@ import { RootEpics } from './root.epics';
 import { INITIAL_ROOTSTATE, rootReducer, RootState } from './root.reducer';
 import { metaReducers, reducers } from '@app/reducers';
 import { StoreModule as NgRxStoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '@environment';
 
 @NgModule({
   imports: [
@@ -19,6 +21,7 @@ import { StoreModule as NgRxStoreModule } from '@ngrx/store';
     NgRxStoreModule.forRoot(reducers, {
       metaReducers
     }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   // Root Epics anbieten
   providers: [RootEpics, NavigationActions],
