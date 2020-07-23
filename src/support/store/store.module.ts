@@ -8,12 +8,17 @@ import { deepFreeze } from 'typescript-immutable-helper';
 import { NavigationActions } from './navigation.actions';
 import { RootEpics } from './root.epics';
 import { INITIAL_ROOTSTATE, rootReducer, RootState } from './root.reducer';
+import { metaReducers, reducers } from '@app/reducers';
+import { StoreModule as NgRxStoreModule } from '@ngrx/store';
 
 @NgModule({
   imports: [
     NgReduxModule,
     ProductModule,
     RecommendationsModule,
+    NgRxStoreModule.forRoot(reducers, {
+      metaReducers
+    }),
   ],
   // Root Epics anbieten
   providers: [RootEpics, NavigationActions],
