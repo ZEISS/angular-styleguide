@@ -13,8 +13,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-redux/router": "10.0.0",
-    "@angular-redux/store": "10.0.0",
     "@angular/animations": "10.0.2",
     "@angular/common": "10.0.2",
     "@angular/compiler": "10.0.2",
@@ -27,11 +25,8 @@
     "@ngrx/store": "9.2.0",
     "@ngrx/store-devtools": "9.2.0",
     "bootstrap": "4.4.1",
-    "redux": "4.0.1",
-    "redux-observable-es6-compat": "1.2.1",
     "rxjs": "6.5.5",
-    "tslib": "1.11.1",
-    "typescript-immutable-helper": "0.6.3",
+    "tslib": "2.0.0",
     "zone.js": "0.10.3"
   },
   "devDependencies": {
@@ -53,7 +48,6 @@
     "karma-jasmine": "3.1.1",
     "karma-jasmine-html-reporter": "1.5.2",
     "protractor": "5.4.2",
-    "redux-devtools-extension": "2.13.8",
     "ts-node": "8.3.0",
     "tslint": "6.1.2",
     "typescript": "3.9.5"

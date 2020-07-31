@@ -1,19 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 
-import { NavigationActions } from '@store/navigation.actions';
 import { OrderConfirmationComponent } from './order-confirmation.component';
+import { productFeatureKey } from '@app/product/product.reducer';
 
 describe('OrderConfirmationComponent', () => {
   let component: OrderConfirmationComponent;
   let fixture: ComponentFixture<OrderConfirmationComponent>;
 
   beforeEach(async(() => {
-    const navigationActionsStub: NavigationActions = new NavigationActions(null);
-
     TestBed.configureTestingModule({
       declarations: [OrderConfirmationComponent],
       providers: [
-        { provide: NavigationActions, useValue: navigationActionsStub },
+        provideMockStore({initialState: {[productFeatureKey]: {}}})
       ],
     })
       .compileComponents();
@@ -28,4 +27,6 @@ describe('OrderConfirmationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // TODO Append tests
 });
