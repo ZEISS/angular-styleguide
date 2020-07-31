@@ -25,7 +25,7 @@ import { NavigationEffects } from '@app/shared/navigation/navigation.effects';
       metaReducers
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([ProductEffects, NavigationEffects]),
+    EffectsModule.forRoot([ProductEffects, RecommendationsModule, NavigationEffects]),
   ],
   // Root Epics anbieten
   providers: [RootEpics, NavigationActions],
