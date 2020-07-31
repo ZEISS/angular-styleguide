@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationActions } from '@store/navigation.actions';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { State } from '@app/reducers';
+import { navigate } from '@app/shared/navigation/navigation.actions';
 
 @Component({
   selector: 'app-order-confirmation',
   templateUrl: './order-confirmation.component.html',
   styleUrls: ['./order-confirmation.component.css'],
 })
-export class OrderConfirmationComponent implements OnInit {
+export class OrderConfirmationComponent {
 
-  constructor(private navigationActions: NavigationActions) {
+  constructor(private store: Store<State>) {
   }
 
-  public ngOnInit() {
+  backToProductOverview() {
+    this.store.dispatch(navigate({url: '/'}));
   }
-
-  public backToProductOverview() {
-    this.navigationActions.dispatch().navigate('/');
-  }
-
 }

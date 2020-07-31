@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { Product } from '@models/product';
-import { NavigationActions } from '@store/navigation.actions';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+
 import { State } from '@app/reducers';
 import { selectCurrentProductDetails } from '@app/product/product.selectors';
+import { navigate } from '@app/shared/navigation/navigation.actions';
+import { Product } from '@models/product';
 
 @Component({
   selector: 'app-product-detail',
@@ -15,14 +16,14 @@ export class ProductDetailComponent {
 
   product$: Observable<Product> = this.store.select(selectCurrentProductDetails);
 
-  constructor(private navigationActions: NavigationActions, private store: Store<State>) {
+  constructor(private store: Store<State>) {
   }
 
   backToProductOverview() {
-    this.navigationActions.dispatch().navigate('/');
+    this.store.dispatch(navigate({url: '/'}));
   }
 
   showConfirmation() {
-    this.navigationActions.dispatch().navigate('/order');
+    this.store.dispatch(navigate({url: '/order'}));
   }
 }

@@ -1,15 +1,17 @@
 import { inject, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
+import { Action } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 
 import { ProductEffects } from './product.effects';
 import { ProductService } from '@app/product/services/product.service';
 import { ProductTestData } from '@models/product.testdata';
 import { loadProductDetails, loadProductDetailsSuccess, loadProducts, loadProductsSuccess } from '@app/product/product.actions';
+import { navigate } from '@app/shared/navigation/navigation.actions';
 
 describe('ProductEffects', () => {
-  let actions$: Observable<any>;
+  let actions$: Observable<Action>;
   let effects: ProductEffects;
 
   const productServiceStub = new ProductService(null);
@@ -55,7 +57,10 @@ describe('ProductEffects', () => {
       const resultObservable$ = effects.loadProductDetails$;
 
       // verification
-      expect(resultObservable$).toEmitValues([loadProductDetailsSuccess({product: detailedProducts})]);
+      expect(resultObservable$).toEmitValues([
+        loadProductDetailsSuccess({product: detailedProducts}),
+        navigate({url: '/product/1'})
+      ]);
       expect(serviceSpy).toHaveBeenCalled();
     }));
 });
