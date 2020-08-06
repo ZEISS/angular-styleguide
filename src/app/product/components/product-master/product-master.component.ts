@@ -3,8 +3,8 @@ import { Product } from '@models/product';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { State } from '@app/reducers';
-import { loadProductDetails, loadProducts } from '@app/product/product.actions';
-import { selectProducts } from '@app/product/product.selectors';
+import { loadProductDetails, loadProducts } from '@app/product/store/product.actions';
+import { selectProducts } from '@app/product/store/product.selectors';
 
 @Component({
   selector: 'app-product-master',

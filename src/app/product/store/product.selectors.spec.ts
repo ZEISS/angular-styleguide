@@ -1,6 +1,6 @@
-import { selectCurrentProductDetails, selectProducts } from '@app/product/product.selectors';
+import { selectCurrentProductDetails, selectProducts } from './product.selectors';
 import { State } from '@app/reducers';
-import { productFeatureKey } from '@app/product/product.reducer';
+import { productFeatureKey } from './product.reducer';
 import { ProductTestData } from '@models/product.testdata';
 
 

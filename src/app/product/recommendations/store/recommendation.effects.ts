@@ -4,7 +4,7 @@ import { EMPTY } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { RecommendationService } from '@app/product/recommendations/services/recommendation.service';
-import { loadRecommendations, loadRecommendationsSuccess } from '@app/product/recommendations/recommendation.actions';
+import { loadRecommendations, loadRecommendationsSuccess } from './recommendation.actions';
 
 
 @Injectable()

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { State } from '@app/reducers';
-import { selectCurrentProductDetails } from '@app/product/product.selectors';
+import { selectCurrentProductDetails } from '@app/product/store/product.selectors';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 import { Product } from '@models/product';
 

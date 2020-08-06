@@ -5,11 +5,8 @@ import { Observable, of } from 'rxjs';
 
 import { RecommendationEffects } from './recommendation.effects';
 import { RecommendationService } from '@app/product/recommendations/services/recommendation.service';
-import { ProductService } from '@app/product/services/product.service';
-import { ProductTestData } from '@models/product.testdata';
-import { loadProducts, loadProductsSuccess } from '@app/product/product.actions';
 import { RecommendationTestData } from '@models/recommendation.testdata';
-import { loadRecommendations, loadRecommendationsSuccess } from '@app/product/recommendations/recommendation.actions';
+import { loadRecommendations, loadRecommendationsSuccess } from './recommendation.actions';
 
 describe('RecommendationEffects', () => {
   let actions$: Observable<Action>;

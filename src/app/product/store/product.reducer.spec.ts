@@ -1,5 +1,5 @@
 import { initialState, reducer } from './product.reducer';
-import { loadProductDetailsSuccess, loadProductsSuccess } from '@app/product/product.actions';
+import { loadProductDetailsSuccess, loadProductsSuccess } from './product.actions';
 import { ProductTestData } from '@models/product.testdata';
 
 describe('Product Reducer', () => {

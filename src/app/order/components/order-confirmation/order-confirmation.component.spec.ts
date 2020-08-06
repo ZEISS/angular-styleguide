@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 
 import { OrderConfirmationComponent } from './order-confirmation.component';
-import { productFeatureKey } from '@app/product/product.reducer';
+import { productFeatureKey } from '@app/product/store/product.reducer';
 
 describe('OrderConfirmationComponent', () => {
   let component: OrderConfirmationComponent;

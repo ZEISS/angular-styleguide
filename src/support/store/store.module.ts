@@ -4,8 +4,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule as NgRxStoreModule } from '@ngrx/store';
 
 import { metaReducers, reducers } from '@app/reducers';
-import { ProductEffects } from '@app/product/product.effects';
-import { RecommendationEffects } from '@app/product/recommendations/recommendation.effects';
+import { ProductEffects } from '@app/product/store/product.effects';
+import { RecommendationEffects } from '@app/product/recommendations/store/recommendation.effects';
 import { NavigationEffects } from '@app/shared/navigation/navigation.effects';
 import { environment } from '@environment';
 

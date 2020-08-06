@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { State } from '@app/reducers';
-import { loadRecommendations } from '@app/product/recommendations/recommendation.actions';
-import { selectRecommendations } from '@app/product/recommendations/recommendation.selectors';
+import { loadRecommendations } from '@app/product/recommendations/store/recommendation.actions';
+import { selectRecommendations } from '@app/product/recommendations/store/recommendation.selectors';
 import { Recommendation } from '@models/recommendation';
 
 @Component({

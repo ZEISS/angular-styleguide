@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { Recommendation } from '@models/recommendation';
-import { loadRecommendationsSuccess } from '@app/product/recommendations/recommendation.actions';
+import { loadRecommendationsSuccess } from './recommendation.actions';
 
 export const recommendationFeatureKey = 'recommendation';
 

@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { Product } from '@models/product';
 import { Nullable } from '@app/shared/global.types';
-import { loadProductDetailsSuccess, loadProductsSuccess } from '@app/product/product.actions';
+import { loadProductDetailsSuccess, loadProductsSuccess } from './product.actions';
 
 export const productFeatureKey = 'product';
 

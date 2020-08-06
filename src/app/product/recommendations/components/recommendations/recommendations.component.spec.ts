@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { provideMockStore } from '@ngrx/store/testing';
 
-import { recommendationFeatureKey } from '@app/product/recommendations/recommendation.reducer';
+import { recommendationFeatureKey } from '@app/product/recommendations/store/recommendation.reducer';
 import { RecommendationsComponent } from './recommendations.component';
 
 describe('RecommendationsComponent', () => {

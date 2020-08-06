@@ -1,7 +1,7 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { environment } from '@environment';
-import { productFeatureKey, ProductState, reducer as productReducer } from '@app/product/product.reducer';
-import { recommendationFeatureKey, RecommendationState, reducer as recommendationReducer } from '@app/product/recommendations/recommendation.reducer';
+import { productFeatureKey, ProductState, reducer as productReducer } from '@app/product/store/product.reducer';
+import { recommendationFeatureKey, RecommendationState, reducer as recommendationReducer } from '@app/product/recommendations/store/recommendation.reducer';
 
 export interface State {
   [productFeatureKey]: ProductState;

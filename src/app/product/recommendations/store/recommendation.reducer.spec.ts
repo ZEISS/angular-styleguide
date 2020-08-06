@@ -1,5 +1,5 @@
 import { reducer, initialState } from './recommendation.reducer';
-import { loadRecommendationsSuccess } from '@app/product/recommendations/recommendation.actions';
+import { loadRecommendationsSuccess } from './recommendation.actions';
 import { RecommendationTestData } from '@models/recommendation.testdata';
 
 describe('Recommendation Reducer', () => {

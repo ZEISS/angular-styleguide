@@ -2,8 +2,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 
-import { ProductMasterComponent } from '@app/product/components/product-master/product-master.component';
-import { productFeatureKey } from '@app/product/product.reducer';
+import { ProductMasterComponent } from './product-master.component';
+import { productFeatureKey } from '@app/product/store/product.reducer';
 
 describe('ProductMasterComponent', () => {
   let component: ProductMasterComponent;

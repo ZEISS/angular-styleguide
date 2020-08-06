@@ -1,6 +1,6 @@
 import { State } from '@app/reducers';
-import { recommendationFeatureKey } from '@app/product/recommendations/recommendation.reducer';
-import { selectRecommendations } from '@app/product/recommendations/recommendation.selectors';
+import { recommendationFeatureKey } from './recommendation.reducer';
+import { selectRecommendations } from './recommendation.selectors';
 import { RecommendationTestData } from '@models/recommendation.testdata';
 
 

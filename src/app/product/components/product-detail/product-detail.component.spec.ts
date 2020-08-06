@@ -3,8 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 
-import { ProductDetailComponent } from '@app/product/components/product-detail/product-detail.component';
-import { productFeatureKey } from '@app/product/product.reducer';
+import { ProductDetailComponent } from './product-detail.component';
+import { productFeatureKey } from '@app/product/store/product.reducer';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
