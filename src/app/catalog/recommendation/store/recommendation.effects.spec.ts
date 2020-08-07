@@ -4,7 +4,7 @@ import { Action } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 
 import { RecommendationEffects } from './recommendation.effects';
-import { RecommendationService } from '@app/product/recommendations/services/recommendation.service';
+import { RecommendationService } from '@app/catalog/recommendation/services/recommendation.service';
 import { RecommendationTestData } from '@models/recommendation.testdata';
 import { loadRecommendations, loadRecommendationsSuccess } from './recommendation.actions';
 

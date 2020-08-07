@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { State } from '@app/reducers';
-import { selectCurrentProductDetails } from '@app/product/store/product.selectors';
+import { selectCurrentProductDetails } from '@app/catalog/product/store/product.selectors';
 import { navigate } from '@app/shared/navigation/navigation.actions';
+import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
 import { Product } from '@models/product';
 
 @Component({
@@ -16,7 +16,7 @@ export class ProductDetailComponent {
 
   product$: Observable<Product> = this.store.select(selectCurrentProductDetails);
 
-  constructor(private store: Store<State>) {
+  constructor(private store: Store<StateWithCatalog>) {
   }
 
   backToProductOverview() {

@@ -2,17 +2,20 @@ import { selectCurrentProductDetails, selectProducts } from './product.selectors
 import { State } from '@app/reducers';
 import { productFeatureKey } from './product.reducer';
 import { ProductTestData } from '@models/product.testdata';
+import { catalogFeatureKey, StateWithCatalog } from '@app/catalog/store/catalog.reducer';
 
 
 describe('Product Selectors', () => {
   describe('selectProducts', () => {
     it('should select the products', () => {
       const state = {
-        [productFeatureKey]: {
-          products: ProductTestData.validProductList,
-          currentProductDetails: undefined
+        [catalogFeatureKey]: {
+          [productFeatureKey]: {
+            products: ProductTestData.validProductList,
+            currentProductDetails: undefined
+          }
         }
-      } as State;
+      } as StateWithCatalog;
       expect(selectProducts(state)).toEqual(ProductTestData.validProductList);
     });
   });
@@ -20,11 +23,13 @@ describe('Product Selectors', () => {
   describe('selectProductDetails', () => {
     it('should select the current product details', () => {
       const state = {
-        [productFeatureKey]: {
-          products: ProductTestData.validProductList,
-          currentProductDetails: ProductTestData.validProduct
+        [catalogFeatureKey]: {
+          [productFeatureKey]: {
+            products: ProductTestData.validProductList,
+            currentProductDetails: ProductTestData.validProduct
+          }
         }
-      } as State;
+      } as StateWithCatalog;
       expect(selectCurrentProductDetails(state)).toEqual(ProductTestData.validProduct);
     });
   });

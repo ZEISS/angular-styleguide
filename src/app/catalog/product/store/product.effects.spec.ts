@@ -5,7 +5,7 @@ import { Action } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 
 import { ProductEffects } from './product.effects';
-import { ProductService } from '@app/product/services/product.service';
+import { ProductService } from '@app/catalog/product/services/product.service';
 import { ProductTestData } from '@models/product.testdata';
 import { loadProductDetails, loadProductDetailsSuccess, loadProducts, loadProductsSuccess } from './product.actions';
 import { navigate } from '@app/shared/navigation/navigation.actions';

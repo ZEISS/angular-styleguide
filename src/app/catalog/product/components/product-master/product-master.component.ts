@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '@models/product';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { State } from '@app/reducers';
-import { loadProductDetails, loadProducts } from '@app/product/store/product.actions';
-import { selectProducts } from '@app/product/store/product.selectors';
+import { loadProductDetails, loadProducts } from '@app/catalog/product/store/product.actions';
+import { selectProducts } from '@app/catalog/product/store/product.selectors';
+import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
 
 @Component({
   selector: 'app-product-master',
@@ -15,7 +15,7 @@ export class ProductMasterComponent implements OnInit {
 
   products$: Observable<Product[]> = this.store.select(selectProducts);
 
-  constructor(private store: Store<State>) {
+  constructor(private store: Store<StateWithCatalog>) {
   }
 
   ngOnInit() {

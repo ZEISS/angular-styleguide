@@ -4,7 +4,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 
 import { ProductDetailComponent } from './product-detail.component';
-import { productFeatureKey } from '@app/product/store/product.reducer';
+import { productFeatureKey } from '@app/catalog/product/store/product.reducer';
+import { catalogFeatureKey } from '@app/catalog/store/catalog.reducer';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
@@ -16,7 +17,7 @@ describe('ProductDetailComponent', () => {
       imports: [RouterTestingModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        provideMockStore({initialState: {[productFeatureKey]: {}}})
+        provideMockStore({initialState: {[catalogFeatureKey]: {[productFeatureKey]: {}}}})
       ],
     })
       .compileComponents();

@@ -2,8 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 
 import { OrderConfirmationComponent } from './order-confirmation.component';
-import { productFeatureKey } from '@app/product/store/product.reducer';
-
 describe('OrderConfirmationComponent', () => {
   let component: OrderConfirmationComponent;
   let fixture: ComponentFixture<OrderConfirmationComponent>;
@@ -12,7 +10,7 @@ describe('OrderConfirmationComponent', () => {
     TestBed.configureTestingModule({
       declarations: [OrderConfirmationComponent],
       providers: [
-        provideMockStore({initialState: {[productFeatureKey]: {}}})
+        provideMockStore({initialState: {}})
       ],
     })
       .compileComponents();

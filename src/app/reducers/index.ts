@@ -1,16 +1,12 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { environment } from '@environment';
-import { productFeatureKey, ProductState, reducer as productReducer } from '@app/product/store/product.reducer';
-import { recommendationFeatureKey, RecommendationState, reducer as recommendationReducer } from '@app/product/recommendations/store/recommendation.reducer';
 
+// tslint:disable-next-line:no-empty-interface
 export interface State {
-  [productFeatureKey]: ProductState;
-  [recommendationFeatureKey]: RecommendationState;
+  // Here goes state of the core app. Feature state is defined in feature modules instead.
 }
 
 export const reducers: ActionReducerMap<State> = {
-  [productFeatureKey]: productReducer,
-  [recommendationFeatureKey]: recommendationReducer
 };
 
 

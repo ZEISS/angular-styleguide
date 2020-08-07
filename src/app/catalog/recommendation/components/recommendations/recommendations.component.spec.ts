@@ -2,8 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { provideMockStore } from '@ngrx/store/testing';
 
-import { recommendationFeatureKey } from '@app/product/recommendations/store/recommendation.reducer';
 import { RecommendationsComponent } from './recommendations.component';
+import { recommendationFeatureKey } from '@app/catalog/recommendation/store/recommendation.reducer';
+import { catalogFeatureKey } from '@app/catalog/store/catalog.reducer';
 
 describe('RecommendationsComponent', () => {
   let component: RecommendationsComponent;
@@ -14,7 +15,7 @@ describe('RecommendationsComponent', () => {
       declarations: [RecommendationsComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        provideMockStore({initialState: {[recommendationFeatureKey]: {}}})
+        provideMockStore({initialState: {[catalogFeatureKey]: {[recommendationFeatureKey]: {}}}})
       ],
     })
       .compileComponents();

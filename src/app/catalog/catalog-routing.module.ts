@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { ProductMasterComponent } from './components/product-master/product-master.component';
+import { ProductDetailComponent } from './product/components/product-detail/product-detail.component';
+import { ProductMasterComponent } from './product/components/product-master/product-master.component';
 
 const productRoutes: Routes = [
   {path: 'product/:id', component: ProductDetailComponent},
@@ -18,4 +18,4 @@ const productRoutes: Routes = [
     RouterModule,
   ],
 })
-export class ProductRoutingModule {}
+export class CatalogRoutingModule {}

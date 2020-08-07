@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
-import { RecommendationService } from '@app/product/recommendations/services/recommendation.service';
+import { RecommendationService } from '@app/catalog/recommendation/services/recommendation.service';
 import { loadRecommendations, loadRecommendationsSuccess } from './recommendation.actions';
 
 

@@ -3,7 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 
 import { ProductMasterComponent } from './product-master.component';
-import { productFeatureKey } from '@app/product/store/product.reducer';
+import { productFeatureKey } from '@app/catalog/product/store/product.reducer';
+import { catalogFeatureKey } from '@app/catalog/store/catalog.reducer';
 
 describe('ProductMasterComponent', () => {
   let component: ProductMasterComponent;
@@ -14,7 +15,7 @@ describe('ProductMasterComponent', () => {
       declarations: [ProductMasterComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        provideMockStore({initialState: {[productFeatureKey]: {}}})
+        provideMockStore({initialState: {[catalogFeatureKey]: {[productFeatureKey]: {}}}})
       ],
     })
       .compileComponents();
