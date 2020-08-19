@@ -1,8 +1,8 @@
+import { Nullable } from '@app/shared/global.types';
 import { Product } from '@models/product';
 import { Reducer } from 'redux';
-import { ProductAction, ProductActionTypes } from './actions';
 import { ReplicationBuilder } from 'typescript-immutable-helper';
-import { Nullable } from '@app/shared/global.types';
+import { ProductAction, ProductActionTypes } from './actions';
 
 export interface ProductState {
   products: Product[];
@@ -30,4 +30,3 @@ export const productReducer: Reducer<ProductState> = (state: ProductState = Init
     }
   }
 };
-

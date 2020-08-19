@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OrderConfirmationComponent } from './order-confirmation.component';
 import { NavigationActions } from '@store/navigation.actions';
+import { OrderConfirmationComponent } from './order-confirmation.component';
 
 describe('OrderConfirmationComponent', () => {
   let component: OrderConfirmationComponent;

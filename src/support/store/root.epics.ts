@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ProductEpics } from '@app/product/store/epics';
-import { combineEpics, Epic } from 'redux-observable';
-import { Action } from 'redux';
 import { RecommendationEpics } from '@app/product/recommendations/store/epics';
+import { ProductEpics } from '@app/product/store/epics';
+import { Action } from 'redux';
+import { combineEpics, Epic } from 'redux-observable-es6-compat';
 
 @Injectable()
 export class RootEpics {

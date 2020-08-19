@@ -1,9 +1,9 @@
 // Implementierung eines spezielleren Action Datentyps als Erweiterung des generellen
-import { ActionCreator, Dispatchable, EmptyAction, MetaAction, PayloadAction } from '@store/root.actions';
+import { NgRedux } from '@angular-redux/store';
 import { Injectable } from '@angular/core';
 import { Product } from '@models/product';
+import { ActionCreator, Dispatchable, EmptyAction, MetaAction, PayloadAction } from '@store/root.actions';
 import { RootState } from '@store/root.reducer';
-import { NgRedux } from '@angular-redux/store';
 
 export enum ProductActionTypes {
   START_LOAD_PRODUCTS = 'product::START_LOAD_PRODUCTS',
@@ -37,14 +37,14 @@ export class ProductActions extends ActionCreator<ProductActions, RootState> {
 
   // ActionCreators
   @Dispatchable()
-  startLoadProducts(): StartLoadProductsAction {
+  public startLoadProducts(): StartLoadProductsAction {
     return {
       type: ProductActionTypes.START_LOAD_PRODUCTS,
     };
   }
 
   @Dispatchable()
-  loadProductsSuccessful(products: Product[]): LoadProductsSuccessfulAction {
+  public loadProductsSuccessful(products: Product[]): LoadProductsSuccessfulAction {
     return {
       type: ProductActionTypes.LOAD_PRODUCTS_SUCCESSFUL,
       payload: products,
@@ -52,17 +52,17 @@ export class ProductActions extends ActionCreator<ProductActions, RootState> {
   }
 
   @Dispatchable()
-  startLoadProductDetails(id: number): StartLoadProductDetailsAction {
+  public startLoadProductDetails(id: number): StartLoadProductDetailsAction {
     return {
       type: ProductActionTypes.START_LOAD_PRODUCT_DETAILS,
       meta: {
         id,
-      }
+      },
     };
   }
 
   @Dispatchable()
-  loadProductDetailsSuccessful(product: Product): LoadProductDetailsSuccessfulAction {
+  public loadProductDetailsSuccessful(product: Product): LoadProductDetailsSuccessfulAction {
     return {
       type: ProductActionTypes.LOAD_PRODUCT_DETAILS_SUCCESSFUL,
       payload: product,

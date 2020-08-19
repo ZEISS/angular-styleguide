@@ -1,7 +1,7 @@
 import { inject, TestBed } from '@angular/core/testing';
 
-import { ProductService } from './product.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ProductService } from './product.service';
 
 describe('ProductService', () => {
   beforeEach(() => {

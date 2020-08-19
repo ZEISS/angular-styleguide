@@ -4,17 +4,17 @@ import { NavigationActions } from '@store/navigation.actions';
 @Component({
   selector: 'app-order-confirmation',
   templateUrl: './order-confirmation.component.html',
-  styleUrls: ['./order-confirmation.component.css']
+  styleUrls: ['./order-confirmation.component.css'],
 })
 export class OrderConfirmationComponent implements OnInit {
 
   constructor(private navigationActions: NavigationActions) {
   }
 
-  ngOnInit() {
+  public ngOnInit() {
   }
 
-  backToProductOverview() {
+  public backToProductOverview() {
     this.navigationActions.dispatch().navigate('/');
   }
 

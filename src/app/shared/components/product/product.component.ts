@@ -4,14 +4,14 @@ import { Product } from '@models/product';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
 
-  @Input() product: Product;
-  @Output() productImageClicked: EventEmitter<void> = new EventEmitter<void>();
+  @Input() public product: Product;
+  @Output() public productImageClicked: EventEmitter<void> = new EventEmitter<void>();
 
-  imageClicked() {
+  public imageClicked() {
     this.productImageClicked.emit();
   }
 }

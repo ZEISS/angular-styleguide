@@ -1,22 +1,22 @@
-import { isDevMode, NgModule } from '@angular/core';
+import { NgReduxRouter } from '@angular-redux/router';
 import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store';
-import { deepFreeze } from 'typescript-immutable-helper';
-import { RootEpics } from './root.epics';
-import { INITIAL_ROOTSTATE, rootReducer, RootState } from './root.reducer';
-import { createEpicMiddleware } from 'redux-observable';
+import { isDevMode, NgModule } from '@angular/core';
 import { ProductModule } from '@app/product/product.module';
 import { RecommendationsModule } from '@app/product/recommendations/recommendations.module';
-import { NgReduxRouter } from '@angular-redux/router';
+import { createEpicMiddleware } from 'redux-observable-es6-compat';
+import { deepFreeze } from 'typescript-immutable-helper';
 import { NavigationActions } from './navigation.actions';
+import { RootEpics } from './root.epics';
+import { INITIAL_ROOTSTATE, rootReducer, RootState } from './root.reducer';
 
 @NgModule({
   imports: [
     NgReduxModule,
     ProductModule,
-    RecommendationsModule
+    RecommendationsModule,
   ],
   // Root Epics anbieten
-  providers: [RootEpics, NavigationActions]
+  providers: [RootEpics, NavigationActions],
 })
 export class StoreModule {
   // Injektion der DevTool und der Root Epics
@@ -33,7 +33,7 @@ export class StoreModule {
       rootReducer,
       rootState,
       [middlewares],
-      storeEnhancer
+      storeEnhancer,
     );
     middlewares.run(rootEpics.createEpic());
 

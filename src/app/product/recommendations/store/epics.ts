@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Epic, ofType } from 'redux-observable';
+import { Epic, ofType } from 'redux-observable-es6-compat';
 import { map, switchMap } from 'rxjs/operators';
 import { RecommendationService } from '../services/recommendation.service';
 import { RecommendationAction, RecommendationActions, RecommendationActionTypes } from './actions';
@@ -18,7 +18,7 @@ export class RecommendationEpics {
         // Abfrage des ActionTypes
         ofType(RecommendationActionTypes.START_LOAD_RECOMMENDATIONS),
         // Service aufrufen
-        switchMap(a => this.service.loadRecommendations()),
-        map(recommendations => this.recommendationActions.loadRecommendationsSuccessful(recommendations)));
+        switchMap((a) => this.service.loadRecommendations()),
+        map((recommendations) => this.recommendationActions.loadRecommendationsSuccessful(recommendations)));
   }
 }

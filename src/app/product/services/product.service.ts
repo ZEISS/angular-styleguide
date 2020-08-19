@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '@models/product';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -12,15 +12,13 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {
   }
 
-  loadProducts(): Observable<Product[]> {
+  public loadProducts(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.productUrl);
   }
 
-  getProduct(id: number | string): Observable<Product> {
+  public getProduct(id: number | string): Observable<Product> {
     return this.httpClient.get<Product[]>(this.productUrl).pipe(
-      map(products => products.find(product => product.id === id))
+      map((products) => products.find((product) => product.id === id)),
     );
   }
 }
-
-

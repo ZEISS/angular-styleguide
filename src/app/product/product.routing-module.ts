@@ -11,11 +11,11 @@ const productRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(
-      productRoutes
-    )
+      productRoutes,
+    ),
   ],
   exports: [
-    RouterModule
-  ]
+    RouterModule,
+  ],
 })
 export class ProductRoutingModule {}

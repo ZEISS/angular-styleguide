@@ -1,6 +1,6 @@
+import { NgReduxTestingModule } from '@angular-redux/store/testing';
 import { inject, TestBed } from '@angular/core/testing';
 import { ProductActions, ProductActionTypes } from '@app/product/store/actions';
-import { NgReduxTestingModule } from '@angular-redux/store/testing';
 import { Product } from '@models/product';
 import { ProductTestData } from '@models/product.testdata';
 
@@ -9,7 +9,7 @@ describe('ProductActions', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [NgReduxTestingModule],
-      providers: [ProductActions]
+      providers: [ProductActions],
     });
   });
 

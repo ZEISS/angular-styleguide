@@ -3,20 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 const routes: Routes = [
-  {path: 'order', component: OrderConfirmationComponent}
+  {path: 'order', component: OrderConfirmationComponent},
 
 ];
 
 @NgModule({
   imports: [
     RouterModule.forChild(
-      routes
-    )
+      routes,
+    ),
   ],
   exports: [
-    RouterModule
-  ]
+    RouterModule,
+  ],
 })
 export class OrderRoutingModule {}
-
-

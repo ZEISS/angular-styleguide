@@ -1,7 +1,7 @@
+import { Recommendation } from '@models/recommendation';
 import { Reducer } from 'redux';
 import { ReplicationBuilder } from 'typescript-immutable-helper';
 import { RecommendationAction, RecommendationActionTypes } from './actions';
-import { Recommendation } from '@models/recommendation';
 
 export interface RecommendationState {
   recommendations: Recommendation[];
