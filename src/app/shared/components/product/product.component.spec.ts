@@ -25,5 +25,10 @@ describe('ProductComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // TODO Append tests
+  it('should emit an event on image click', () => {
+    const emit = spyOn(component.productImageClicked, 'emit');
+
+    component.imageClicked();
+    expect(emit).toHaveBeenCalled();
+  });
 });

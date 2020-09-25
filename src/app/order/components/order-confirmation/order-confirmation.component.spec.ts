@@ -1,10 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideMockStore } from '@ngrx/store/testing';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import { OrderConfirmationComponent } from './order-confirmation.component';
+import { navigate } from '@app/shared/navigation/navigation.actions';
+
 describe('OrderConfirmationComponent', () => {
   let component: OrderConfirmationComponent;
   let fixture: ComponentFixture<OrderConfirmationComponent>;
+  let store: MockStore;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,6 +22,9 @@ describe('OrderConfirmationComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(OrderConfirmationComponent);
     component = fixture.componentInstance;
+    store = TestBed.inject(MockStore);
+    spyOn(store, 'dispatch');
+
     fixture.detectChanges();
   });
 
@@ -26,5 +32,10 @@ describe('OrderConfirmationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // TODO Append tests
+  describe('backToProductOverview', () => {
+    it('should dispatch navigate action to root page', () => {
+      component.backToProductOverview();
+      expect(store.dispatch).toHaveBeenCalledWith(navigate({url: '/'}));
+    });
+  });
 });

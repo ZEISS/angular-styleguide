@@ -8,10 +8,10 @@ import { Product } from '@models/product';
 })
 export class ProductComponent {
 
-  @Input() public product: Product;
-  @Output() public productImageClicked: EventEmitter<void> = new EventEmitter<void>();
+  @Input() product: Product;
+  @Output() productImageClicked: EventEmitter<void> = new EventEmitter<void>();
 
-  public imageClicked() {
+  imageClicked() {
     this.productImageClicked.emit();
   }
 }
