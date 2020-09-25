@@ -10,4 +10,8 @@ export class ProductTestData {
       description: 'empty',
     }];
   }
+
+  static get validProduct(): Product {
+    return this.validProductList[0];
+  }
 }
