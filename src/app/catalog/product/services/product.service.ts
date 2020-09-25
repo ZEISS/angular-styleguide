@@ -12,11 +12,11 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public loadProducts(): Observable<Product[]> {
+  loadProducts(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.productUrl);
   }
 
-  public getProduct(id: number | string): Observable<Product> {
+  getProduct(id: number | string): Observable<Product> {
     return this.httpClient.get<Product[]>(this.productUrl).pipe(
       map((products) => products.find((product) => product.id === id)),
     );
