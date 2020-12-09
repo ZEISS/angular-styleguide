@@ -1,20 +1,20 @@
-import { inject, TestBed } from '@angular/core/testing';
+import { HttpErrorResponse } from '@angular/common/http';
+import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Action } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
-import { ProductEffects } from './product.effects';
 import { ProductService } from '@app/catalog/product/services/product.service';
+import { navigate } from '@app/shared/navigation/navigation.actions';
 import { ProductTestData } from '@models/product.testdata';
 import { loadProductDetails, loadProductDetailsSuccess, loadProducts, loadProductsSuccess } from './product.actions';
-import { navigate } from '@app/shared/navigation/navigation.actions';
+import { ProductEffects } from './product.effects';
 
 describe('ProductEffects', () => {
   let actions$: Observable<Action>;
   let effects: ProductEffects;
-
-  const productServiceStub = new ProductService(null);
+  let service: ProductService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -22,45 +22,64 @@ describe('ProductEffects', () => {
       providers: [
         ProductEffects,
         provideMockActions(() => actions$),
-        {provide: ProductService, useValue: productServiceStub}
+        {
+          provide: ProductService, useValue: {
+            loadProducts: () => {
+            }, getProduct: () => {
+            }
+          }
+        }
       ]
     });
 
     effects = TestBed.inject(ProductEffects);
+    service = TestBed.inject(ProductService);
   });
 
-  it('should load products from service and dispatch successful action',
-    inject([ProductService], (service: ProductService) => {
-
-      // preparation
+  describe('loadProducts$', () => {
+    it('should load products from service and dispatch successful action', () => {
       const loadedProducts = ProductTestData.validProductList;
-      const serviceSpy = spyOn(service, 'loadProducts').and.returnValue(of(loadedProducts));
+      spyOn(service, 'loadProducts').and.returnValue(of(loadedProducts));
 
-      // execution
       actions$ = of(loadProducts());
       const resultObservable$ = effects.loadProducts$;
 
-      // verification
       expect(resultObservable$).toEmitValues([loadProductsSuccess({products: loadedProducts})]);
-      expect(serviceSpy).toHaveBeenCalled();
-    }));
+      expect(service.loadProducts).toHaveBeenCalled();
+    });
 
-  it('should load product details from service, dispatch successful action and navigate to details',
-    inject([ProductService], (service: ProductService) => {
+    it('should dispatch an empty action if service throws', () => {
+      spyOn(service, 'loadProducts').and.returnValue(throwError(new HttpErrorResponse({})));
 
-      // preparation
+      actions$ = of(loadProducts());
+      const resultObservable$ = effects.loadProducts$;
+
+      expect(resultObservable$).toEmitNoValues();
+    });
+  });
+
+  describe('loadProductDetails$', () => {
+    it('should load product details from service, dispatch successful action and navigate to details', () => {
       const detailedProducts = ProductTestData.validProduct;
-      const serviceSpy = spyOn(service, 'getProduct').and.returnValue(of(detailedProducts));
+      spyOn(service, 'getProduct').and.returnValue(of(detailedProducts));
 
-      // execution
       actions$ = of(loadProductDetails({ productId: ProductTestData.validProduct.id }));
       const resultObservable$ = effects.loadProductDetails$;
 
-      // verification
       expect(resultObservable$).toEmitValues([
         loadProductDetailsSuccess({product: detailedProducts}),
         navigate({url: '/product/1'})
       ]);
-      expect(serviceSpy).toHaveBeenCalled();
-    }));
+      expect(service.getProduct).toHaveBeenCalled();
+    });
+
+    it('should dispatch an empty action if service throws', () => {
+      spyOn(service, 'getProduct').and.returnValue(throwError(new HttpErrorResponse({})));
+
+      actions$ = of(loadProductDetails({ productId: ProductTestData.validProduct.id }));
+      const resultObservable$ = effects.loadProductDetails$;
+
+      expect(resultObservable$).toEmitNoValues();
+    });
+  });
 });
