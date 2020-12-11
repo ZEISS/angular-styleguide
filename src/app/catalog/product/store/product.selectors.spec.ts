@@ -1,9 +1,7 @@
-import { selectCurrentProductDetails, selectProducts } from './product.selectors';
-import { State } from '@app/reducers';
-import { productFeatureKey } from './product.reducer';
-import { ProductTestData } from '@models/product.testdata';
 import { catalogFeatureKey, StateWithCatalog } from '@app/catalog/store/catalog.reducer';
-
+import { ProductTestData } from '@models/product.testdata';
+import { selectCurrentProductDetails, selectProducts } from './product.selectors';
+import { productFeatureKey } from './product.reducer';
 
 describe('Product Selectors', () => {
   describe('selectProducts', () => {
