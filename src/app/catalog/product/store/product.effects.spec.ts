@@ -14,7 +14,7 @@ import { ProductEffects } from './product.effects';
 describe('ProductEffects', () => {
   let actions$: Observable<Action>;
   let effects: ProductEffects;
-  let service: ProductService;
+  let productServiceSpy: jasmine.SpyObj<ProductService>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -23,33 +23,29 @@ describe('ProductEffects', () => {
         ProductEffects,
         provideMockActions(() => actions$),
         {
-          provide: ProductService, useValue: {
-            loadProducts: () => {
-            }, getProduct: () => {
-            }
-          }
+          provide: ProductService, useValue: jasmine.createSpyObj<ProductService>(['loadProducts', 'getProduct'])
         }
       ]
     });
 
     effects = TestBed.inject(ProductEffects);
-    service = TestBed.inject(ProductService);
+    productServiceSpy = TestBed.inject(ProductService) as jasmine.SpyObj<ProductService>;
   });
 
   describe('loadProducts$', () => {
     it('should load products from service and dispatch successful action', () => {
       const loadedProducts = ProductTestData.validProductList;
-      spyOn(service, 'loadProducts').and.returnValue(of(loadedProducts));
+      productServiceSpy.loadProducts.and.returnValue(of(loadedProducts));
 
       actions$ = of(loadProducts());
       const resultObservable$ = effects.loadProducts$;
 
       expect(resultObservable$).toEmitValues([loadProductsSuccess({products: loadedProducts})]);
-      expect(service.loadProducts).toHaveBeenCalled();
+      expect(productServiceSpy.loadProducts).toHaveBeenCalled();
     });
 
     it('should dispatch an empty action if service throws', () => {
-      spyOn(service, 'loadProducts').and.returnValue(throwError(new HttpErrorResponse({})));
+      productServiceSpy.loadProducts.and.returnValue(throwError(new HttpErrorResponse({})));
 
       actions$ = of(loadProducts());
       const resultObservable$ = effects.loadProducts$;
@@ -61,7 +57,7 @@ describe('ProductEffects', () => {
   describe('loadProductDetails$', () => {
     it('should load product details from service, dispatch successful action and navigate to details', () => {
       const detailedProducts = ProductTestData.validProduct;
-      spyOn(service, 'getProduct').and.returnValue(of(detailedProducts));
+      productServiceSpy.getProduct.and.returnValue(of(detailedProducts));
 
       actions$ = of(loadProductDetails({ productId: ProductTestData.validProduct.id }));
       const resultObservable$ = effects.loadProductDetails$;
@@ -70,11 +66,11 @@ describe('ProductEffects', () => {
         loadProductDetailsSuccess({product: detailedProducts}),
         navigate({url: '/product/1'})
       ]);
-      expect(service.getProduct).toHaveBeenCalled();
+      expect(productServiceSpy.getProduct).toHaveBeenCalled();
     });
 
     it('should dispatch an empty action if service throws', () => {
-      spyOn(service, 'getProduct').and.returnValue(throwError(new HttpErrorResponse({})));
+      productServiceSpy.getProduct.and.returnValue(throwError(new HttpErrorResponse({})));
 
       actions$ = of(loadProductDetails({ productId: ProductTestData.validProduct.id }));
       const resultObservable$ = effects.loadProductDetails$;
