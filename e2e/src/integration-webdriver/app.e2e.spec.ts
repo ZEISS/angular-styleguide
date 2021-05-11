@@ -9,9 +9,8 @@ describe('workspace-project App', async () => {
     });
 
     it('should display title', async () => {
-        const b = (global as any).browser as Browser<'async'>;
-        await page.navigateTo(b);
-        expect(await page.getTitle(b)).toEqual('GET YOUR ICE CREAM');
+        await page.navigateTo(browser);
+        expect(await page.getTitle(browser)).toEqual('GET YOUR ICE CREAM');
     });
 });
 
