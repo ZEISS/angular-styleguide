@@ -1,6 +1,4 @@
-import { remote, Browser, Element } from 'webdriverio';
-
-// const { remote } = require('webdriverio');
+import { Browser, Element } from 'webdriverio';
 
 export class AppPage {
 

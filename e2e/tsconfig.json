@@ -5,10 +5,9 @@
     "module": "commonjs",
     "target": "es2018",
     "types": [
-      "jasmine",
-      "jasminewd2",
       "node",
-      "webdriverio/async"
+      "webdriverio/async",
+      "@wdio/jasmine-framework"
     ]
   }
 }
