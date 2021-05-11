@@ -3,10 +3,8 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      // "jasmine",
-      "node",
-      "webdriverio/async",
-      "@wdio/jasmine-framework"
+      "jasmine",
+      "node"
     ]
   },
   "files": [
