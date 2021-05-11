@@ -1,13 +1,18 @@
-import { Browser, Element } from 'webdriverio';
-
 export class AppPage {
 
-  async navigateTo(browser: Browser<'async'>): Promise<string> {
+  async navigateTo(): Promise<string> {
     return browser.url('');
   }
 
-  async getTitle(browser: Browser<'async'>): Promise<string> {
-    const h1 = await browser.$('app-root h1') as Element<'async'>;
-    return h1.getText();
+  async getTitle(): Promise<string> {
+    const $h1: WebdriverIO.Element = await $('app-root h1');
+    return $h1.getText();
+  }
+
+  async getProductLinkByName(name: string): Promise<WebdriverIO.Element> {
+    const $productMaster = await $('app-root app-product-master');
+    const $name = await $productMaster.$(`.product-title=${name}`);
+    // clicking on the image triggers the navigation
+    return (await $name.parentElement()).$('img');
   }
 }
