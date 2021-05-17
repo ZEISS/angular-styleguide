@@ -5,4 +5,7 @@ module.exports = {
     transform: {
         '^.+\\.ts$': 'ts-jest',
     },
+    globals: {
+        __BASE_URL__: "http://localhost:4200/"
+    }
 }

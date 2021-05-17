@@ -6,7 +6,10 @@ export class AppPage {
   }
 
   async navigateTo(): Promise<void> {
-    await this.page.goto('http://localhost:4200/'); // TODO: base url?
+    // Could not find a good way to type global jest variables.
+    // See https://stackoverflow.com/questions/64172325/typescript-jest-global-variable-example
+    const url = (global as any).__BASE_URL__;
+    await this.page.goto(url);
   }
 
   async getTitle(): Promise<string> {
