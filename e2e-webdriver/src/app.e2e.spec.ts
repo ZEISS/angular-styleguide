@@ -1,5 +1,5 @@
-import { AppPage } from './page-objects-webdriver/app.po';
-import { ProductDetailPage } from './page-objects-webdriver/product-detail.po';
+import { AppPage } from './page-objects/app.po';
+import { ProductDetailPage } from './page-objects/product-detail.po';
 
 describe('workspace-project App', async () => {
     let page: AppPage;

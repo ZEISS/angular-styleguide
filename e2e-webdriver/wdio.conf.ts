@@ -24,7 +24,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './e2e/src/integration-webdriver/**/*.spec.ts'
+        './e2e-webdriver/src/**/*.spec.ts'
     ],
     // Patterns to exclude.
     exclude: [

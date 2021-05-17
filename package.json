@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "e2e:wdio": "wdio run ./e2e/src/integration-webdriver/wdio.conf.ts",
+    "e2e:wdio": "wdio run ./e2e-webdriver/wdio.conf.ts",
     "galen": "galen",
     "layout-tests:browserstack": "bash ./layout-tests/run-tests-on-browserstack.sh"
   },
