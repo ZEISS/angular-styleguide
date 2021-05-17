@@ -1,4 +1,4 @@
-export const config: WebdriverIO.Config = {
+export const config = {
 
     // ====================
     // Runner Configuration

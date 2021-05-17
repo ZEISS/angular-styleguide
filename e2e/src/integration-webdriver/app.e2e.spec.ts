@@ -1,5 +1,4 @@
 import { AppPage } from './page-objects-webdriver/app.po';
-import { Browser } from 'webdriverio';
 import { ProductDetailPage } from './page-objects-webdriver/product-detail.po';
 
 describe('workspace-project App', async () => {
