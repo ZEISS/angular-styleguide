@@ -4,15 +4,13 @@ export class AppPage {
     return browser.url('');
   }
 
-  async getTitle(): Promise<string> {
-    const $h1: WebdriverIO.Element = await $('app-root h1');
-    return $h1.getText();
+  get title(): Promise<WebdriverIO.Element> {
+    return $('app-product-master h1');
   }
 
-  async getProductLinkByName(name: string): Promise<WebdriverIO.Element> {
-    const $productMaster = await $('app-root app-product-master');
-    const $name = await $productMaster.$(`.product-title=${name}`);
-    // clicking on the image triggers the navigation
-    return (await $name.parentElement()).$('img');
+  async getProductImageByName(name: string): Promise<WebdriverIO.Element> {
+    const productMaster = await $('app-product-master');
+    const title = await productMaster.$(`.product-title=${name}`);
+    return (await title.parentElement()).$('img');
   }
 }

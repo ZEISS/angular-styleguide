@@ -12,17 +12,17 @@ describe('workspace-project App', async () => {
 
     it('should display title', async () => {
         await page.navigateTo();
-        expect(await page.getTitle()).toEqual('GET YOUR ICE CREAM');
+        await expectAsync(page.title).toHaveText('GET YOUR ICE CREAM');
     });
 
     it('should navigate to correct detail page when product was clicked', async () => {
         await page.navigateTo();
         const productName = 'Solero';
-        const $product = await page.getProductLinkByName(productName);
+        const productImage = await page.getProductImageByName(productName);
 
-        await $product.click();
+        await productImage.click();
 
-        expect(await detailPage.getTitle()).toEqual(productName);
+        await expectAsync(detailPage.title).toHaveText(productName);
     });
 });
 

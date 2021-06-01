@@ -9,7 +9,8 @@
         "types": [
             "node",
             "webdriverio/async",
-            "@wdio/jasmine-framework"
+            "jasmine",
+            "expect-webdriverio/jasmine",
         ]
     }
 }
