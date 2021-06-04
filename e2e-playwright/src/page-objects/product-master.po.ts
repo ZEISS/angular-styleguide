@@ -1,6 +1,6 @@
 import { ElementHandle, Page } from 'playwright';
 
-export class AppPage {
+export class ProductMasterPage {
 
   constructor(private page: Page) {
   }
@@ -13,21 +13,20 @@ export class AppPage {
   }
 
   async getTitle(): Promise<string> {
-    const title = await this.page.textContent('app-root h1');
+    const title = await this.page.textContent('app-product-master h1');
     if (title === null) {
       throw 'Could not find title tag';
     }
     return title;
   }
 
-  async getProductLinkByName(name: string): Promise<ElementHandle<SVGElement | HTMLElement>> {
-    const $name = await this.page.waitForSelector(`app-root app-product-master .product-title:text-is("${name}")`);
-    const $parent = await $name.$('xpath=..');
-    // clicking on the image triggers the navigation
-    const $result = await $parent?.$('img');
-    if ($result == null) {
+  async getProductImageByName(name: string): Promise<ElementHandle<SVGElement | HTMLElement>> {
+    const title = await this.page.waitForSelector(`app-product-master .product-title:text-is("${name}")`);
+    const parent = await title.$('xpath=..');
+    const image = await parent?.$('img');
+    if (image == null) {
       throw 'Could not find product link';
     }
-    return $result;
+    return image;
   }
 }

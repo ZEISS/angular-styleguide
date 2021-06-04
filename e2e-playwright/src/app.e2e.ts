@@ -1,9 +1,9 @@
 import { Browser, BrowserContext, chromium, Page } from 'playwright';
-import { AppPage } from './page-objects/app.po';
+import { ProductMasterPage } from './page-objects/product-master.po';
 import { ProductDetailPage } from './page-objects/product-detail.po';
 
 describe('workspace-project App', () => {
-    let page: AppPage;
+    let page: ProductMasterPage;
     let detailPage: ProductDetailPage;
     let browser: Browser;
     let browserPage: Page;
@@ -20,7 +20,7 @@ describe('workspace-project App', () => {
     });
 
     beforeEach(async () => {
-        page = new AppPage(browserPage);
+        page = new ProductMasterPage(browserPage);
         detailPage = new ProductDetailPage(browserPage);
     });
 
@@ -32,9 +32,9 @@ describe('workspace-project App', () => {
     it('should navigate to correct detail page when product was clicked', async () => {
         await page.navigateTo();
         const productName = 'Solero';
-        const $product = await page.getProductLinkByName(productName);
+        const productImage = await page.getProductImageByName(productName);
 
-        await $product.click();
+        await productImage.click();
 
         expect(await detailPage.getTitle()).toEqual(productName);
     });
