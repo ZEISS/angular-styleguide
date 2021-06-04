@@ -1,12 +1,12 @@
-import { AppPage } from './page-objects/app.po';
+import { ProductMasterPage } from './page-objects/product-master.po';
 import { ProductDetailPage } from './page-objects/product-detail.po';
 
 describe('workspace-project App', async () => {
-    let page: AppPage;
+    let page: ProductMasterPage;
     let detailPage: ProductDetailPage;
 
     beforeEach(() => {
-        page = new AppPage();
+        page = new ProductMasterPage();
         detailPage = new ProductDetailPage();
     });
 
