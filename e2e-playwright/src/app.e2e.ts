@@ -1,8 +1,7 @@
-import { Browser, BrowserContext, chromium, Page } from 'playwright';
 import { ProductMasterPage } from './page-objects/product-master.po';
 import { ProductDetailPage } from './page-objects/product-detail.po';
 
-describe('workspace-project App', () => {
+describe('Product master page', () => {
     let page: ProductMasterPage;
     let detailPage: ProductDetailPage;
 
