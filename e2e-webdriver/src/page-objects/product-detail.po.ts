@@ -5,3 +5,5 @@ export class ProductDetailPage {
     }
 
 }
+
+export const productDetailPage = new ProductDetailPage();

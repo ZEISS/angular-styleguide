@@ -14,3 +14,5 @@ export class ProductMasterPage {
     return (await title.parentElement()).$('img');
   }
 }
+
+export const productMasterPage = new ProductMasterPage();
