@@ -5,23 +5,10 @@ import { ProductDetailPage } from './page-objects/product-detail.po';
 describe('workspace-project App', () => {
     let page: ProductMasterPage;
     let detailPage: ProductDetailPage;
-    let browser: Browser;
-    let browserPage: Page;
-    let context: BrowserContext;
-
-    beforeAll(async () => {
-        browser = await chromium.launch();
-        context = await browser.newContext();
-        browserPage = await context.newPage();
-    });
-
-    afterAll(async () => {
-        browser.close();
-    });
 
     beforeEach(async () => {
-        page = new ProductMasterPage(browserPage);
-        detailPage = new ProductDetailPage(browserPage);
+        page = new ProductMasterPage();
+        detailPage = new ProductDetailPage();
     });
 
     it('should display title', async () => {
