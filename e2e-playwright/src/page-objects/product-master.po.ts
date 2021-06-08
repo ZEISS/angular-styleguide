@@ -9,9 +9,8 @@ export class ProductMasterPage {
     await page.goto(url);
   }
 
-  async getTitle(): Promise<string | null> {
-    const title = await page.textContent('app-product-master h1');
-    return title;
+  getTitle(): Promise<string | null> {
+    return page.textContent('app-product-master h1');
   }
 
   async getProductImageByName(name: string): Promise<ElementHandleForTag<"img"> | null> {
