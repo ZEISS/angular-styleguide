@@ -20,7 +20,7 @@ describe('Product master page', () => {
         const productName = 'Solero';
         const productImage = await page.getProductImageByName(productName);
 
-        await productImage.click();
+        await productImage?.click();
 
         expect(await detailPage.getTitle()).toEqual(productName);
     });

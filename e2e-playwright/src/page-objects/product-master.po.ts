@@ -1,4 +1,4 @@
-import { ElementHandle, Page } from 'playwright';
+import { ElementHandleForTag } from 'playwright/types/structs';
 
 export class ProductMasterPage {
 
@@ -9,21 +9,17 @@ export class ProductMasterPage {
     await page.goto(url);
   }
 
-  async getTitle(): Promise<string> {
+  async getTitle(): Promise<string | null> {
     const title = await page.textContent('app-product-master h1');
-    if (title === null) {
-      throw 'Could not find title tag';
-    }
     return title;
   }
 
-  async getProductImageByName(name: string): Promise<ElementHandle<SVGElement | HTMLElement>> {
+  async getProductImageByName(name: string): Promise<ElementHandleForTag<"img"> | null> {
     const title = await page.waitForSelector(`app-product-master .product-title:text-is("${name}")`);
     const parent = await title.$('xpath=..');
-    const image = await parent?.$('img');
-    if (image == null) {
-      throw 'Could not find product link';
+    if (parent == null) {
+      return null;
     }
-    return image;
+    return parent.$('img');
   }
 }
