@@ -8,5 +8,5 @@ import { Recommendation } from '@models/recommendation';
 })
 export class RecommendationComponent {
 
-  @Input() public recommendation: Recommendation;
+  @Input() recommendation: Recommendation;
 }

@@ -1,16 +1,17 @@
 {
-    "include": [
-        "src/**/*.ts", "wdio.conf.ts"
-    ],
-    "compilerOptions": {
-        "outDir": "../../out-tsc/e2e",
-        "module": "es2020",
-        "target": "es2015",
-        "types": [
-            "node",
-            "webdriverio/async",
-            "jasmine",
-            "expect-webdriverio/jasmine",
-        ]
-    }
+  "include": [
+    "src/**/*.ts",
+    "wdio.conf.ts"
+  ],
+  "compilerOptions": {
+    "outDir": "../out-tsc/e2e",
+    "module": "commonjs",
+    "target": "es2020",
+    "types": [
+      "node",
+      "webdriverio/async",
+      "jasmine",
+      "expect-webdriverio/jasmine"
+    ]
+  }
 }

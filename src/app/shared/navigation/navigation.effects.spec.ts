@@ -1,4 +1,4 @@
-import { waitForAsync, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { NavigationExtras, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
@@ -30,7 +30,7 @@ describe('NavigationEffects', () => {
       spyOn(router, 'navigateByUrl').and.returnValue(Promise.resolve(true));
 
       const url = 'some/url';
-      const navigationExtras = {queryParams: {foo: 'bar'}};
+      const navigationExtras: NavigationExtras = {queryParams: {foo: 'bar'}};
 
       actions$ = of(navigate({url, navigationExtras}));
 
@@ -43,7 +43,7 @@ describe('NavigationEffects', () => {
       spyOn(router, 'navigateByUrl').and.returnValue(Promise.reject('navigation failed'));
 
       const url = 'some/url';
-      const navigationExtras = {queryParams: {foo: 'bar'}};
+      const navigationExtras: NavigationExtras = {queryParams: {foo: 'bar'}};
 
       actions$ = of(navigate({url, navigationExtras}));
 

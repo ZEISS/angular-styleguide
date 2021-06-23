@@ -13,7 +13,7 @@ import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
 })
 export class ProductMasterComponent implements OnInit {
 
-  products$: Observable<Product[]> = this.store.select(selectProducts);
+  products$ = this.store.select(selectProducts);
 
   constructor(private store: Store<StateWithCatalog>) {
   }
