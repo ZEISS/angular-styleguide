@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
@@ -12,7 +12,7 @@ describe('RecommendationsComponent', () => {
   let fixture: ComponentFixture<RecommendationsComponent>;
   let store: MockStore;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [RecommendationsComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import { OrderConfirmationComponent } from './order-confirmation.component';
@@ -9,7 +9,7 @@ describe('OrderConfirmationComponent', () => {
   let fixture: ComponentFixture<OrderConfirmationComponent>;
   let store: MockStore;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [OrderConfirmationComponent],
       providers: [
