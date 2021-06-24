@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import { ProductMasterComponent } from './product-master.component';
@@ -11,7 +11,7 @@ describe('ProductMasterComponent', () => {
   let fixture: ComponentFixture<ProductMasterComponent>;
   let store: MockStore;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ProductMasterComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
