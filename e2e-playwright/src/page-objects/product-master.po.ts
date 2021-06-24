@@ -13,7 +13,7 @@ export class ProductMasterPage {
     return page.textContent('app-product-master h1');
   }
 
-  async getProductImageByName(name: string): Promise<ElementHandleForTag<"img"> | null> {
+  async getProductImageByName(name: string): Promise<ElementHandleForTag<'img'> | null> {
     const title = await page.waitForSelector(`app-product-master .product-title:text-is("${name}")`);
     const parent = await title.$('xpath=..');
     if (parent == null) {

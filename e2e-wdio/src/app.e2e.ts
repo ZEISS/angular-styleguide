@@ -1,7 +1,7 @@
 import { productMasterPage, ProductMasterPage } from './page-objects/product-master.po';
 import { productDetailPage, ProductDetailPage } from './page-objects/product-detail.po';
 
-describe('Product master page', async () => {
+describe('Product master page', () => {
 
     it('should display title', async () => {
         await productMasterPage.navigateTo();

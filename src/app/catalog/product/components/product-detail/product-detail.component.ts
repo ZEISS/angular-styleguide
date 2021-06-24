@@ -14,7 +14,7 @@ import { Product } from '@models/product';
 })
 export class ProductDetailComponent {
 
-  product$: Observable<Product> = this.store.select(selectCurrentProductDetails);
+  product$ = this.store.select(selectCurrentProductDetails);
 
   constructor(private store: Store<StateWithCatalog>) {
   }

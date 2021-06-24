@@ -20,10 +20,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-### Protractor
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
 ### Webdriver.io / Playwright
 To execute the [webdriver.io](https://webdriver.io/) or [playwright](https://playwright.dev/) tests, ensure the application is running. Use `ng serve` to run the application. 
 
