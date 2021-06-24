@@ -1,0 +1,14 @@
+# Output folders
+dist
+out-tsc
+
+# Config files
+.gitignore
+.npmrc
+
+# Non-text formats
+*.png
+
+# Galen dumps and reports
+dumps
+reports
