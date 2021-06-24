@@ -112,9 +112,21 @@
               "src/support/testing/**/*.ts"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "angular-redux-shop"
+  "defaultProject": "angular-redux-shop",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
