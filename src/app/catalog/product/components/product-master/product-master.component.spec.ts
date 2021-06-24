@@ -4,8 +4,7 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import { ProductMasterComponent } from './product-master.component';
 import { loadProductDetails, loadProducts } from '@app/catalog/product/store/product.actions';
-import { productFeatureKey } from '@app/catalog/product/store/product.reducer';
-import { catalogFeatureKey } from '@app/catalog/store/catalog.reducer';
+import { selectProducts } from '@app/catalog/product/store/product.selectors';
 
 describe('ProductMasterComponent', () => {
   let component: ProductMasterComponent;
@@ -17,7 +16,9 @@ describe('ProductMasterComponent', () => {
       declarations: [ProductMasterComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        provideMockStore({initialState: {[catalogFeatureKey]: {[productFeatureKey]: {}}}})
+        provideMockStore({selectors: [{ selector: selectProducts, value: [] }] })
+        // or mock store by setting initial state
+        // provideMockStore({initialState: {[catalogFeatureKey]: {[productFeatureKey]: {}}}})
       ],
     })
       .compileComponents();
