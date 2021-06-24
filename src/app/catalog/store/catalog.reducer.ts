@@ -3,7 +3,7 @@ import {
   initialState as productInitialState,
   productFeatureKey,
   ProductState,
-  reducer as productReducer
+  reducer as productReducer,
 } from '@app/catalog/product/store/product.reducer';
 import {
   initialState as recommendationInitialState,
@@ -12,7 +12,6 @@ import {
   reducer as recommendationReducer,
 } from '@app/catalog/recommendation/store/recommendation.reducer';
 import { State } from '@app/reducers';
-
 
 export const catalogFeatureKey = 'catalog';
 
@@ -27,13 +26,14 @@ export interface StateWithCatalog extends State {
 
 export const initialState: CatalogState = {
   [productFeatureKey]: productInitialState,
-  [recommendationFeatureKey]: recommendationInitialState
+  [recommendationFeatureKey]: recommendationInitialState,
 };
-
 
 export const reducer = combineReducers({
   [productFeatureKey]: productReducer,
-  [recommendationFeatureKey]: recommendationReducer
+  [recommendationFeatureKey]: recommendationReducer,
 });
 
-export const selectCatalogFeature = createFeatureSelector<StateWithCatalog, CatalogState>(catalogFeatureKey);
+export const selectCatalogFeature = createFeatureSelector<StateWithCatalog, CatalogState>(
+  catalogFeatureKey
+);

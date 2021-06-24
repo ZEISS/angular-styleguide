@@ -9,12 +9,9 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      {enableTracing: true}, // <-- debugging purposes only
+      { enableTracing: true } // <-- debugging purposes only
     ),
   ],
-  exports: [
-    RouterModule,
-  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

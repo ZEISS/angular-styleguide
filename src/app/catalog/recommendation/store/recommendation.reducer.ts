@@ -12,8 +12,7 @@ export const initialState: RecommendationState = {
   recommendations: [],
 };
 
-
 export const reducer = createReducer(
   initialState,
-  on(loadRecommendationsSuccess, (state, {recommendations}) => ({...state, recommendations})),
+  on(loadRecommendationsSuccess, (state, { recommendations }) => ({ ...state, recommendations }))
 );

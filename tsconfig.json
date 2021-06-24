@@ -16,23 +16,12 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "paths": {
-      "@models/*": [
-        "src/model/*"
-      ],
-      "@environment": [
-        "src/environments/environment"
-      ],
-      "@store/*": [
-        "src/support/store/*"
-      ],
-      "@app/*": [
-        "src/app/*"
-      ]
+      "@models/*": ["src/model/*"],
+      "@environment": ["src/environments/environment"],
+      "@store/*": ["src/support/store/*"],
+      "@app/*": ["src/app/*"]
     }
   },
   "angularCompilerOptions": {

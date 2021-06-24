@@ -11,16 +11,17 @@ describe('RecommendationsComponent', () => {
   let fixture: ComponentFixture<RecommendationsComponent>;
   let store: MockStore;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [RecommendationsComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [
-        provideMockStore({selectors: [{ selector: selectRecommendations, value: [] }] })
-      ],
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [RecommendationsComponent],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
+        providers: [
+          provideMockStore({ selectors: [{ selector: selectRecommendations, value: [] }] }),
+        ],
+      }).compileComponents();
     })
-      .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(RecommendationsComponent);

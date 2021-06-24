@@ -1,5 +1,4 @@
 export class ProductMasterPage {
-
   async navigateTo(): Promise<string> {
     return browser.url('');
   }

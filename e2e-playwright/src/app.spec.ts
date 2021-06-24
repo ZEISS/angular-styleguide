@@ -3,7 +3,6 @@ import { ProductMasterPage } from './page-objects/product-master.po';
 import { ProductDetailPage } from './page-objects/product-detail.po';
 
 test.describe('Product master page', () => {
-
   let masterPage: ProductMasterPage;
   let detailPage: ProductDetailPage;
 
@@ -14,7 +13,7 @@ test.describe('Product master page', () => {
     await masterPage.navigateTo();
   });
 
-  test('should display title', async ({page}) => {
+  test('should display title', async ({ page }) => {
     expect(await masterPage.getTitle()).toEqual('GET YOUR ICE CREAM');
   });
 

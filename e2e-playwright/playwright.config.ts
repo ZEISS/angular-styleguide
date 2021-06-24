@@ -18,7 +18,7 @@ const config: PlaywrightTestConfig = {
       use: {
         browserName: 'webkit',
         viewport: { width: 1200, height: 750 },
-      }
+      },
     },
     // Test against mobile viewports.
     {
@@ -34,7 +34,7 @@ const config: PlaywrightTestConfig = {
       use: {
         browserName: 'firefox',
         viewport: { width: 800, height: 600 },
-      }
+      },
     },
   ],
 };

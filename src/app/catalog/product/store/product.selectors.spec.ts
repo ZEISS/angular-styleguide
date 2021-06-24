@@ -10,9 +10,9 @@ describe('Product Selectors', () => {
         [catalogFeatureKey]: {
           [productFeatureKey]: {
             products: ProductTestData.validProductList,
-            currentProductDetails: undefined
-          }
-        }
+            currentProductDetails: undefined,
+          },
+        },
       } as StateWithCatalog;
       expect(selectProducts(state)).toEqual(ProductTestData.validProductList);
     });
@@ -24,9 +24,9 @@ describe('Product Selectors', () => {
         [catalogFeatureKey]: {
           [productFeatureKey]: {
             products: ProductTestData.validProductList,
-            currentProductDetails: ProductTestData.validProduct
-          }
-        }
+            currentProductDetails: ProductTestData.validProduct,
+          },
+        },
       } as StateWithCatalog;
       expect(selectCurrentProductDetails(state)).toEqual(ProductTestData.validProduct);
     });

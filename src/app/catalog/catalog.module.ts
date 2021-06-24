@@ -13,7 +13,7 @@ import { CatalogRoutingModule } from '@app/catalog/catalog-routing.module';
     ProductModule,
     CatalogRoutingModule,
     RecommendationModule,
-    StoreModule.forFeature(catalogFeatureKey, reducer)
-  ]
+    StoreModule.forFeature(catalogFeatureKey, reducer),
+  ],
 })
-export class CatalogModule { }
+export class CatalogModule {}

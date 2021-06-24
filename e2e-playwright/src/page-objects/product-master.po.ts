@@ -2,9 +2,7 @@ import { Page, Response } from '@playwright/test';
 import { baseUrl } from '../../playwright.config';
 
 export class ProductMasterPage {
-
-  constructor(private page: Page) {
-  }
+  constructor(private page: Page) {}
 
   navigateTo(): Promise<Response> {
     return this.page.goto(baseUrl);
@@ -15,7 +13,9 @@ export class ProductMasterPage {
   }
 
   async getProductImageByName(name: string) {
-    const title = await this.page.waitForSelector(`app-product-master .product-title:text-is("${name}")`);
+    const title = await this.page.waitForSelector(
+      `app-product-master .product-title:text-is("${name}")`
+    );
     const parent = await title.$('xpath=..');
     if (parent == null) {
       return null;

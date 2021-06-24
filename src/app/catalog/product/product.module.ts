@@ -18,17 +18,8 @@ import { RecommendationModule } from '@app/catalog/recommendation/recommendation
     SharedModule,
     EffectsModule.forFeature([ProductEffects]),
   ],
-  declarations: [
-    ProductDetailComponent,
-    ProductMasterComponent,
-  ],
-  exports: [
-    ProductDetailComponent,
-    ProductMasterComponent,
-  ],
-  providers: [
-    ProductService,
-  ],
+  declarations: [ProductDetailComponent, ProductMasterComponent],
+  exports: [ProductDetailComponent, ProductMasterComponent],
+  providers: [ProductService],
 })
-export class ProductModule {
-}
+export class ProductModule {}

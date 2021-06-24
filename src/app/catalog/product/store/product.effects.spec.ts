@@ -8,7 +8,12 @@ import { Observable, of, throwError } from 'rxjs';
 import { ProductService } from '@app/catalog/product/services/product.service';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 import { ProductTestData } from '@models/product.testdata';
-import { loadProductDetails, loadProductDetailsSuccess, loadProducts, loadProductsSuccess } from './product.actions';
+import {
+  loadProductDetails,
+  loadProductDetailsSuccess,
+  loadProducts,
+  loadProductsSuccess,
+} from './product.actions';
 import { ProductEffects } from './product.effects';
 
 describe('ProductEffects', () => {
@@ -23,9 +28,10 @@ describe('ProductEffects', () => {
         ProductEffects,
         provideMockActions(() => actions$),
         {
-          provide: ProductService, useValue: jasmine.createSpyObj<ProductService>(['loadProducts', 'getProduct'])
-        }
-      ]
+          provide: ProductService,
+          useValue: jasmine.createSpyObj<ProductService>(['loadProducts', 'getProduct']),
+        },
+      ],
     });
 
     effects = TestBed.inject(ProductEffects);
@@ -40,7 +46,7 @@ describe('ProductEffects', () => {
       actions$ = of(loadProducts());
       const resultObservable$ = effects.loadProducts$;
 
-      expect(resultObservable$).toEmitValues([loadProductsSuccess({products: loadedProducts})]);
+      expect(resultObservable$).toEmitValues([loadProductsSuccess({ products: loadedProducts })]);
       expect(productServiceSpy.loadProducts).toHaveBeenCalled();
     });
 
@@ -63,8 +69,8 @@ describe('ProductEffects', () => {
       const resultObservable$ = effects.loadProductDetails$;
 
       expect(resultObservable$).toEmitValues([
-        loadProductDetailsSuccess({product: detailedProducts}),
-        navigate({url: '/product/1'})
+        loadProductDetailsSuccess({ product: detailedProducts }),
+        navigate({ url: '/product/1' }),
       ]);
       expect(productServiceSpy.getProduct).toHaveBeenCalled();
     });

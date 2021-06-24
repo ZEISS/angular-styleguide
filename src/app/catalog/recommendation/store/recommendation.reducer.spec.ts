@@ -15,11 +15,16 @@ describe('Recommendation Reducer', () => {
 
   describe('a loadRecommendationsSuccess action', () => {
     it('should put recommendations into state', () => {
-      const action = loadRecommendationsSuccess({recommendations: RecommendationTestData.validRecommendations});
+      const action = loadRecommendationsSuccess({
+        recommendations: RecommendationTestData.validRecommendations,
+      });
 
       const result = reducer(initialState, action);
 
-      expect(result).toEqual({...initialState, recommendations: RecommendationTestData.validRecommendations});
+      expect(result).toEqual({
+        ...initialState,
+        recommendations: RecommendationTestData.validRecommendations,
+      });
     });
   });
 });

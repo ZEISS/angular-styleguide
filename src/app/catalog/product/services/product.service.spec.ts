@@ -24,12 +24,13 @@ describe('ProductService', () => {
 
   describe('loadProducts', () => {
     it('should retrieve products from api', (done) => {
-      service.loadProducts().subscribe(products => {
+      service.loadProducts().subscribe((products) => {
         expect(products).toEqual(ProductTestData.validProductList);
         done();
       });
 
-      httpMock.expectOne({url: 'http://www.mocky.io/v2/5b752bc12e00006f00535f00', method: 'GET'})
+      httpMock
+        .expectOne({ url: 'http://www.mocky.io/v2/5b752bc12e00006f00535f00', method: 'GET' })
         .flush(ProductTestData.validProductList);
       httpMock.verify();
     });
@@ -37,12 +38,13 @@ describe('ProductService', () => {
 
   describe('getProduct', () => {
     it('should retrieve products from api and filter product by id', (done) => {
-      service.getProduct(ProductTestData.validProduct.id).subscribe(products => {
+      service.getProduct(ProductTestData.validProduct.id).subscribe((products) => {
         expect(products).toEqual(ProductTestData.validProduct);
         done();
       });
 
-      httpMock.expectOne({url: 'http://www.mocky.io/v2/5b752bc12e00006f00535f00', method: 'GET'})
+      httpMock
+        .expectOne({ url: 'http://www.mocky.io/v2/5b752bc12e00006f00535f00', method: 'GET' })
         .flush(ProductTestData.validProductList);
       httpMock.verify();
     });

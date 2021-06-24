@@ -12,17 +12,15 @@ import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
   styleUrls: ['./product-master.component.scss'],
 })
 export class ProductMasterComponent implements OnInit {
-
   products$ = this.store.select(selectProducts);
 
-  constructor(private store: Store<StateWithCatalog>) {
-  }
+  constructor(private store: Store<StateWithCatalog>) {}
 
   ngOnInit() {
     this.store.dispatch(loadProducts());
   }
 
   loadProductDetails(id: number) {
-    this.store.dispatch(loadProductDetails({productId: id}));
+    this.store.dispatch(loadProductDetails({ productId: id }));
   }
 }

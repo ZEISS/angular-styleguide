@@ -1,17 +1,9 @@
 {
-  "include": [
-    "src/**/*.ts",
-    "wdio.conf.ts"
-  ],
+  "include": ["src/**/*.ts", "wdio.conf.ts"],
   "compilerOptions": {
     "outDir": "../out-tsc/e2e",
     "module": "commonjs",
     "target": "es2020",
-    "types": [
-      "node",
-      "webdriverio/async",
-      "jasmine",
-      "expect-webdriverio/jasmine"
-    ]
+    "types": ["node", "webdriverio/async", "jasmine", "expect-webdriverio/jasmine"]
   }
 }

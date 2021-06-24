@@ -4,10 +4,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
 import { OrderRoutingModule } from './order.routing-module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    OrderRoutingModule,
-  ],
+  imports: [CommonModule, OrderRoutingModule],
   declarations: [OrderConfirmationComponent],
 })
-export class OrderModule { }
+export class OrderModule {}

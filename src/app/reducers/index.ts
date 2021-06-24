@@ -5,8 +5,6 @@ export interface State {
   // Here goes state of the core app. Feature state is defined in feature modules instead.
 }
 
-export const reducers: ActionReducerMap<State> = {
-};
-
+export const reducers: ActionReducerMap<State> = {};
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];

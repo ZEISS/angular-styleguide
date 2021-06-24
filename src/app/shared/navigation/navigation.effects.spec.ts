@@ -15,10 +15,7 @@ describe('NavigationEffects', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      providers: [
-        NavigationEffects,
-        provideMockActions(() => actions$)
-      ]
+      providers: [NavigationEffects, provideMockActions(() => actions$)],
     });
 
     effects = TestBed.inject(NavigationEffects);
@@ -30,9 +27,9 @@ describe('NavigationEffects', () => {
       spyOn(router, 'navigateByUrl').and.returnValue(Promise.resolve(true));
 
       const url = 'some/url';
-      const navigationExtras: NavigationExtras = {queryParams: {foo: 'bar'}};
+      const navigationExtras: NavigationExtras = { queryParams: { foo: 'bar' } };
 
-      actions$ = of(navigate({url, navigationExtras}));
+      actions$ = of(navigate({ url, navigationExtras }));
 
       const result$ = effects.navigate$;
       expect(result$).toEmitNoValues();
@@ -43,12 +40,12 @@ describe('NavigationEffects', () => {
       spyOn(router, 'navigateByUrl').and.returnValue(Promise.reject('navigation failed'));
 
       const url = 'some/url';
-      const navigationExtras: NavigationExtras = {queryParams: {foo: 'bar'}};
+      const navigationExtras: NavigationExtras = { queryParams: { foo: 'bar' } };
 
-      actions$ = of(navigate({url, navigationExtras}));
+      actions$ = of(navigate({ url, navigationExtras }));
 
-      effects.navigate$.subscribe(result => {
-        expect(result).toEqual(navigationFailed({error: 'navigation failed'}));
+      effects.navigate$.subscribe((result) => {
+        expect(result).toEqual(navigationFailed({ error: 'navigation failed' }));
         done();
       });
       expect(router.navigateByUrl).toHaveBeenCalledWith(url, navigationExtras);

@@ -5,8 +5,6 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "types": [
-      "expect-playwright",
-    ]
-  },
+    "types": ["expect-playwright"]
+  }
 }

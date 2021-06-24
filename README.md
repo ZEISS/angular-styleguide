@@ -21,7 +21,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 ### Webdriver.io / Playwright
-To execute the [webdriver.io](https://webdriver.io/) or [playwright](https://playwright.dev/) tests, ensure the application is running. Use `ng serve` to run the application. 
+
+To execute the [webdriver.io](https://webdriver.io/) or [playwright](https://playwright.dev/) tests, ensure the application is running. Use `ng serve` to run the application.
 
 Run `npm run e2e:wdio` to execute the end-to-end tests via webdriver.
 
