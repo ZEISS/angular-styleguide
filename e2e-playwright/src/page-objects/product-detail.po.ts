@@ -1,6 +1,11 @@
+import { Page } from '@playwright/test';
+
 export class ProductDetailPage {
 
+  constructor(private page: Page) {
+  }
+
   getTitle(): Promise<string | null> {
-    return page.textContent('app-product-detail .product-details h2');
+    return this.page.textContent('app-product-detail .product-details h2');
   }
 }

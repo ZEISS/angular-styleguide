@@ -1,17 +1,24 @@
+import { test, expect } from '@playwright/test';
 import { ProductMasterPage } from './page-objects/product-master.po';
 import { ProductDetailPage } from './page-objects/product-detail.po';
 
-describe('Product master page', () => {
-  const masterPage = new ProductMasterPage();
-  const detailPage = new ProductDetailPage();
+test.describe('Product master page', () => {
 
-  it('should display title', async () => {
+  let masterPage: ProductMasterPage;
+  let detailPage: ProductDetailPage;
+
+  test.beforeEach(async ({ page }) => {
+    masterPage = new ProductMasterPage(page);
+    detailPage = new ProductDetailPage(page);
+
     await masterPage.navigateTo();
+  });
+
+  test('should display title', async ({page}) => {
     expect(await masterPage.getTitle()).toEqual('GET YOUR ICE CREAM');
   });
 
-  it('should navigate to correct detail page when product was clicked', async () => {
-    await masterPage.navigateTo();
+  test('should navigate to correct detail page when product was clicked', async () => {
     const productName = 'Solero';
     const productImage = await masterPage.getProductImageByName(productName);
 
