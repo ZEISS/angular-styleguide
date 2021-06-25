@@ -1,6 +1,6 @@
 # AngularReduxShop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Development server
 
@@ -21,11 +21,16 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 ### Webdriver.io / Playwright
-To execute the [webdriver.io](https://webdriver.io/) or [playwright](https://playwright.dev/) tests, ensure the application is running. Use `ng serve` to run the application. 
+
+To execute the [webdriver.io](https://webdriver.io/) or [playwright](https://playwright.dev/) tests, ensure the application is running. Use `ng serve` to run the application.
 
 Run `npm run e2e:wdio` to execute the end-to-end tests via webdriver.
 
 Run `npm run e2e:playwright` to execute the end-to-end tests via playwright.
+
+## Code formatting
+
+This project uses [Prettier](https://prettier.io) as code formatter. It is configured to run as a pre-commit hook on staged files to ensure the code in the repository is always properly formatted.
 
 ## Further help
 

@@ -13,17 +13,15 @@ import { Product } from '@models/product';
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent {
-
   product$ = this.store.select(selectCurrentProductDetails);
 
-  constructor(private store: Store<StateWithCatalog>) {
-  }
+  constructor(private store: Store<StateWithCatalog>) {}
 
   backToProductOverview() {
-    this.store.dispatch(navigate({url: '/'}));
+    this.store.dispatch(navigate({ url: '/' }));
   }
 
   showConfirmation() {
-    this.store.dispatch(navigate({url: '/order'}));
+    this.store.dispatch(navigate({ url: '/order' }));
   }
 }

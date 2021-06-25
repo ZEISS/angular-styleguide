@@ -8,18 +8,9 @@ import { CatalogModule } from './catalog/catalog.module';
 import { OrderModule } from './order/order.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    StoreModule,
-    CatalogModule,
-    OrderModule,
-    AppRoutingModule,
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, StoreModule, CatalogModule, OrderModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

@@ -15,21 +15,24 @@ describe('Product Reducer', () => {
 
   describe('a loadProductsSuccess action', () => {
     it('should put products into state', () => {
-      const action = loadProductsSuccess({products: ProductTestData.validProductList});
+      const action = loadProductsSuccess({ products: ProductTestData.validProductList });
 
       const result = reducer(initialState, action);
 
-      expect(result).toEqual({...initialState, products: ProductTestData.validProductList});
+      expect(result).toEqual({ ...initialState, products: ProductTestData.validProductList });
     });
   });
 
   describe('a loadProductDetailsSuccess action', () => {
     it('should put detailed product into state', () => {
-      const action = loadProductDetailsSuccess({product: ProductTestData.validProduct});
+      const action = loadProductDetailsSuccess({ product: ProductTestData.validProduct });
 
       const result = reducer(initialState, action);
 
-      expect(result).toEqual({...initialState, currentProductDetails: ProductTestData.validProduct});
+      expect(result).toEqual({
+        ...initialState,
+        currentProductDetails: ProductTestData.validProduct,
+      });
     });
   });
 });

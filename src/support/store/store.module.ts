@@ -10,11 +10,10 @@ import { environment } from '@environment';
 @NgModule({
   imports: [
     NgRxStoreModule.forRoot(reducers, {
-      metaReducers
+      metaReducers,
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([NavigationEffects]),
   ],
 })
-export class StoreModule {
-}
+export class StoreModule {}

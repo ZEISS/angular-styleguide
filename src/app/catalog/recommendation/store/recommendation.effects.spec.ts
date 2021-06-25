@@ -21,13 +21,15 @@ describe('RecommendationEffects', () => {
         provideMockActions(() => actions$),
         {
           provide: RecommendationService,
-          useValue: jasmine.createSpyObj<RecommendationService>(['loadRecommendations'])
-        }
-      ]
+          useValue: jasmine.createSpyObj<RecommendationService>(['loadRecommendations']),
+        },
+      ],
     });
 
     effects = TestBed.inject(RecommendationEffects);
-    recommendationServiceSpy = TestBed.inject(RecommendationService) as jasmine.SpyObj<RecommendationService>;
+    recommendationServiceSpy = TestBed.inject(
+      RecommendationService
+    ) as jasmine.SpyObj<RecommendationService>;
   });
 
   describe('loadRecommendations$', () => {
@@ -38,13 +40,16 @@ describe('RecommendationEffects', () => {
       actions$ = of(loadRecommendations());
       const resultObservable$ = effects.loadRecommendations$;
 
-      expect(resultObservable$).toEmitValues([loadRecommendationsSuccess({recommendations: loadedRecommendations})]);
+      expect(resultObservable$).toEmitValues([
+        loadRecommendationsSuccess({ recommendations: loadedRecommendations }),
+      ]);
       expect(recommendationServiceSpy.loadRecommendations).toHaveBeenCalled();
     });
 
-
     it('should dispatch an empty action if service throws', () => {
-      recommendationServiceSpy.loadRecommendations.and.returnValue(throwError(new HttpErrorResponse({})));
+      recommendationServiceSpy.loadRecommendations.and.returnValue(
+        throwError(new HttpErrorResponse({}))
+      );
 
       actions$ = of(loadRecommendations());
       const resultObservable$ = effects.loadRecommendations$;

@@ -11,11 +11,9 @@ import { selectRecommendations } from '@app/catalog/recommendation/store/recomme
   styleUrls: ['./recommendations.component.scss'],
 })
 export class RecommendationsComponent implements OnInit {
-
   recommendations$ = this.store.select(selectRecommendations);
 
-  constructor(private store: Store<State>) {
-  }
+  constructor(private store: Store<State>) {}
 
   ngOnInit() {
     this.store.dispatch(loadRecommendations());

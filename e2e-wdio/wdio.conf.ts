@@ -1,5 +1,4 @@
 export const config = {
-
   // ====================
   // Runner Configuration
   // ====================
@@ -23,9 +22,7 @@ export const config = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: [
-    './e2e-wdio/src/**/*.e2e.ts'
-  ],
+  specs: ['./e2e-wdio/src/**/*.e2e.ts'],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -52,23 +49,24 @@ export const config = {
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
   // https://docs.saucelabs.com/reference/platforms-configurator
   //
-  capabilities: [{
-
-    // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-    // grid with only 5 firefox instances available you can make sure that not more than
-    // 5 instances get started at a time.
-    maxInstances: 5,
-    //
-    browserName: 'chrome',
-    acceptInsecureCerts: true,
-    'goog:chromeOptions': {
-      args: ['--headless'],
+  capabilities: [
+    {
+      // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+      // grid with only 5 firefox instances available you can make sure that not more than
+      // 5 instances get started at a time.
+      maxInstances: 5,
+      //
+      browserName: 'chrome',
+      acceptInsecureCerts: true,
+      'goog:chromeOptions': {
+        args: ['--headless'],
+      },
+      // If outputDir is provided WebdriverIO can capture driver session logs
+      // it is possible to configure which logTypes to include/exclude.
+      // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+      // excludeDriverLogs: ['bugreport', 'server'],
     },
-    // If outputDir is provided WebdriverIO can capture driver session logs
-    // it is possible to configure which logTypes to include/exclude.
-    // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-    // excludeDriverLogs: ['bugreport', 'server'],
-  }],
+  ],
   //
   // ===================
   // Test Configurations
@@ -151,7 +149,7 @@ export const config = {
     // an assertion fails.
     expectationResultHandler(passed, assertion) {
       // do something
-    }
+    },
   },
 
   //
@@ -233,7 +231,6 @@ export const config = {
    */
   // afterTest: function(test, context, { error, result, duration, passed, retries }) {
   // },
-
 
   /**
    * Hook that gets executed after the suite has ended

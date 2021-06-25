@@ -6,18 +6,19 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 import { RecommendationService } from '@app/catalog/recommendation/services/recommendation.service';
 import { loadRecommendations, loadRecommendationsSuccess } from './recommendation.actions';
 
-
 @Injectable()
 export class RecommendationEffects {
+  constructor(private actions$: Actions, private service: RecommendationService) {}
 
-  constructor(private actions$: Actions, private service: RecommendationService) {
-  }
-
-  loadRecommendations$ = createEffect(() => this.actions$.pipe(
-    ofType(loadRecommendations),
-    switchMap(() => this.service.loadRecommendations().pipe(
-      map(recommendations => loadRecommendationsSuccess({recommendations})),
-      catchError(() => EMPTY)
-    )),
-  ));
+  loadRecommendations$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadRecommendations),
+      switchMap(() =>
+        this.service.loadRecommendations().pipe(
+          map((recommendations) => loadRecommendationsSuccess({ recommendations })),
+          catchError(() => EMPTY)
+        )
+      )
+    )
+  );
 }

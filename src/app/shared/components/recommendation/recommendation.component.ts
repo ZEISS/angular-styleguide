@@ -7,6 +7,5 @@ import { Recommendation } from '@models/recommendation';
   styleUrls: ['./recommendation.component.scss'],
 })
 export class RecommendationComponent {
-
   @Input() recommendation: Recommendation;
 }

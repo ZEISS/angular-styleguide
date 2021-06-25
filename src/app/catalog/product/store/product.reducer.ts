@@ -15,9 +15,11 @@ export const initialState: ProductState = {
   currentProductDetails: null,
 };
 
-
 export const reducer = createReducer(
   initialState,
-  on(loadProductsSuccess, (state, {products}) => ({...state, products})),
-  on(loadProductDetailsSuccess, (state, {product}) => ({...state, currentProductDetails: product}))
+  on(loadProductsSuccess, (state, { products }) => ({ ...state, products })),
+  on(loadProductDetailsSuccess, (state, { product }) => ({
+    ...state,
+    currentProductDetails: product,
+  }))
 );

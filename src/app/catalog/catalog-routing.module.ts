@@ -4,18 +4,12 @@ import { ProductDetailComponent } from './product/components/product-detail/prod
 import { ProductMasterComponent } from './product/components/product-master/product-master.component';
 
 const productRoutes: Routes = [
-  {path: 'product/:id', component: ProductDetailComponent},
-  {path: '', component: ProductMasterComponent},
+  { path: 'product/:id', component: ProductDetailComponent },
+  { path: '', component: ProductMasterComponent },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(
-      productRoutes,
-    ),
-  ],
-  exports: [
-    RouterModule,
-  ],
+  imports: [RouterModule.forChild(productRoutes)],
+  exports: [RouterModule],
 })
 export class CatalogRoutingModule {}

@@ -8,18 +8,9 @@ import { RecommendationService } from '@app/catalog/recommendation/services/reco
 import { RecommendationEffects } from '@app/catalog/recommendation/store/recommendation.effects';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SharedModule,
-    EffectsModule.forFeature([RecommendationEffects]),
-  ],
+  imports: [CommonModule, SharedModule, EffectsModule.forFeature([RecommendationEffects])],
   declarations: [RecommendationsComponent],
-  exports: [
-    RecommendationsComponent,
-  ],
-  providers: [
-    RecommendationService,
-  ],
+  exports: [RecommendationsComponent],
+  providers: [RecommendationService],
 })
-export class RecommendationModule {
-}
+export class RecommendationModule {}

@@ -11,18 +11,19 @@ describe('ProductMasterComponent', () => {
   let fixture: ComponentFixture<ProductMasterComponent>;
   let store: MockStore;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ProductMasterComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [
-        provideMockStore({selectors: [{ selector: selectProducts, value: [] }] })
-        // or mock store by setting initial state
-        // provideMockStore({initialState: {[catalogFeatureKey]: {[productFeatureKey]: {}}}})
-      ],
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [ProductMasterComponent],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
+        providers: [
+          provideMockStore({ selectors: [{ selector: selectProducts, value: [] }] }),
+          // or mock store by setting initial state
+          // provideMockStore({initialState: {[catalogFeatureKey]: {[productFeatureKey]: {}}}})
+        ],
+      }).compileComponents();
     })
-      .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductMasterComponent);
@@ -43,7 +44,7 @@ describe('ProductMasterComponent', () => {
   describe('loadProductDetails', () => {
     it('should dispatch loadProductDetails action with product id', () => {
       component.loadProductDetails(42);
-      expect(store.dispatch).toHaveBeenCalledWith(loadProductDetails({productId: 42}));
+      expect(store.dispatch).toHaveBeenCalledWith(loadProductDetails({ productId: 42 }));
     });
   });
 });

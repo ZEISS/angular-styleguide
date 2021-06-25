@@ -12,17 +12,18 @@ describe('ProductDetailComponent', () => {
   let fixture: ComponentFixture<ProductDetailComponent>;
   let store: MockStore;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ProductDetailComponent],
-      imports: [RouterTestingModule],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [
-        provideMockStore({selectors: [{ selector: selectCurrentProductDetails, value: {} }] })
-      ],
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [ProductDetailComponent],
+        imports: [RouterTestingModule],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
+        providers: [
+          provideMockStore({ selectors: [{ selector: selectCurrentProductDetails, value: {} }] }),
+        ],
+      }).compileComponents();
     })
-      .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductDetailComponent);
@@ -40,14 +41,14 @@ describe('ProductDetailComponent', () => {
   describe('showConfirmation', () => {
     it('should dispatch navigate action to order page', () => {
       component.showConfirmation();
-      expect(store.dispatch).toHaveBeenCalledWith(navigate({url: '/order'}));
+      expect(store.dispatch).toHaveBeenCalledWith(navigate({ url: '/order' }));
     });
   });
 
   describe('backToProductOverview', () => {
     it('should dispatch navigate action to root page', () => {
       component.backToProductOverview();
-      expect(store.dispatch).toHaveBeenCalledWith(navigate({url: '/'}));
+      expect(store.dispatch).toHaveBeenCalledWith(navigate({ url: '/' }));
     });
   });
 });

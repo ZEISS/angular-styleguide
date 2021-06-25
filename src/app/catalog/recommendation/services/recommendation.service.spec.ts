@@ -24,12 +24,13 @@ describe('RecommendationService', () => {
 
   describe('loadRecommendations', () => {
     it('should retrieve products from api', (done) => {
-      service.loadRecommendations().subscribe(products => {
+      service.loadRecommendations().subscribe((products) => {
         expect(products).toEqual(RecommendationTestData.validRecommendations);
         done();
       });
 
-      httpMock.expectOne({url: 'http://www.mocky.io/v2/5b8d2fa33300007800c158be', method: 'GET'})
+      httpMock
+        .expectOne({ url: 'http://www.mocky.io/v2/5b8d2fa33300007800c158be', method: 'GET' })
         .flush(RecommendationTestData.validRecommendations);
       httpMock.verify();
     });
