@@ -14,9 +14,6 @@
     "layout-tests:browserstack": "bash ./layout-tests/run-tests-on-browserstack.sh",
     "prepare": "husky install"
   },
-  "jest": {
-    "preset": "jest-playwright-preset"
-  },
   "private": true,
   "dependencies": {
     "@angular/animations": "12.0.5",
