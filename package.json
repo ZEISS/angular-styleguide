@@ -7,7 +7,6 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
     "e2e:playwright": "(set TS_NODE_PROJECT=./e2e-playwright/tsconfig.json) && playwright test --config=./e2e-playwright/playwright.config.ts",
     "e2e:wdio": "(set TS_NODE_PROJECT=./e2e-wdio/tsconfig.json) && wdio run ./e2e-wdio/wdio.conf.ts",
     "galen": "galen",
