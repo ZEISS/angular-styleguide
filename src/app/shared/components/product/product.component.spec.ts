@@ -29,6 +29,7 @@ describe('ProductComponent', () => {
     const emit = spyOn(component.productImageClicked, 'emit');
 
     component.imageClicked();
-    expect(emit).toHaveBeenCalled();
+
+    expect(emit).toHaveBeenCalledWith();
   });
 });

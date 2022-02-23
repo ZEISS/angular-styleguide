@@ -13,6 +13,7 @@ describe('Recommendation Selectors', () => {
           },
         },
       } as StateWithCatalog;
+
       expect(selectRecommendations(state)).toEqual(RecommendationTestData.validRecommendations);
     });
   });

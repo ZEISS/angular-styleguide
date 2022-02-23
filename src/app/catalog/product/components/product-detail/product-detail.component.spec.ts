@@ -41,6 +41,7 @@ describe('ProductDetailComponent', () => {
   describe('showConfirmation', () => {
     it('should dispatch navigate action to order page', () => {
       component.showConfirmation();
+
       expect(store.dispatch).toHaveBeenCalledWith(navigate({ url: '/order' }));
     });
   });
@@ -48,6 +49,7 @@ describe('ProductDetailComponent', () => {
   describe('backToProductOverview', () => {
     it('should dispatch navigate action to root page', () => {
       component.backToProductOverview();
+
       expect(store.dispatch).toHaveBeenCalledWith(navigate({ url: '/' }));
     });
   });

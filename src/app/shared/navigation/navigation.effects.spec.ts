@@ -24,7 +24,7 @@ describe('NavigationEffects', () => {
 
   describe('navigate$', () => {
     it('should navigate to url and dispatch no action if navigation succeded', () => {
-      spyOn(router, 'navigateByUrl').and.returnValue(Promise.resolve(true));
+      spyOn(router, 'navigateByUrl').and.resolveTo(true);
 
       const url = 'some/url';
       const navigationExtras: NavigationExtras = { queryParams: { foo: 'bar' } };
@@ -32,12 +32,13 @@ describe('NavigationEffects', () => {
       actions$ = of(navigate({ url, navigationExtras }));
 
       const result$ = effects.navigate$;
+
       expect(result$).toEmitNoValues();
       expect(router.navigateByUrl).toHaveBeenCalledWith(url, navigationExtras);
     });
 
     it('should dispatch navigationFailed if navigation failed', (done) => {
-      spyOn(router, 'navigateByUrl').and.returnValue(Promise.reject('navigation failed'));
+      spyOn(router, 'navigateByUrl').and.rejectWith('navigation failed');
 
       const url = 'some/url';
       const navigationExtras: NavigationExtras = { queryParams: { foo: 'bar' } };
@@ -48,6 +49,7 @@ describe('NavigationEffects', () => {
         expect(result).toEqual(navigationFailed({ error: 'navigation failed' }));
         done();
       });
+
       expect(router.navigateByUrl).toHaveBeenCalledWith(url, navigationExtras);
     });
   });

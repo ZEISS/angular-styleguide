@@ -38,12 +38,14 @@ describe('ProductMasterComponent', () => {
 
   it('should dispatch loadProducts action on init', () => {
     fixture.detectChanges();
+
     expect(store.dispatch).toHaveBeenCalledWith(loadProducts());
   });
 
   describe('loadProductDetails', () => {
     it('should dispatch loadProductDetails action with product id', () => {
       component.loadProductDetails(42);
+
       expect(store.dispatch).toHaveBeenCalledWith(loadProductDetails({ productId: 42 }));
     });
   });

@@ -14,6 +14,7 @@ describe('Product Selectors', () => {
           },
         },
       } as StateWithCatalog;
+
       expect(selectProducts(state)).toEqual(ProductTestData.validProductList);
     });
   });
@@ -28,6 +29,7 @@ describe('Product Selectors', () => {
           },
         },
       } as StateWithCatalog;
+
       expect(selectCurrentProductDetails(state)).toEqual(ProductTestData.validProduct);
     });
   });

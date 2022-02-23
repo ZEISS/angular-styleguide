@@ -43,7 +43,8 @@ describe('RecommendationEffects', () => {
       expect(resultObservable$).toEmitValues([
         loadRecommendationsSuccess({ recommendations: loadedRecommendations }),
       ]);
-      expect(recommendationServiceSpy.loadRecommendations).toHaveBeenCalled();
+
+      expect(recommendationServiceSpy.loadRecommendations).toHaveBeenCalledWith();
     });
 
     it('should dispatch an empty action if service throws', () => {
