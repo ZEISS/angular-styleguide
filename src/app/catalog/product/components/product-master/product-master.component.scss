@@ -9,7 +9,7 @@ header {
   padding-top: 100px;
   padding-bottom: 30px;
   text-align: center;
-  color: white;
+  color: #fff;
   letter-spacing: 0.2em;
 }
 
@@ -28,8 +28,7 @@ h2 {
 
 .grid-container {
   display: grid;
-  grid-column-gap: 50px;
-  grid-row-gap: 50px;
+  grid-gap: 50px;
   grid-template-columns: 1fr;
   padding: 100px 50px 50px;
   margin: auto;
