@@ -47,7 +47,7 @@ describe('ProductEffects', () => {
       const resultObservable$ = effects.loadProducts$;
 
       expect(resultObservable$).toEmitValues([loadProductsSuccess({ products: loadedProducts })]);
-      expect(productServiceSpy.loadProducts).toHaveBeenCalled();
+      expect(productServiceSpy.loadProducts).toHaveBeenCalledWith();
     });
 
     it('should dispatch an empty action if service throws', () => {
@@ -72,7 +72,8 @@ describe('ProductEffects', () => {
         loadProductDetailsSuccess({ product: detailedProducts }),
         navigate({ url: '/product/1' }),
       ]);
-      expect(productServiceSpy.getProduct).toHaveBeenCalled();
+
+      expect(productServiceSpy.getProduct).toHaveBeenCalledWith(1);
     });
 
     it('should dispatch an empty action if service throws', () => {

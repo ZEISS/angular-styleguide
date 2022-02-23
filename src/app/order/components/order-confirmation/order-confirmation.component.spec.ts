@@ -34,6 +34,7 @@ describe('OrderConfirmationComponent', () => {
   describe('backToProductOverview', () => {
     it('should dispatch navigate action to root page', () => {
       component.backToProductOverview();
+
       expect(store.dispatch).toHaveBeenCalledWith(navigate({ url: '/' }));
     });
   });

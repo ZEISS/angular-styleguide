@@ -32,11 +32,13 @@ describe('RecommendationsComponent', () => {
 
   it('should create', () => {
     fixture.detectChanges();
+
     expect(component).toBeTruthy();
   });
 
   it('should dispatch loadRecommendations action on init', () => {
     fixture.detectChanges();
+
     expect(store.dispatch).toHaveBeenCalledWith(loadRecommendations());
   });
 });
