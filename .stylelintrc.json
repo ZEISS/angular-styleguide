@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-prettier"
+  ],
+  "plugins": ["stylelint-no-unsupported-browser-features"],
+  "rules": {
+    "max-nesting-depth": [5, { "ignore": ["blockless-at-rules", "pseudo-classes"] }],
+    "order/order": ["custom-properties", "declarations"],
+    "order/properties-alphabetical-order": null,
+    "plugin/no-unsupported-browser-features": [true, { "severity": "warning" }],
+    "selector-no-qualifying-type": [true, { "ignore": ["attribute", "class"] }],
+    "selector-max-id": [1],
+    "selector-max-compound-selectors": 5
+  }
+}
