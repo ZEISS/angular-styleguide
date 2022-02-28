@@ -15,19 +15,16 @@ declare global {
 }
 
 const observableMatchers: jasmine.CustomMatcherFactories = {
-  toEmitValues<T>(
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: jasmine.CustomEqualityTester[]
-  ): CustomMatcher {
+  toEmitValues<T>(util: jasmine.MatchersUtil): CustomMatcher {
     return {
       compare(actual$: Observable<T>, expected: T[]): CustomMatcherResult {
         const values = [];
-        actual$.subscribe(
-          (val) => values.push(val),
-          (error) => console.warn(`Error received: ${error}`)
-        );
+        actual$.subscribe({
+          next: (val) => values.push(val),
+          error: (error) => console.warn(`Error received: ${error}`),
+        });
 
-        const pass = util.equals(values, expected, customEqualityTesters);
+        const pass = util.equals(values, expected);
 
         return {
           pass,
@@ -40,16 +37,13 @@ const observableMatchers: jasmine.CustomMatcherFactories = {
       },
     };
   },
-  toEmitNoValues<T>(
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: jasmine.CustomEqualityTester[]
-  ): CustomMatcher {
+  toEmitNoValues<T>(util: jasmine.MatchersUtil): CustomMatcher {
     return {
       compare(actual$: Observable<T>): CustomMatcherResult {
         const values = [];
         actual$.subscribe((val) => values.push(val));
 
-        const pass = util.equals(values, [], customEqualityTesters);
+        const pass = util.equals(values, []);
 
         return {
           pass,
@@ -60,19 +54,13 @@ const observableMatchers: jasmine.CustomMatcherFactories = {
       },
     };
   },
-  toEmitError<T, E>(
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: jasmine.CustomEqualityTester[]
-  ): CustomMatcher {
+  toEmitError<T, E>(util: jasmine.MatchersUtil): CustomMatcher {
     return {
       compare(actual$: Observable<T>, expected: E): CustomMatcherResult {
         let error;
-        actual$.subscribe(
-          () => {},
-          (err) => (error = err)
-        );
+        actual$.subscribe({ next: () => {}, error: (err) => (error = err) });
 
-        const pass = util.equals(error, expected, customEqualityTesters);
+        const pass = util.equals(error, expected);
 
         return {
           pass,
@@ -83,17 +71,11 @@ const observableMatchers: jasmine.CustomMatcherFactories = {
       },
     };
   },
-  toEmitNoError<T>(
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: jasmine.CustomEqualityTester[]
-  ): CustomMatcher {
+  toEmitNoError<T>(util: jasmine.MatchersUtil): CustomMatcher {
     return {
       compare(actual$: Observable<T>): CustomMatcherResult {
         let error;
-        actual$.subscribe(
-          () => {},
-          (err) => (error = err)
-        );
+        actual$.subscribe({ next: () => {}, error: (err) => (error = err) });
 
         const pass = !Boolean(error);
 

@@ -32,6 +32,10 @@ describe('ProductMasterComponent', () => {
     spyOn(store, 'dispatch');
   });
 
+  afterEach(() => {
+    store?.resetSelectors();
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });

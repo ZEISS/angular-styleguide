@@ -51,7 +51,7 @@ describe('ProductEffects', () => {
     });
 
     it('should dispatch an empty action if service throws', () => {
-      productServiceSpy.loadProducts.and.returnValue(throwError(new HttpErrorResponse({})));
+      productServiceSpy.loadProducts.and.returnValue(throwError(() => new HttpErrorResponse({})));
 
       actions$ = of(loadProducts());
       const resultObservable$ = effects.loadProducts$;
@@ -77,7 +77,7 @@ describe('ProductEffects', () => {
     });
 
     it('should dispatch an empty action if service throws', () => {
-      productServiceSpy.getProduct.and.returnValue(throwError(new HttpErrorResponse({})));
+      productServiceSpy.getProduct.and.returnValue(throwError(() => new HttpErrorResponse({})));
 
       actions$ = of(loadProductDetails({ productId: ProductTestData.validProduct.id }));
       const resultObservable$ = effects.loadProductDetails$;
