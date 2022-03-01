@@ -34,6 +34,10 @@ describe('ProductDetailComponent', () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    store?.resetSelectors();
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
