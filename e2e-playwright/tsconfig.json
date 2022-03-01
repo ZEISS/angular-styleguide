@@ -4,7 +4,6 @@
     "module": "es2020",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "types": ["expect-playwright"]
+    "forceConsistentCasingInFileNames": true
   }
 }
