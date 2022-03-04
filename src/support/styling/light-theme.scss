@@ -12,9 +12,8 @@ body {
 
     /* Buttons */
     --color-button-primary: #{colors.$color-orange};
-    --color-button-secondary: #{colors.$color-white};
     --color-button-primary-hover: #{colors.$color-orange-light};
-    --color-button-secondary-hover: #{colors.$color-white};
+    --color-button-secondary: #{colors.$color-white};
 
     /* Text */
     --color-highlight-text: #{colors.$color-white};
