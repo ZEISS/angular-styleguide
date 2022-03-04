@@ -1,0 +1,28 @@
+@mixin button {
+  padding: 15px 32px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 100px;
+}
+
+@mixin button-primary {
+  @include button;
+  background-color: var(--color-button-primary);
+  border: 3px solid var(--color-button-primary);
+  color: var(--color-highlight-text);
+
+  &:hover {
+    background-color: var(--color-button-primary-hover);
+  }
+}
+
+@mixin button-secondary {
+  @include button;
+  background-color: var(--color-button-secondary);
+  border: 3px solid var(--color-button-primary);
+  color: var(--color-content-text);
+
+  &:hover {
+    border-color: var(--color-button-primary-hover);
+  }
+}

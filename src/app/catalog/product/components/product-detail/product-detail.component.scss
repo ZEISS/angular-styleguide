@@ -1,14 +1,15 @@
+@use '../../../../../support/styling/common-styles' as common;
+
 .center {
-  margin: auto;
   width: 40%;
-  margin-top: 100px;
+  margin: 100px auto auto;
   text-align: center;
 }
 
 .product-details {
   border-style: solid;
   border-width: 2px;
-  border-color: var(--color-border-product);
+  border-color: var(--color-secondary);
   padding-left: 100px;
   text-align: left !important;
 
@@ -35,24 +36,10 @@
 }
 
 .confirmation-button {
-  background-color: #ffa500;
-  border: 3px solid var(--color-border-button);
-  padding: 15px 32px;
-  font-size: 20px;
-  cursor: pointer;
-  margin-bottom: 100px;
-
-  a {
-    color: #fff;
-    text-decoration: none;
-  }
+  @include common.button-primary;
 }
 
 .back-button {
   margin: 50px;
-  border: 3px solid var(--color-border-button);
-  padding: 15px 32px;
-  font-size: 20px;
-  cursor: pointer;
-  background-color: transparent;
+  @include common.button-secondary;
 }

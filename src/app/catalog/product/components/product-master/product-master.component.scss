@@ -1,29 +1,22 @@
 header {
   background-color: var(--color-highlight);
-  height: 100%;
-  background-size: cover;
-}
-
-.header-txt {
-  margin: 0;
-  padding-top: 100px;
-  padding-bottom: 30px;
-  text-align: center;
-  color: var(--color-header-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-highlight-text);
   letter-spacing: 0.2em;
-}
 
-h1 {
-  font-size: 65px;
-  font-weight: 100;
-  margin-bottom: 30px;
-  margin-top: 0;
-}
+  h1 {
+    font-size: 65px;
+    font-weight: 100;
+    margin: 30px 0;
+  }
 
-h2 {
-  font-size: 35px;
-  font-weight: 100;
-  margin-bottom: 0;
+  h2 {
+    font-size: 35px;
+    font-weight: 100;
+  }
 }
 
 .grid-container {

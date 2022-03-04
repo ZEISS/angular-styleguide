@@ -13,11 +13,11 @@ img {
 .product {
   border-style: solid;
   border-width: 2px;
-  border-color: var(--color-border-product);
+  border-color: var(--color-secondary);
   height: 100%;
 
   &:hover {
-    border-color: var(--color-border-product-hover);
+    border-color: var(--color-highlight);
   }
 }
 
