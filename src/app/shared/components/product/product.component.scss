@@ -19,18 +19,18 @@ img {
   &:hover {
     border-color: var(--color-highlight);
   }
-}
 
-.product-title {
-  text-align: right;
-  padding-right: 20px;
-  padding-left: 20px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
+  &-title {
+    text-align: right;
+    padding-right: 20px;
+    padding-left: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 
-.product-image {
-  padding-top: 10px;
-  width: 100%;
+  &-image {
+    padding-top: 10px;
+    width: 100%;
+  }
 }
