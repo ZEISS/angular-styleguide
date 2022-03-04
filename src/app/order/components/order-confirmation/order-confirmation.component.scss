@@ -2,7 +2,7 @@
   width: 50%;
   padding: 10px;
   text-align: center;
-  color: #fff;
+  color: var(--color-header-text);
   margin: 100px auto auto;
 }
 
@@ -21,7 +21,7 @@ h3 {
 
 #back-button {
   margin: 50px;
-  border: 3px solid #ffa500;
+  border: 3px solid var(--color-border-button);
   padding: 15px 32px;
   font-size: 20px;
   cursor: pointer;

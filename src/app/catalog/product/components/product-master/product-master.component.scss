@@ -1,5 +1,5 @@
 header {
-  background-color: #ffa500;
+  background-color: var(--color-header-background);
   height: 100%;
   background-size: cover;
 }
@@ -9,7 +9,7 @@ header {
   padding-top: 100px;
   padding-bottom: 30px;
   text-align: center;
-  color: #fff;
+  color: var(--color-header-text);
   letter-spacing: 0.2em;
 }
 

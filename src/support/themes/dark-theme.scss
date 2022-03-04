@@ -1,0 +1,8 @@
+@import 'colors.scss';
+
+html,
+body {
+  &.dark-theme {
+    --border-color: $color-nobel;
+  }
+}
