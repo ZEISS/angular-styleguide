@@ -15,7 +15,7 @@ import {
   loadProductsSuccess,
 } from './product.actions';
 import { ProductEffects } from './product.effects';
-import { testObservable } from '@app/shared/test/observable-helper';
+import { testObservable } from '@support/testing/observable-helper';
 
 describe('ProductEffects', () => {
   let actions$: Observable<Action>;
