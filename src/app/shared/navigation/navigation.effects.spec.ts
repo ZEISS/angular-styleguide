@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 
 import { NavigationEffects } from './navigation.effects';
 import { navigate, navigationFailed } from '@app/shared/navigation/navigation.actions';
+import { testObservable } from '@support/testing/observable-helper';
 
 describe('NavigationEffects', () => {
   let actions$: Observable<any>;
@@ -23,7 +24,7 @@ describe('NavigationEffects', () => {
   });
 
   describe('navigate$', () => {
-    it('should navigate to url and dispatch no action if navigation succeded', () => {
+    it('should navigate to url and dispatch no action if navigation succeeded', () => {
       spyOn(router, 'navigateByUrl').and.resolveTo(true);
 
       const url = 'some/url';
@@ -33,7 +34,10 @@ describe('NavigationEffects', () => {
 
       const result$ = effects.navigate$;
 
-      expect(result$).toEmitNoValues();
+      testObservable(({ expectObservable }) => {
+        expectObservable(result$).toBe('()', {});
+      });
+
       expect(router.navigateByUrl).toHaveBeenCalledWith(url, navigationExtras);
     });
 

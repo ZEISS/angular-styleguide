@@ -21,6 +21,7 @@
       "@models/*": ["src/model/*"],
       "@environment": ["src/environments/environment"],
       "@store/*": ["src/support/store/*"],
+      "@support/*": ["src/support/*"],
       "@app/*": ["src/app/*"]
     }
   },

@@ -15,6 +15,7 @@ import {
   loadProductsSuccess,
 } from './product.actions';
 import { ProductEffects } from './product.effects';
+import { testObservable } from '@support/testing/observable-helper';
 
 describe('ProductEffects', () => {
   let actions$: Observable<Action>;
@@ -44,45 +45,58 @@ describe('ProductEffects', () => {
       productServiceSpy.loadProducts.and.returnValue(of(loadedProducts));
 
       actions$ = of(loadProducts());
-      const resultObservable$ = effects.loadProducts$;
+      const result$: Observable<Action> = effects.loadProducts$;
 
-      expect(resultObservable$).toEmitValues([loadProductsSuccess({ products: loadedProducts })]);
+      testObservable(({ expectObservable }) => {
+        expectObservable(result$).toBe('(a|)', {
+          a: loadProductsSuccess({ products: loadedProducts }),
+        });
+      });
+
       expect(productServiceSpy.loadProducts).toHaveBeenCalledWith();
     });
 
-    it('should dispatch an empty action if service throws', () => {
+    it('should complete the observable if service throws an error', () => {
       productServiceSpy.loadProducts.and.returnValue(throwError(() => new HttpErrorResponse({})));
 
       actions$ = of(loadProducts());
-      const resultObservable$ = effects.loadProducts$;
+      const result$: Observable<Action> = effects.loadProducts$;
 
-      expect(resultObservable$).toEmitNoValues();
+      testObservable(({ expectObservable }) => {
+        expectObservable(result$).toBe('(|)', {});
+      });
     });
   });
 
   describe('loadProductDetails$', () => {
+    const productId = ProductTestData.validProduct.id;
+
     it('should load product details from service, dispatch successful action and navigate to details', () => {
       const detailedProducts = ProductTestData.validProduct;
       productServiceSpy.getProduct.and.returnValue(of(detailedProducts));
 
-      actions$ = of(loadProductDetails({ productId: ProductTestData.validProduct.id }));
-      const resultObservable$ = effects.loadProductDetails$;
+      actions$ = of(loadProductDetails({ productId }));
+      const result$: Observable<Action> = effects.loadProductDetails$;
 
-      expect(resultObservable$).toEmitValues([
-        loadProductDetailsSuccess({ product: detailedProducts }),
-        navigate({ url: '/product/1' }),
-      ]);
+      testObservable(({ expectObservable }) => {
+        expectObservable(result$).toBe('(ab|)', {
+          a: loadProductDetailsSuccess({ product: detailedProducts }),
+          b: navigate({ url: `/product/${productId}` }),
+        });
+      });
 
-      expect(productServiceSpy.getProduct).toHaveBeenCalledWith(1);
+      expect(productServiceSpy.getProduct).toHaveBeenCalledWith(productId);
     });
 
-    it('should dispatch an empty action if service throws', () => {
+    it('should complete the observable if service throws', () => {
       productServiceSpy.getProduct.and.returnValue(throwError(() => new HttpErrorResponse({})));
 
-      actions$ = of(loadProductDetails({ productId: ProductTestData.validProduct.id }));
-      const resultObservable$ = effects.loadProductDetails$;
+      actions$ = of(loadProductDetails({ productId }));
+      const result$ = effects.loadProductDetails$;
 
-      expect(resultObservable$).toEmitNoValues();
+      testObservable(({ expectObservable }) => {
+        expectObservable(result$).toBe('(|)', {});
+      });
     });
   });
 });
