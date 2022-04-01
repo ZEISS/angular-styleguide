@@ -6,15 +6,12 @@
   font-size: 25px;
 }
 
-img {
-  cursor: pointer;
-}
-
 .product {
   border-style: solid;
   border-width: 2px;
   border-color: var(--color-secondary);
   height: 100%;
+  cursor: pointer;
 
   &:hover {
     border-color: var(--color-highlight);

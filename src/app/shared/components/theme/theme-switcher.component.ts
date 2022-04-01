@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-theme-switcher',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./theme-switcher.component.scss'],
 })
 export class ThemeSwitcherComponent implements OnInit {
+  faMoon = faMoon;
+  faSun = faSun;
   theme: Theme;
 
   public switcherClicked() {
@@ -20,8 +23,7 @@ export class ThemeSwitcherComponent implements OnInit {
   }
 
   private applyTheme(): void {
-    const className = this.theme == 'dark' ? 'dark-theme' : 'light-theme';
-    document.documentElement.className = className;
+    document.documentElement.className = this.theme == 'dark' ? 'dark-theme' : 'light-theme';
   }
 
   private saveTheme(): void {
