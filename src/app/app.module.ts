@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+ * SPDX-License-Identifier: MIT
+ */
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 

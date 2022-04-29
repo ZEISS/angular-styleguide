@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+ * SPDX-License-Identifier: MIT
+ */
+
 import { createSelector } from '@ngrx/store';
 import { productFeatureKey } from './product.reducer';
 import { selectCatalogFeature } from '@app/catalog/store/catalog.reducer';
