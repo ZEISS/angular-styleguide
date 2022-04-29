@@ -1,5 +1,10 @@
-import { productMasterPage, ProductMasterPage } from './page-objects/product-master.po';
-import { productDetailPage, ProductDetailPage } from './page-objects/product-detail.po';
+/*
+ * SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+ * SPDX-License-Identifier: MIT
+ */
+
+import { productMasterPage } from './page-objects/product-master.po';
+import { productDetailPage } from './page-objects/product-detail.po';
 
 describe('Product master page', () => {
   it('should display title', async () => {
