@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 #
+# SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+# SPDX-License-Identifier: MIT
+#
+
+#
 # Run layout tests on Browserstack (Local).
 #
 # Prerequisites:

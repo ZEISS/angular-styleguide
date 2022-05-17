@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+ * SPDX-License-Identifier: MIT
+ */
+
 import { test, expect } from '@playwright/test';
 import { ProductMasterPage } from './page-objects/product-master.po';
 import { ProductDetailPage } from './page-objects/product-detail.po';
@@ -13,7 +18,7 @@ test.describe('Product master page', () => {
     await masterPage.navigateTo();
   });
 
-  test('should display title', async ({ page }) => {
+  test('should display title', async () => {
     expect(await masterPage.getTitle()).toEqual('GET YOUR ICE CREAM');
   });
 

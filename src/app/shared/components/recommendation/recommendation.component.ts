@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Component, Input } from '@angular/core';
 import { Recommendation } from '@models/recommendation';
 
