@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+ * SPDX-License-Identifier: MIT
+ */
+
 import { HttpErrorResponse } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
@@ -8,6 +13,7 @@ import { RecommendationService } from '@app/catalog/recommendation/services/reco
 import { RecommendationTestData } from '@models/recommendation.testdata';
 import { loadRecommendations, loadRecommendationsSuccess } from './recommendation.actions';
 import { RecommendationEffects } from './recommendation.effects';
+import { testObservable } from '@support/testing/observable-helper';
 
 describe('RecommendationEffects', () => {
   let actions$: Observable<Action>;
@@ -38,11 +44,13 @@ describe('RecommendationEffects', () => {
       recommendationServiceSpy.loadRecommendations.and.returnValue(of(loadedRecommendations));
 
       actions$ = of(loadRecommendations());
-      const resultObservable$ = effects.loadRecommendations$;
+      const result$ = effects.loadRecommendations$;
 
-      expect(resultObservable$).toEmitValues([
-        loadRecommendationsSuccess({ recommendations: loadedRecommendations }),
-      ]);
+      testObservable(({ expectObservable }) => {
+        expectObservable(result$).toBe('(a|)', {
+          a: loadRecommendationsSuccess({ recommendations: loadedRecommendations }),
+        });
+      });
 
       expect(recommendationServiceSpy.loadRecommendations).toHaveBeenCalledWith();
     });
@@ -53,9 +61,11 @@ describe('RecommendationEffects', () => {
       );
 
       actions$ = of(loadRecommendations());
-      const resultObservable$ = effects.loadRecommendations$;
+      const result$ = effects.loadRecommendations$;
 
-      expect(resultObservable$).toEmitNoValues();
+      testObservable(({ expectObservable }) => {
+        expectObservable(result$).toBe('(|)', {});
+      });
     });
   });
 });

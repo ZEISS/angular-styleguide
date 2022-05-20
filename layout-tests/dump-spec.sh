@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 #
+# SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+# SPDX-License-Identifier: MIT
+#
+
+#
 # Create a layout dump for a given spec.
 #
 # Prerequisites:

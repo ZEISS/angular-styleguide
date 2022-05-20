@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '@models/product';
 
