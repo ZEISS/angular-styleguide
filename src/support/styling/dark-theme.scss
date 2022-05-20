@@ -1,0 +1,22 @@
+@use 'colors';
+
+html,
+body {
+  &.dark-theme {
+    /* Main theme colors */
+    --color-highlight: #{colors.$color-orange};
+    --color-secondary: #{colors.$color-nobel};
+
+    /* Background */
+    --color-background: #{colors.$color-dark-gray};
+
+    /* Buttons */
+    --color-button-primary: #{colors.$color-orange};
+    --color-button-primary-hover: #{colors.$color-orange-light};
+    --color-button-secondary: #{colors.$color-dark-gray};
+
+    /* Text */
+    --color-highlight-text: #{colors.$color-black};
+    --color-content-text: #{colors.$color-white};
+  }
+}

@@ -11,31 +11,28 @@
   font-size: 25px;
 }
 
-img {
-  cursor: pointer;
-}
-
 .product {
   border-style: solid;
   border-width: 2px;
-  border-color: #b4b4b4;
+  border-color: var(--color-secondary);
   height: 100%;
-}
+  cursor: pointer;
 
-.product:hover {
-  border-color: #ffa500;
-}
+  &:hover {
+    border-color: var(--color-highlight);
+  }
 
-.product-title {
-  text-align: right;
-  padding-right: 20px;
-  padding-left: 20px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
+  &-title {
+    text-align: right;
+    padding-right: 20px;
+    padding-left: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 
-.product-image {
-  padding-top: 10px;
-  width: 100%;
+  &-image {
+    padding-top: 10px;
+    width: 100%;
+  }
 }
