@@ -16,19 +16,17 @@ describe('ProductMasterComponent', () => {
   let fixture: ComponentFixture<ProductMasterComponent>;
   let store: MockStore;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ProductMasterComponent],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA],
-        providers: [
-          provideMockStore({ selectors: [{ selector: selectProducts, value: [] }] }),
-          // or mock store by setting initial state
-          // provideMockStore({initialState: {[catalogFeatureKey]: {[productFeatureKey]: {}}}})
-        ],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ProductMasterComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [
+        provideMockStore({ selectors: [{ selector: selectProducts, value: [] }] }),
+        // or mock store by setting initial state
+        // provideMockStore({initialState: {[catalogFeatureKey]: {[productFeatureKey]: {}}}})
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductMasterComponent);

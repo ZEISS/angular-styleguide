@@ -1,7 +1,13 @@
+/*
+ * SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+ * SPDX-License-Identifier: MIT
+ */
+
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { ThemeSwitcherComponent } from './theme-switcher.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('ThemeSwitcherComponent', () => {
   let component: ThemeSwitcherComponent;
@@ -9,17 +15,16 @@ describe('ThemeSwitcherComponent', () => {
   let localStorageGetItemSpy: jasmine.Spy;
   let localStorageSetItemSpy: jasmine.Spy;
 
-  beforeEach(
-    waitForAsync(() => {
-      localStorageGetItemSpy = spyOn(window.localStorage, 'getItem');
-      localStorageSetItemSpy = spyOn(window.localStorage, 'setItem');
+  beforeEach(waitForAsync(() => {
+    localStorageGetItemSpy = spyOn(window.localStorage, 'getItem');
+    localStorageSetItemSpy = spyOn(window.localStorage, 'setItem');
 
-      TestBed.configureTestingModule({
-        declarations: [ThemeSwitcherComponent],
-        providers: [],
-      }).compileComponents();
-    })
-  );
+    TestBed.configureTestingModule({
+      declarations: [ThemeSwitcherComponent],
+      providers: [],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ThemeSwitcherComponent);
