@@ -33,22 +33,22 @@ describe('ThemeSwitcherComponent', () => {
 
   describe('start behavior', () => {
     it('should have light theme', () => {
-      expect(component.theme).toEqual('light');
+      expect(component.theme).toEqual('light-theme');
     });
 
     it('should have light theme from local storage', () => {
-      localStorageGetItemSpy.and.returnValue('light');
+      localStorageGetItemSpy.and.returnValue('light-theme');
       component.ngOnInit();
 
-      expect(component.theme).toEqual('light');
+      expect(component.theme).toEqual('light-theme');
       expect(document.documentElement.className).toEqual('light-theme');
     });
 
     it('should have theme provided in local storage if present', () => {
-      localStorageGetItemSpy.and.returnValue('dark');
+      localStorageGetItemSpy.and.returnValue('dark-theme');
       component.ngOnInit();
 
-      expect(component.theme).toEqual('dark');
+      expect(component.theme).toEqual('dark-theme');
       expect(document.documentElement.className).toEqual('dark-theme');
     });
   });
@@ -57,17 +57,17 @@ describe('ThemeSwitcherComponent', () => {
     it('should switch from light to dark and the other way round on click', () => {
       const toggleButton = fixture.debugElement.query(By.css('.theme-switcher')).nativeElement;
 
-      expect(component.theme).toEqual('light');
+      expect(component.theme).toEqual('light-theme');
 
       toggleButton.click();
 
-      expect(component.theme).toEqual('dark');
-      expect(localStorageSetItemSpy).toHaveBeenCalledWith('theme', 'dark');
+      expect(component.theme).toEqual('dark-theme');
+      expect(localStorageSetItemSpy).toHaveBeenCalledWith('theme', 'dark-theme');
 
       toggleButton.click();
 
-      expect(component.theme).toEqual('light');
-      expect(localStorageSetItemSpy).toHaveBeenCalledWith('theme', 'light');
+      expect(component.theme).toEqual('light-theme');
+      expect(localStorageSetItemSpy).toHaveBeenCalledWith('theme', 'light-theme');
     });
   });
 });
