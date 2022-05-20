@@ -1,0 +1,4 @@
+<button class="theme-switcher" [ngSwitch]="theme" (click)="switcherClicked()">
+  <fa-icon *ngSwitchCase="'light'" [icon]="faMoon"></fa-icon>
+  <fa-icon *ngSwitchCase="'dark'" [icon]="faSun"></fa-icon>
+</button>

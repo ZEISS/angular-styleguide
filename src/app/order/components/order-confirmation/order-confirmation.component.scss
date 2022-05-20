@@ -3,37 +3,34 @@
  * SPDX-License-Identifier: MIT
  */
 
+@use '../../../../support/styling/common-styles' as common;
+
 .center {
   width: 50%;
   padding: 10px;
   text-align: center;
-  color: #fff;
+  color: var(--color-header-text);
   margin: 100px auto auto;
 }
 
 h2 {
   font-size: 35px;
   font-weight: 100;
-  line-height: 50%;
 }
 
 h3 {
   font-size: 25px;
   font-weight: 100;
   margin-bottom: 0;
-  line-height: 50%;
 }
 
 #back-button {
   margin: 50px;
-  border: 3px solid #ffa500;
-  padding: 15px 32px;
-  font-size: 20px;
-  cursor: pointer;
-  background-color: transparent;
+  @include common.button-secondary;
 }
 
 #confirmation-info {
-  background-color: #ffa500;
+  background-color: var(--color-highlight);
+  color: var(--color-highlight-text);
   padding: 20px;
 }
