@@ -17,18 +17,16 @@ describe('ProductDetailComponent', () => {
   let fixture: ComponentFixture<ProductDetailComponent>;
   let store: MockStore;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ProductDetailComponent],
-        imports: [RouterTestingModule],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA],
-        providers: [
-          provideMockStore({ selectors: [{ selector: selectCurrentProductDetails, value: {} }] }),
-        ],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ProductDetailComponent],
+      imports: [RouterTestingModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [
+        provideMockStore({ selectors: [{ selector: selectCurrentProductDetails, value: {} }] }),
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductDetailComponent);

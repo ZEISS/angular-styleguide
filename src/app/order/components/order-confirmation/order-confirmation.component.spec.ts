@@ -14,14 +14,12 @@ describe('OrderConfirmationComponent', () => {
   let fixture: ComponentFixture<OrderConfirmationComponent>;
   let store: MockStore;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [OrderConfirmationComponent],
-        providers: [provideMockStore({ initialState: {} })],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [OrderConfirmationComponent],
+      providers: [provideMockStore({ initialState: {} })],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OrderConfirmationComponent);

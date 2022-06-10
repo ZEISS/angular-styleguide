@@ -11,13 +11,11 @@ describe('RecommendationsComponent', () => {
   let component: RecommendationComponent;
   let fixture: ComponentFixture<RecommendationComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [RecommendationComponent],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [RecommendationComponent],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(RecommendationComponent);
