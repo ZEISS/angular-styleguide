@@ -9,6 +9,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { RecommendationService } from './recommendation.service';
 import { RecommendationTestData } from '@models/recommendation.testdata';
 
+const recommendationsUrl = '/assets/recommendations.json';
+
 describe('RecommendationService', () => {
   let service: RecommendationService;
   let httpMock: HttpTestingController;
@@ -35,7 +37,7 @@ describe('RecommendationService', () => {
       });
 
       httpMock
-        .expectOne({ url: 'http://www.mocky.io/v2/5b8d2fa33300007800c158be', method: 'GET' })
+        .expectOne({ url: recommendationsUrl, method: 'GET' })
         .flush(RecommendationTestData.validRecommendations);
       httpMock.verify();
     });

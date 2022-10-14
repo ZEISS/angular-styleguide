@@ -11,7 +11,9 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ProductService {
-  private readonly productUrl = 'http://www.mocky.io/v2/5b752bc12e00006f00535f00';
+  // for mocking, we're using a local json file.
+  // in a real-world app this would be a REST ressource on a server
+  private readonly productUrl = '/assets/products.json';
 
   constructor(private httpClient: HttpClient) {}
 

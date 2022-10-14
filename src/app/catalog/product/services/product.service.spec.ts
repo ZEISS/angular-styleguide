@@ -9,6 +9,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ProductService } from './product.service';
 import { ProductTestData } from '@models/product.testdata';
 
+const productsUrl = '/assets/products.json';
+
 describe('ProductService', () => {
   let service: ProductService;
   let httpMock: HttpTestingController;
@@ -35,7 +37,7 @@ describe('ProductService', () => {
       });
 
       httpMock
-        .expectOne({ url: 'http://www.mocky.io/v2/5b752bc12e00006f00535f00', method: 'GET' })
+        .expectOne({ url: productsUrl, method: 'GET' })
         .flush(ProductTestData.validProductList);
       httpMock.verify();
     });
@@ -49,7 +51,7 @@ describe('ProductService', () => {
       });
 
       httpMock
-        .expectOne({ url: 'http://www.mocky.io/v2/5b752bc12e00006f00535f00', method: 'GET' })
+        .expectOne({ url: productsUrl, method: 'GET' })
         .flush(ProductTestData.validProductList);
       httpMock.verify();
     });

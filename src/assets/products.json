@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Calippo",
+    "image": "assets/product-images/Calippo.png",
+    "price": "1,50€",
+    "description": "Only delicious things inside."
+  },
+  {
+    "id": 2,
+    "title": "Cornetto",
+    "image": "assets/product-images/Cornetto.png",
+    "price": "1,50€",
+    "description": "Only delicious things inside."
+  },
+  {
+    "id": 3,
+    "title": "Kinder Ice Cream",
+    "image": "assets/product-images/Kinder.png",
+    "price": "1,99€",
+    "description": "Only delicious things inside."
+  },
+  {
+    "id": 4,
+    "title": "Klassiker",
+    "image": "assets/product-images/Klassiker.png",
+    "price": "1,50€",
+    "description": "Only delicious things inside."
+  },
+  {
+    "id": 5,
+    "title": "Cremissimo",
+    "image": "assets/product-images/Cremissimo.png",
+    "price": "2,50€",
+    "description": "Only delicious things inside."
+  },
+  {
+    "id": 6,
+    "title": "Solero",
+    "image": "assets/product-images/Solero.png",
+    "price": "1,99€",
+    "description": "Only delicious things inside."
+  }
+]

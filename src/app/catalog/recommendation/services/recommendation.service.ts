@@ -11,9 +11,13 @@ import { Recommendation } from '@models/recommendation';
 
 @Injectable()
 export class RecommendationService {
+  // for mocking, we're using a local json file.
+  // in a real-world app this would be a REST ressource on a server
+  private readonly recommendationsUrl = '/assets/recommendations.json'
+
   constructor(private httpClient: HttpClient) {}
 
   loadRecommendations(): Observable<Recommendation[]> {
-    return this.httpClient.get<Recommendation[]>('http://www.mocky.io/v2/5b8d2fa33300007800c158be');
+    return this.httpClient.get<Recommendation[]>(this.recommendationsUrl);
   }
 }

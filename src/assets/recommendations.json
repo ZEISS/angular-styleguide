@@ -1,0 +1,8 @@
+[
+  { "id": 1, "title": "Capri", "image": "assets/recommendation-images/capri_multipack.png" },
+  { "id": 2, "title": "Dolomiti", "image": "assets/recommendation-images/dolomiti_multipack.png" },
+  { "id": 3, "title": "Movie", "image": "assets/recommendation-images/movie_time_multipack.png" },
+  { "id": 4, "title": "Nogger", "image": "assets/recommendation-images/nogger_multipack.png" },
+  { "id": 5, "title": "Sandwich", "image": "assets/recommendation-images/sandwich_multipack.png" },
+  { "id": 6, "title": "Split", "image": "assets/recommendation-images/split_multipack.png" }
+]
