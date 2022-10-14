@@ -15,6 +15,7 @@
   border: 2px solid var(--color-secondary);
   text-align: left !important;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 0 50px;
 
@@ -43,4 +44,14 @@
 .back-button {
   margin: 50px;
   @include common.button-secondary;
+}
+
+.product-img {
+  width: 450px;
+  height: 450px;
+  padding: 1em;
+}
+
+.product-description {
+  width: 100%;
 }

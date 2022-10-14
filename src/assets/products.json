@@ -1,44 +1,56 @@
 [
   {
     "id": 1,
-    "title": "Calippo",
-    "image": "assets/product-images/Calippo.png",
+    "title": "Blackberry",
+    "image": "assets/product-images/blackberry.jpg",
     "price": "1,50€",
-    "description": "Only delicious things inside."
+    "description": "blackberry-ice-cream. Photo by gordonramsaysubmissions",
+    "imageLicence": "cc-by",
+    "imageSource": "https://www.flickr.com/photos/54397539@N06/5034577130"
   },
   {
     "id": 2,
-    "title": "Cornetto",
-    "image": "assets/product-images/Cornetto.png",
+    "title": "Brownie Caramel",
+    "image": "assets/product-images/brownie_caramel.jpg",
     "price": "1,50€",
-    "description": "Only delicious things inside."
+    "description": "Blizzard Brownies - ice cream cookie + brownies + melted choco. Photo by Rizka Budiati Szkutnik",
+    "imageLicence": "cc-by",
+    "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929334"
   },
   {
     "id": 3,
-    "title": "Kinder Ice Cream",
-    "image": "assets/product-images/Kinder.png",
+    "title": "Mint",
+    "image": "assets/product-images/mint.jpg",
     "price": "1,99€",
-    "description": "Only delicious things inside."
+    "description": "Mint Chocolate Chip Ice Cream (with Sprinkles). Photo by Austin Kirk",
+    "imageLicence": "cc-by",
+    "imageSource": "https://www.flickr.com/photos/64441474@N06/13049646504"
   },
   {
     "id": 4,
-    "title": "Klassiker",
-    "image": "assets/product-images/Klassiker.png",
+    "title": "Strawberry",
+    "image": "assets/product-images/strawberry.jpg",
     "price": "1,50€",
-    "description": "Only delicious things inside."
+    "description": "Strawberry Ice Cream Cone. Photo by TheCulinaryGeek",
+    "imageLicence": "cc-by",
+    "imageSource": "https://www.flickr.com/photos/72949902@N00/5076899310"
   },
   {
     "id": 5,
-    "title": "Cremissimo",
-    "image": "assets/product-images/Cremissimo.png",
+    "title": "Chocolate Lolly",
+    "image": "assets/product-images/chocolate_lolly.jpg",
     "price": "2,50€",
-    "description": "Only delicious things inside."
+    "description": "Ice Cream Chocolate. Photo by Min An",
+    "imageLicence": "cc-0",
+    "imageSource": "https://stocksnap.io/photo/icecream-chocolate-UTHL4VX1AY"
   },
   {
     "id": 6,
-    "title": "Solero",
-    "image": "assets/product-images/Solero.png",
+    "title": "Ice Cream and Waffle",
+    "image": "assets/product-images/ice_waffle.jpg",
     "price": "1,99€",
-    "description": "Only delicious things inside."
+    "description": "Ice Cream and Waffle. Photo by Rizka Budiati Szkutnik",
+    "imageLicence": "cc-by",
+    "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929346"
   }
 ]
