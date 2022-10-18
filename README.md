@@ -1,37 +1,45 @@
-# AngularReduxShop
+# ZDI Angular Styleguide - Sample Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+This project serves as a sample project to showcase the guidelines provided in the ZDI Angular Styleguide (which will be published soon).
+
+It is a simplistic shop that offers delicious ice cream :icecream:
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`.
+The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build` to build the project.
+The build artifacts will be stored in the `dist/` directory.
+Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 
-### Webdriver.io / Playwright
+### WebdriverIO / Playwright
 
-To execute the [webdriver.io](https://webdriver.io/) or [playwright](https://playwright.dev/) tests, ensure the application is running. Use `ng serve` to run the application.
+To execute the [WebdriverIO](https://webdriver.io/) or [Playwright](https://playwright.dev/) tests, ensure the application is running.
+Use `npm start` to run the application.
 
-Run `npm run e2e:wdio` to execute the end-to-end tests via webdriver.
+Run `npm run e2e:wdio` to execute the end-to-end tests via WebdriverIO.
 
-Run `npm run e2e:playwright` to execute the end-to-end tests via playwright.
+Run `npm run e2e:playwright` to execute the end-to-end tests via Playwright.
+
+## Running layout tests
+
+Run `npm run galen` to run layout tests using the [Galen Framework](http://galenframework.com/).
+This requires to have Java installed on the executing host.
 
 ## Code formatting
 
-This project uses [Prettier](https://prettier.io) as code formatter. It is configured to run as a pre-commit hook on staged files to ensure the code in the repository is always properly formatted.
+This project uses [Prettier](https://prettier.io) as a code formatter.
+It is configured to run as a pre-commit hook on staged files to ensure the code in the repository is always properly formatted.
 
-## Further help
+# License
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The application is released using the MIT license. For more information see the [license file](./LICENSE).
