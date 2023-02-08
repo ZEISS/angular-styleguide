@@ -14,7 +14,7 @@ describe('Product master page', () => {
 
   it('should navigate to correct detail page when product was clicked', async () => {
     await productMasterPage.navigateTo();
-    const productName = 'Solero';
+    const productName = 'Mint';
     const productImage = await productMasterPage.getProductImageByName(productName);
 
     await productImage.click();
