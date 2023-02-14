@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+ * SPDX-FileCopyrightText: (c) 2023 Carl Zeiss AG
  * SPDX-License-Identifier: MIT
  */
 
@@ -23,7 +23,7 @@ test.describe('Product master page', () => {
   });
 
   test('should navigate to correct detail page when product was clicked', async () => {
-    const productName = 'Solero';
+    const productName = 'Mint';
     const productImage = await masterPage.getProductImageByName(productName);
 
     await productImage?.click();

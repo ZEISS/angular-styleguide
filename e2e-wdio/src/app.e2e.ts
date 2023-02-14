@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+ * SPDX-FileCopyrightText: (c) 2023 Carl Zeiss AG
  * SPDX-License-Identifier: MIT
  */
 
