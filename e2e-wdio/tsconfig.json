@@ -4,6 +4,6 @@
     "outDir": "../out-tsc/e2e",
     "module": "commonjs",
     "target": "es2020",
-    "types": ["node", "webdriverio/async", "jasmine", "expect-webdriverio/jasmine"]
+    "types": ["node", "@wdio/globals/types", "@wdio/jasmine-framework"]
   }
 }
