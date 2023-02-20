@@ -8,6 +8,11 @@
 div.container {
   margin-top: 25px;
   margin-bottom: 25px;
+  width: auto;
+
+  .row {
+    margin: 0 10px;
+  }
 }
 
 .product-details {
@@ -35,12 +40,12 @@ div.container {
     h3 {
       font-size: 25px;
       font-weight: 100;
-      margin: 0 0 8px;
+      margin: 0 0 10px;
     }
 
     p {
       font-size: 20px;
-      margin: 0 0 18px;
+      margin: 0 0 20px;
     }
   }
 }
