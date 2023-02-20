@@ -28,21 +28,6 @@ app-theme-switcher {
   align-self: end;
 }
 
-.grid-container {
-  display: grid;
-  grid-gap: 50px;
-  grid-template-columns: 1fr;
-  padding: 100px 50px 50px;
-  margin: auto;
-  width: 50%;
-}
-
-@media (min-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
 div.container {
   padding: 25px;
 }

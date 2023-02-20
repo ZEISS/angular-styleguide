@@ -18,14 +18,8 @@ h2 {
   padding-bottom: 10px;
 }
 
-.grid-container {
-  display: grid;
-  grid-gap: 25px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  justify-items: center;
-  margin: auto;
-  width: 60%;
-  padding-bottom: 20px;
+div.container {
+  padding: 25px;
 }
 
 app-recommendation {
