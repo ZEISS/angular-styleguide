@@ -9,12 +9,14 @@
   <h2>Choose your favorite.</h2>
 </header>
 
-<div class="grid-container">
-  <app-product
-    class="big"
-    *ngFor="let product of products$ | async"
-    [product]="product"
-    (productImageClicked)="loadProductDetails(product.id)"
-  >
-  </app-product>
+<div class="container">
+  <div class="row">
+    <app-product
+      class="col-md-4 col-sm-6 col-12"
+      *ngFor="let product of products$ | async"
+      [product]="product"
+      (productImageClicked)="loadProductDetails(product.id)"
+    >
+    </app-product>
+  </div>
 </div>
