@@ -5,10 +5,14 @@
 
 @use '../../../../../support/styling/common-styles' as common;
 
-.center {
-  width: 40%;
-  margin: 100px auto auto;
-  text-align: center;
+div.container {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: auto;
+
+  .row {
+    margin: 0 10px;
+  }
 }
 
 .product-details {
@@ -19,20 +23,30 @@
   flex-wrap: wrap;
   padding: 0 50px;
 
-  h2 {
-    font-size: 35px;
-    font-weight: 100;
+  .product-img {
+    width: 100%;
+    max-width: 500px;
+    padding: 1em;
   }
 
-  h3 {
-    font-size: 25px;
-    font-weight: 100;
-    margin: 0 0 8px;
-  }
+  .product-description {
+    width: 100%;
 
-  p {
-    font-size: 20px;
-    margin: 0 0 18px;
+    h2 {
+      font-size: 35px;
+      font-weight: 100;
+    }
+
+    h3 {
+      font-size: 25px;
+      font-weight: 100;
+      margin: 0 0 10px;
+    }
+
+    p {
+      font-size: 20px;
+      margin: 0 0 20px;
+    }
   }
 }
 
@@ -42,16 +56,6 @@
 }
 
 .back-button {
-  margin: 50px;
+  margin: 50px 0;
   @include common.button-secondary;
-}
-
-.product-img {
-  width: 450px;
-  height: 450px;
-  padding: 1em;
-}
-
-.product-description {
-  width: 100%;
 }

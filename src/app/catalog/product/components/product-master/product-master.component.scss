@@ -11,6 +11,7 @@ header {
   align-items: center;
   color: var(--color-highlight-text);
   letter-spacing: 0.2em;
+  padding: 20px;
 
   h1 {
     font-size: 65px;
@@ -28,21 +29,12 @@ app-theme-switcher {
   align-self: end;
 }
 
-.grid-container {
-  display: grid;
-  grid-gap: 50px;
-  grid-template-columns: 1fr;
-  padding: 100px 50px 50px;
-  margin: auto;
-  width: 50%;
-}
-
-@media (min-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+div.container {
+  padding: 25px;
+  width: auto;
 }
 
 app-product {
   min-width: 0;
+  padding: 25px;
 }

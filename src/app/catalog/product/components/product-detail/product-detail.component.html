@@ -3,18 +3,20 @@
   ~ SPDX-License-Identifier: MIT
   -->
 
-<div class="center">
-  <div class="product-details" *ngIf="product$ | async as product">
-    <img class="product-img" src="{{ product.image }}" alt="product image" />
-    <div class="product-description">
-      <h2>{{ product.title }}</h2>
-      <h3>Price</h3>
-      <p>{{ product.price }}</p>
-      <h3>Ingredients</h3>
-      <p>{{ product.description }}</p>
-      <button class="confirmation-button" (click)="showConfirmation()">Buy Online</button>
+<div class="container">
+  <div class="row">
+    <div class="product-details" *ngIf="product$ | async as product">
+      <img class="product-img" src="{{ product.image }}" alt="product image" />
+      <div class="product-description">
+        <h2>{{ product.title }}</h2>
+        <h3>Price</h3>
+        <p>{{ product.price }}</p>
+        <h3>Ingredients</h3>
+        <p>{{ product.description }}</p>
+        <button class="confirmation-button" (click)="showConfirmation()">Buy Online</button>
+      </div>
     </div>
+    <button class="back-button" (click)="backToProductOverview()">Back to all products</button>
   </div>
-  <button class="back-button" (click)="backToProductOverview()">Back to all products</button>
 </div>
 <app-recommendations></app-recommendations>
