@@ -1,6 +1,13 @@
 {
   "name": "angular-redux-shop",
   "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "description": "Sample project for ZDI Angular Styleguide",
+  "keywords": [
+    "angular",
+    "styleguide"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,7 +21,6 @@
     "layout-tests:browserstack": "bash ./layout-tests/run-tests-on-browserstack.sh",
     "prepare": "husky install"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "15.1.4",
     "@angular/common": "15.1.4",
