@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Carl Zeiss AG
+#
+# SPDX-License-Identifier: MIT
+
 @@ set
   url                 http://bs-local.com:4200
   browserstack_hub    http://${browserstack.username}:${browserstack.key}@hub-cloud.browserstack.com/wd/hub

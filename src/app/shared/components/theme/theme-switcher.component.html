@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 Carl Zeiss AG
+
+SPDX-License-Identifier: MIT
+-->
+
 <button class="theme-switcher" [ngSwitch]="theme" (click)="switcherClicked()">
   <fa-icon *ngSwitchCase="'light-theme'" [icon]="faMoon"></fa-icon>
   <fa-icon *ngSwitchCase="'dark-theme'" [icon]="faSun"></fa-icon>

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 Carl Zeiss AG
+//
+// SPDX-License-Identifier: MIT
+
 import { Component, OnInit } from '@angular/core';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
@@ -45,4 +49,4 @@ export class ThemeSwitcherComponent implements OnInit {
 }
 
 const themes = ['light-theme', 'dark-theme'] as const;
-type Theme = typeof themes[number];
+type Theme = (typeof themes)[number];
