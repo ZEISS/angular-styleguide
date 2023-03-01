@@ -42,4 +42,4 @@ It is configured to run as a pre-commit hook on staged files to ensure the code 
 
 # License
 
-The application is released using the MIT license. For more information see the [license file](./LICENSE).
+The application is released using the MIT license. For more information see the [license file](./LICENSES/MIT.txt).
