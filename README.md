@@ -1,5 +1,7 @@
 # ZDI Angular Styleguide - Sample Project
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 This project serves as a sample project to showcase the guidelines provided in the ZDI Angular Styleguide (which will be published soon).
 
 It is a simplistic shop that offers delicious ice cream :icecream:
