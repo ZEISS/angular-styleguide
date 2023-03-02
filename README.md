@@ -4,6 +4,8 @@ This project serves as a sample project to showcase the guidelines provided in t
 
 It is a simplistic shop that offers delicious ice cream :icecream:
 
+To get a better understanding of the style guide, it is recommended to look into the repositories [wiki page](https://github.com/ZEISS/angular-styleguide/wiki).
+
 ## Development server
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`.
