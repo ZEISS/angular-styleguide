@@ -3,6 +3,52 @@ Upstream-Name: angular-styleguide
 Upstream-Contact:  Carl Zeiss AG
 Source: https://github.com/ZEISS/angular-styleguide
 
-Files: src/app/* src/assets/*.json src/environments/* src/model/* src/support/* src/*.ts src/*.scss src/*.html *.json *.md *.config *.js .gitignore
+# files by zeiss
+Files: src/app/* src/assets/*.json src/environments/* src/model/* src/support/* src/*.ts src/*.scss src/*.html *.json *.md *.config *.js .gitignore .editorconfig .husky/* .npmrc .prettierignore 
 Copyright: 2022 Carl Zeiss AG
 License: MIT
+
+# images
+Files: src/assets/product-images/brownie_caramel.jpg src/assets/product-images/ice_waffle.jpg
+Copyright: 2007 Rizka Budiati Szkutnik
+License: CC-BY-2.0
+
+Files: src/assets/product-images/blackberry.jpg src/assets/recommendation-images/choco_pecan.jpg
+Copyright: 2010 gordonramsaysubmissions
+License: CC-BY-2.0
+
+Files: src/assets/product-images/mint.jpg
+Copyright: 2014 Austin Kirk
+License: CC-BY-2.0
+
+Files: src/assets/product-images/strawberry.jpg
+Copyright: 2010 TheCulinaryGeek
+License: CC-BY-2.0
+
+Files: src/assets/product-images/chocolate_lolly.jpg
+Copyright: Min An
+License: CC0-1.0
+
+Files: src/assets/recommendation-images/carrot_cake.jpg
+Copyright: 2009 Joy
+License: CC-BY-2.0
+
+Files: src/assets/recommendation-images/sugar_sprinkles.jpg
+Copyright: 2014 SurFeRGiRL30
+License: CC-BY-2.0
+
+Files: src/assets/recommendation-images/maple.jpg
+Copyright: 2009 Kimberly Vardeman
+License: CC-BY-2.0
+
+Files: src/assets/recommendation-images/vanilla_fudge.jpg
+Copyright: 2011 Gloria Cabada-Leman
+License: CC-BY-2.0
+
+Files: src/assets/recommendation-images/sandwich.jpg
+Copyright: 2006 Roland Tanglao
+License: CC0-1.0
+
+Files: src/favicon.ico
+Copyright: 2010-2023 Google
+License: CC-BY-4.0
