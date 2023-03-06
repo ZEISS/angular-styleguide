@@ -1,6 +1,7 @@
 # ZDI Angular Styleguide - Sample Project
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[![REUSE status](https://api.reuse.software/badge/github.com/ZEISS/angular-styleguide)](https://api.reuse.software/info/github.com/ZEISS/angular-styleguide)
 
 This project serves as a sample project to showcase the guidelines provided in the ZDI Angular Styleguide (which will be published soon).
 
