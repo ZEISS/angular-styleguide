@@ -1,13 +1,13 @@
-# ZDI Angular Styleguide - Sample Project
+# [ZDI Angular Styleguide](https://github.com/ZEISS/angular-styleguide/wiki) - Sample Project
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![REUSE status](https://api.reuse.software/badge/github.com/ZEISS/angular-styleguide)](https://api.reuse.software/info/github.com/ZEISS/angular-styleguide)
 
-This project serves as a sample project to showcase the guidelines provided in the ZDI Angular Styleguide (which will be published soon).
+This project serves as a sample project to showcase the guidelines provided in the [ZDI Angular Styleguide](https://github.com/ZEISS/angular-styleguide/wiki).
 
 It is a simplistic shop that offers delicious ice cream :icecream:
 
-To get a better understanding of the style guide, it is recommended to look into the repositories [wiki page](https://github.com/ZEISS/angular-styleguide/wiki).
+To get a better understanding of the style guide example, it is recommended to look into the style guide which is hosted under the repositories [wiki page](https://github.com/ZEISS/angular-styleguide/wiki).
 
 ## Development server
 
