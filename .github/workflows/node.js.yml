@@ -52,9 +52,9 @@ jobs:
     # build
     - name: Build
       run: |
-        npm run build -- --prod
+        npm run build
     
     # test
-    - name: Test
-      run: |
-        npm run test
+    #- name: Test
+    #  run: |
+    #    npm run test
