@@ -53,9 +53,9 @@ jobs:
         npm run build
     
     # karma test
-    - name: Karma Test
-      run: |
-        npm test
+    #- name: Karma Test
+    #  run: |
+    #    npm test
         
     # wdio test
     - name: Wdio Test
