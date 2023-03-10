@@ -1,4 +1,4 @@
-name: Angular Styleguide CI with Node.js
+name: Build CI
 
 on:
   push:
@@ -56,15 +56,16 @@ jobs:
       #    npm test
 
       # start server for testing
-      - name: Start
-        run: |
-          npm start
+      #- name: Start
+      #  run: |
+      #    npm start
+
       # wdio test
-      - name: Wdio Test
-        run: |
-          npm run e2e:wdio
+      #- name: Wdio Test
+      #  run: |
+      #    npm run e2e:wdio
 
       # playwright test
-      - name: Playwright Test
-        run: |
-          npm run e2e:playwright
+      #- name: Playwright Test
+      #  run: |
+      #    npm run e2e:playwright

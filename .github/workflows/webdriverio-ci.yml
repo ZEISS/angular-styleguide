@@ -16,10 +16,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18.x
+
       - name: Install
         run: npm ci
+
       - name: Test
-        run: BROWSERSTACK_USERNAME=${{secrets.BROWSERSTACK_USERNAME}} BROWSERSTACK_ACCESS_KEY=${{secrets.BROWSERSTACK_ACCESS_KEY}} npm run test
+        run: npm run test:local
       - uses: actions/upload-artifact@v1
         if: failure()
         with:
