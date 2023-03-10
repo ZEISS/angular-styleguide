@@ -4,7 +4,7 @@ Upstream-Contact:  Carl Zeiss AG
 Source: https://github.com/ZEISS/angular-styleguide
 
 # files by zeiss
-Files: src/app/* src/assets/*.json src/environments/* src/model/* src/support/* src/*.ts src/*.scss src/*.html *.json *.md *.config *.js .gitignore .editorconfig .husky/* .npmrc .prettierignore 
+Files: src/app/* src/assets/*.json src/environments/* src/model/* src/support/* src/*.ts src/*.scss src/*.html *.json *.md *.config *.js .gitignore .editorconfig .husky/* .npmrc .prettierignore .github/*
 Copyright: 2022 Carl Zeiss AG
 License: MIT
 
