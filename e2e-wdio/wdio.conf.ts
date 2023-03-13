@@ -62,7 +62,6 @@ export const config = {
       maxInstances: 5,
       //
       browserName: 'chrome',
-      browserVersion: '110.0',
       acceptInsecureCerts: true,
       'goog:chromeOptions': {
         args: ['--headless', '--disable-gpu', '--window-size:1920,1080'],
@@ -153,9 +152,9 @@ export const config = {
     // The Jasmine framework allows interception of each assertion in order to log the state of the application
     // or website depending on the result. For example, it is pretty handy to take a screenshot every time
     // an assertion fails.
-    expectationResultHandler(passed, assertion) {
-      // do something
-    },
+    //expectationResultHandler(passed, assertion) {
+    // do something
+    //},
   },
 
   //
