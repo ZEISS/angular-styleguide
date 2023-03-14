@@ -1,25 +1,25 @@
-name: Build CI
+name: Build & Deploy
 
 on:
   push:
-    branches: ['main']
+    branches: ['main', 'ci-tests']
   pull_request:
-    branches: ['main']
+    branches: ['main', 'ci-tests']
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    #define node version
     strategy:
       matrix:
         node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v3
 
       # setting up node
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -49,6 +49,9 @@ jobs:
       - name: Build
         run: |
           npm run build
+
+      #- name: Deploy to GitHub Pages
+      #  run:
 
       # karma test
       #- name: Karma Test
