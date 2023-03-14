@@ -2,9 +2,7 @@ name: Build & Deploy
 
 on:
   push:
-    branches: ['main', 'ci-tests']
   pull_request:
-    branches: ['main', 'ci-tests']
 
 jobs:
   build:
