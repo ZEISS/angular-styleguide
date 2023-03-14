@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Carrot Cake Ice Cream",
+    "image": "assets/recommendation-images/carrot_cake.jpg",
+    "description": "Carrot cake ice cream. Photo by Joy",
+    "imageLicence": "cc-by",
+    "imageSource": "https://www.flickr.com/photos/33993074@N00/3435102247"
+  },
+  {
+    "id": 2,
+    "title": "Sugar Sprinkles",
+    "image": "assets/recommendation-images/sugar_sprinkles.jpg",
+    "description": "Icecream on the Boardwalk. Photo by  SurFeRGiRL30",
+    "imageLicence": "cc-by",
+    "imageSource": "https://www.flickr.com/photos/33143245@N02/14268507072"
+  },
+  {
+    "id": 3,
+    "title": "Maple with Chocolate Sauce",
+    "image": "assets/recommendation-images/maple.jpg",
+    "description": "Maple Ice Cream with Chocolate Sauce. Photo by Kimberly Vardeman",
+    "imageLicence": "cc-by",
+    "imageSource": "https://www.flickr.com/photos/87542849@N00/3305315887"
+  },
+  {
+    "id": 4,
+    "title": "Chocolate Pecan",
+    "image": "assets/recommendation-images/choco_pecan.jpg",
+    "description": "Chocolate pecan ice cream. Photo by gordonramsaysubmissions",
+    "imageLicence": "cc-by",
+    "imageSource": "https://www.flickr.com/photos/54397539@N06/5034578006"
+  },
+  {
+    "id": 5,
+    "title": "Vanilla, Chocolate Fudge, Peanut butter",
+    "image": "assets/recommendation-images/vanilla_fudge.jpg",
+    "description": "Wolftracks ice cream. Photo by Gloria Cabada-Leman",
+    "imageLicence": "cc-by",
+    "imageSource": "https://www.flickr.com/photos/67238971@N04/6300432080"
+  },
+  {
+    "id": 6,
+    "title": "Sandwich",
+    "image": "assets/recommendation-images/sandwich.jpg",
+    "description": "Midnight Kitchen Ice Cream Sandwiches. Photo by Roland Tanglao",
+    "imageLicence": "cc-0",
+    "imageSource": "https://www.flickr.com/photos/35034347371@N01/195210419"
+  }
+]
