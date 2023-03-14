@@ -53,7 +53,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/angular-redux-shop/#
-          publish_branch: gh-pages
 
       # karma test
       #- name: Karma Test
