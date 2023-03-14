@@ -52,7 +52,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/angular-redux-shop/
+          publish_dir: ./dist/
+          publish_branch: gh_pages
 
       # karma test
       #- name: Karma Test
