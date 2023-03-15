@@ -32,7 +32,7 @@ jobs:
       # build
       - name: Build
         run: |
-          npm run build --prod --baseHref=/angular-styleguide/
+          npm run build --prod
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
