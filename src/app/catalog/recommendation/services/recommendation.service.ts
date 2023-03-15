@@ -13,7 +13,7 @@ import { Recommendation } from '@models/recommendation';
 export class RecommendationService {
   // for mocking, we're using a local json file.
   // in a real-world app this would be a REST ressource on a server
-  private readonly recommendationsUrl = '/assets/recommendations.json'
+  private readonly recommendationsUrl = './assets/recommendations.json';
 
   constructor(private httpClient: HttpClient) {}
 
