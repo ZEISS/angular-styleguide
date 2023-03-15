@@ -9,7 +9,8 @@ import { Store } from '@ngrx/store';
 import { selectCurrentProductDetails } from '@app/catalog/product/store/product.selectors';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
-import { loadProducts } from '@app/catalog/product/store/product.actions';
+import { loadProductDetails, loadProducts } from '@app/catalog/product/store/product.actions';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -19,7 +20,7 @@ import { loadProducts } from '@app/catalog/product/store/product.actions';
 export class ProductDetailComponent implements OnInit {
   product$ = this.store.select(selectCurrentProductDetails);
 
-  constructor(private store: Store<StateWithCatalog>) {}
+  constructor(private store: Store<StateWithCatalog>, private route: ActivatedRoute) {}
 
   backToProductOverview() {
     this.store.dispatch(navigate({ url: '/' }));
@@ -30,6 +31,8 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    const productId = Number.parseInt(this.route.snapshot.paramMap.get('id'));
     this.store.dispatch(loadProducts());
+    this.store.dispatch(loadProductDetails({ productId: productId }));
   }
 }

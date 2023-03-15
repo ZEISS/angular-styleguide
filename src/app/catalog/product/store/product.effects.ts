@@ -15,7 +15,6 @@ import {
   loadProductsSuccess,
 } from './product.actions';
 import { ProductService } from '@app/catalog/product/services/product.service';
-import { navigate } from '@app/shared/navigation/navigation.actions';
 
 @Injectable()
 export class ProductEffects {
@@ -38,9 +37,7 @@ export class ProductEffects {
       ofType(loadProductDetails),
       switchMap(({ productId }) =>
         this.service.getProduct(productId).pipe(
-          switchMap((product) =>
-            of(loadProductDetailsSuccess({ product }), navigate({ url: `/product/${product.id}` }))
-          ),
+          switchMap((product) => of(loadProductDetailsSuccess({ product }))),
           catchError(() => EMPTY)
         )
       )
