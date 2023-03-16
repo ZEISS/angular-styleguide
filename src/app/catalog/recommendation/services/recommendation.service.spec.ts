@@ -9,7 +9,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { RecommendationService } from './recommendation.service';
 import { RecommendationTestData } from '@models/recommendation.testdata';
 
-const recommendationsUrl = '/assets/recommendations.json';
+// change from absolute to relative path
+const recommendationsUrl = './assets/recommendations.json';
 
 describe('RecommendationService', () => {
   let service: RecommendationService;

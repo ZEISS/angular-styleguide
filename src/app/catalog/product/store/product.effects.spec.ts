@@ -83,8 +83,9 @@ describe('ProductEffects', () => {
       actions$ = of(loadProductDetails({ productId }));
       const result$: Observable<Action> = effects.loadProductDetails$;
 
+      /* temporarily removed (b) because navigation is done from ProductMaster */
       testObservable(({ expectObservable }) => {
-        expectObservable(result$).toBe('(ab|)', {
+        expectObservable(result$).toBe('(a|)', {
           a: loadProductDetailsSuccess({ product: detailedProducts }),
           b: navigate({ url: `/product/${productId}` }),
         });
