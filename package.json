@@ -14,6 +14,7 @@
     "build": "ng build",
     "build:prod": "ng build --configuration=production --base-href=/angular-styleguide/",
     "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "stylelint": "stylelint src/**/{*.scss,*.css}",
     "e2e:playwright": "(set TS_NODE_PROJECT=./e2e-playwright/tsconfig.json) && playwright test --config=./e2e-playwright/playwright.config.ts",

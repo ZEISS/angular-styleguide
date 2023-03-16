@@ -34,22 +34,19 @@ jobs:
         run: |
           npm run build:prod
 
+      # karma test (single run - headless chrome)
+      - name: Karma Test
+        run: |
+          npm run test:ci
+
+      # deploy recent build and push it to branch 'gh-pages'
+      # this will trigger the action 'pages build & deployment' to host the recent build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/angular-redux-shop
           publish_branch: gh-pages
-
-      # karma test
-      #- name: Karma Test
-      #  run: |
-      #    npm test
-
-      # start server for testing
-      #- name: Start
-      #  run: |
-      #    npm start
 
       # wdio test
       #- name: Wdio Test
