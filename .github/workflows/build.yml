@@ -1,4 +1,4 @@
-name: Build & Deploy
+name: Build, Unit Test & Deploy
 
 on:
   push:

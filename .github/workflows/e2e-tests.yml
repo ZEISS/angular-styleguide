@@ -1,22 +1,25 @@
-name: webdriverio-ci
+name: E2E Testing
 
 on:
   push:
-    branches: [main, ci-tests]
   pull_request:
-    branches: [main, ci-tests]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
+      # checkout and setup node
       - name: Checkout
         uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+
+      # install dependencies
       - name: Install
         run: npm ci
+
+      # run wdio test on following url: 'https://zeiss.github.io/angular-styleguide/'
       - name: Test
-        run: npm run e2e:wdio
+        run: npm run e2e:wdio:ci
