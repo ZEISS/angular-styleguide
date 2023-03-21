@@ -19,5 +19,9 @@ jobs:
         run: npm ci
 
       # run wdio test on following url: 'https://zeiss.github.io/angular-styleguide/'
-      - name: Test
+      - name: WebdriverIO Test
         run: npm run e2e:wdio:ci
+
+      # run playwright test on following url: 'https://zeiss.github.io/angular-styleguide/'
+      - name: Playwright Test
+        run: npm run e2e:playwright:ci
