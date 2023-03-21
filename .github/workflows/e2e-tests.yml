@@ -4,8 +4,7 @@ on:
   workflow_run:
     # run E2E Tests after recent build has been deployed to GitHub pages
     workflows: ['pages-build-deployment']
-    types:
-      - completed
+    types: [completed]
 
 jobs:
   test:
