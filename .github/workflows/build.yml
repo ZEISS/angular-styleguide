@@ -47,13 +47,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/angular-redux-shop
           publish_branch: gh-pages
-
-      # wdio test
-      #- name: Wdio Test
-      #  run: |
-      #    npm run e2e:wdio
-
-      # playwright test
-      #- name: Playwright Test
-      #  run: |
-      #    npm run e2e:playwright
