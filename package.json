@@ -42,6 +42,7 @@
     "@ngrx/store-devtools": "15.3.0",
     "bootstrap": "5.2.3",
     "rxjs": "7.8.0",
+    "socket.io": "4.6.1",
     "tslib": "2.5.0",
     "zone.js": "0.12.0"
   },
@@ -72,7 +73,7 @@
     "galenframework-cli": "2.4.4-build43",
     "husky": "8.0.3",
     "jasmine-core": "4.5.0",
-    "karma": "6.4.1",
+    "karma": "6.4.2",
     "karma-chrome-launcher": "3.1.1",
     "karma-coverage": "2.2.0",
     "karma-jasmine": "5.1.0",
