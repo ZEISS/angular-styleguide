@@ -12,6 +12,9 @@
 /layout-tests/dumps
 /layout-tests/reports
 
+## playwright
+/test-results
+
 # profiling files
 chrome-profiler-events.json
 speed-measure-plugin.json
