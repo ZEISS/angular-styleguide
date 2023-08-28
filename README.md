@@ -35,7 +35,7 @@ Run `npm run e2e:wdio` to execute the end-to-end tests via WebdriverIO.
 
 Run `npm run e2e:playwright` to execute the end-to-end tests via Playwright.
 
-Run `npm run e2e:playwright:ui` to start [Playwrite UI-Mode](https://playwright.dev/docs/test-ui-mode).
+Run `npm run e2e:playwright:ui` to start [Playwright UI Mode](https://playwright.dev/docs/test-ui-mode).
 
 ## Running layout tests
 
