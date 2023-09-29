@@ -9,7 +9,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { RecommendationService } from './recommendation.service';
 import { RecommendationTestData } from '@models/recommendation.testdata';
 
-const recommendationsUrl = '/assets/recommendations.json';
+const recommendationsUrl = './assets/recommendations.json';
 
 describe('RecommendationService', () => {
   let service: RecommendationService;

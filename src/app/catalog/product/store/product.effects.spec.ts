@@ -11,7 +11,6 @@ import { Action } from '@ngrx/store';
 import { Observable, of, throwError } from 'rxjs';
 
 import { ProductService } from '@app/catalog/product/services/product.service';
-import { navigate } from '@app/shared/navigation/navigation.actions';
 import { ProductTestData } from '@models/product.testdata';
 import {
   loadProductDetails,
@@ -83,10 +82,10 @@ describe('ProductEffects', () => {
       actions$ = of(loadProductDetails({ productId }));
       const result$: Observable<Action> = effects.loadProductDetails$;
 
+      /* temporarily removed (b) because navigation is done from ProductMaster */
       testObservable(({ expectObservable }) => {
-        expectObservable(result$).toBe('(ab|)', {
+        expectObservable(result$).toBe('(a|)', {
           a: loadProductDetailsSuccess({ product: detailedProducts }),
-          b: navigate({ url: `/product/${productId}` }),
         });
       });
 
