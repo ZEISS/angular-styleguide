@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
 import { selectCurrentProductDetails } from '@app/catalog/product/store/product.selectors';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
-import { loadProductDetails, loadProducts } from '@app/catalog/product/store/product.actions';
+import { loadProductDetails } from '@app/catalog/product/store/product.actions';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
