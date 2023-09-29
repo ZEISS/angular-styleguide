@@ -25,7 +25,6 @@ export class ProductMasterComponent implements OnInit {
   }
 
   loadProductDetails(id: number) {
-    //product details are now loaded from product-detail component while product-master handles navigation only
     this.store.dispatch(navigate({ url: `/product/${id}` }));
   }
 }

@@ -37,7 +37,7 @@ export class ProductEffects {
       ofType(loadProductDetails),
       switchMap(({ productId }) =>
         this.service.getProduct(productId).pipe(
-          switchMap((product) => of(loadProductDetailsSuccess({ product }))),
+          map((product) => loadProductDetailsSuccess({ product })),
           catchError(() => EMPTY)
         )
       )

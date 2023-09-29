@@ -11,7 +11,6 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { selectCurrentProductDetails } from '@app/catalog/product/store/product.selectors';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 import { ProductDetailComponent } from './product-detail.component';
-import { loadProductDetails, loadProducts } from '@app/catalog/product/store/product.actions';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
@@ -61,15 +60,4 @@ describe('ProductDetailComponent', () => {
       expect(store.dispatch).toHaveBeenCalledWith(navigate({ url: '/' }));
     });
   });
-
-  /*
-
-  // test if ProductDetail component loads product detail with corresponding id from url
-  it('should dispatch loadProductDetails action on init', () => {
-    fixture.detectChanges();
-
-    expect(store.dispatch).toHaveBeenCalledWith(loadProductDetails({ productId: x }));
-  });
-
-  */
 });

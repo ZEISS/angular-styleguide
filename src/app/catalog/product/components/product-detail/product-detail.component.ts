@@ -22,17 +22,16 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(private store: Store<StateWithCatalog>, private route: ActivatedRoute) {}
 
-  backToProductOverview() {
+  backToProductOverview(): void {
     this.store.dispatch(navigate({ url: '/' }));
   }
 
-  showConfirmation() {
+  showConfirmation(): void {
     this.store.dispatch(navigate({ url: '/order' }));
   }
 
   ngOnInit() {
-    const productId = Number.parseInt(this.route.snapshot.paramMap.get('id'));
-    this.store.dispatch(loadProducts());
+    const productId: number = Number.parseInt(this.route.snapshot.paramMap.get('id'));
     this.store.dispatch(loadProductDetails({ productId: productId }));
   }
 }

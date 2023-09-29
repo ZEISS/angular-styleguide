@@ -9,7 +9,6 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ProductService } from './product.service';
 import { ProductTestData } from '@models/product.testdata';
 
-//changing from absolute to relative path
 const productsUrl = './assets/products.json';
 
 describe('ProductService', () => {

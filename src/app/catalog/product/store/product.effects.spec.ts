@@ -87,7 +87,6 @@ describe('ProductEffects', () => {
       testObservable(({ expectObservable }) => {
         expectObservable(result$).toBe('(a|)', {
           a: loadProductDetailsSuccess({ product: detailedProducts }),
-          b: navigate({ url: `/product/${productId}` }),
         });
       });
 

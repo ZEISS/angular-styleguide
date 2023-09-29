@@ -34,8 +34,8 @@ jobs:
         run: |
           npm run build:prod
 
-      # karma test (single run - headless chrome)
-      - name: Karma Test
+      # unit tests (single run - headless chrome)
+      - name: Unit Tests
         run: |
           npm run test:ci
 
