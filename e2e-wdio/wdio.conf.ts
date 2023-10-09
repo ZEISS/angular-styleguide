@@ -62,7 +62,6 @@ export const config = {
       maxInstances: 5,
       //
       browserName: 'chrome',
-      browserVersion: '117.0',
       acceptInsecureCerts: true,
       'goog:chromeOptions': {
         args: ['--headless', '--disable-gpu', '--window-size:1920,1080'],
