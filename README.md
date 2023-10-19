@@ -6,6 +6,7 @@
 This project serves as a sample project to showcase the guidelines provided in the [ZDI Angular Styleguide](https://github.com/ZEISS/angular-styleguide/wiki).
 
 It is a simplistic shop that offers delicious ice cream :icecream:
+The newest build of the shop is deployed [here](https://zeiss.github.io/angular-styleguide/) via GitHub Pages.
 
 To get a better understanding of the style guide example, it is recommended to look into the style guide which is hosted under the repositories [wiki page](https://github.com/ZEISS/angular-styleguide/wiki).
 
