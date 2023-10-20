@@ -8,6 +8,7 @@ import { Recommendation } from '@models/recommendation';
 
 @Component({
   selector: 'app-recommendation',
+  standalone: true,
   templateUrl: './recommendation.component.html',
   styleUrls: ['./recommendation.component.scss'],
 })

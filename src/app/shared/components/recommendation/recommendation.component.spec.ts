@@ -4,7 +4,6 @@
  */
 
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { RecommendationComponent } from './recommendation.component';
 
 describe('RecommendationsComponent', () => {
@@ -13,8 +12,8 @@ describe('RecommendationsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [RecommendationComponent],
-    }).compileComponents();
+      imports: [RecommendationComponent],
+    });
   }));
 
   beforeEach(() => {
