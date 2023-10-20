@@ -9,8 +9,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { StoreModule } from '@store/store.module';
 import { CatalogModule } from '@app/catalog/catalog.module';
-import { OrderModule } from '@app/order/order.module';
 
 export const appConfig: ApplicationConfig = {
-  providers: [importProvidersFrom(StoreModule, CatalogModule, OrderModule), provideRouter(routes)],
+  providers: [importProvidersFrom(StoreModule, CatalogModule), provideRouter(routes)],
 };

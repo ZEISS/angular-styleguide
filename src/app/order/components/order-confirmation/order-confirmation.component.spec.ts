@@ -5,7 +5,6 @@
 
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-
 import { OrderConfirmationComponent } from './order-confirmation.component';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 
@@ -16,9 +15,9 @@ describe('OrderConfirmationComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [OrderConfirmationComponent],
+      imports: [OrderConfirmationComponent],
       providers: [provideMockStore({ initialState: {} })],
-    }).compileComponents();
+    });
   }));
 
   beforeEach(() => {

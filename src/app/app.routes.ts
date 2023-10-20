@@ -4,7 +4,11 @@
  */
 
 import { Routes } from '@angular/router';
+import { orderRoutes } from '@app/order/order.routes';
 
 export const routes: Routes = [
-  // {path: '**', component: PageNotFoundComponent}
+  {
+    path: '',
+    children: orderRoutes,
+  },
 ];
