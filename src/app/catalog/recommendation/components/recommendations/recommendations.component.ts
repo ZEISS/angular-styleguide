@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { State } from '@app/reducers';
@@ -12,6 +12,7 @@ import { selectRecommendations } from '@app/catalog/recommendation/store/recomme
 
 @Component({
   selector: 'app-recommendations',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './recommendations.component.html',
   styleUrls: ['./recommendations.component.scss'],
 })

@@ -2,11 +2,12 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-theme-switcher',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './theme-switcher.component.html',
   styleUrls: ['./theme-switcher.component.scss'],
 })

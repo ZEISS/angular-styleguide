@@ -3,11 +3,12 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '@models/product';
 
 @Component({
   selector: 'app-product',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
 })
