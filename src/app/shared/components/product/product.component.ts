@@ -9,6 +9,7 @@ import { Product } from '@models/product';
 @Component({
   selector: 'app-product',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
 })

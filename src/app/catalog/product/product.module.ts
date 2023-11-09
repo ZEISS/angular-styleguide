@@ -8,19 +8,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 
-import { SharedModule } from '@app/shared/shared.module';
 import { ProductDetailComponent } from '@app/catalog/product/components/product-detail/product-detail.component';
 import { ProductMasterComponent } from '@app/catalog/product/components/product-master/product-master.component';
 import { ProductService } from '@app/catalog/product/services/product.service';
 import { ProductEffects } from '@app/catalog/product/store/product.effects';
 import { RecommendationModule } from '@app/catalog/recommendation/recommendation.module';
+import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
+import { ProductComponent } from '@app/shared/components/product/product.component';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     RecommendationModule,
-    SharedModule,
+    ProductComponent,
+    ThemeSwitcherComponent,
     EffectsModule.forFeature([ProductEffects]),
   ],
   declarations: [ProductDetailComponent, ProductMasterComponent],

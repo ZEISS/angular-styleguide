@@ -5,9 +5,7 @@
 
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
 import { ThemeSwitcherComponent } from './theme-switcher.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('ThemeSwitcherComponent', () => {
   let component: ThemeSwitcherComponent;
@@ -20,10 +18,8 @@ describe('ThemeSwitcherComponent', () => {
     localStorageSetItemSpy = spyOn(window.localStorage, 'setItem');
 
     TestBed.configureTestingModule({
-      declarations: [ThemeSwitcherComponent],
-      providers: [],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents();
+      imports: [ThemeSwitcherComponent],
+    });
   }));
 
   beforeEach(() => {

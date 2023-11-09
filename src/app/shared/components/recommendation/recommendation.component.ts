@@ -9,6 +9,7 @@ import { Recommendation } from '@models/recommendation';
 @Component({
   selector: 'app-recommendation',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
   templateUrl: './recommendation.component.html',
   styleUrls: ['./recommendation.component.scss'],
 })

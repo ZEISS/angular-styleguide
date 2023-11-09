@@ -11,6 +11,7 @@ import { navigate } from '@app/shared/navigation/navigation.actions';
 
 @Component({
   selector: 'app-order-confirmation',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './order-confirmation.component.html',
   styleUrls: ['./order-confirmation.component.scss'],
