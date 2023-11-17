@@ -19,4 +19,10 @@
     <button class="back-button" (click)="backToProductOverview()">Back to all products</button>
   </div>
 </div>
-<app-recommendations></app-recommendations>
+
+<div class="loader">
+  <app-loader (progressFinished)="progressFinished()"></app-loader>
+</div>
+<div *ngIf="loaded">
+  <app-recommendations></app-recommendations>
+</div>

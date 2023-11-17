@@ -50,6 +50,10 @@ div.container {
   }
 }
 
+.loader {
+  padding: 0 50% 0 50%;
+}
+
 .confirmation-button {
   margin-bottom: 50px;
   @include common.button-primary;

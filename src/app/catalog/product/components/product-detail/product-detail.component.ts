@@ -20,6 +20,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailComponent implements OnInit {
   product$ = this.store.select(selectCurrentProductDetails);
 
+  loaded = false;
+
   constructor(private store: Store<StateWithCatalog>, private route: ActivatedRoute) {}
 
   backToProductOverview(): void {
@@ -28,6 +30,10 @@ export class ProductDetailComponent implements OnInit {
 
   showConfirmation(): void {
     this.store.dispatch(navigate({ url: '/order' }));
+  }
+
+  progressFinished(): void {
+    this.loaded = true;
   }
 
   ngOnInit() {
