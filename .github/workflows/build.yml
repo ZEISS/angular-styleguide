@@ -39,23 +39,19 @@ jobs:
         run: |
           npm run test:ci
 
-      # Install Playwright
-      - name: Install PlayWright
-        run: |
-          npx install playwright
-
-      # Run E2E Tests
-      - name: PlayWright Test
-        run: |
-          npm run e2e:playwright
-
+      # Start Angular App
       - name: Run Angular App
         run: |
           npm start
 
+      # Run E2E Tests
       - name: WebdriverIO Test
         run: |
           npm run e2e:wdio
+
+      - name: PlayWright Test
+        run: |
+          npm run e2e:playwright
 
       # deploy recent build and push it to branch 'gh-pages'
       # this will trigger the action 'pages build & deployment' to host the recent build
