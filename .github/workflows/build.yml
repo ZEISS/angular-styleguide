@@ -51,7 +51,7 @@ jobs:
 
       - name: WebdriverIO Test
         run: |
-          npm run e2e:wdio
+          npx wdio e2e-wdio/wdio.conf.ts
 
       # deploy recent build and push it to branch 'gh-pages'
       # this will trigger the action 'pages build & deployment' to host the recent build
