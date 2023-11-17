@@ -15,6 +15,7 @@ import { ProductEffects } from '@app/catalog/product/store/product.effects';
 import { RecommendationModule } from '@app/catalog/recommendation/recommendation.module';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { ProductComponent } from '@app/shared/components/product/product.component';
+import { LoaderComponent } from '@app/shared/components/loader/loader.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import { ProductComponent } from '@app/shared/components/product/product.compone
     ThemeSwitcherComponent,
     EffectsModule.forFeature([ProductEffects]),
   ],
-  declarations: [ProductDetailComponent, ProductMasterComponent],
+  declarations: [ProductDetailComponent, ProductMasterComponent, LoaderComponent],
   exports: [ProductDetailComponent, ProductMasterComponent],
   providers: [ProductService],
 })
