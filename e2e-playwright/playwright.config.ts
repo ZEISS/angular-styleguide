@@ -6,7 +6,11 @@
 import { PlaywrightTestConfig, devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-  timeout: 45000,
+  webServer: {
+    command: 'npx ng serve',
+    port: 4200,
+    timeout: 100 * 1000,
+  },
   use: {
     headless: true,
   },

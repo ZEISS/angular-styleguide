@@ -39,11 +39,25 @@ jobs:
         run: |
           npm run test:ci
 
+      # Run E2E Tests
+      - name: PlayWright Test
+        run: |
+          npm run e2e:playwright
+
+      - name: Run Angular App
+        run: |
+          npm start
+
+      - name: WebdriverIO Test
+        run: |
+          npm run e2e:wdio
+
       # deploy recent build and push it to branch 'gh-pages'
       # this will trigger the action 'pages build & deployment' to host the recent build
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/angular-redux-shop
-          publish_branch: gh-pages
+
+      #- name: Deploy to GitHub Pages
+      #  uses: peaceiris/actions-gh-pages@v3
+      #  with:
+      #    github_token: ${{ secrets.GITHUB_TOKEN }}
+      #    publish_dir: ./dist/angular-redux-shop
+      #    publish_branch: gh-pages
