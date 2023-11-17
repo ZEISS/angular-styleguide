@@ -6,7 +6,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { EffectsModule } from '@ngrx/effects';
+import { provideEffects } from '@ngrx/effects';
 
 import { ProductDetailComponent } from '@app/catalog/product/components/product-detail/product-detail.component';
 import { ProductMasterComponent } from '@app/catalog/product/components/product-master/product-master.component';
@@ -23,10 +23,9 @@ import { ProductComponent } from '@app/shared/components/product/product.compone
     RecommendationModule,
     ProductComponent,
     ThemeSwitcherComponent,
-    EffectsModule.forFeature([ProductEffects]),
   ],
   declarations: [ProductDetailComponent, ProductMasterComponent],
   exports: [ProductDetailComponent, ProductMasterComponent],
-  providers: [ProductService],
+  providers: [ProductService, provideEffects(ProductEffects)],
 })
 export class ProductModule {}
