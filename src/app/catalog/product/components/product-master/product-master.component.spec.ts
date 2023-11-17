@@ -10,6 +10,7 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { ProductMasterComponent } from './product-master.component';
 import { loadProductDetails, loadProducts } from '@app/catalog/product/store/product.actions';
 import { selectProducts } from '@app/catalog/product/store/product.selectors';
+import { navigate } from '@app/shared/navigation/navigation.actions';
 
 describe('ProductMasterComponent', () => {
   let component: ProductMasterComponent;
@@ -50,10 +51,10 @@ describe('ProductMasterComponent', () => {
   });
 
   describe('loadProductDetails', () => {
-    it('should dispatch loadProductDetails action with product id', () => {
+    it('should dispatch navigation action with product id', () => {
       component.loadProductDetails(42);
 
-      expect(store.dispatch).toHaveBeenCalledWith(loadProductDetails({ productId: 42 }));
+      expect(store.dispatch).toHaveBeenCalledWith(navigate({ url: '/product/42' }));
     });
   });
 });

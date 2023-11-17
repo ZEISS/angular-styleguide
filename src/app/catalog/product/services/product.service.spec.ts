@@ -9,7 +9,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ProductService } from './product.service';
 import { ProductTestData } from '@models/product.testdata';
 
-const productsUrl = '/assets/products.json';
+const productsUrl = './assets/products.json';
 
 describe('ProductService', () => {
   let service: ProductService;

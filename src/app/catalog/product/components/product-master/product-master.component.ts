@@ -5,9 +5,10 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadProductDetails, loadProducts } from '@app/catalog/product/store/product.actions';
+import { loadProducts } from '@app/catalog/product/store/product.actions';
 import { selectProducts } from '@app/catalog/product/store/product.selectors';
 import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
+import { navigate } from '@app/shared/navigation/navigation.actions';
 
 @Component({
   selector: 'app-product-master',
@@ -24,6 +25,6 @@ export class ProductMasterComponent implements OnInit {
   }
 
   loadProductDetails(id: number) {
-    this.store.dispatch(loadProductDetails({ productId: id }));
+    this.store.dispatch(navigate({ url: `/product/${id}` }));
   }
 }

@@ -12,8 +12,8 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class ProductService {
   // for mocking, we're using a local json file.
-  // in a real-world app this would be a REST ressource on a server
-  private readonly productUrl = '/assets/products.json';
+  // in a real-world app this would be a REST resource on a server
+  private readonly productUrl = './assets/products.json';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -21,7 +21,7 @@ export class ProductService {
     return this.httpClient.get<Product[]>(this.productUrl);
   }
 
-  getProduct(id: number | string): Observable<Product> {
+  getProduct(id: number): Observable<Product> {
     return this.httpClient
       .get<Product[]>(this.productUrl)
       .pipe(map((products) => products.find((product) => product.id === id)));

@@ -44,7 +44,7 @@ export const config = {
   // First, you can define how many instances should be started at the same time. Let's
   // say you have 3 different capabilities (Chrome, Firefox, and Safari) and you have
   // set maxInstances to 1; wdio will spawn 3 processes. Therefore, if you have 10 spec
-  // files and you set maxInstances to 10, all spec files will get tested at the same time
+  // files, and you set maxInstances to 10, all spec files will get tested at the same time
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
@@ -60,9 +60,7 @@ export const config = {
       // grid with only 5 firefox instances available you can make sure that not more than
       // 5 instances get started at a time.
       maxInstances: 5,
-      //
       browserName: 'chrome',
-      browserVersion: '110.0',
       acceptInsecureCerts: true,
       'goog:chromeOptions': {
         args: ['--headless', '--disable-gpu', '--window-size:1920,1080'],
@@ -96,7 +94,7 @@ export const config = {
     //     '@wdio/applitools-service': 'info'
   },
   //
-  // If you only want to run your tests until a specific amount of tests have failed use
+  // If you only want to run your tests until a specific amount of tests has failed use
   // bail (default is 0 - don't bail, run all tests).
   bail: 0,
   //
@@ -116,7 +114,6 @@ export const config = {
   // Default request retries count
   connectionRetryCount: 3,
   //
-  // Test runner services
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
@@ -136,7 +133,7 @@ export const config = {
   // Delay in seconds between the spec file retry attempts
   // specFileRetriesDelay: 0,
   //
-  // Whether or not retried specfiles should be retried immediately or deferred to the end of the queue
+  // Whether retried specfiles should be retried immediately or deferred to the end of the queue
   // specFileRetriesDeferred: false,
   //
   // Test reporter for stdout.
@@ -149,13 +146,6 @@ export const config = {
   jasmineOpts: {
     // Jasmine default timeout
     defaultTimeoutInterval: 60000,
-    //
-    // The Jasmine framework allows interception of each assertion in order to log the state of the application
-    // or website depending on the result. For example, it is pretty handy to take a screenshot every time
-    // an assertion fails.
-    expectationResultHandler(passed, assertion) {
-      // do something
-    },
   },
 
   //
