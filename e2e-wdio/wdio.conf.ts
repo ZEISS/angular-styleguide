@@ -63,7 +63,12 @@ export const config: WebdriverIO.Config = {
       browserName: 'chrome',
       acceptInsecureCerts: true,
       'goog:chromeOptions': {
-        args: ['--headless', '--disable-gpu', '--window-size:1920,1080'],
+        args: [
+          '--headless',
+          '--disable-gpu',
+          '--window-size:1920,1080',
+          '--ignore-certificate-errors',
+        ],
       },
       // If outputDir is provided WebdriverIO can capture driver session logs
       // it is possible to configure which logTypes to include/exclude.
