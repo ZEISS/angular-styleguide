@@ -6,6 +6,11 @@
 import { PlaywrightTestConfig, devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
+  webServer: {
+    command: 'npm start',
+    port: 4200,
+    timeout: 150 * 1000,
+  },
   use: {
     headless: true,
   },
