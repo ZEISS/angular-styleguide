@@ -53,6 +53,13 @@ jobs:
         run: |
           npm run e2e:wdio:ci
 
+  deploy:
+    # only deploy when PR has been merged to main branch & build job was successfully finished
+    if: github.event.pull_request.merged
+    needs: build
+
+    runs-on: ubuntu-latest
+    steps:
       # Deploy recent build and push it to branch 'gh-pages'
       # this will trigger the action 'pages build & deployment' to host the recent build
       - name: Deploy to GitHub Pages
