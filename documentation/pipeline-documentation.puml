@@ -1,0 +1,41 @@
+/'
+This document describes the workflow of the deployment process
+'/
+@startuml Build, Test & Trigger Deploy
+
+|Build and Deploy|
+start
+note right: Changes pushed to github
+
+partition Build #lightBlue{
+:Setting up node;
+:Install dependencies;
+:Install playwright;
+:Build pplication prod version;
+:Run unit tests;
+:Run Playwright E2E tests;
+:Run WebdriverIO E2E tests;
+if (Build successfully?) then (No))
+  repeat: fix errors
+  repeat while (Build successfully?) is (no) not (yes)
+endif
+}
+
+|Review|
+partition Review_Process #lightYellow{
+:Review process;
+if (Review successfully?) then (No)
+  repeat: fix findings
+  repeat while (Review successfully?) is (no) not (yes)
+endif
+:Merge to main;
+}
+
+|Build and Deploy|
+partition Deployment #lightGreen {
+  :Deploy recent build and push it to branch 'gh-pages';
+  :This will trigger the action 'pages build & deployment' to host the recent build;
+}
+end
+note right: End of pipeline
+@enduml
