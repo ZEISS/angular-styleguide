@@ -21,6 +21,7 @@ const storeProviders = [
   provideStoreDevtools({
     maxAge: 25,
     logOnly: environment.production,
+    connectInZone: true,
   }),
   provideEffects(NavigationEffects),
 ];
