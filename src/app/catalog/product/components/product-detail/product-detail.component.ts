@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { selectCurrentProductDetails } from '@app/catalog/product/store/product.selectors';
@@ -21,6 +21,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailComponent implements OnInit {
   product$ = this.store.select(selectCurrentProductDetails);
 
+  productNumber = signal(1);
+
   constructor(private store: Store<StateWithCatalog>, private route: ActivatedRoute) {}
 
   backToProductOverview(): void {
@@ -29,6 +31,14 @@ export class ProductDetailComponent implements OnInit {
 
   showConfirmation(): void {
     this.store.dispatch(navigate({ url: '/order' }));
+  }
+
+  increseProductNumber(): void {
+    this.productNumber.update((c) => c + 1);
+  }
+
+  decreaseProductNumber(): void {
+    this.productNumber.update((c) => (c > 1 ? c - 1 : 1));
   }
 
   ngOnInit() {
