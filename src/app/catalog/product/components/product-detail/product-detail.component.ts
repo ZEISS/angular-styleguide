@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { selectCurrentProductDetails } from '@app/catalog/product/store/product.selectors';
@@ -14,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss'],
 })
