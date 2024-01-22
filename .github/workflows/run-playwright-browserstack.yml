@@ -1,16 +1,6 @@
 name: Run Playwright on Browserstack
 
-on:
-  workflow_dispatch:
-    inputs:
-      username:
-        description: browserstack username
-        required: true
-        type: string
-      key:
-        description: browserstack key
-        required: true
-        type: string
+on: [workflow_dispatch]
 
 jobs:
   build:
