@@ -1,8 +1,16 @@
 name: Run Playwright on Browserstack
 
 on:
-  push:
-  pull_request:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: browserstack username
+        required: true
+        type: string
+      key:
+        description: browserstack key
+        required: true
+        type: string
 
 jobs:
   build:
@@ -48,3 +56,6 @@ jobs:
       - name: PlayWright Test
         run: |
           npm run e2e:playwright:ui-browserstack
+        env:
+          BROWSERSTACK_USER_NAME: ${{ inputs.username }}
+          BROWSERSTACK_ACCESS_KEY: ${{ inputs.key }}
