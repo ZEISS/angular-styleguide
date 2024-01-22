@@ -49,6 +49,8 @@ platforms:
 #
 # Example 2 - If you have configured 1 platform and set `parallelsPerPlatform` as 5, a total of 5 (1 * 5) parallel threads will be used on BrowserStack
 parallelsPerPlatform: 1
+retryTestsOnFailure: true
+testIterations: 3
 
 # ==========================================
 # BrowserStack Local
