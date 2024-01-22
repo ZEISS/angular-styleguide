@@ -1,0 +1,63 @@
+name: Run Playwright on Browserstack
+
+on:
+  workflow_dispatch:
+    branches:
+      - task/CFWEB-69-playwright-and-browserstack
+    inputs:
+      username:
+        description: browserstack username
+        required: true
+        type: string
+      key:
+        description: browserstack key
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # define node version
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # setting up node
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      # install
+      - name: Install Dependencies
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+
+      # install playwright
+      - name: Install Playwright with Chrome
+        run: |
+          npx playwright install --with-deps
+
+      # build
+      - name: Build
+        run: |
+          npm run build:prod
+
+      # start webserver
+      - name: Start Application
+        run: |
+          npm run start
+
+      # Run E2E Tests
+      - name: PlayWright Test
+        run: |
+          npm run e2e:playwright:ui-browserstack
+        env:
+          BROWSERSTACK_USER_NAME: ${{ inputs.username }}
+          BROWSERSTACK_ACCESS_KEY: ${{ inputs.key }}
