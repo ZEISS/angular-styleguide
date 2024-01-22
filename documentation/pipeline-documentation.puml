@@ -11,13 +11,13 @@ partition Build #lightBlue{
 :Setting up node;
 :Install dependencies;
 :Install playwright;
-:Build pplication prod version;
+:Build application prod version;
 :Run unit tests;
 :Run Playwright E2E tests;
 :Run WebdriverIO E2E tests;
-if (Build successfully?) then (No))
+if (Build successful?) then (No))
   repeat: fix errors
-  repeat while (Build successfully?) is (no) not (yes)
+  repeat while (Build successful?) is (no) not (yes)
 endif
 }
 
