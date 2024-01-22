@@ -11,7 +11,7 @@ The newest build of the shop is deployed [here](https://zeiss.github.io/angular-
 
 To get a better understanding of the style guide example, it is recommended to look into the style guide which is hosted under the repositories [wiki page](https://github.com/ZEISS/angular-styleguide/wiki).
 
-Furthermore, you can find more information about the build process [here](documentation/generated-documents/build-pipeline-documentation.png).
+Furthermore, you can find more information about the build and deployment process [here](documentation/generated-documents/build-pipeline-documentation.png).
 
 Almost the entire app is implemented by using the [Standalone Components](https://angular.io/guide/standalone-components) approach. To cover also the classical module-based approach and to showcase the integration of both concepts, the package `catalog` is implemented module-based completely.
 
