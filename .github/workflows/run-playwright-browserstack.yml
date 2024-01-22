@@ -2,15 +2,13 @@ name: Run Playwright on Browserstack
 
 on:
   workflow_dispatch:
-    branches:
-      - task/CFWEB-69-playwright-and-browserstack
     inputs:
-      username:
-        description: browserstack username
+      user_name:
+        description: browserstack user name
         required: true
         type: string
-      key:
-        description: browserstack key
+      access_key:
+        description: browserstack access key
         required: true
         type: string
 
@@ -54,5 +52,5 @@ jobs:
         run: |
           npm run e2e:playwright:ci-browserstack
         env:
-          BROWSERSTACK_USER_NAME: ${{ inputs.username }}
-          BROWSERSTACK_ACCESS_KEY: ${{ inputs.key }}
+          BROWSERSTACK_USER_NAME: ${{ inputs.user_name }}
+          BROWSERSTACK_ACCESS_KEY: ${{ inputs.access_key }}

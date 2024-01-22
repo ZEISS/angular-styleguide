@@ -20,15 +20,13 @@
     "e2e:playwright": "(set TS_NODE_PROJECT=./e2e-playwright/tsconfig.json) && playwright test --config=./e2e-playwright/playwright.config.ts",
     "e2e:playwright:ci": "(set TS_NODE_PROJECT=./e2e-playwright/tsconfig.json) && playwright test --config=./e2e-playwright/playwright.config.ci.ts",
     "e2e:playwright:ui": "(set TS_NODE_PROJECT=./e2e-playwright/tsconfig.json) && playwright test --ui --config=./e2e-playwright/playwright.config.ts",
+    "e2e:playwright:ci-browserstack": "(set TS_NODE_PROJECT=./e2e-playwright/tsconfig.json) && browserstack-node-sdk playwright test --config=./e2e-playwright/playwright.config.ci.ts",
     "e2e:wdio": "(set TS_NODE_PROJECT=./e2e-wdio/tsconfig.json) && wdio run ./e2e-wdio/wdio.conf.ts",
     "e2e:wdio:ci": "start-server-and-test start http://localhost:4200 e2e:wdio",
     "galen": "galen",
     "layout-tests:browserstack": "bash ./layout-tests/run-tests-on-browserstack.sh",
     "prepare": "husky install",
-    "postinstall": "npm update browserstack-node-sdk",
-    "e2e:playwright-browserstack": "(set TS_NODE_PROJECT=./e2e-playwright/tsconfig.json) && browserstack-node-sdk playwright test --config=./e2e-playwright/playwright.config.ts",
-    "e2e:playwright:ci-browserstack": "(set TS_NODE_PROJECT=./e2e-playwright/tsconfig.json) && browserstack-node-sdk playwright test --config=./e2e-playwright/playwright.config.ci.ts",
-    "e2e:playwright:ui-browserstack": "(set TS_NODE_PROJECT=./e2e-playwright/tsconfig.json) && browserstack-node-sdk playwright test --ui --config=./e2e-playwright/playwright.config.ts"
+    "postinstall": "npm update browserstack-node-sdk"
   },
   "dependencies": {
     "@angular/animations": "17.0.7",
