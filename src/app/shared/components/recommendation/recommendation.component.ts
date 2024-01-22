@@ -3,11 +3,12 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Recommendation } from '@models/recommendation';
 
 @Component({
   selector: 'app-recommendation',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   templateUrl: './recommendation.component.html',
   styleUrls: ['./recommendation.component.scss'],
