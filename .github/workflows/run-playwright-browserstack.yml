@@ -1,6 +1,18 @@
 name: Run Playwright on Browserstack
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+    branches:
+      - task/CFWEB-69-playwright-and-browserstack
+    inputs:
+      username:
+        description: browserstack username
+        required: true
+        type: string
+      key:
+        description: browserstack key
+        required: true
+        type: string
 
 jobs:
   build:
