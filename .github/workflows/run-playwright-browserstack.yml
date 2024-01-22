@@ -1,4 +1,4 @@
-name: Build, Test & Trigger Deploy
+name: Run Playwright on Browserstack
 
 on:
   push:
