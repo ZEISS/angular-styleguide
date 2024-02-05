@@ -25,8 +25,7 @@
     "e2e:wdio:ci": "start-server-and-test start http://localhost:4200 e2e:wdio",
     "galen": "galen",
     "layout-tests:browserstack": "bash ./layout-tests/run-tests-on-browserstack.sh",
-    "prepare": "husky install",
-    "postinstall": "npm update browserstack-node-sdk"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@angular/animations": "17.0.7",
