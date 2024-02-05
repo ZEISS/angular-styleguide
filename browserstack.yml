@@ -30,7 +30,7 @@ platforms:
   - os: OS X
     osVersion: Big Sur
     browserName: Chrome
-    browserVersion: latest
+    browserVersion: 105
   - os: Windows
     osVersion: 10
     browserName: Edge

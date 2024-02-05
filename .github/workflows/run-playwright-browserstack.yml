@@ -37,11 +37,6 @@ jobs:
         run: |
           npm ci
 
-      # install playwright
-      - name: Install Playwright with Chrome
-        run: |
-          npx playwright install --with-deps
-
       # build
       - name: Build
         run: |
