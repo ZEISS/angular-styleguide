@@ -2,7 +2,7 @@ name: Run Playwright on Browserstack
 
 on:
   workflow_dispatch:
-    inputs:
+    secrets:
       user_name:
         description: browserstack user name
         required: true
