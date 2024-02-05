@@ -22,14 +22,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Mask Credentials
+      - name: Mask Credentials and store them in env
         run: |
-          USER_NAME=$(jq -r '.inputs.user_name' $GITHUB_EVENT_PATH)
-          ACCESS_KEY=$(jq -r '.inputs.access_key' $GITHUB_EVENT_PATH)
-          echo ::add-mask::$USER_NAME
-          echo ::add-mask::$ACCESS_KEY
-          echo USER_NAME=$USER_NAME >> $GITHUB_ENV
-          echo ACCESS_KEY=$ACCESS_KEY >> $GITHUB_ENV
+          BROWSERSTACK_USER_NAME=$(jq -r '.inputs.user_name' $GITHUB_EVENT_PATH)
+          BROWSERSTACK_ACCESS_KEY=$(jq -r '.inputs.access_key' $GITHUB_EVENT_PATH)
+          echo ::add-mask::$BROWSERSTACK_USER_NAME
+          echo ::add-mask::$BROWSERSTACK_ACCESS_KEY
+          echo BROWSERSTACK_USER_NAME=$BROWSERSTACK_USER_NAME >> $GITHUB_ENV
+          echo BROWSERSTACK_ACCESS_KEY=$BROWSERSTACK_ACCESS_KEY >> $GITHUB_ENV
 
       # setting up node
       - name: Setup Node.js
@@ -58,6 +58,3 @@ jobs:
       - name: PlayWright Test
         run: |
           npm run e2e:playwright:ci-browserstack
-        env:
-          BROWSERSTACK_USER_NAME: ${{ env.USER_NAME }}
-          BROWSERSTACK_ACCESS_KEY: ${{ env.ACCESS_KEY }}
