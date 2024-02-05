@@ -46,5 +46,3 @@ const config: PlaywrightTestConfig = {
   ],
 };
 export default config;
-
-export const baseUrl: string = 'http://localhost:4200';

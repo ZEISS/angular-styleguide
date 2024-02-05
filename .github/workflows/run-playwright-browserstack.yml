@@ -1,0 +1,55 @@
+name: Run Playwright on Browserstack
+
+on:
+  workflow_dispatch:
+    inputs:
+      user_name:
+        description: 'browserstack user name'
+        required: true
+      access_key:
+        description: 'browserstack access key'
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # define node version
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Mask Credentials and store them in env
+        run: |
+          BROWSERSTACK_USER_NAME=$(jq -r '.inputs.user_name' $GITHUB_EVENT_PATH)
+          BROWSERSTACK_ACCESS_KEY=$(jq -r '.inputs.access_key' $GITHUB_EVENT_PATH)
+          echo ::add-mask::$BROWSERSTACK_USER_NAME
+          echo ::add-mask::$BROWSERSTACK_ACCESS_KEY
+          echo BROWSERSTACK_USER_NAME=$BROWSERSTACK_USER_NAME >> $GITHUB_ENV
+          echo BROWSERSTACK_ACCESS_KEY=$BROWSERSTACK_ACCESS_KEY >> $GITHUB_ENV
+
+      # setting up node
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      # install
+      - name: Install Dependencies
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+
+      # build
+      - name: Build
+        run: |
+          npm run build:prod
+
+      # Run E2E Tests
+      - name: PlayWright Test
+        run: |
+          npm run e2e:playwright:ci-browserstack

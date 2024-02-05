@@ -41,6 +41,16 @@ Run `npm run e2e:playwright` to execute the end-to-end tests via Playwright.
 
 Run `npm run e2e:playwright:ui` to start [Playwright UI Mode](https://playwright.dev/docs/test-ui-mode).
 
+### Running Playwright tests with BrowserStack
+
+Precondition: You need a BrowserStack account to get your username and access key: https://www.browserstack.com/docs/iaam/security/manage-access-keys.
+
+Run tests with Github workflow:
+
+- Follow the Github Guide (https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow)
+- The workflow that needs to be started is called `Run Playwright on Browserstack`
+- Enter the BrowserStack credentials as input parameters.
+
 ## Running layout tests
 
 Run `npm run galen` to run layout tests using the [Galen Framework](http://galenframework.com/).
