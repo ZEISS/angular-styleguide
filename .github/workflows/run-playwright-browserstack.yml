@@ -4,13 +4,11 @@ on:
   workflow_dispatch:
     secrets:
       user_name:
-        description: browserstack user name
+        description: 'browserstack user name'
         required: true
-        type: string
       access_key:
-        description: browserstack access key
+        description: 'browserstack access key'
         required: true
-        type: string
 
 jobs:
   build:
@@ -52,5 +50,5 @@ jobs:
         run: |
           npm run e2e:playwright:ci-browserstack
         env:
-          BROWSERSTACK_USER_NAME: ${{ inputs.user_name }}
-          BROWSERSTACK_ACCESS_KEY: ${{ inputs.access_key }}
+          BROWSERSTACK_USER_NAME: ${{ secrets.user_name }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.access_key }}
