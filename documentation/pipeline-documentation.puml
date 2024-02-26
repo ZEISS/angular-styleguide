@@ -34,7 +34,7 @@ endif
 |Build and Deploy|
 partition Deployment #lightGreen {
   :Deploy recent build and push it to branch 'gh-pages';
-  :This will trigger the action 'pages build & deployment' to host the recent build;
+  :Trigger the action 'pages build & deployment' to host the recent build;
 }
 end
 note right: End of pipeline
