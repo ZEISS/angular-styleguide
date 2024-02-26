@@ -1,1 +1,1 @@
-![`Build Pipeline`](`documentation/generated-documents/build-pipeline-documentation.png`)
+![`Build Pipeline`](`/documentation/generated-documents/build-pipeline-documentation.png`)
