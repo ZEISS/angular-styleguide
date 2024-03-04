@@ -61,6 +61,8 @@ export const config: WebdriverIO.Config = {
       // 5 instances get started at a time.
       maxInstances: 5,
       browserName: 'chrome',
+      //todo: remove with next dependency-update iteration
+      browserVersion: '122.0.6261.39',
       acceptInsecureCerts: true,
       'goog:chromeOptions': {
         args: [
