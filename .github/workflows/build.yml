@@ -55,7 +55,7 @@ jobs:
 
   deploy:
     # only deploy when PR has been merged to main branch & build job was successfully finished
-    if: github.event.pull_request.merged
+    if: github.event.pull_request.merged == true
     needs: build
 
     runs-on: ubuntu-latest
