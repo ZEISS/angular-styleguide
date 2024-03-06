@@ -61,6 +61,7 @@ export const config: WebdriverIO.Config = {
       // 5 instances get started at a time.
       maxInstances: 5,
       browserName: 'chrome',
+      browserVersion: '122.0.6261.39',
       acceptInsecureCerts: true,
       'goog:chromeOptions': {
         args: [
