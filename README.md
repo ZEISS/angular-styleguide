@@ -47,16 +47,11 @@ Run `npm run e2e:playwright:ui` to start [Playwright UI Mode](https://playwright
 
 Precondition: You need a BrowserStack account to get your username and access key: https://www.browserstack.com/docs/iaam/security/manage-access-keys.
 
-Run tests with Github workflow:
+Run tests with GitHub workflow:
 
-- Follow the Github Guide (https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow)
+- Follow the GitHub Guide (https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow)
 - The workflow that needs to be started is called `Run Playwright on Browserstack`
 - Enter the BrowserStack credentials as input parameters.
-
-## Running layout tests
-
-Run `npm run galen` to run layout tests using the [Galen Framework](http://galenframework.com/).
-This requires to have Java installed on the executing host.
 
 ## Code formatting
 

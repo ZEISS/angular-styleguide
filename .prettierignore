@@ -9,6 +9,3 @@ out-tsc
 # Non-text formats
 *.png
 
-# Galen dumps and reports
-dumps
-reports
