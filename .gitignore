@@ -8,10 +8,6 @@
 # dependencies
 /node_modules
 
-# test reports
-/layout-tests/dumps
-/layout-tests/reports
-
 ## playwright
 /test-results
 
