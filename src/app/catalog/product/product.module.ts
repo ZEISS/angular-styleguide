@@ -4,7 +4,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { provideEffects } from '@ngrx/effects';
 
@@ -17,15 +17,13 @@ import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switc
 import { ProductComponent } from '@app/shared/components/product/product.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    RecommendationModule,
-    ProductComponent,
-    ThemeSwitcherComponent,
-  ],
   declarations: [ProductDetailComponent, ProductMasterComponent],
   exports: [ProductDetailComponent, ProductMasterComponent],
-  providers: [ProductService, provideEffects(ProductEffects)],
+  imports: [CommonModule, RecommendationModule, ProductComponent, ThemeSwitcherComponent],
+  providers: [
+    ProductService,
+    provideEffects(ProductEffects),
+    provideHttpClient(withInterceptorsFromDi()),
+  ],
 })
 export class ProductModule {}
