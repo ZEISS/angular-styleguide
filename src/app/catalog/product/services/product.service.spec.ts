@@ -5,9 +5,10 @@
 
 import { TestBed } from '@angular/core/testing';
 
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ProductService } from './product.service';
 import { ProductTestData } from '@models/product.testdata';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 const productsUrl = './assets/products.json';
 
@@ -17,8 +18,12 @@ describe('ProductService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ProductService],
-      imports: [HttpClientTestingModule],
+      imports: [],
+      providers: [
+        ProductService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
+      ],
     });
 
     service = TestBed.inject(ProductService);
