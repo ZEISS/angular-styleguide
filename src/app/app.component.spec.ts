@@ -5,12 +5,14 @@
 
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { provideMockStore } from '@ngrx/store/testing';
 
 describe('AppComponent', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: [AppComponent],
-    })
+      providers: [provideMockStore({ initialState: {} })],
+    }),
   );
 
   it('should create the app', waitForAsync(() => {

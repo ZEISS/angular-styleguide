@@ -2,12 +2,26 @@
   ~ SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
   ~ SPDX-License-Identifier: MIT
   -->
-
+<header>
+  <app-theme-switcher></app-theme-switcher>
+  <div id="confirmation-info">
+    <h1>Order confirmed.</h1>
+    <h2>Your ice cream is on its way to you.</h2>
+  </div>
+</header>
 <div class="container">
   <div class="row">
-    <div id="confirmation-info">
-      <h3>Order confirmed.</h3>
-      <h2>Your ice cream is on its way to you.</h2>
+    <div class="purchased-products" *ngIf="purchasedProducts as products">
+      <h2>Purchased Products</h2>
+
+      <div class="items">
+        <div class="item" *ngFor="let product of products">
+          <img [attr.src]="product.image" />
+          <span>{{ product.title }}</span>
+          <span>{{ product.price }} €</span>
+          <span>X {{ product.count }}</span>
+        </div>
+      </div>
     </div>
     <button id="back-button" (click)="backToProductOverview()">Back to all products</button>
   </div>

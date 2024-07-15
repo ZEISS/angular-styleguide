@@ -10,5 +10,7 @@
   font-size: 1.5em;
   cursor: pointer;
   margin: 0.5em;
-  color: var(--color-highlight-text);
+  /* preventing to be not clickable because of shopping cart */
+  z-index: 1000;
+  position: relative;
 }
