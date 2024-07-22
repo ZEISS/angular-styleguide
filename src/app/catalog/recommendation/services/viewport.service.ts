@@ -16,7 +16,7 @@ const options = {
   providedIn: 'root',
 })
 export class ViewportService {
-  isInViewport(elementRef: ElementRef<any>): Observable<boolean> {
+  public isInViewport(elementRef: ElementRef<any>): Observable<boolean> {
     return new Observable((observer) => {
       const element = elementRef?.nativeElement.getElementsByTagName('p')[0];
       if (!element) {
@@ -31,7 +31,7 @@ export class ViewportService {
         if (isInTheViewPort) {
           observer.next(true);
           observer.complete();
-          intersectionObserver.disconnect();
+          intersectionObserver.disconnect(); // disconnect the observable when the element is found, no longer requires observation for that
         }
       }, options);
 

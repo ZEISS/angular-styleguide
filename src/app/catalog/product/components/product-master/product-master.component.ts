@@ -34,7 +34,7 @@ export class ProductMasterComponent implements OnInit, AfterViewInit {
 
   @ViewChildren(ProductComponent) productChildren: QueryList<ProductComponent>;
 
-  private productReceiveHandler = (products: Product[]) => {
+  private productReceiveHandler = (products: Product[]): void => {
     // fill the sections - if product.length is 8 -> there are 3 sections. One section contains 3 product
     this.displayableContentSections = new Array(Math.round(products.length / 3)).fill(false);
     this.products = products;
@@ -49,19 +49,19 @@ export class ProductMasterComponent implements OnInit, AfterViewInit {
     this.store.select(selectProducts).subscribe(this.productReceiveHandler);
   }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.store.dispatch(loadProducts());
   }
 
-  loadProductDetails(id: number) {
+  public loadProductDetails(id: number) {
     this.store.dispatch(navigate({ url: `/product/${id}` }));
   }
 
-  public isContentInTheViewport2(index: number): boolean {
+  public isContentInTheViewport(index: number): boolean {
     return this.displayableContentSections[index / 3];
   }
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     // the subscription must be delayed a little,
     // because if we subscribe immediately, the function may run in the middle of the rendering and indicate that element is in the viewport
     // and is not working properly.
@@ -74,8 +74,8 @@ export class ProductMasterComponent implements OnInit, AfterViewInit {
         .subscribe((isInViewport: boolean) => {
           if (isInViewport) {
             this.displayableContentSections[lastRenderedSection + 1] = true;
+            this.cdr.markForCheck();
           }
-          this.cdr.markForCheck();
         });
     });
   }

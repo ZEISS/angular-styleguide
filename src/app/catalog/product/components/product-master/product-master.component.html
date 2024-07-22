@@ -12,6 +12,7 @@
 <div class="container">
   <div class="row">
     @for (item of products; track item; let outerLoopIndex = $index) {
+      <!-- preload some product -->
       @if (outerLoopIndex <= 8) {
         <app-product
           class="col-md-4 col-sm-6 col-12"
@@ -22,7 +23,7 @@
         </app-product>
       }
 
-      @defer (when isContentInTheViewport2(outerLoopIndex)) {
+      @defer (when isContentInTheViewport(outerLoopIndex)) {
         @for (product of products | slice: outerLoopIndex : outerLoopIndex + 3; track product) {
           <app-product
             class="col-md-4 col-sm-6 col-12"
