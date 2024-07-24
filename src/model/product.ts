@@ -7,6 +7,10 @@ export class Product {
   id: number;
   title: string;
   image: string;
-  price: string;
+  price: number;
   description: string;
+}
+
+export class ProductInCart extends Product {
+  count: number;
 }

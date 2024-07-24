@@ -24,5 +24,9 @@ body {
     /* Text */
     --color-highlight-text: #{colors.$color-white};
     --color-content-text: #{colors.$color-black};
+
+    /* Cart */
+    --color-cart-border: #{colors.$color-black};
+    --color-cart-background: #{colors.$color-white};
   }
 }

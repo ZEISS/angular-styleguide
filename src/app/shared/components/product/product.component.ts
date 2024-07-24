@@ -3,8 +3,16 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  Output,
+} from '@angular/core';
 import { Product } from '@models/product';
+import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
 
 @Component({
   selector: 'app-product',

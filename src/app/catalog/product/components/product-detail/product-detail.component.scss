@@ -5,6 +5,10 @@
 
 @use '../../../../../support/styling/common-styles' as common;
 
+header {
+  @include common.header-style;
+}
+
 div.container {
   margin-top: 25px;
   margin-bottom: 25px;
@@ -50,12 +54,21 @@ div.container {
   }
 }
 
-.confirmation-button {
-  margin-bottom: 50px;
-  @include common.button-primary;
+.button-container {
+  display: flex;
+  gap: 20px;
+  margin: 50px 0;
+
+  button {
+    @include common.button-primary;
+  }
 }
 
 .back-button {
   margin: 50px 0;
   @include common.button-secondary;
+}
+
+.counter-button {
+  @include common.button-primary;
 }

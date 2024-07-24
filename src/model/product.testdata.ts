@@ -12,7 +12,7 @@ export class ProductTestData {
         id: 1,
         title: 'test',
         image: 'none',
-        price: '1.99€',
+        price: 1.99,
         description: 'empty',
       },
     ];
