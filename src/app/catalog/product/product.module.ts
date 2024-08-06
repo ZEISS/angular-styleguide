@@ -15,6 +15,7 @@ import { ProductEffects } from '@app/catalog/product/store/product.effects';
 import { RecommendationModule } from '@app/catalog/recommendation/recommendation.module';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { ProductComponent } from '@app/shared/components/product/product.component';
+import { ViewportService } from '@app/catalog/recommendation/services/viewport.service';
 
 @NgModule({
   imports: [
@@ -26,6 +27,6 @@ import { ProductComponent } from '@app/shared/components/product/product.compone
   ],
   declarations: [ProductDetailComponent, ProductMasterComponent],
   exports: [ProductDetailComponent, ProductMasterComponent],
-  providers: [ProductService, provideEffects(ProductEffects)],
+  providers: [ProductService, ViewportService, provideEffects(ProductEffects)],
 })
 export class ProductModule {}

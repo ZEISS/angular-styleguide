@@ -4,15 +4,23 @@
   -->
 
 <div class="recommendations">
-  <h2>More ice cream</h2>
+  <h2 #moreIceCreamHeader>More ice cream</h2>
   <div class="container">
-    <div class="row">
-      <app-recommendation
-        class="col-md-4 col-sm-6 col-12"
-        *ngFor="let recommendation of recommendations$ | async"
-        [recommendation]="recommendation"
-      >
-      </app-recommendation>
-    </div>
+    @defer (on viewport(moreIceCreamHeader)) {
+      <div class="row">
+        @for (recommendation of recommendations$ | async; track recommendation) {
+          <app-recommendation class="col-md-4 col-sm-6 col-12" [recommendation]="recommendation">
+          </app-recommendation>
+        }
+      </div>
+    } @placeholder (minimum 2000ms) {
+      <ng-container *ngTemplateOutlet="iceCreamPlaceholder"> </ng-container>
+    }
   </div>
 </div>
+
+<ng-template #iceCreamPlaceholder>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-grow" style="width: 20rem; height: 20rem" role="status"></div>
+  </div>
+</ng-template>

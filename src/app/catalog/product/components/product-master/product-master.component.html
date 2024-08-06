@@ -11,12 +11,29 @@
 
 <div class="container">
   <div class="row">
-    <app-product
-      class="col-md-4 col-sm-6 col-12"
-      *ngFor="let product of products$ | async"
-      [product]="product"
-      (productImageClicked)="loadProductDetails(product.id)"
-    >
-    </app-product>
+    @for (item of products; track item; let outerLoopIndex = $index) {
+      <!-- preload some product -->
+      @if (outerLoopIndex <= 8) {
+        <app-product
+          class="col-md-4 col-sm-6 col-12"
+          [id]="item.id"
+          [product]="item"
+          (productImageClicked)="loadProductDetails(item.id)"
+        >
+        </app-product>
+      }
+
+      @defer (when isContentInTheViewport(outerLoopIndex)) {
+        @for (product of products | slice: outerLoopIndex : outerLoopIndex + 3; track product) {
+          <app-product
+            class="col-md-4 col-sm-6 col-12"
+            [id]="product.id"
+            [product]="product"
+            (productImageClicked)="loadProductDetails(product.id)"
+          >
+          </app-product>
+        }
+      }
+    }
   </div>
 </div>
