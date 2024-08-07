@@ -1,4 +1,9 @@
-import { ChangeDetectorRef, Component, computed, inject, Signal } from '@angular/core';
+/*
+ * SPDX-FileCopyrightText: (c) $originalComment.match("Copyright \(c\) (\d+)", 1, "-", "$today.year")2024 Carl Zeiss AG
+ * SPDX-License-Identifier: MIT
+ */
+
+import { ChangeDetectionStrategy, Component, computed, inject, Signal } from '@angular/core';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
@@ -9,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 import { Store } from '@ngrx/store';
 import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -17,6 +21,7 @@ import { ActivatedRoute } from '@angular/router';
   imports: [FaIconComponent, NgIf, NgClass, AsyncPipe, NgFor, FormsModule],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShoppingCartComponent {
   public faCartShopping: IconDefinition = faCartShopping;
@@ -34,13 +39,14 @@ export class ShoppingCartComponent {
     return this.shoppingCartSignalStore.products();
   }
 
-  // because of open/close animation, we have to distinguish between true,false and undefined values
+  public get totalCountOfProducts(): number {
+    return this.products.reduce((accumulator: number, p: ProductInCart) => {
+      return accumulator + p.count;
+    }, 0);
+  }
+
   public switchCartVisibility(): void {
-    if (!this.isCartContentVisible) {
-      this.isCartContentVisible = true;
-      return;
-    }
-    this.isCartContentVisible = false;
+    this.isCartContentVisible = !this.isCartContentVisible;
   }
 
   public handleCountChange(productId: number, newCount: number): void {
@@ -55,7 +61,6 @@ export class ShoppingCartComponent {
   public handleBuyButtonClick() {
     const boughtProducts: ProductInCart[] = this.shoppingCartSignalStore.products();
 
-    // it's quite strange to navigate through a store's effect,but this is an old pattern in the codebase
     this.store.dispatch(
       navigate({
         url: '/order',

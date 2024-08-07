@@ -49,7 +49,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
   showConfirmation(): void {
-    // it's quite strange to navigate through a store's effect,but this is an old pattern in the codebase
     this.store.dispatch(
       navigate({
         url: '/order',

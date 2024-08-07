@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: (c) $originalComment.match("Copyright \(c\) (\d+)", 1, "-", "$today.year")2024 Carl Zeiss AG
+ * SPDX-License-Identifier: MIT
+ */
+
 import { ProductInCart } from '@models/product';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 

@@ -1,10 +1,15 @@
+<!--
+  ~ SPDX-FileCopyrightText: (c) $originalComment.match("Copyright \(c\) (\d+)", 1, "-", "$today.year")2024 Carl Zeiss AG
+  ~ SPDX-License-Identifier: MIT
+  -->
+
 <div
   class="cart-container"
   [ngClass]="{ opened: isCartContentVisible === false, closed: isCartContentVisible === true }"
 >
   <button class="cart-button" (click)="switchCartVisibility()">
     <fa-icon [icon]="faCartShopping"> </fa-icon>
-    <span class="product-counter" *ngIf="products.length">{{ products.length }}</span>
+    <span class="product-counter" *ngIf="products.length">{{ totalCountOfProducts }}</span>
   </button>
 
   <div class="cart-content">

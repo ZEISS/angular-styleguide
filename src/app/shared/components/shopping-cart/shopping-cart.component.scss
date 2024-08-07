@@ -85,7 +85,6 @@ $cart-width: $cart-button-container-width + $cart-content-container-width;
       padding: 20px;
       border: 3px solid #{colors.$color-black};
       background: var(--color-background);
-      z-index: 1001;
       position: relative;
 
       .items {
