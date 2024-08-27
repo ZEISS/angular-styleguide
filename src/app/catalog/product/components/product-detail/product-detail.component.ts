@@ -48,28 +48,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.store.dispatch(navigate({ url: '/' }));
   }
 
-  showConfirmation(): void {
-    this.store.dispatch(
-      navigate({
-        url: '/order',
-        navigationExtras: {
-          state: {
-            products: [
-              {
-                id: this.loadedProduct.id,
-                title: this.loadedProduct.title,
-                image: this.loadedProduct.image,
-                price: this.loadedProduct.price,
-                description: this.loadedProduct.description,
-                count: this.productNumber(),
-              },
-            ],
-          },
-        },
-      }),
-    );
-  }
-
   addToCart(): void {
     this.shoppingCartSignalStore.addProduct({ ...this.loadedProduct, count: this.productNumber() });
     this.cdr.markForCheck();

@@ -45,32 +45,6 @@ describe('ProductDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('showConfirmation', () => {
-    it('should dispatch navigate action to order page', () => {
-      component.showConfirmation();
-
-      expect(store.dispatch).toHaveBeenCalledWith(
-        navigate({
-          url: '/order',
-          navigationExtras: {
-            state: {
-              products: [
-                {
-                  id: fixture.debugElement.componentInstance.loadedProduct.id,
-                  title: fixture.debugElement.componentInstance.loadedProduct.title,
-                  image: fixture.debugElement.componentInstance.loadedProduct.image,
-                  price: fixture.debugElement.componentInstance.loadedProduct.price,
-                  description: fixture.debugElement.componentInstance.loadedProduct.description,
-                  count: fixture.debugElement.componentInstance.productNumber(),
-                },
-              ],
-            },
-          },
-        }),
-      );
-    });
-  });
-
   describe('backToProductOverview', () => {
     it('should dispatch navigate action to root page', () => {
       component.backToProductOverview();

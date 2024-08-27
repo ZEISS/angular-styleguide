@@ -52,18 +52,17 @@ $cart-width: $cart-button-container-width + $cart-content-container-width;
     }
 
     .cart-button {
-      align-self: center;
       justify-self: center;
+      background: transparent;
       border: 0;
       font-size: 2em;
       cursor: pointer;
       width: 65px;
       box-sizing: border-box;
       height: 65px;
-      border: 3px solid #{colors.$color-black};
       border-radius: 20px;
-      background: #{colors.$color-white};
       position: relative;
+      margin-top: 14px;
 
       .product-counter {
         position: absolute;
