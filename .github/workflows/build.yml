@@ -14,6 +14,7 @@ jobs:
         node-version: [18.x]
 
     steps:
+      - name: Checkout code
       - uses: actions/checkout@v3
 
       # setting up node
@@ -60,11 +61,15 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
+      # first checkout to main
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       # Deploy recent build and push it to branch 'gh-pages'
       # this will trigger the action 'pages build & deployment' to host the recent build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/angular-redux-shop
+          publish_dir: ./angular-styleguide/dist/angular-redux-shop
           publish_branch: gh-pages
