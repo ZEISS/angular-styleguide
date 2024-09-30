@@ -68,7 +68,7 @@
     "@wdio/local-runner": "8.39.1",
     "@wdio/spec-reporter": "8.39.0",
     "browserstack-node-sdk": "1.31.23",
-    "chromedriver": "127.0.1",
+    "chromedriver": "129.0.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-jasmine": "4.1.3",
