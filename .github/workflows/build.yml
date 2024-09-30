@@ -54,6 +54,13 @@ jobs:
         run: |
           npm run e2e:wdio:ci
 
+      # Upload artifact of current build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: angular-styleguide
+          path: ./dist/angular-redux-shop
+
   deploy:
     # only deploy when PR has been merged to main branch & build job was successfully finished
     needs: build
@@ -62,8 +69,10 @@ jobs:
 
     steps:
       # first checkout to main
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: angular-styleguide
 
       # Deploy recent build and push it to branch 'gh-pages'
       # this will trigger the action 'pages build & deployment' to host the recent build
