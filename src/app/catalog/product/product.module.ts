@@ -4,7 +4,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { provideEffects } from '@ngrx/effects';
 
@@ -20,10 +20,6 @@ import { ProductComponent } from '@app/shared/components/product/product.compone
   declarations: [ProductDetailComponent, ProductMasterComponent],
   exports: [ProductDetailComponent, ProductMasterComponent],
   imports: [CommonModule, RecommendationModule, ProductComponent, ThemeSwitcherComponent],
-  providers: [
-    ProductService,
-    provideEffects(ProductEffects),
-    provideHttpClient(withInterceptorsFromDi()),
-  ],
+  providers: [ProductService, provideEffects(ProductEffects), provideHttpClient()],
 })
 export class ProductModule {}

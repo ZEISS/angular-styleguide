@@ -8,7 +8,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { RecommendationService } from './recommendation.service';
 import { RecommendationTestData } from '@models/recommendation.testdata';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 
 const recommendationsUrl = './assets/recommendations.json';
 
@@ -19,11 +19,7 @@ describe('RecommendationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [],
-      providers: [
-        RecommendationService,
-        provideHttpClient(withInterceptorsFromDi()),
-        provideHttpClientTesting(),
-      ],
+      providers: [RecommendationService, provideHttpClient(), provideHttpClientTesting()],
     });
 
     service = TestBed.inject(RecommendationService);
