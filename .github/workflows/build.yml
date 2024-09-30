@@ -55,10 +55,10 @@ jobs:
 
   deploy:
     # only deploy when PR has been merged to main branch & build job was successfully finished
-    if: github.event.pull_request.merged == true
     needs: build
-
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
     steps:
       # Deploy recent build and push it to branch 'gh-pages'
       # this will trigger the action 'pages build & deployment' to host the recent build
