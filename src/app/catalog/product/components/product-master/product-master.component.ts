@@ -35,7 +35,6 @@ export class ProductMasterComponent implements OnInit, AfterViewInit {
   @ViewChildren(ProductComponent) productChildren: QueryList<ProductComponent>;
 
   private productReceiveHandler = (products: Product[]): void => {
-    // fill the sections - if product.length is 8 -> there are 3 sections. One section contains 3 product
     this.displayableContentSections = new Array(Math.round(products.length / 3)).fill(false);
     this.products = products;
     this.cdr.markForCheck();
@@ -70,7 +69,9 @@ export class ProductMasterComponent implements OnInit, AfterViewInit {
       const lastRenderedSection: number =
         renderedSections % 3 === 0 ? renderedSections : Math.floor(renderedSections);
       this.viewportService
-        .isInViewport(this.productChildren?.last?.elementRef)
+        .isInViewport(
+          this.productChildren?.last?.elementRef.nativeElement.getElementsByTagName('p').item(0),
+        )
         .subscribe((isInViewport: boolean) => {
           if (isInViewport) {
             this.displayableContentSections[lastRenderedSection + 1] = true;

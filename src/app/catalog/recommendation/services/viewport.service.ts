@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { ElementRef, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 const options = {
-  root: null, // use the viewport
+  root: null,
   rootMargin: '0px',
   threshold: 1.0, // trigger when 100% of the target is visible
 };
@@ -16,12 +16,11 @@ const options = {
   providedIn: 'root',
 })
 export class ViewportService {
-  public isInViewport(elementRef: ElementRef<any>): Observable<boolean> {
+  public isInViewport(element: HTMLElement): Observable<boolean> {
     return new Observable((observer) => {
-      const element = elementRef?.nativeElement.getElementsByTagName('p')[0];
       if (!element) {
         observer.next(false);
-        observer.complete(); // Complete the observable when the element is not found
+        observer.complete();
         // @ts-ignore
         return;
       }
@@ -31,7 +30,7 @@ export class ViewportService {
         if (isInTheViewPort) {
           observer.next(true);
           observer.complete();
-          intersectionObserver.disconnect(); // disconnect the observable when the element is found, no longer requires observation for that
+          intersectionObserver.disconnect();
         }
       }, options);
 
