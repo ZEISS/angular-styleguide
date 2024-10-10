@@ -9,11 +9,13 @@ import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
-import { ProductInCart } from '@models/product';
+import { ProductInCart } from '@models/product-in-cart';
 import { FormsModule } from '@angular/forms';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 import { Store } from '@ngrx/store';
 import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
+import { productInCartToToProductWithCount } from '@models/product.mapper';
+import { ProductWithCount } from '@models/product';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -36,7 +38,7 @@ export class ShoppingCartComponent {
   });
 
   public get products(): ProductInCart[] {
-    return this.shoppingCartSignalStore.products();
+    return this.shoppingCartSignalStore.products() as ProductInCart[];
   }
 
   public get totalCountOfProducts(): number {
@@ -59,7 +61,9 @@ export class ShoppingCartComponent {
   }
 
   public handleBuyButtonClick() {
-    const boughtProducts: ProductInCart[] = this.shoppingCartSignalStore.products();
+    const boughtProducts: ProductWithCount[] = this.shoppingCartSignalStore
+      .products()
+      .map((p) => productInCartToToProductWithCount(p));
 
     this.store.dispatch(
       navigate({

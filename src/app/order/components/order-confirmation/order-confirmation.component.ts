@@ -11,7 +11,7 @@ import { navigate } from '@app/shared/navigation/navigation.actions';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
-import { ProductInCart } from '@models/product';
+import { ProductWithCount } from '@models/product';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -23,14 +23,14 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [AsyncPipe, NgIf, ThemeSwitcherComponent, NgForOf, ReactiveFormsModule],
 })
 export class OrderConfirmationComponent {
+  public purchasedProducts: ProductWithCount[] = [];
+
   constructor(
     private store: Store<State>,
     public router: Router,
   ) {
     this.purchasedProducts = this.router.getCurrentNavigation()?.extras?.state?.products;
   }
-
-  public purchasedProducts: ProductInCart[] = [];
 
   backToProductOverview() {
     this.store.dispatch(navigate({ url: '/' }));

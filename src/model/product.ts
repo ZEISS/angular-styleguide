@@ -3,6 +3,9 @@
  * SPDX-License-Identifier: MIT
  */
 
+/**
+ * General type for product in the application.
+ */
 export class Product {
   id: number;
   title: string;
@@ -11,6 +14,9 @@ export class Product {
   description: string;
 }
 
-export class ProductInCart extends Product {
+/**
+ * Extension of the general Product class, extended with count.
+ */
+export class ProductWithCount extends Product {
   count: number;
 }

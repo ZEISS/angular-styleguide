@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { ProductInCart } from '@models/product';
+import { ProductInCart } from '@models/product-in-cart';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 
 interface ShoppingCartState {
@@ -31,7 +31,7 @@ export const ShoppingCartStore = signalStore(
       );
 
       if (productAlreadyInCart) {
-        const productWithoutTheUpdatedProduct = this.products().filter(
+        const productWithoutTheUpdatedProduct: ProductInCart[] = this.products().filter(
           (product: ProductInCart) => product.id !== productAlreadyInCart.id,
         );
         productAlreadyInCart.count += product.count;
@@ -40,7 +40,7 @@ export const ShoppingCartStore = signalStore(
         return;
       }
 
-      const updatedProducts = [...store.products(), product];
+      const updatedProducts: ProductInCart[] = [...this.products(), product];
       patchState(store, { products: updatedProducts });
     },
     updateCount(productId: number, newCount: number) {

@@ -22,6 +22,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
 import { Product } from '@models/product';
 import { Subscription } from 'rxjs';
+import { productToProductInCart } from '@models/product.mapper';
 
 @Component({
   selector: 'app-product-detail',
@@ -49,7 +50,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
   addToCart(): void {
-    this.shoppingCartSignalStore.addProduct({ ...this.loadedProduct, count: this.productNumber() });
+    this.shoppingCartSignalStore.addProduct({
+      ...productToProductInCart(this.loadedProduct, this.productNumber()),
+    });
     this.cdr.markForCheck();
   }
 
