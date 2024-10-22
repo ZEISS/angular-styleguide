@@ -71,7 +71,7 @@ describe('ProductDetailComponent', () => {
     });
   });
 
-  describe('decreaseProductNumber', () => {
+  describe('decreaseProductNumberOriginal', () => {
     describe('when decrease called for original value', () => {
       it('should keep original product number', () => {
         component.decreaseProductNumber();

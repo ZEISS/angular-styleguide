@@ -4,8 +4,8 @@
  */
 
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { ChangeDetectorRef, NgModule } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { provideEffects } from '@ngrx/effects';
 
 import { ProductDetailComponent } from '@app/catalog/product/components/product-detail/product-detail.component';
@@ -18,15 +18,15 @@ import { ProductComponent } from '@app/shared/components/product/product.compone
 import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    RecommendationModule,
-    ThemeSwitcherComponent,
-    ProductComponent,
-  ],
   declarations: [ProductDetailComponent, ProductMasterComponent],
   exports: [ProductDetailComponent, ProductMasterComponent],
-  providers: [ProductService, provideEffects(ProductEffects), AsyncPipe, ShoppingCartStore],
+  imports: [CommonModule, RecommendationModule, ProductComponent, ThemeSwitcherComponent],
+  providers: [
+    ProductService,
+    provideEffects(ProductEffects),
+    provideHttpClient(),
+    AsyncPipe,
+    ShoppingCartStore,
+  ],
 })
 export class ProductModule {}
