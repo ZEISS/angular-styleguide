@@ -3,7 +3,14 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { Product } from '@models/product';
 
 @Component({
@@ -16,6 +23,8 @@ import { Product } from '@models/product';
 export class ProductComponent {
   @Input() product: Product;
   @Output() productImageClicked: EventEmitter<void> = new EventEmitter<void>();
+
+  constructor(public elementRef: ElementRef) {}
 
   imageClicked() {
     this.productImageClicked.emit();

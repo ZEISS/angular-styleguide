@@ -15,11 +15,12 @@ import { ProductEffects } from '@app/catalog/product/store/product.effects';
 import { RecommendationModule } from '@app/catalog/recommendation/recommendation.module';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { ProductComponent } from '@app/shared/components/product/product.component';
+import { ViewportService } from '@app/catalog/recommendation/services/viewport.service';
 
 @NgModule({
   declarations: [ProductDetailComponent, ProductMasterComponent],
   exports: [ProductDetailComponent, ProductMasterComponent],
   imports: [CommonModule, RecommendationModule, ProductComponent, ThemeSwitcherComponent],
-  providers: [ProductService, provideEffects(ProductEffects), provideHttpClient()],
+  providers: [ProductService, ViewportService, provideEffects(ProductEffects), provideHttpClient()],
 })
 export class ProductModule {}
