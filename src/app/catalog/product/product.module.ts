@@ -4,7 +4,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { provideEffects } from '@ngrx/effects';
 
@@ -18,15 +18,9 @@ import { ProductComponent } from '@app/shared/components/product/product.compone
 import { ViewportService } from '@app/catalog/recommendation/services/viewport.service';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    RecommendationModule,
-    ProductComponent,
-    ThemeSwitcherComponent,
-  ],
   declarations: [ProductDetailComponent, ProductMasterComponent],
   exports: [ProductDetailComponent, ProductMasterComponent],
-  providers: [ProductService, ViewportService, provideEffects(ProductEffects)],
+  imports: [CommonModule, RecommendationModule, ProductComponent, ThemeSwitcherComponent],
+  providers: [ProductService, ViewportService, provideEffects(ProductEffects), provideHttpClient()],
 })
 export class ProductModule {}

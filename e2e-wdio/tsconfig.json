@@ -4,6 +4,6 @@
     "outDir": "../out-tsc/e2e",
     "module": "commonjs",
     "target": "es2020",
-    "types": ["node", "@wdio/globals/types", "@wdio/jasmine-framework"]
+    "types": ["node", "@wdio/globals/types", "@wdio/jasmine-framework", "jasmine"]
   }
 }

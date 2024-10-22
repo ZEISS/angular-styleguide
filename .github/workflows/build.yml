@@ -14,7 +14,8 @@ jobs:
         node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       # setting up node
       - name: Setup Node.js
@@ -53,18 +54,32 @@ jobs:
         run: |
           npm run e2e:wdio:ci
 
+      # Upload artifact of current build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: angular-styleguide
+          path: ./dist/angular-redux-shop
+
   deploy:
     # only deploy when PR has been merged to main branch & build job was successfully finished
-    if: github.event.pull_request.merged == true
     needs: build
-
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
     steps:
+      # first checkout to main
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: angular-styleguide
+          path: ./dist/angular-redux-shop
+
       # Deploy recent build and push it to branch 'gh-pages'
       # this will trigger the action 'pages build & deployment' to host the recent build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/angular-redux-shop
+          publish_dir: ./dist/angular-redux-shop/browser
           publish_branch: gh-pages
