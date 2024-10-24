@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { provideEffects } from '@ngrx/effects';
@@ -15,11 +15,18 @@ import { ProductEffects } from '@app/catalog/product/store/product.effects';
 import { RecommendationModule } from '@app/catalog/recommendation/recommendation.module';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { ProductComponent } from '@app/shared/components/product/product.component';
+import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
 
 @NgModule({
   declarations: [ProductDetailComponent, ProductMasterComponent],
   exports: [ProductDetailComponent, ProductMasterComponent],
   imports: [CommonModule, RecommendationModule, ProductComponent, ThemeSwitcherComponent],
-  providers: [ProductService, provideEffects(ProductEffects), provideHttpClient()],
+  providers: [
+    ProductService,
+    provideEffects(ProductEffects),
+    provideHttpClient(),
+    AsyncPipe,
+    ShoppingCartStore,
+  ],
 })
 export class ProductModule {}

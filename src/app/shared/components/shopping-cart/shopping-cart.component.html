@@ -1,0 +1,38 @@
+<!--
+  ~ SPDX-FileCopyrightText: (c) $originalComment.match("Copyright \(c\) (\d+)", 1, "-", "$today.year")2024 Carl Zeiss AG
+  ~ SPDX-License-Identifier: MIT
+  -->
+
+<div
+  class="cart-container"
+  [ngClass]="{ opened: isCartContentVisible === false, closed: isCartContentVisible === true }"
+>
+  <button class="cart-button" (click)="switchCartVisibility()">
+    <fa-icon [icon]="faCartShopping"> </fa-icon>
+    <span class="product-counter" *ngIf="products.length">{{ totalCountOfProducts }}</span>
+  </button>
+
+  <div class="cart-content">
+    <h2>Shopping cart</h2>
+
+    <div class="items">
+      <div class="item" *ngFor="let product of products">
+        <img [attr.src]="product.image" />
+        <span>{{ product.title }}</span>
+        <span>{{ product.price }} €</span>
+        <input
+          type="number"
+          [ngModel]="product.count"
+          (ngModelChange)="handleCountChange(product.id, $event)"
+        />
+      </div>
+      <ng-template [ngIf]="!products.length">
+        The cart is empty. Please add something.
+      </ng-template>
+    </div>
+    <div class="action-bar">
+      <div>Total price: {{ subTotal() }} €</div>
+      <button (click)="handleBuyButtonClick()" [disabled]="!products?.length">Buy</button>
+    </div>
+  </div>
+</div>

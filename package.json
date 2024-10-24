@@ -45,7 +45,8 @@
     "rxjs": "7.8.1",
     "stylelint-config-scss": "1.0.0-security",
     "tslib": "2.6.2",
-    "zone.js": "0.14.4"
+    "zone.js": "0.14.4",
+    "@ngrx/signals": "^18.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "18.1.3",

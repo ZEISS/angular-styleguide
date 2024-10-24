@@ -1,0 +1,146 @@
+/*
+ * SPDX-FileCopyrightText: 2024 Carl Zeiss AG
+ *
+ * SPDX-License-Identifier: MIT
+ */
+@use '../../../../support/styling/colors';
+@use '../../../../support/styling/common-styles' as common;
+
+$cart-button-container-width: 100px;
+$cart-content-container-width: 500px;
+$cart-width: $cart-button-container-width + $cart-content-container-width;
+
+@keyframes closeCart {
+  0% {
+    margin-right: -$cart-content-container-width;
+  }
+
+  100% {
+    margin-right: 0px;
+  }
+}
+
+@keyframes openCart {
+  0% {
+    margin-right: 0px;
+  }
+
+  100% {
+    margin-right: -$cart-content-container-width;
+  }
+}
+
+:host {
+  position: fixed;
+  right: 0;
+  height: 100vh;
+  display: flex;
+
+  .cart-container {
+    width: $cart-width;
+    margin-right: -$cart-content-container-width;
+    display: grid;
+    grid-template-columns: $cart-button-container-width auto;
+
+    &.opened {
+      margin-right: 0px;
+      animation: openCart 1s ease-in-out 0s 1 normal forwards;
+    }
+
+    &.closed {
+      animation: closeCart 1s ease-in-out 0s 1 normal forwards;
+    }
+
+    .cart-button {
+      justify-self: center;
+      background: transparent;
+      border: 0;
+      font-size: 2em;
+      cursor: pointer;
+      width: 65px;
+      box-sizing: border-box;
+      height: 65px;
+      border-radius: 20px;
+      position: relative;
+      margin-top: 14px;
+
+      .product-counter {
+        position: absolute;
+        right: -5px;
+        bottom: -5px;
+        background: var(--color-highlight);
+        padding: 6px;
+        border: 1px solid black;
+        border-radius: 50%;
+        height: 1em;
+        width: 1em;
+        font-size: 0.6em;
+        line-height: 1em;
+        font-color: var(--color-content-text);
+      }
+    }
+
+    .cart-content {
+      padding: 20px;
+      border: 3px solid #{colors.$color-black};
+      background: var(--color-background);
+      position: relative;
+
+      .items {
+        display: grid;
+        gap: 10px;
+
+        .item {
+          display: grid;
+          grid-template-columns: 5em 1fr 1fr 1fr;
+
+          img {
+            width: 5em;
+          }
+
+          span {
+            align-content: center;
+            padding: 10px;
+          }
+
+          input {
+            width: 5em;
+            line-height: 3em;
+            background-color: var(--color-background);
+            color: var(--color-content-text);
+
+            &,
+            &:focus-visible {
+              border: none !important;
+              outline: none !important;
+            }
+
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      .action-bar {
+        position: absolute;
+        bottom: 40px;
+        display: grid;
+        gap: 20px;
+
+        button {
+          @include common.button-primary;
+
+          &[disabled] {
+            &,
+            &:hover {
+              opacity: 0.5;
+              background-color: #{colors.$color-dark-gray};
+            }
+          }
+        }
+      }
+    }
+  }
+}
