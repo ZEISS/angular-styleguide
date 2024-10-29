@@ -5,27 +5,36 @@
 
 @use '../../../../support/styling/common-styles' as common;
 
+header {
+  @include common.header-style;
+}
+
 div.container {
-  width: auto;
-  h2 {
-    font-size: 35px;
-    font-weight: 100;
-  }
-
-  h3 {
-    font-size: 25px;
-    font-weight: 100;
-    margin-bottom: 0;
-  }
-
   #back-button {
     margin: 25px 0;
     @include common.button-secondary;
   }
 
-  #confirmation-info {
-    background-color: var(--color-highlight);
-    color: var(--color-highlight-text);
+  .purchased-products {
     padding: 20px;
+
+    .items {
+      display: grid;
+      gap: 10px;
+
+      .item {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr auto;
+
+        img {
+          width: 8em;
+        }
+
+        span {
+          align-content: center;
+          padding: 10px;
+        }
+      }
+    }
   }
 }
