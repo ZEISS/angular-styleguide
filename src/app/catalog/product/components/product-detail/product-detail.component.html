@@ -10,31 +10,33 @@
 
 <div class="container">
   <div class="row">
-    <div class="product-details" *ngIf="product$ | async as product">
-      <img class="product-img" src="{{ product.image }}" alt="product image" />
+    @if (product$ | async; as product) {
+      <div class="product-details">
+        <img class="product-img" src="{{ product.image }}" alt="product image" />
 
-      <div class="product-description">
-        <h2>{{ product.title }}</h2>
+        <div class="product-description">
+          <h2>{{ product.title }}</h2>
 
-        <h3>Price</h3>
-        <p>{{ product.price }} €</p>
+          <h3>Price</h3>
+          <p>{{ product.price }} €</p>
 
-        <div>
-          <h3>Number of items</h3>
-          <button class="counter-button" (click)="decreaseProductNumber()">-</button>
-          {{ productNumber() }}
-          <button class="counter-button" (click)="increseProductNumber()">+</button>
-        </div>
+          <div>
+            <h3>Number of items</h3>
+            <button class="counter-button" (click)="decreaseProductNumber()">-</button>
+            {{ productNumber() }}
+            <button class="counter-button" (click)="increseProductNumber()">+</button>
+          </div>
 
-        <h3>Ingredients</h3>
-        <p>{{ product.description }}</p>
+          <h3>Ingredients</h3>
+          <p>{{ product.description }}</p>
 
-        <div class="button-container">
-          <button (click)="addToCart()">Add to cart</button>
+          <div class="button-container">
+            <button (click)="addToCart()">Add to cart</button>
+          </div>
         </div>
       </div>
-    </div>
-    <button class="back-button" (click)="backToProductOverview()">Back to all products</button>
+      <button class="back-button" (click)="backToProductOverview()">Back to all products</button>
+    }
   </div>
 </div>
 <app-recommendations></app-recommendations>

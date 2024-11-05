@@ -6,13 +6,12 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   EventEmitter,
-  inject,
   Input,
   Output,
 } from '@angular/core';
 import { Product } from '@models/product';
-import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
 
 @Component({
   selector: 'app-product',
@@ -24,6 +23,8 @@ import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store'
 export class ProductComponent {
   @Input() product: Product;
   @Output() productImageClicked: EventEmitter<void> = new EventEmitter<void>();
+
+  constructor(public elementRef: ElementRef) {}
 
   imageClicked() {
     this.productImageClicked.emit();

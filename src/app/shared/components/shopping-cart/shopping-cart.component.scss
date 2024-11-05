@@ -69,14 +69,12 @@ $cart-width: $cart-button-container-width + $cart-content-container-width;
         right: -5px;
         bottom: -5px;
         background: var(--color-highlight);
-        padding: 6px;
         border: 1px solid black;
         border-radius: 50%;
         height: 1em;
         width: 1em;
         font-size: 0.6em;
         line-height: 1em;
-        font-color: var(--color-content-text);
       }
     }
 

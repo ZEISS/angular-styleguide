@@ -16,6 +16,7 @@ import { RecommendationModule } from '@app/catalog/recommendation/recommendation
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { ProductComponent } from '@app/shared/components/product/product.component';
 import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
+import { ViewportService } from '@app/catalog/recommendation/services/viewport.service';
 
 @NgModule({
   declarations: [ProductDetailComponent, ProductMasterComponent],
@@ -27,6 +28,7 @@ import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store'
     provideHttpClient(),
     AsyncPipe,
     ShoppingCartStore,
+    ViewportService,
   ],
 })
 export class ProductModule {}
