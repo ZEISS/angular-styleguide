@@ -4,7 +4,13 @@ SPDX-FileCopyrightText: 2022 Carl Zeiss AG
 SPDX-License-Identifier: MIT
 -->
 
-<button class="theme-switcher" [ngSwitch]="theme" (click)="switcherClicked()">
-  <fa-icon *ngSwitchCase="'light-theme'" [icon]="faMoon"></fa-icon>
-  <fa-icon *ngSwitchCase="'dark-theme'" [icon]="faSun"></fa-icon>
+<button class="theme-switcher" (click)="switcherClicked()">
+  @switch (theme) {
+    @case ('light-theme') {
+      <fa-icon [icon]="faMoon"></fa-icon>
+    }
+    @case ('dark-theme') {
+      <fa-icon [icon]="faSun"></fa-icon>
+    }
+  }
 </button>

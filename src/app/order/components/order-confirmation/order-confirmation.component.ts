@@ -8,8 +8,7 @@ import { Store } from '@ngrx/store';
 
 import { State } from '@app/reducers';
 import { navigate } from '@app/shared/navigation/navigation.actions';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { ProductWithCount } from '@models/product';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './order-confirmation.component.html',
   styleUrls: ['./order-confirmation.component.scss'],
-  imports: [AsyncPipe, NgIf, ThemeSwitcherComponent, NgForOf, ReactiveFormsModule],
+  imports: [ThemeSwitcherComponent, ReactiveFormsModule],
 })
 export class OrderConfirmationComponent {
   public purchasedProducts: ProductWithCount[] = [];
@@ -28,7 +27,7 @@ export class OrderConfirmationComponent {
     private store: Store<State>,
     public router: Router,
   ) {
-    this.purchasedProducts = this.router.getCurrentNavigation()?.extras?.state?.products;
+    this.purchasedProducts = this.router.currentNavigation()?.extras?.state?.products;
   }
 
   backToProductOverview() {

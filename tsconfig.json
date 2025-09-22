@@ -12,11 +12,11 @@
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "es2020",
-    "lib": ["es2018", "dom"],
+    "lib": ["es2022", "dom"],
     "paths": {
       "@models/*": ["src/model/*"],
       "@environment": ["src/environments/environment"],

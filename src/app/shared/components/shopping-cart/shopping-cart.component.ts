@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, Signal } from '@a
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
 import { ProductInCart } from '@models/product-in-cart';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +19,7 @@ import { ProductWithCount } from '@models/product';
 
 @Component({
   selector: 'app-shopping-cart',
-  imports: [FaIconComponent, NgIf, NgClass, AsyncPipe, NgFor, FormsModule],
+  imports: [FaIconComponent, NgClass, FormsModule],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
