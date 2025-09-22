@@ -23,7 +23,8 @@
     "e2e:playwright:ci-browserstack": "(set TS_NODE_PROJECT=./e2e-playwright/tsconfig.json) && browserstack-node-sdk playwright test --config=./e2e-playwright/playwright.config.ci.ts",
     "e2e:wdio": "(set TS_NODE_PROJECT=./e2e-wdio/tsconfig.json) && wdio run ./e2e-wdio/wdio.conf.ts",
     "e2e:wdio:ci": "start-server-and-test start http://localhost:4200 e2e:wdio",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "wdio": "wdio run ./wdio.conf.ts"
   },
   "dependencies": {
     "@angular/animations": "20.3.1",
@@ -67,7 +68,7 @@
     "@wdio/cli": "9.19.2",
     "@wdio/jasmine-framework": "9.19.2",
     "@wdio/local-runner": "9.19.2",
-    "@wdio/spec-reporter": "8.39.0",
+    "@wdio/spec-reporter": "9.19.2",
     "browserstack-node-sdk": "1.42.7",
     "chromedriver": "129.0.1",
     "eslint": "^8.57.0",
@@ -90,7 +91,6 @@
     "stylelint-config-standard-scss": "13.1.0",
     "stylelint-no-unsupported-browser-features": "8.0.1",
     "ts-node": "10.9.2",
-    "typescript": "5.9.2",
-    "wdio-chromedriver-service": "8.1.1"
+    "typescript": "5.9.2"
   }
 }
