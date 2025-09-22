@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-theme-switcher',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [CommonModule, FontAwesomeModule],
   templateUrl: './theme-switcher.component.html',
   styleUrls: ['./theme-switcher.component.scss'],

@@ -27,6 +27,7 @@ import { debounceTime } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-master.component.html',
   styleUrls: ['./product-master.component.scss'],
+  standalone: false,
 })
 export class ProductMasterComponent implements OnInit, AfterViewInit {
   public products: Product[];

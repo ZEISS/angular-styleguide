@@ -15,6 +15,7 @@ import { selectRecommendations } from '@app/catalog/recommendation/store/recomme
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './recommendations.component.html',
   styleUrls: ['./recommendations.component.scss'],
+  standalone: false,
 })
 export class RecommendationsComponent implements OnInit {
   recommendations$ = this.store.select(selectRecommendations);

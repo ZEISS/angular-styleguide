@@ -16,7 +16,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-order-confirmation',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './order-confirmation.component.html',
   styleUrls: ['./order-confirmation.component.scss'],
