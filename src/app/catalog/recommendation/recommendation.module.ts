@@ -13,8 +13,8 @@ import { RecommendationEffects } from '@app/catalog/recommendation/store/recomme
 import { RecommendationComponent } from '@app/shared/components/recommendation/recommendation.component';
 
 @NgModule({
-  imports: [CommonModule, RecommendationComponent],
-  declarations: [RecommendationsComponent],
+  imports: [CommonModule, RecommendationComponent, RecommendationsComponent],
+  declarations: [],
   exports: [RecommendationsComponent],
   providers: [RecommendationService, provideEffects(RecommendationEffects)],
 })

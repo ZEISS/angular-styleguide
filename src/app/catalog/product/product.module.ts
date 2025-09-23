@@ -19,9 +19,16 @@ import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store'
 import { ViewportService } from '@app/catalog/recommendation/services/viewport.service';
 
 @NgModule({
-  declarations: [ProductDetailComponent, ProductMasterComponent],
+  declarations: [],
   exports: [ProductDetailComponent, ProductMasterComponent],
-  imports: [CommonModule, RecommendationModule, ProductComponent, ThemeSwitcherComponent],
+  imports: [
+    CommonModule,
+    RecommendationModule,
+    ProductComponent,
+    ThemeSwitcherComponent,
+    ProductDetailComponent,
+    ProductMasterComponent,
+  ],
   providers: [
     ProductService,
     provideEffects(ProductEffects),

@@ -5,7 +5,9 @@
 
 @if (product$ | async; as product) {
   <header>
-    <app-theme-switcher></app-theme-switcher>
+    <div class="nav-container">
+      <app-theme-switcher></app-theme-switcher>
+    </div>
     <h1>{{ product.title }}</h1>
   </header>
 }

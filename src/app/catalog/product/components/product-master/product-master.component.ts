@@ -13,12 +13,16 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommonModule } from '@angular/common';
 import { loadProducts } from '@app/catalog/product/store/product.actions';
 import { selectProducts } from '@app/catalog/product/store/product.selectors';
 import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 import { ViewportService } from '@app/catalog/recommendation/services/viewport.service';
 import { ProductComponent } from '@app/shared/components/product/product.component';
+import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { Product } from '@models/product';
 import { debounceTime } from 'rxjs';
 
@@ -27,11 +31,13 @@ import { debounceTime } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-master.component.html',
   styleUrls: ['./product-master.component.scss'],
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule, FontAwesomeModule, ProductComponent, ThemeSwitcherComponent],
 })
 export class ProductMasterComponent implements OnInit, AfterViewInit {
   public products: Product[];
   private displayableContentSections: boolean[];
+  faComment = faComment;
 
   @ViewChildren(ProductComponent) productChildren: QueryList<ProductComponent>;
 
@@ -80,5 +86,9 @@ export class ProductMasterComponent implements OnInit, AfterViewInit {
           }
         });
     });
+  }
+
+  public navigateToFeedback(): void {
+    this.store.dispatch(navigate({ url: '/feedback-form' }));
   }
 }

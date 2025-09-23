@@ -12,13 +12,16 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
+import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
+import { RecommendationsComponent } from '@app/catalog/recommendation/components/recommendations/recommendations.component';
 
 import { selectCurrentProductDetails } from '@app/catalog/product/store/product.selectors';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
 import { loadProductDetails } from '@app/catalog/product/store/product.actions';
-import { ActivatedRoute } from '@angular/router';
 import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
 import { Product } from '@models/product';
 import { Subscription } from 'rxjs';
@@ -29,7 +32,8 @@ import { productToProductInCart } from '@models/product.mapper';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss'],
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule, ThemeSwitcherComponent, RecommendationsComponent],
 })
 export class ProductDetailComponent implements OnInit, OnDestroy {
   product$ = this.store.select(selectCurrentProductDetails);
