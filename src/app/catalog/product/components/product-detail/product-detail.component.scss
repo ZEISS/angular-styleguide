@@ -64,11 +64,6 @@ div.container {
   }
 }
 
-.back-button {
-  margin: 50px 0;
-  @include common.button-secondary;
-}
-
 .counter-button {
   @include common.button-primary;
 }

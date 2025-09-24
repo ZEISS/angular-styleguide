@@ -45,14 +45,6 @@ describe('ProductDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('backToProductOverview', () => {
-    it('should dispatch navigate action to root page', () => {
-      component.backToProductOverview();
-
-      expect(store.dispatch).toHaveBeenCalledWith(navigate({ url: '/' }));
-    });
-  });
-
   describe('increseProductNumber', () => {
     it('should increase product number', () => {
       component.increseProductNumber();

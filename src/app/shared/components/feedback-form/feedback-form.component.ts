@@ -7,12 +7,13 @@ import { Component } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
+import { BackToAllProductsComponent } from '@app/shared/components/back-to-all-products/back-to-all-products.component';
 
 @Component({
   selector: 'app-feedback-form',
   standalone: true,
   templateUrl: './feedback-form.component.html',
-  imports: [FaIconComponent, ThemeSwitcherComponent],
+  imports: [FaIconComponent, ThemeSwitcherComponent, BackToAllProductsComponent],
   styleUrls: ['./feedback-form.component.scss'],
 })
 export class FeedbackFormComponent {

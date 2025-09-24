@@ -26,6 +26,9 @@ import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store'
 import { Product } from '@models/product';
 import { Subscription } from 'rxjs';
 import { productToProductInCart } from '@models/product.mapper';
+import { BackToAllProductsComponent } from '@app/shared/components/back-to-all-products/back-to-all-products.component';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-product-detail',
@@ -33,9 +36,16 @@ import { productToProductInCart } from '@models/product.mapper';
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss'],
   standalone: true,
-  imports: [CommonModule, ThemeSwitcherComponent, RecommendationsComponent],
+  imports: [
+    CommonModule,
+    ThemeSwitcherComponent,
+    RecommendationsComponent,
+    BackToAllProductsComponent,
+    FaIconComponent,
+  ],
 })
 export class ProductDetailComponent implements OnInit, OnDestroy {
+  protected readonly faComment = faComment;
   product$ = this.store.select(selectCurrentProductDetails);
   private loadedProduct: Product;
   private loadProductSubscription: Subscription;
@@ -49,10 +59,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef,
   ) {}
-
-  backToProductOverview(): void {
-    this.store.dispatch(navigate({ url: '/' }));
-  }
 
   addToCart(): void {
     this.shoppingCartSignalStore.addProduct({
@@ -81,5 +87,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy() {
     this.loadProductSubscription.unsubscribe();
+  }
+
+  public navigateToFeedback(): void {
+    this.store.dispatch(navigate({ url: '/feedback-form' }));
   }
 }

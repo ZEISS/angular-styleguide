@@ -5,6 +5,9 @@
 <header>
   <div class="nav-container">
     <app-theme-switcher></app-theme-switcher>
+    <button class="feedback-button" (click)="navigateToFeedback()" title="Feedback">
+      <fa-icon [icon]="faComment"></fa-icon>
+    </button>
   </div>
   <div id="confirmation-info">
     <h1>Order confirmed.</h1>
@@ -28,6 +31,6 @@
         </div>
       </div>
     }
-    <button id="back-button" (click)="backToProductOverview()">Back to all products</button>
+    <app-back-to-all-products />
   </div>
 </div>

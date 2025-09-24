@@ -7,6 +7,9 @@
   <header>
     <div class="nav-container">
       <app-theme-switcher></app-theme-switcher>
+      <button class="feedback-button" (click)="navigateToFeedback()" title="Feedback">
+        <fa-icon [icon]="faComment"></fa-icon>
+      </button>
     </div>
     <h1>{{ product.title }}</h1>
   </header>
@@ -39,7 +42,7 @@
           </div>
         </div>
       </div>
-      <button class="back-button" (click)="backToProductOverview()">Back to all products</button>
+      <app-back-to-all-products />
     }
   </div>
 </div>

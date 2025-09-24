@@ -1,0 +1,13 @@
+/*
+ * SPDX-FileCopyrightText: 2023 Carl Zeiss AG
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+@use '../../../../support/styling/common-styles' as common;
+
+.back-button {
+  width: 100%;
+  margin: 50px 0;
+  @include common.button-secondary;
+}
