@@ -22,6 +22,7 @@ import {
   styleUrls: ['./feedback-form.component.scss'],
 })
 export class FeedbackFormComponent implements OnInit {
+  formSubmittedSuccessfully = false;
   feedbackForm!: FormGroup<FeedbackFormControls>;
 
   constructor(private feedbackFormService: FeedbackFormService) {}
@@ -42,6 +43,7 @@ export class FeedbackFormComponent implements OnInit {
       };
 
       this.feedbackFormService.onSubmit(formData);
+      this.formSubmittedSuccessfully = true;
     } else {
       this.feedbackForm.markAllAsTouched();
     }

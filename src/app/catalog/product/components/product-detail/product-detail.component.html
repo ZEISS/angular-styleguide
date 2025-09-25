@@ -27,10 +27,10 @@
           <h3>Price</h3>
           <p>{{ product.price }} €</p>
 
-          <div>
+          <div class="product-number-container">
             <h3>Number of items</h3>
             <button class="counter-button" (click)="decreaseProductNumber()">-</button>
-            {{ productNumber() }}
+            <span class="product-number">{{ productNumber() }}</span>
             <button class="counter-button" (click)="increseProductNumber()">+</button>
           </div>
 

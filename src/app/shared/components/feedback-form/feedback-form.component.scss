@@ -70,3 +70,11 @@ div.container {
     @include common.button-primary;
   }
 }
+
+.response {
+  margin: 24px;
+  padding: 48px 12px;
+  text-align: center;
+  color: var(--color-success);
+  background-color: var(--color-success-bg);
+}

@@ -43,6 +43,7 @@ export class FeedbackFormService {
     });
   }
 
+  // Mock API POST request
   onSubmit(formData: FeedbackFormData): void {
     console.log('Feedback form submitted:', formData);
   }

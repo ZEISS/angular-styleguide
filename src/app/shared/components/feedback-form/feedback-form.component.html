@@ -11,6 +11,13 @@
 </header>
 
 <div class="container">
+  @if (formSubmittedSuccessfully) {
+    <div class="response" role="alert">
+      <strong>Thank you for your feedback!</strong> We appreciate your input and will review it
+      shortly.
+    </div>
+  }
+
   <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="row">
     <div class="field">
       <label for="title">Title <span>(required)</span></label>
@@ -38,7 +45,7 @@
         [class.is-invalid]="hasFieldError('description')"
         id="description"
         formControlName="description"
-        placeholder="Enter a detailed description of your feedback"
+        placeholder="Provide a detailed description of your feedback"
         maxlength="500"
       ></textarea>
       @if (hasFieldError('description')) {
@@ -56,7 +63,7 @@
         [class.is-invalid]="hasFieldError('email')"
         id="email"
         formControlName="email"
-        placeholder="Enter your email address"
+        placeholder="example@email.com"
         maxlength="100"
       />
       @if (hasFieldError('email')) {

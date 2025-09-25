@@ -33,5 +33,9 @@ body {
 
     /* Field */
     --color-invalid: #{colors.$color-danger};
+
+    /* Misc */
+    --color-success: #{darken(colors.$color-success, 10%)};
+    --color-success-bg: #{lighten(colors.$color-success, 35%)};
   }
 }
