@@ -18,7 +18,7 @@ describe('RecommendationsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [RecommendationsComponent],
+      imports: [RecommendationsComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         provideMockStore({ selectors: [{ selector: selectRecommendations, value: [] }] }),

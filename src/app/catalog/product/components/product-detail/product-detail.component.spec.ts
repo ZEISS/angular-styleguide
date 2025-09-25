@@ -5,12 +5,12 @@
 
 import { CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import { selectCurrentProductDetails } from '@app/catalog/product/store/product.selectors';
-import { navigate } from '@app/shared/navigation/navigation.actions';
 import { ProductDetailComponent } from './product-detail.component';
+import { routes } from '@app/app.routes';
+import { provideRouter } from '@angular/router';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
@@ -19,10 +19,10 @@ describe('ProductDetailComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductDetailComponent],
-      imports: [RouterTestingModule],
+      imports: [ProductDetailComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
+        provideRouter(routes),
         provideMockStore({ selectors: [{ selector: selectCurrentProductDetails, value: {} }] }),
       ],
     }).compileComponents();

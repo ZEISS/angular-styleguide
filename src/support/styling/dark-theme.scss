@@ -5,6 +5,7 @@
  */
 
 @use 'colors';
+@use 'sass:color';
 
 html,
 body {
@@ -35,7 +36,7 @@ body {
     --color-invalid: #{colors.$color-danger};
 
     /* Misc */
-    --color-success: #{lighten(colors.$color-success, 5%)};
-    --color-success-bg: #{darken(colors.$color-success, 35%)};
+    --color-success: #{color.scale(colors.$color-success, $lightness: 10%)};
+    --color-success-bg: #{color.scale(colors.$color-success, $lightness: -65%)};
   }
 }

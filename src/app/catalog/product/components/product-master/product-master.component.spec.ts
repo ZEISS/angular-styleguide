@@ -8,7 +8,7 @@ import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import { ProductMasterComponent } from './product-master.component';
-import { loadProductDetails, loadProducts } from '@app/catalog/product/store/product.actions';
+import { loadProducts } from '@app/catalog/product/store/product.actions';
 import { selectProducts } from '@app/catalog/product/store/product.selectors';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 
@@ -19,7 +19,7 @@ describe('ProductMasterComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductMasterComponent],
+      imports: [ProductMasterComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         provideMockStore({ selectors: [{ selector: selectProducts, value: [] }] }),
