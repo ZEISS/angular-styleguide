@@ -8,6 +8,16 @@
 header {
   @include common.header-style;
 }
+.is-invalid {
+  border-color: var(--color-invalid) !important;
+}
+
+form {
+  border: 2px solid var(--color-secondary);
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
 
 div.container {
   margin-top: 25px;
@@ -15,6 +25,48 @@ div.container {
   width: auto;
 
   .row {
-    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 0 -10px;
+  }
+}
+
+.field {
+  span {
+    color: var(--color-invalid);
+    font-size: 12px;
+  }
+  & input,
+  textarea {
+    margin-top: 4px;
+    border-radius: 0;
+    background-color: var(--color-background);
+    color: var(--color-content-text);
+    border: 2px solid var(--color-secondary);
+
+    &::placeholder {
+      color: var(--color-content-text);
+      opacity: 0.5;
+    }
+    &::-webkit-calendar-picker-indicator {
+    }
+  }
+
+  & p {
+    color: var(--color-invalid);
+    margin: 5px 0 0 0;
+    font-size: 14px;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 50px 0;
+
+  button {
+    @include common.button-primary;
   }
 }

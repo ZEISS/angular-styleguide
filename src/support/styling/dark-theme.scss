@@ -9,6 +9,8 @@
 html,
 body {
   &.dark-theme {
+    color-scheme: #{colors.$dark};
+
     /* Main theme colors */
     --color-highlight: #{colors.$color-orange};
     --color-secondary: #{colors.$color-nobel};
@@ -28,5 +30,8 @@ body {
     /* Cart */
     --color-cart-border: #{colors.$color-white};
     --color-cart-background: #{colors.$color-dark-gray};
+
+    /* Field */
+    --color-invalid: #{colors.$color-danger};
   }
 }

@@ -17,6 +17,7 @@ import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switc
 import { ProductComponent } from '@app/shared/components/product/product.component';
 import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
 import { ViewportService } from '@app/catalog/recommendation/services/viewport.service';
+import { FeedbackFormService } from '@app/shared/components/feedback-form/feedback-form.service';
 
 @NgModule({
   declarations: [],
@@ -36,6 +37,7 @@ import { ViewportService } from '@app/catalog/recommendation/services/viewport.s
     AsyncPipe,
     ShoppingCartStore,
     ViewportService,
+    FeedbackFormService,
   ],
 })
 export class ProductModule {}

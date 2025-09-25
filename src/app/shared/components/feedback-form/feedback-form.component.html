@@ -11,7 +11,76 @@
 </header>
 
 <div class="container">
-  <div class="row">
-    <app-back-to-all-products />
-  </div>
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="row">
+    <div class="field">
+      <label for="title">Title <span>(required)</span></label>
+      <input
+        type="text"
+        class="form-control"
+        [class.is-invalid]="hasFieldError('title')"
+        id="title"
+        formControlName="title"
+        placeholder="Enter a brief title for your feedback"
+        maxlength="100"
+      />
+      @if (hasFieldError('title')) {
+        <p>
+          {{ getFieldError('title') }}
+        </p>
+      }
+    </div>
+
+    <div class="field">
+      <label for="description">Description <span>(required)</span></label>
+      <textarea
+        rows="5"
+        class="form-control"
+        [class.is-invalid]="hasFieldError('description')"
+        id="description"
+        formControlName="description"
+        placeholder="Enter a detailed description of your feedback"
+        maxlength="500"
+      ></textarea>
+      @if (hasFieldError('description')) {
+        <p>
+          {{ getFieldError('description') }}
+        </p>
+      }
+    </div>
+
+    <div class="field">
+      <label for="email">Email <span>(required)</span></label>
+      <input
+        type="email"
+        class="form-control"
+        [class.is-invalid]="hasFieldError('email')"
+        id="email"
+        formControlName="email"
+        placeholder="Enter your email address"
+        maxlength="100"
+      />
+      @if (hasFieldError('email')) {
+        <p>
+          {{ getFieldError('email') }}
+        </p>
+      }
+    </div>
+
+    <div class="field">
+      <label for="issueDate">Issue Date</label>
+      <input
+        type="date"
+        class="form-control"
+        [class.is-invalid]="hasFieldError('issueDate')"
+        id="issueDate"
+        formControlName="issueDate"
+        placeholder="Select the date when the issue occurred"
+      />
+    </div>
+
+    <div class="button-container">
+      <button type="submit">Submit Feedback</button>
+    </div>
+  </form>
+  <app-back-to-all-products />
 </div>

@@ -3,21 +3,70 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { Component } from '@angular/core';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
-import { faComment } from '@fortawesome/free-solid-svg-icons';
 import { BackToAllProductsComponent } from '@app/shared/components/back-to-all-products/back-to-all-products.component';
+import {
+  FeedbackFormService,
+  FeedbackFormData,
+  FeedbackFormControls,
+} from './feedback-form.service';
 
 @Component({
   selector: 'app-feedback-form',
   standalone: true,
   templateUrl: './feedback-form.component.html',
-  imports: [FaIconComponent, ThemeSwitcherComponent, BackToAllProductsComponent],
+  imports: [ThemeSwitcherComponent, BackToAllProductsComponent, ReactiveFormsModule],
   styleUrls: ['./feedback-form.component.scss'],
 })
-export class FeedbackFormComponent {
-  constructor() {}
+export class FeedbackFormComponent implements OnInit {
+  feedbackForm!: FormGroup<FeedbackFormControls>;
 
-  protected readonly faComment = faComment;
+  constructor(private feedbackFormService: FeedbackFormService) {}
+
+  ngOnInit(): void {
+    this.feedbackForm = this.feedbackFormService.createForm();
+  }
+
+  onSubmit(): void {
+    if (this.feedbackForm.valid) {
+      const formValue = this.feedbackForm.getRawValue();
+
+      const formData: FeedbackFormData = {
+        title: formValue.title,
+        description: formValue.description,
+        email: formValue.email,
+        issueDate: formValue.issueDate ? new Date(formValue.issueDate) : undefined,
+      };
+
+      this.feedbackFormService.onSubmit(formData);
+    } else {
+      this.feedbackForm.markAllAsTouched();
+    }
+  }
+
+  hasFieldError(fieldName: keyof FeedbackFormControls): boolean {
+    const field = this.feedbackForm.get(fieldName);
+    return !!(field?.invalid && (field?.dirty || field?.touched));
+  }
+
+  getFieldError(fieldName: keyof FeedbackFormControls): string {
+    const field = this.feedbackForm.get(fieldName);
+
+    if (!field?.errors) {
+      return '';
+    }
+
+    if (field.hasError('required')) {
+      return 'This field is required';
+    }
+
+    if (field.hasError('email')) {
+      return 'Please enter a valid email address';
+    }
+
+    return '';
+  }
 }
