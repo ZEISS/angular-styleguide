@@ -1,7 +1,7 @@
 <!--
-  ~ SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
-  ~ SPDX-License-Identifier: MIT
-  -->
+~ SPDX-FileCopyrightText: (c) 2022 Carl Zeiss AG
+~ SPDX-License-Identifier: MIT
+-->
 <header>
   <app-theme-switcher></app-theme-switcher>
   <div id="confirmation-info">
@@ -11,18 +11,21 @@
 </header>
 <div class="container">
   <div class="row">
-    <div class="purchased-products" *ngIf="purchasedProducts as products">
-      <h2>Purchased Products</h2>
-
-      <div class="items">
-        <div class="item" *ngFor="let product of products">
-          <img [attr.src]="product.image" />
-          <span>{{ product.title }}</span>
-          <span>{{ product.price }} €</span>
-          <span>X {{ product.count }}</span>
+    @if (purchasedProducts; as products) {
+      <div class="purchased-products">
+        <h2>Purchased Products</h2>
+        <div class="items">
+          @for (product of products; track product) {
+            <div class="item">
+              <img [attr.src]="product.image" />
+              <span>{{ product.title }}</span>
+              <span>{{ product.price }} €</span>
+              <span>X {{ product.count }}</span>
+            </div>
+          }
         </div>
       </div>
-    </div>
+    }
     <button id="back-button" (click)="backToProductOverview()">Back to all products</button>
   </div>
 </div>
