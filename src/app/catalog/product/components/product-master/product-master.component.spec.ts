@@ -19,7 +19,7 @@ describe('ProductMasterComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductMasterComponent],
+      imports: [ProductMasterComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         provideMockStore({ selectors: [{ selector: selectProducts, value: [] }] }),

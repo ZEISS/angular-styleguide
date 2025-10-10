@@ -19,8 +19,7 @@ describe('ProductDetailComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductDetailComponent],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, ProductDetailComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         provideMockStore({ selectors: [{ selector: selectCurrentProductDetails, value: {} }] }),

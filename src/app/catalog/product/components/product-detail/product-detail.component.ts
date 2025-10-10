@@ -12,6 +12,7 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 
 import { selectCurrentProductDetails } from '@app/catalog/product/store/product.selectors';
@@ -23,9 +24,13 @@ import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store'
 import { Product } from '@models/product';
 import { Subscription } from 'rxjs';
 import { productToProductInCart } from '@models/product.mapper';
+import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
+import { RecommendationsComponent } from '@app/catalog/recommendation/components/recommendations/recommendations.component';
 
 @Component({
   selector: 'app-product-detail',
+  standalone: true,
+  imports: [CommonModule, ThemeSwitcherComponent, RecommendationsComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss'],

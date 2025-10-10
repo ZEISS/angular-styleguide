@@ -20,7 +20,7 @@ import { ProductWithCount } from '@models/product';
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
-  imports: [FaIconComponent, NgIf, NgClass, AsyncPipe, NgFor, FormsModule],
+  imports: [FaIconComponent, NgIf, NgClass, NgFor, FormsModule],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -9,7 +9,7 @@ import { Product } from '@models/product';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ProductService {
   // for mocking, we're using a local json file.
   // in a real-world app this would be a REST resource on a server

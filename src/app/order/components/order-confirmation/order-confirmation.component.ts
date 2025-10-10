@@ -20,7 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './order-confirmation.component.html',
   styleUrls: ['./order-confirmation.component.scss'],
-  imports: [AsyncPipe, NgIf, ThemeSwitcherComponent, NgForOf, ReactiveFormsModule],
+  imports: [NgIf, ThemeSwitcherComponent, NgForOf, ReactiveFormsModule],
 })
 export class OrderConfirmationComponent {
   public purchasedProducts: ProductWithCount[] = [];

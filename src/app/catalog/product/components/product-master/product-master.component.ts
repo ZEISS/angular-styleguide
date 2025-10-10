@@ -12,6 +12,7 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { loadProducts } from '@app/catalog/product/store/product.actions';
 import { selectProducts } from '@app/catalog/product/store/product.selectors';
@@ -21,9 +22,12 @@ import { ViewportService } from '@app/catalog/recommendation/services/viewport.s
 import { ProductComponent } from '@app/shared/components/product/product.component';
 import { Product } from '@models/product';
 import { debounceTime } from 'rxjs';
+import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 
 @Component({
   selector: 'app-product-master',
+  standalone: true,
+  imports: [CommonModule, ProductComponent, ThemeSwitcherComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-master.component.html',
   styleUrls: ['./product-master.component.scss'],
