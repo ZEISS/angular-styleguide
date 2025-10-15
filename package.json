@@ -59,7 +59,7 @@
     "@angular/compiler-cli": "20.3.4",
     "@angular/language-service": "20.3.4",
     "@ngrx/schematics": "20.0.1",
-    "@playwright/test": "1.43.1",
+    "@playwright/test": "1.56.0",
     "@types/jasmine": "5.1.4",
     "@types/node": "20.10.5",
     "@typescript-eslint/eslint-plugin": "^8.33.1",

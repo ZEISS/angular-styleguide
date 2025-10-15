@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { initialState, reducer } from './product.reducer';
+import { initialState, ProductReducer } from './product.reducer';
 import { loadProductDetailsSuccess, loadProductsSuccess } from './product.actions';
 import { ProductTestData } from '@models/product.testdata';
 
@@ -12,7 +12,7 @@ describe('Product Reducer', () => {
     it('should return the previous state', () => {
       const action = {} as any;
 
-      const result = reducer(initialState, action);
+      const result = ProductReducer.reducer(initialState, action);
 
       expect(result).toBe(initialState);
     });
@@ -22,7 +22,7 @@ describe('Product Reducer', () => {
     it('should put products into state', () => {
       const action = loadProductsSuccess({ products: ProductTestData.validProductList });
 
-      const result = reducer(initialState, action);
+      const result = ProductReducer.reducer(initialState, action);
 
       expect(result).toEqual({ ...initialState, products: ProductTestData.validProductList });
     });
@@ -32,7 +32,7 @@ describe('Product Reducer', () => {
     it('should put detailed product into state', () => {
       const action = loadProductDetailsSuccess({ product: ProductTestData.validProduct });
 
-      const result = reducer(initialState, action);
+      const result = ProductReducer.reducer(initialState, action);
 
       expect(result).toEqual({
         ...initialState,
