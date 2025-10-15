@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { ProductWithCount } from '@models/product';
@@ -17,12 +17,12 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./order-confirmation.component.scss'],
   imports: [ThemeSwitcherComponent, ReactiveFormsModule],
 })
-export class OrderConfirmationComponent implements OnInit {
-  router = inject(Router);
+export class OrderConfirmationComponent {
+  public router = inject(Router);
 
   public purchasedProducts: ProductWithCount[] = [];
 
-  ngOnInit() {
+  constructor() {
     this.purchasedProducts = this.router.currentNavigation()?.extras?.state?.products;
   }
 

@@ -5,7 +5,7 @@
 
 <div
   class="cart-container"
-  [ngClass]="{ opened: isCartContentVisible === false, closed: isCartContentVisible === true }"
+  [ngClass]="{ opened: isCartContentVisible === true, closed: isCartContentVisible === false }"
 >
   <button class="cart-button" (click)="switchCartVisibility()">
     <fa-icon [icon]="faCartShopping"> </fa-icon>
