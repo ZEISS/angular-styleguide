@@ -8,13 +8,11 @@ import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 
 interface ShoppingCartState {
   products: ProductInCart[];
-  isLoading: boolean;
   filter: { query: string; order: 'asc' | 'desc' };
 }
 
 const initialState: ShoppingCartState = {
   products: [],
-  isLoading: false,
   filter: { query: '', order: 'asc' },
 };
 /**
@@ -26,32 +24,32 @@ export const ShoppingCartStore = signalStore(
   withState(initialState),
   withMethods((store) => ({
     addProduct(product: ProductInCart) {
-      const productAlreadyInCart = this.products()?.find(
-        (productToAdd: ProductInCart) => product.id === productToAdd.id,
-      );
+      const productAlreadyInCart = store
+        .products()
+        ?.find((productToAdd: ProductInCart) => product.id === productToAdd.id);
 
       if (productAlreadyInCart) {
-        const productWithoutTheUpdatedProduct: ProductInCart[] = this.products().filter(
-          (product: ProductInCart) => product.id !== productAlreadyInCart.id,
-        );
+        const productWithoutTheUpdatedProduct: ProductInCart[] = store
+          .products()
+          .filter((product: ProductInCart) => product.id !== productAlreadyInCart.id);
         productAlreadyInCart.count += product.count;
         const updatedProducts = [...productWithoutTheUpdatedProduct, productAlreadyInCart];
         patchState(store, { products: updatedProducts });
         return;
       }
 
-      const updatedProducts: ProductInCart[] = [...this.products(), product];
+      const updatedProducts: ProductInCart[] = [...store.products(), product];
       patchState(store, { products: updatedProducts });
     },
     updateCount(productId: number, newCount: number) {
-      const productWithoutTheUpdatedProduct = this.products().filter(
-        (product: ProductInCart) => product.id !== productId,
-      );
-      const updatableProduct = this.products()?.find(
-        (product: ProductInCart) => product.id === productId,
-      );
+      const productWithoutTheUpdatedProduct = store
+        .products()
+        .filter((product: ProductInCart) => product.id !== productId);
+      const updatableProduct = store
+        .products()
+        .find((product: ProductInCart) => product.id === productId);
 
-      if (updatableProduct.count > 1) {
+      if (updatableProduct && updatableProduct.count > 1) {
         updatableProduct.count = newCount;
         const updatedProducts = [...productWithoutTheUpdatedProduct, updatableProduct];
         patchState(store, { products: updatedProducts });
@@ -63,11 +61,11 @@ export const ShoppingCartStore = signalStore(
       patchState(store, { products: updatedProducts });
     },
     deleteProduct(productId: number) {
-      const productWithoutTheUpdatedProduct = this.products().filter(
-        (product: ProductInCart) => product.id !== productId,
-      );
+      const productWithoutTheUpdatedProduct = store
+        .products()
+        .filter((product: ProductInCart) => product.id !== productId);
 
-      if (!productWithoutTheUpdatedProduct) {
+      if (productWithoutTheUpdatedProduct.length === 0) {
         console.error('Error while deleting product from ShoppingCartStore: Product is not found');
         return;
       }

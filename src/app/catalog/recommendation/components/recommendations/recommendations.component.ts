@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 
-import { State } from '@app/reducers';
+import { AppState } from '@app/reducers';
 import { loadRecommendations } from '@app/catalog/recommendation/store/recommendation.actions';
 import { selectRecommendations } from '@app/catalog/recommendation/store/recommendation.selectors';
 import { RecommendationComponent } from '@app/shared/components/recommendation/recommendation.component';
@@ -23,7 +23,7 @@ import { RecommendationComponent } from '@app/shared/components/recommendation/r
 export class RecommendationsComponent implements OnInit {
   recommendations$ = this.store.select(selectRecommendations);
 
-  constructor(private store: Store<State>) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
     this.store.dispatch(loadRecommendations());

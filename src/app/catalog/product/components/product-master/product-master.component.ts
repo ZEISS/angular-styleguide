@@ -3,26 +3,23 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   OnInit,
-  QueryList,
-  ViewChildren,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Store } from '@ngrx/store';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { loadProducts } from '@app/catalog/product/store/product.actions';
 import { selectProducts } from '@app/catalog/product/store/product.selectors';
-import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
-import { navigate } from '@app/shared/navigation/navigation.actions';
-import { ViewportService } from '@app/catalog/recommendation/services/viewport.service';
+import { AppState } from '@app/reducers';
 import { ProductComponent } from '@app/shared/components/product/product.component';
-import { Product } from '@models/product';
-import { debounceTime } from 'rxjs';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
+import { navigate } from '@app/shared/navigation/navigation.actions';
+import { Product } from '@models/product';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-product-master',
@@ -32,11 +29,9 @@ import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switc
   templateUrl: './product-master.component.html',
   styleUrls: ['./product-master.component.scss'],
 })
-export class ProductMasterComponent implements OnInit, AfterViewInit {
-  public products: Product[];
-  private displayableContentSections: boolean[];
-
-  @ViewChildren(ProductComponent) productChildren: QueryList<ProductComponent>;
+export class ProductMasterComponent implements OnInit {
+  public products: Product[] = [];
+  private displayableContentSections: boolean[] = [];
 
   private productReceiveHandler = (products: Product[]): void => {
     this.displayableContentSections = new Array(Math.round(products.length / 3)).fill(false);
@@ -45,11 +40,13 @@ export class ProductMasterComponent implements OnInit, AfterViewInit {
   };
 
   constructor(
-    private store: Store<StateWithCatalog>,
-    private viewportService: ViewportService,
+    private store: Store<AppState>,
     private cdr: ChangeDetectorRef,
   ) {
-    this.store.select(selectProducts).subscribe(this.productReceiveHandler);
+    this.store
+      .select(selectProducts)
+      .pipe(takeUntilDestroyed())
+      .subscribe(this.productReceiveHandler);
   }
 
   public ngOnInit(): void {
@@ -62,26 +59,5 @@ export class ProductMasterComponent implements OnInit, AfterViewInit {
 
   public isContentInTheViewport(index: number): boolean {
     return this.displayableContentSections[index / 3];
-  }
-
-  public ngAfterViewInit(): void {
-    // the subscription must be delayed a little,
-    // because if we subscribe immediately, the function may run in the middle of the rendering and indicate that element is in the viewport
-    // and is not working properly.
-    this.productChildren.changes.pipe(debounceTime(10)).subscribe(() => {
-      const renderedSections: number = this.productChildren.length / 3;
-      const lastRenderedSection: number =
-        renderedSections % 3 === 0 ? renderedSections : Math.floor(renderedSections);
-      this.viewportService
-        .isInViewport(
-          this.productChildren?.last?.elementRef.nativeElement.getElementsByTagName('p').item(0),
-        )
-        .subscribe((isInViewport: boolean) => {
-          if (isInViewport) {
-            this.displayableContentSections[lastRenderedSection + 1] = true;
-            this.cdr.markForCheck();
-          }
-        });
-    });
   }
 }

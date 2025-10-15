@@ -3,19 +3,19 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, Signal } from '@angular/core';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { IconDefinition } from '@fortawesome/fontawesome-common-types';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { AsyncPipe, NgClass } from '@angular/common';
-import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
-import { ProductInCart } from '@models/product-in-cart';
 import { FormsModule } from '@angular/forms';
+import { AppState } from '@app/reducers';
 import { navigate } from '@app/shared/navigation/navigation.actions';
-import { Store } from '@ngrx/store';
-import { StateWithCatalog } from '@app/catalog/store/catalog.reducer';
-import { productInCartToToProductWithCount } from '@models/product.mapper';
+import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-common-types';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { ProductWithCount } from '@models/product';
+import { ProductInCart } from '@models/product-in-cart';
+import { productInCartToToProductWithCount } from '@models/product.mapper';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -27,7 +27,7 @@ import { ProductWithCount } from '@models/product';
 })
 export class ShoppingCartComponent {
   public faCartShopping: IconDefinition = faCartShopping;
-  public isCartContentVisible: boolean;
+  public isCartContentVisible: boolean = false;
   public shoppingCartSignalStore = inject(ShoppingCartStore);
   public subTotal: Signal<number> = computed(() => {
     return this.shoppingCartSignalStore
@@ -80,5 +80,5 @@ export class ShoppingCartComponent {
     this.switchCartVisibility();
   }
 
-  constructor(private store: Store<StateWithCatalog>) {}
+  constructor(private store: Store<AppState>) {}
 }

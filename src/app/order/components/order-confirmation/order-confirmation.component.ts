@@ -6,7 +6,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { State } from '@app/reducers';
+import { AppState } from '@app/reducers';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
@@ -26,7 +26,7 @@ export class OrderConfirmationComponent {
   public purchasedProducts: ProductWithCount[] = [];
 
   constructor(
-    private store: Store<State>,
+    private store: Store<AppState>,
     public router: Router,
   ) {
     this.purchasedProducts = this.router.currentNavigation()?.extras?.state?.products;

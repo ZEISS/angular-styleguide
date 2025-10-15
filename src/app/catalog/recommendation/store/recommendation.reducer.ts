@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, on } from '@ngrx/store';
 import { Recommendation } from '@models/recommendation';
 import { loadRecommendationsSuccess } from './recommendation.actions';
 
@@ -17,7 +17,10 @@ export const initialState: RecommendationState = {
   recommendations: [],
 };
 
-export const reducer = createReducer(
-  initialState,
-  on(loadRecommendationsSuccess, (state, { recommendations }) => ({ ...state, recommendations }))
-);
+export const RecommendationReducer = createFeature({
+  name: recommendationFeatureKey,
+  reducer: createReducer(
+    initialState,
+    on(loadRecommendationsSuccess, (state, { recommendations }) => ({ ...state, recommendations })),
+  ),
+});

@@ -22,8 +22,14 @@ export class ProductService {
   }
 
   getProduct(id: number): Observable<Product> {
-    return this.httpClient
-      .get<Product[]>(this.productUrl)
-      .pipe(map((products) => products.find((product) => product.id === id)));
+    return this.httpClient.get<Product[]>(this.productUrl).pipe(
+      map((products) => {
+        const product = products.find((product) => product.id === id);
+        if (!product) {
+          throw new Error(`Product with id ${id} not found`);
+        }
+        return product;
+      }),
+    );
   }
 }

@@ -6,7 +6,7 @@
 /**
  * General type for product in the application.
  */
-export class Product {
+export interface Product {
   id: number;
   title: string;
   image: string;
@@ -17,6 +17,6 @@ export class Product {
 /**
  * Extension of the general Product class, extended with count.
  */
-export class ProductWithCount extends Product {
+export interface ProductWithCount extends Product {
   count: number;
 }
