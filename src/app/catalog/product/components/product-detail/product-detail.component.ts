@@ -44,6 +44,7 @@ export class ProductDetailComponent implements OnInit {
       return;
     }
     this.shoppingCartStore.addProduct(productToProductInCart(currentProduct, this.productNumber()));
+    this.productNumber.set(1);
   }
 
   increseProductNumber(): void {

@@ -48,88 +48,88 @@
     "id": 6,
     "title": "6 - Ice Cream and Waffle",
     "image": "assets/product-images/ice_waffle.jpg",
-    "price": "1,99€",
+    "price": 1.99,
     "description": "Ice Cream and Waffle. Photo by Rizka Budiati Szkutnik",
     "imageLicence": "cc-by",
     "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929346"
   },
   {
     "id": 7,
-    "title": "7 - Ice Cream and Waffle",
-    "image": "assets/product-images/ice_waffle.jpg",
-    "price": "1,99€",
-    "description": "Ice Cream and Waffle. Photo by Rizka Budiati Szkutnik",
+    "title": "Carrot Cake",
+    "image": "assets/recommendation-images/carrot_cake.jpg",
+    "price": 2.25,
+    "description": "Carrot cake ice cream. Photo by Joy",
     "imageLicence": "cc-by",
-    "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929346"
+    "imageSource": "https://www.flickr.com/photos/33993074@N00/3435102247"
   },
   {
     "id": 8,
-    "title": "8 - Ice Cream and Waffle",
-    "image": "assets/product-images/ice_waffle.jpg",
-    "price": "1,99€",
-    "description": "Ice Cream and Waffle. Photo by Rizka Budiati Szkutnik",
+    "title": "Sugar Sprinkles",
+    "image": "assets/recommendation-images/sugar_sprinkles.jpg",
+    "price": 1.75,
+    "description": "Icecream on the Boardwalk. Photo by  SurFeRGiRL30",
     "imageLicence": "cc-by",
-    "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929346"
+    "imageSource": "https://www.flickr.com/photos/33143245@N02/14268507072"
   },
   {
     "id": 9,
-    "title": "9 - Ice Cream and Waffle",
-    "image": "assets/product-images/ice_waffle.jpg",
-    "price": "1,99€",
-    "description": "Ice Cream and Waffle. Photo by Rizka Budiati Szkutnik",
+    "title": "Maple with Chocolate Sauce",
+    "image": "assets/recommendation-images/maple.jpg",
+    "price": 2.49,
+    "description": "Maple Ice Cream with Chocolate Sauce. Photo by Kimberly Vardeman",
     "imageLicence": "cc-by",
-    "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929346"
+    "imageSource": "https://www.flickr.com/photos/87542849@N00/3305315887"
   },
   {
     "id": 10,
-    "title": "10 - Ice Cream and Waffle",
-    "image": "assets/product-images/ice_waffle.jpg",
-    "price": "1,99€",
-    "description": "Ice Cream and Waffle. Photo by Rizka Budiati Szkutnik",
+    "title": "Chocolate Pecan",
+    "image": "assets/recommendation-images/choco_pecan.jpg",
+    "price": 2.25,
+    "description": "Chocolate pecan ice cream. Photo by gordonramsaysubmissions",
     "imageLicence": "cc-by",
-    "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929346"
+    "imageSource": "https://www.flickr.com/photos/54397539@N06/5034578006"
   },
   {
     "id": 11,
-    "title": "11 - Ice Cream and Waffle",
-    "image": "assets/product-images/ice_waffle.jpg",
-    "price": "1,99€",
-    "description": "Ice Cream and Waffle. Photo by Rizka Budiati Szkutnik",
+    "title": "Vanilla Fudge Peanut Butter",
+    "image": "assets/recommendation-images/vanilla_fudge.jpg",
+    "price": 2.75,
+    "description": "Wolftracks ice cream. Photo by Gloria Cabada-Leman",
     "imageLicence": "cc-by",
-    "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929346"
+    "imageSource": "https://www.flickr.com/photos/67238971@N04/6300432080"
   },
   {
     "id": 12,
-    "title": "12 - Ice Cream and Waffle",
-    "image": "assets/product-images/ice_waffle.jpg",
-    "price": "1,99€",
-    "description": "Ice Cream and Waffle. Photo by Rizka Budiati Szkutnik",
-    "imageLicence": "cc-by",
-    "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929346"
+    "title": "Ice Cream Sandwich",
+    "image": "assets/recommendation-images/sandwich.jpg",
+    "price": 3.25,
+    "description": "Midnight Kitchen Ice Cream Sandwiches. Photo by Roland Tanglao",
+    "imageLicence": "cc-0",
+    "imageSource": "https://www.flickr.com/photos/35034347371@N01/195210419"
   },
   {
     "id": 13,
-    "title": "13 - Ice Cream and Waffle",
+    "title": "Pistachio",
     "image": "assets/product-images/ice_waffle.jpg",
-    "price": "1,99€",
+    "price": 2.15,
     "description": "Ice Cream and Waffle. Photo by Rizka Budiati Szkutnik",
     "imageLicence": "cc-by",
     "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929346"
   },
   {
     "id": 14,
-    "title": "14 - Ice Cream and Waffle",
+    "title": "Cookies and Cream",
     "image": "assets/product-images/ice_waffle.jpg",
-    "price": "1,99€",
+    "price": 1.95,
     "description": "Ice Cream and Waffle. Photo by Rizka Budiati Szkutnik",
     "imageLicence": "cc-by",
     "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929346"
   },
   {
     "id": 15,
-    "title": "15 - Ice Cream and Waffle",
+    "title": "Salted Caramel",
     "image": "assets/product-images/ice_waffle.jpg",
-    "price": "1,99€",
+    "price": 2.25,
     "description": "Ice Cream and Waffle. Photo by Rizka Budiati Szkutnik",
     "imageLicence": "cc-by",
     "imageSource": "https://www.flickr.com/photos/47196317@N00/1363929346"

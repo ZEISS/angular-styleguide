@@ -4,10 +4,79 @@
  * SPDX-License-Identifier: MIT
  */
 
-.theme-switcher {
-  border: 0;
-  background-color: transparent;
-  font-size: 1.5em;
-  cursor: pointer;
-  margin: 0.5em;
+.header-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  .control-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--color-highlight-text);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      transform: translate(-50%, -50%);
+      transition:
+        width 0.5s,
+        height 0.5s;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+      &::before {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    fa-icon {
+      font-size: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .button-label {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    &.home-button {
+      fa-icon {
+        font-size: 16px;
+      }
+    }
+  }
 }

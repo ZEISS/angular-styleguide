@@ -10,29 +10,68 @@ header {
 }
 
 div.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+
   #back-button {
-    margin: 25px 0;
+    margin: 30px 0;
     @include common.button-secondary;
   }
 
   .purchased-products {
-    padding: 20px;
+    padding: 30px;
+    background: var(--color-card-bg);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      font-size: 28px;
+      font-weight: 300;
+      margin-bottom: 25px;
+      border-bottom: 3px solid var(--color-highlight);
+      padding-bottom: 12px;
+    }
 
     .items {
-      display: grid;
-      gap: 10px;
+      gap: 15px;
 
       .item {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr auto;
+        grid-template-columns: auto 1fr auto auto;
+        gap: 15px;
+        padding: 15px;
+        background: var(--color-background);
+        border-radius: 12px;
+        border: 1px solid var(--color-item-border);
+        transition: transform 0.2s;
+        align-items: center;
+
+        &:hover {
+          transform: translateX(4px);
+        }
 
         img {
-          width: 8em;
+          width: 7em;
+          height: 7em;
+          object-fit: cover;
+          border-radius: 10px;
         }
 
         span {
-          align-content: center;
-          padding: 10px;
+          padding: 8px;
+          font-size: 15px;
+
+          &:first-of-type {
+            font-weight: 500;
+            font-size: 16px;
+          }
+
+          &:last-of-type {
+            font-weight: 600;
+            color: var(--color-highlight);
+            font-size: 16px;
+          }
         }
       }
     }

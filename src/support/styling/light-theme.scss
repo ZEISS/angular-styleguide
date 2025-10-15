@@ -11,10 +11,12 @@ body {
   &.light-theme {
     /* Main theme colors */
     --color-highlight: #{colors.$color-orange};
+    --color-highlight-dark: #d17332;
     --color-secondary: #{colors.$color-nobel};
 
     /* Background */
-    --color-background: #{colors.$color-white};
+    --color-background: #f8f9fa;
+    --color-card-bg: #{colors.$color-white};
 
     /* Buttons */
     --color-button-primary: #{colors.$color-orange};
@@ -28,5 +30,7 @@ body {
     /* Cart */
     --color-cart-border: #{colors.$color-black};
     --color-cart-background: #{colors.$color-white};
+    --color-cart-item-bg: #{colors.$color-white};
+    --color-item-border: #e9ecef;
   }
 }

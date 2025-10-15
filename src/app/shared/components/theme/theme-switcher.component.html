@@ -4,13 +4,22 @@ SPDX-FileCopyrightText: 2022 Carl Zeiss AG
 SPDX-License-Identifier: MIT
 -->
 
-<button class="theme-switcher" (click)="switcherClicked()">
-  @switch (theme) {
-    @case ('light-theme') {
-      <fa-icon [icon]="faMoon"></fa-icon>
+<div class="header-controls">
+  <button class="control-button home-button" (click)="goHome()" title="Go to Home">
+    <fa-icon [icon]="faHome"></fa-icon>
+    <span class="button-label">Home</span>
+  </button>
+
+  <button class="control-button theme-button" (click)="switcherClicked()" title="Switch Theme">
+    @switch (theme) {
+      @case ('light-theme') {
+        <fa-icon [icon]="faMoon"></fa-icon>
+        <span class="button-label">Dark</span>
+      }
+      @case ('dark-theme') {
+        <fa-icon [icon]="faSun"></fa-icon>
+        <span class="button-label">Light</span>
+      }
     }
-    @case ('dark-theme') {
-      <fa-icon [icon]="faSun"></fa-icon>
-    }
-  }
-</button>
+  </button>
+</div>

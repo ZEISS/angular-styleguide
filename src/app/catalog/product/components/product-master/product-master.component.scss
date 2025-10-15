@@ -10,11 +10,15 @@ header {
 }
 
 div.container {
-  padding: 25px;
+  padding: 40px 25px;
   width: auto;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 app-product {
   min-width: 0;
-  padding: 25px;
+  padding: 20px;
+  display: block;
+  transition: transform 0.3s ease;
 }

@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { faMoon, faSun, faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -15,14 +16,21 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrls: ['./theme-switcher.component.scss'],
 })
 export class ThemeSwitcherComponent implements OnInit {
+  private router = inject(Router);
+
   faMoon = faMoon;
   faSun = faSun;
+  faHome = faHome;
   theme: Theme = 'light-theme';
 
   public switcherClicked() {
     this.theme = this.theme == 'dark-theme' ? 'light-theme' : 'dark-theme';
     this.saveTheme();
     this.applyTheme();
+  }
+
+  public goHome() {
+    this.router.navigateByUrl('/');
   }
 
   public ngOnInit(): void {
