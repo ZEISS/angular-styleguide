@@ -5,24 +5,38 @@
 
 import { CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { MockStore, provideMockStore } from '@ngrx/store/testing';
-
-import { selectCurrentProductDetails } from '@app/catalog/product/store/product.selectors';
-import { navigate } from '@app/shared/navigation/navigation.actions';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDetailComponent } from './product-detail.component';
+import { ProductStore } from '@app/catalog/product/product.store';
+import { ShoppingCartStore } from '@app/order/shopping-cart.store';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
   let fixture: ComponentFixture<ProductDetailComponent>;
-  let store: MockStore;
+  let mockRouter: jasmine.SpyObj<Router>;
+  let mockActivatedRoute: any;
 
   beforeEach(waitForAsync(() => {
+    mockRouter = jasmine.createSpyObj('Router', ['navigateByUrl']);
+
+    mockActivatedRoute = {
+      snapshot: {
+        paramMap: {
+          get: jasmine.createSpy('get').and.returnValue('1'),
+        },
+      },
+    };
+
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, ProductDetailComponent],
+      imports: [ProductDetailComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        provideMockStore({ selectors: [{ selector: selectCurrentProductDetails, value: {} }] }),
+        { provide: Router, useValue: mockRouter },
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
+        provideHttpClient(),
+        ProductStore,
+        ShoppingCartStore,
       ],
     }).compileComponents();
   }));
@@ -30,25 +44,22 @@ describe('ProductDetailComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductDetailComponent);
     component = fixture.componentInstance;
-    store = TestBed.inject(MockStore);
-    spyOn(store, 'dispatch');
-
     fixture.detectChanges();
-  });
-
-  afterEach(() => {
-    store?.resetSelectors();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should load product details on init', () => {
+    expect(mockActivatedRoute.snapshot.paramMap.get).toHaveBeenCalledWith('id');
+  });
+
   describe('backToProductOverview', () => {
-    it('should dispatch navigate action to root page', () => {
+    it('should navigate to root page', () => {
       component.backToProductOverview();
 
-      expect(store.dispatch).toHaveBeenCalledWith(navigate({ url: '/' }));
+      expect(mockRouter.navigateByUrl).toHaveBeenCalledWith('/');
     });
   });
 

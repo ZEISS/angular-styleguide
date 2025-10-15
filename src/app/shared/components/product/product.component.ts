@@ -8,6 +8,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  inject,
   Input,
   Output,
 } from '@angular/core';
@@ -23,8 +24,6 @@ import { Product } from '@models/product';
 export class ProductComponent {
   @Input() product: Product | undefined;
   @Output() productImageClicked: EventEmitter<void> = new EventEmitter<void>();
-
-  constructor(public elementRef: ElementRef) {}
 
   imageClicked() {
     this.productImageClicked.emit();

@@ -4,25 +4,12 @@
  */
 
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  inject,
-  signal,
-} from '@angular/core';
-import { Store } from '@ngrx/store';
-
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ActivatedRoute } from '@angular/router';
-import { loadProductDetails } from '@app/catalog/product/store/product.actions';
-import { selectCurrentProductDetails } from '@app/catalog/product/store/product.selectors';
+import { ChangeDetectionStrategy, Component, effect, inject, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductStore } from '@app/catalog/product/product.store';
 import { RecommendationsComponent } from '@app/catalog/recommendation/components/recommendations/recommendations.component';
-import { AppState } from '@app/reducers';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
-import { navigate } from '@app/shared/navigation/navigation.actions';
-import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
-import { Product } from '@models/product';
+import { ShoppingCartStore } from '@app/order/shopping-cart.store';
 import { productToProductInCart } from '@models/product.mapper';
 
 @Component({
@@ -33,40 +20,30 @@ import { productToProductInCart } from '@models/product.mapper';
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss'],
 })
-export class ProductDetailComponent {
-  product$ = this.store.select(selectCurrentProductDetails);
-  private loadedProduct: Product | null = null;
+export class ProductDetailComponent implements OnInit {
+  private productStore = inject(ProductStore);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  public shoppingCartStore = inject(ShoppingCartStore);
 
-  public shoppingCartSignalStore = inject(ShoppingCartStore);
+  public product = this.productStore.currentProductDetails;
+  public productNumber = signal(1);
 
-  productNumber = signal(1);
-
-  constructor(
-    private store: Store<AppState>,
-    private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef,
-  ) {
+  ngOnInit(): void {
     const productId: number = Number.parseInt(this.route.snapshot.paramMap.get('id') || '0');
-    this.store.dispatch(loadProductDetails({ productId: productId }));
-    this.product$.pipe(takeUntilDestroyed()).subscribe({
-      next: (product) => (this.loadedProduct = product),
-      error: (error: Error) =>
-        console.log(`Error while loading product in ProductDetailsComponent: ${error}`),
-    });
+    this.productStore.loadProductDetails(productId);
   }
 
   backToProductOverview(): void {
-    this.store.dispatch(navigate({ url: '/' }));
+    this.router.navigateByUrl('/');
   }
 
   addToCart(): void {
-    if (!this.loadedProduct) {
+    const currentProduct = this.product();
+    if (!currentProduct) {
       return;
     }
-    this.shoppingCartSignalStore.addProduct({
-      ...productToProductInCart(this.loadedProduct, this.productNumber()),
-    });
-    this.cdr.markForCheck();
+    this.shoppingCartStore.addProduct(productToProductInCart(currentProduct, this.productNumber()));
   }
 
   increseProductNumber(): void {

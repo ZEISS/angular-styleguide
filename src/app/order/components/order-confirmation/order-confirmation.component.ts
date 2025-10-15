@@ -3,13 +3,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-
-import { AppState } from '@app/reducers';
-import { navigate } from '@app/shared/navigation/navigation.actions';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { ProductWithCount } from '@models/product';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -22,17 +17,16 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./order-confirmation.component.scss'],
   imports: [ThemeSwitcherComponent, ReactiveFormsModule],
 })
-export class OrderConfirmationComponent {
+export class OrderConfirmationComponent implements OnInit {
+  router = inject(Router);
+
   public purchasedProducts: ProductWithCount[] = [];
 
-  constructor(
-    private store: Store<AppState>,
-    public router: Router,
-  ) {
+  ngOnInit() {
     this.purchasedProducts = this.router.currentNavigation()?.extras?.state?.products;
   }
 
   backToProductOverview() {
-    this.store.dispatch(navigate({ url: '/' }));
+    this.router.navigateByUrl('/');
   }
 }

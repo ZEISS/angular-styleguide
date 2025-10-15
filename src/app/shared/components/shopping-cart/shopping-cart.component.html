@@ -9,7 +9,7 @@
 >
   <button class="cart-button" (click)="switchCartVisibility()">
     <fa-icon [icon]="faCartShopping"> </fa-icon>
-    @if (products.length) {
+    @if (products().length) {
       <span class="product-counter">{{ totalCountOfProducts }}</span>
     }
   </button>
@@ -18,7 +18,7 @@
     <h2>Shopping cart</h2>
 
     <div class="items">
-      @for (product of products; track product) {
+      @for (product of products(); track product) {
         <div class="item">
           <img [attr.src]="product.image" />
           <span>{{ product.title }}</span>
@@ -30,13 +30,13 @@
           />
         </div>
       }
-      @if (!products.length) {
+      @if (!products().length) {
         The cart is empty. Please add something.
       }
     </div>
     <div class="action-bar">
       <div>Total price: {{ subTotal() }} €</div>
-      <button (click)="handleBuyButtonClick()" [disabled]="products.length">Buy</button>
+      <button (click)="handleBuyButtonClick()" [disabled]="!products().length">Buy</button>
     </div>
   </div>
 </div>

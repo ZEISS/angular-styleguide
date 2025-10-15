@@ -4,22 +4,11 @@
  */
 
 import { CommonModule } from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-} from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { loadProducts } from '@app/catalog/product/store/product.actions';
-import { selectProducts } from '@app/catalog/product/store/product.selectors';
-import { AppState } from '@app/reducers';
+import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductStore } from '@app/catalog/product/product.store';
 import { ProductComponent } from '@app/shared/components/product/product.component';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
-import { navigate } from '@app/shared/navigation/navigation.actions';
-import { Product } from '@models/product';
-import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-product-master',
@@ -29,35 +18,25 @@ import { Store } from '@ngrx/store';
   templateUrl: './product-master.component.html',
   styleUrls: ['./product-master.component.scss'],
 })
-export class ProductMasterComponent implements OnInit {
-  public products: Product[] = [];
-  private displayableContentSections: boolean[] = [];
+export class ProductMasterComponent {
+  private productStore = inject(ProductStore);
+  private router = inject(Router);
 
-  private productReceiveHandler = (products: Product[]): void => {
-    this.displayableContentSections = new Array(Math.round(products.length / 3)).fill(false);
-    this.products = products;
-    this.cdr.markForCheck();
-  };
-
-  constructor(
-    private store: Store<AppState>,
-    private cdr: ChangeDetectorRef,
-  ) {
-    this.store
-      .select(selectProducts)
-      .pipe(takeUntilDestroyed())
-      .subscribe(this.productReceiveHandler);
+  // Expose as a getter for template compatibility with @for
+  public get products() {
+    return this.productStore.products();
   }
 
-  public ngOnInit(): void {
-    this.store.dispatch(loadProducts());
-  }
+  public displayableContentSections = computed(() => {
+    const products = this.productStore.products();
+    return new Array(Math.round(products.length / 3)).fill(false);
+  });
 
-  public loadProductDetails(id: number) {
-    this.store.dispatch(navigate({ url: `/product/${id}` }));
+  public loadProductDetails(id: number): void {
+    this.router.navigateByUrl(`/product/${id}`);
   }
 
   public isContentInTheViewport(index: number): boolean {
-    return this.displayableContentSections[index / 3];
+    return this.displayableContentSections()[index / 3];
   }
 }

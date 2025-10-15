@@ -5,47 +5,34 @@
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { MockStore, provideMockStore } from '@ngrx/store/testing';
-
 import { RecommendationsComponent } from './recommendations.component';
-import { loadRecommendations } from '@app/catalog/recommendation/store/recommendation.actions';
-import { selectRecommendations } from '@app/catalog/recommendation/store/recommendation.selectors';
+import { RecommendationStore } from '@app/catalog/recommendation/recommendation.store';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('RecommendationsComponent', () => {
   let component: RecommendationsComponent;
   let fixture: ComponentFixture<RecommendationsComponent>;
-  let store: MockStore;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [RecommendationsComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [
-        provideMockStore({ selectors: [{ selector: selectRecommendations, value: [] }] }),
-      ],
+      providers: [provideHttpClient(), RecommendationStore],
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(RecommendationsComponent);
     component = fixture.componentInstance;
-    store = TestBed.inject(MockStore);
-    spyOn(store, 'dispatch');
-  });
-
-  afterEach(() => {
-    store?.resetSelectors();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
-    fixture.detectChanges();
-
     expect(component).toBeTruthy();
   });
 
-  it('should dispatch loadRecommendations action on init', () => {
-    fixture.detectChanges();
-
-    expect(store.dispatch).toHaveBeenCalledWith(loadRecommendations());
+  it('should have recommendations signal from store', () => {
+    expect(component.recommendations).toBeDefined();
+    expect(component.recommendations()).toEqual([]);
   });
 });

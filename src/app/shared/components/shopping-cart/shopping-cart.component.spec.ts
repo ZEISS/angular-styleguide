@@ -4,18 +4,20 @@
  */
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Router } from '@angular/router';
 import { ShoppingCartComponent } from './shopping-cart.component';
-import { provideMockStore } from '@ngrx/store/testing';
 
 describe('ShoppingCartComponent', () => {
   let component: ShoppingCartComponent;
   let fixture: ComponentFixture<ShoppingCartComponent>;
+  let mockRouter: jasmine.SpyObj<Router>;
 
   beforeEach(async () => {
+    mockRouter = jasmine.createSpyObj('Router', ['navigate']);
+
     await TestBed.configureTestingModule({
       imports: [ShoppingCartComponent],
-      providers: [provideMockStore({ initialState: {} })],
+      providers: [{ provide: Router, useValue: mockRouter }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ShoppingCartComponent);

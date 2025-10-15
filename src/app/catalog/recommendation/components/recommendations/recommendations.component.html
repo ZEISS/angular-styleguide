@@ -8,7 +8,7 @@
   <div class="container">
     @defer (on viewport(moreIceCreamHeader)) {
       <div class="row">
-        @for (recommendation of recommendations$ | async; track recommendation) {
+        @for (recommendation of recommendations(); track recommendation) {
           <app-recommendation class="col-md-4 col-sm-6 col-12" [recommendation]="recommendation">
           </app-recommendation>
         }

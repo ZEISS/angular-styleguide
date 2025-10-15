@@ -3,7 +3,7 @@
 ~ SPDX-License-Identifier: MIT
 -->
 
-@if (product$ | async; as product) {
+@if (product(); as product) {
   <header>
     <app-theme-switcher></app-theme-switcher>
     <h1>{{ product.title }}</h1>
@@ -12,7 +12,7 @@
 
 <div class="container">
   <div class="row">
-    @if (product$ | async; as product) {
+    @if (product(); as product) {
       <div class="product-details">
         <img class="product-img" src="{{ product.image }}" alt="product image" />
 

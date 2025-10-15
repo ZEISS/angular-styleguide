@@ -6,16 +6,14 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, Signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AppState } from '@app/reducers';
-import { navigate } from '@app/shared/navigation/navigation.actions';
-import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
+import { Router } from '@angular/router';
+import { ShoppingCartStore } from '@app/order/shopping-cart.store';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { ProductWithCount } from '@models/product';
 import { ProductInCart } from '@models/product-in-cart';
 import { productInCartToToProductWithCount } from '@models/product.mapper';
-import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -29,6 +27,10 @@ export class ShoppingCartComponent {
   public faCartShopping: IconDefinition = faCartShopping;
   public isCartContentVisible: boolean = false;
   public shoppingCartSignalStore = inject(ShoppingCartStore);
+  public router = inject(Router);
+
+  public products = this.shoppingCartSignalStore.products;
+
   public subTotal: Signal<number> = computed(() => {
     return this.shoppingCartSignalStore
       .products()
@@ -37,12 +39,8 @@ export class ShoppingCartComponent {
       }, 0);
   });
 
-  public get products(): ProductInCart[] {
-    return this.shoppingCartSignalStore.products() as ProductInCart[];
-  }
-
   public get totalCountOfProducts(): number {
-    return this.products.reduce((accumulator: number, p: ProductInCart) => {
+    return this.products().reduce((accumulator: number, p: ProductInCart) => {
       return accumulator + p.count;
     }, 0);
   }
@@ -65,20 +63,13 @@ export class ShoppingCartComponent {
       .products()
       .map((p) => productInCartToToProductWithCount(p));
 
-    this.store.dispatch(
-      navigate({
-        url: '/order',
-        navigationExtras: {
-          state: {
-            products: boughtProducts,
-          },
-        },
-      }),
-    );
+    this.router.navigateByUrl('/order', {
+      state: {
+        products: boughtProducts,
+      },
+    });
 
     this.shoppingCartSignalStore.deleteCartContent();
     this.switchCartVisibility();
   }
-
-  constructor(private store: Store<AppState>) {}
 }

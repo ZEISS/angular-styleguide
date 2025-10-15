@@ -33,7 +33,7 @@
           }
         ],
         "jasmine/no-unsafe-spy": "error",
-        "jasmine/no-spec-dupes": ["error", "branch"]
+        "jasmine/no-spec-dupes": "error"
       },
       "env": {
         "jasmine": true

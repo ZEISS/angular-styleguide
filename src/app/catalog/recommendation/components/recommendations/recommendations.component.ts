@@ -3,13 +3,9 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Store } from '@ngrx/store';
-
-import { AppState } from '@app/reducers';
-import { loadRecommendations } from '@app/catalog/recommendation/store/recommendation.actions';
-import { selectRecommendations } from '@app/catalog/recommendation/store/recommendation.selectors';
+import { RecommendationStore } from '@app/catalog/recommendation/recommendation.store';
 import { RecommendationComponent } from '@app/shared/components/recommendation/recommendation.component';
 
 @Component({
@@ -20,12 +16,8 @@ import { RecommendationComponent } from '@app/shared/components/recommendation/r
   templateUrl: './recommendations.component.html',
   styleUrls: ['./recommendations.component.scss'],
 })
-export class RecommendationsComponent implements OnInit {
-  recommendations$ = this.store.select(selectRecommendations);
+export class RecommendationsComponent {
+  private recommendationStore = inject(RecommendationStore);
 
-  constructor(private store: Store<AppState>) {}
-
-  ngOnInit() {
-    this.store.dispatch(loadRecommendations());
-  }
+  public recommendations = this.recommendationStore.recommendations;
 }
