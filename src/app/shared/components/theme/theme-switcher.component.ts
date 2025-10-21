@@ -48,14 +48,14 @@ export class ThemeSwitcherComponent implements OnInit {
 
   private getSavedTheme(): Theme | null {
     const item = localStorage.getItem('theme');
-    if (this.isTheme(item)) {
+    if (item && this.isTheme(item)) {
       return item;
     } else {
       return null;
     }
   }
 
-  isTheme(theme: string | null): theme is Theme {
+  private isTheme(theme: string): theme is Theme {
     return themes.includes(theme as Theme);
   }
 }

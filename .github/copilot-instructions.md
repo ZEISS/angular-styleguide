@@ -87,7 +87,7 @@ npm run e2e:wdio:ci        # WebdriverIO with auto server start
 
 ### Coding Standards
 
-- **Prettier**: 100 char line width, single quotes, runs on pre-commit
+- **Prettier**: Configured via `.prettierrc.json`, runs on pre-commit
 - **ESLint**: Angular-specific rules with Jasmine support
 - **Stylelint**: SCSS guidelines with Sass best practices
 - **Change Detection**: Always use `OnPush` strategy
@@ -154,7 +154,7 @@ npm run e2e:wdio:ci        # WebdriverIO with auto server start
 
 ### Prerequisites
 
-- Node.js 18.x (defined in CI)
+- Node.js 22.x (defined in CI)
 - npm (use `npm ci` for clean installs)
 - Playwright dependencies: `npx playwright install --with-deps`
 
