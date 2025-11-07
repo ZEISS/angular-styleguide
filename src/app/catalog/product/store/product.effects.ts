@@ -16,9 +16,12 @@ import {
 } from './product.actions';
 import { ProductService } from '@app/catalog/product/services/product.service';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ProductEffects {
-  constructor(private actions$: Actions, private service: ProductService) {}
+  constructor(
+    private actions$: Actions,
+    private service: ProductService,
+  ) {}
 
   loadProducts$ = createEffect(() =>
     this.actions$.pipe(
@@ -26,10 +29,10 @@ export class ProductEffects {
       switchMap(() =>
         this.service.loadProducts().pipe(
           map((products) => loadProductsSuccess({ products })),
-          catchError(() => EMPTY)
-        )
-      )
-    )
+          catchError(() => EMPTY),
+        ),
+      ),
+    ),
   );
 
   loadProductDetails$ = createEffect(() =>
@@ -38,9 +41,9 @@ export class ProductEffects {
       switchMap(({ productId }) =>
         this.service.getProduct(productId).pipe(
           map((product) => loadProductDetailsSuccess({ product })),
-          catchError(() => EMPTY)
-        )
-      )
-    )
+          catchError(() => EMPTY),
+        ),
+      ),
+    ),
   );
 }

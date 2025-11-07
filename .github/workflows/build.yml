@@ -11,7 +11,7 @@ jobs:
     # define node version
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [22.x]
 
     steps:
       - name: Checkout code

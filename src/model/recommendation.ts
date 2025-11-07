@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-export class Recommendation {
+export interface Recommendation {
   id: number;
   title: string;
   image: string;

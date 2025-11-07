@@ -11,9 +11,12 @@ import { catchError, switchMap } from 'rxjs/operators';
 import { from, of } from 'rxjs';
 import { navigate, navigationFailed } from '@app/shared/navigation/navigation.actions';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class NavigationEffects {
-  constructor(private actions$: Actions, private router: Router) {}
+  constructor(
+    private actions$: Actions,
+    private router: Router,
+  ) {}
 
   navigate$ = createEffect(() =>
     this.actions$.pipe(
@@ -24,9 +27,9 @@ export class NavigationEffects {
           catchError((error) => {
             console.error(error);
             return of(navigationFailed({ error }));
-          })
-        )
-      )
-    )
+          }),
+        ),
+      ),
+    ),
   );
 }

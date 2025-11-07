@@ -6,7 +6,7 @@
 /**
  * Class for the Shopping Cart functionality (Signal Store Example)
  */
-export class ProductInCart {
+export interface ProductInCart {
   count: number;
   id: number;
   title: string;

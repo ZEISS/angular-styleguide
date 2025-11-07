@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, on } from '@ngrx/store';
 import { Product } from '@models/product';
 import { Nullable } from '@app/shared/global.types';
 import { loadProductDetailsSuccess, loadProductsSuccess } from './product.actions';
@@ -20,11 +20,14 @@ export const initialState: ProductState = {
   currentProductDetails: null,
 };
 
-export const reducer = createReducer(
-  initialState,
-  on(loadProductsSuccess, (state, { products }) => ({ ...state, products })),
-  on(loadProductDetailsSuccess, (state, { product }) => ({
-    ...state,
-    currentProductDetails: product,
-  }))
-);
+export const ProductReducer = createFeature({
+  name: productFeatureKey,
+  reducer: createReducer(
+    initialState,
+    on(loadProductsSuccess, (state, { products }) => ({ ...state, products })),
+    on(loadProductDetailsSuccess, (state, { product }) => ({
+      ...state,
+      currentProductDetails: product,
+    })),
+  ),
+});

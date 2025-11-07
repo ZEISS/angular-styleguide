@@ -3,16 +3,13 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { AppState } from '@app/reducers';
 import { createSelector } from '@ngrx/store';
 import { recommendationFeatureKey } from './recommendation.reducer';
-import { selectCatalogFeature } from '@app/catalog/store/catalog.reducer';
 
-export const selectRecommendationFeature = createSelector(
-  selectCatalogFeature,
-  (state) => state[recommendationFeatureKey]
-);
+const selectRecommendationFeature = (state: AppState) => state[recommendationFeatureKey];
 
 export const selectRecommendations = createSelector(
   selectRecommendationFeature,
-  (state) => state.recommendations
+  (state) => state.recommendations,
 );

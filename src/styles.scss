@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-@import 'src/support/styling/dark-theme';
-@import 'src/support/styling/light-theme';
+@use './support/styling/dark-theme';
+@use './support/styling/light-theme';
 
 html,
 body {
