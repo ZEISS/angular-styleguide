@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 import { Recommendation } from '@models/recommendation';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class RecommendationService {
   // for mocking, we're using a local json file.
   // in a real-world app this would be a REST resource on a server

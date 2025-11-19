@@ -21,7 +21,7 @@ import { Product } from '@models/product';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
-  @Input() product: Product;
+  @Input() product: Product | undefined;
   @Output() productImageClicked: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(public elementRef: ElementRef) {}

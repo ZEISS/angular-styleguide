@@ -3,21 +3,19 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { AppState } from '@app/reducers';
 import { recommendationFeatureKey } from './recommendation.reducer';
 import { selectRecommendations } from './recommendation.selectors';
 import { RecommendationTestData } from '@models/recommendation.testdata';
-import { catalogFeatureKey, StateWithCatalog } from '@app/catalog/store/catalog.reducer';
 
 describe('Recommendation Selectors', () => {
   describe('selectRecommendations', () => {
     it('should select the recommendations', () => {
       const state = {
-        [catalogFeatureKey]: {
-          [recommendationFeatureKey]: {
-            recommendations: RecommendationTestData.validRecommendations,
-          },
+        [recommendationFeatureKey]: {
+          recommendations: RecommendationTestData.validRecommendations,
         },
-      } as StateWithCatalog;
+      } as Partial<AppState> as AppState;
 
       expect(selectRecommendations(state)).toEqual(RecommendationTestData.validRecommendations);
     });

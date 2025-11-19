@@ -36,7 +36,7 @@
     </div>
     <div class="action-bar">
       <div>Total price: {{ subTotal() }} €</div>
-      <button (click)="handleBuyButtonClick()" [disabled]="!products?.length">Buy</button>
+      <button (click)="handleBuyButtonClick()" [disabled]="products.length">Buy</button>
     </div>
   </div>
 </div>

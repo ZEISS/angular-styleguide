@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @Component({
   selector: 'app-theme-switcher',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
   imports: [FontAwesomeModule],
   templateUrl: './theme-switcher.component.html',
   styleUrls: ['./theme-switcher.component.scss'],
@@ -16,7 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export class ThemeSwitcherComponent implements OnInit {
   faMoon = faMoon;
   faSun = faSun;
-  theme: Theme;
+  theme: Theme = 'light-theme';
 
   public switcherClicked() {
     this.theme = this.theme == 'dark-theme' ? 'light-theme' : 'dark-theme';
@@ -37,7 +38,7 @@ export class ThemeSwitcherComponent implements OnInit {
     localStorage.setItem('theme', this.theme);
   }
 
-  private getSavedTheme(): Theme {
+  private getSavedTheme(): Theme | null {
     const item = localStorage.getItem('theme');
     if (this.isTheme(item)) {
       return item;
@@ -46,7 +47,7 @@ export class ThemeSwitcherComponent implements OnInit {
     }
   }
 
-  isTheme(theme: string): theme is Theme {
+  isTheme(theme: string | null): theme is Theme {
     return themes.includes(theme as Theme);
   }
 }

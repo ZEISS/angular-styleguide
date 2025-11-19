@@ -10,6 +10,7 @@ import { ShoppingCartComponent } from '@app/shared/components/shopping-cart/shop
 @Component({
   selector: 'app-root',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
   imports: [RouterOutlet, ShoppingCartComponent],
   templateUrl: './app.component.html',
 })

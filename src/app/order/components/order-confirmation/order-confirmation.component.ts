@@ -6,7 +6,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { State } from '@app/reducers';
+import { AppState } from '@app/reducers';
 import { Router } from '@angular/router';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { ProductWithCount } from '@models/product';
@@ -18,6 +18,7 @@ import { navigate } from '@app/shared/navigation/navigation.actions';
 
 @Component({
   selector: 'app-order-confirmation',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './order-confirmation.component.html',
   styleUrls: ['./order-confirmation.component.scss'],
@@ -33,7 +34,7 @@ export class OrderConfirmationComponent {
   protected readonly faComment = faComment;
 
   constructor(
-    private store: Store<State>,
+    private store: Store<AppState>,
     public router: Router,
   ) {
     this.purchasedProducts = this.router.currentNavigation()?.extras?.state?.products;

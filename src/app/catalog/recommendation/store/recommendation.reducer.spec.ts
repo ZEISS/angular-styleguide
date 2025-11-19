@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { reducer, initialState } from './recommendation.reducer';
+import { initialState, RecommendationReducer } from './recommendation.reducer';
 import { loadRecommendationsSuccess } from './recommendation.actions';
 import { RecommendationTestData } from '@models/recommendation.testdata';
 
@@ -12,7 +12,7 @@ describe('Recommendation Reducer', () => {
     it('should return the previous state', () => {
       const action = {} as any;
 
-      const result = reducer(initialState, action);
+      const result = RecommendationReducer.reducer(initialState, action);
 
       expect(result).toBe(initialState);
     });
@@ -24,7 +24,7 @@ describe('Recommendation Reducer', () => {
         recommendations: RecommendationTestData.validRecommendations,
       });
 
-      const result = reducer(initialState, action);
+      const result = RecommendationReducer.reducer(initialState, action);
 
       expect(result).toEqual({
         ...initialState,
