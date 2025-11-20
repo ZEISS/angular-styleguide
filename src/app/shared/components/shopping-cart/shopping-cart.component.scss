@@ -79,6 +79,9 @@ $cart-width: $cart-button-container-width + $cart-content-container-width;
     }
 
     .cart-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       padding: 20px;
       border: 3px solid #{colors.$color-black};
       background: var(--color-background);
@@ -122,13 +125,12 @@ $cart-width: $cart-button-container-width + $cart-content-container-width;
       }
 
       .action-bar {
-        position: absolute;
-        bottom: 40px;
         display: grid;
         gap: 20px;
 
         button {
           @include common.button-primary;
+          width: 100%;
 
           &[disabled] {
             &,

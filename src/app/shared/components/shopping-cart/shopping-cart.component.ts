@@ -28,6 +28,7 @@ import { Store } from '@ngrx/store';
 export class ShoppingCartComponent {
   public faCartShopping: IconDefinition = faCartShopping;
   public isCartContentVisible: boolean = false;
+  public hasBeenToggled: boolean = false;
   public shoppingCartSignalStore = inject(ShoppingCartStore);
   public subTotal: Signal<number> = computed(() => {
     return this.shoppingCartSignalStore
@@ -48,6 +49,7 @@ export class ShoppingCartComponent {
   }
 
   public switchCartVisibility(): void {
+    this.hasBeenToggled = true;
     this.isCartContentVisible = !this.isCartContentVisible;
   }
 

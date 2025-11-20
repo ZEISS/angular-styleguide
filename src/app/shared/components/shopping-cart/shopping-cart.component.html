@@ -5,7 +5,10 @@
 
 <div
   class="cart-container"
-  [ngClass]="{ opened: isCartContentVisible === false, closed: isCartContentVisible === true }"
+  [ngClass]="{
+    opened: !isCartContentVisible && hasBeenToggled,
+    closed: isCartContentVisible && hasBeenToggled
+  }"
 >
   <button class="cart-button" (click)="switchCartVisibility()">
     <fa-icon [icon]="faCartShopping"> </fa-icon>
@@ -15,28 +18,31 @@
   </button>
 
   <div class="cart-content">
-    <h2>Shopping cart</h2>
+    <div>
+      <h2>Shopping cart</h2>
 
-    <div class="items">
-      @for (product of products; track product) {
-        <div class="item">
-          <img [attr.src]="product.image" />
-          <span>{{ product.title }}</span>
-          <span>{{ product.price }} €</span>
-          <input
-            type="number"
-            [ngModel]="product.count"
-            (ngModelChange)="handleCountChange(product.id, $event)"
-          />
-        </div>
-      }
-      @if (!products.length) {
-        The cart is empty. Please add something.
-      }
+      <div class="items">
+        @for (product of products; track product) {
+          <div class="item">
+            <img [attr.src]="product.image" alt="image of a product" />
+            <span>{{ product.title }}</span>
+            <span>{{ product.price }} €</span>
+            <input
+              type="number"
+              [ngModel]="product.count"
+              (ngModelChange)="handleCountChange(product.id, $event)"
+            />
+          </div>
+        }
+        @if (!products.length) {
+          The cart is empty. Please add something.
+        }
+      </div>
     </div>
+
     <div class="action-bar">
       <div>Total price: {{ subTotal() }} €</div>
-      <button (click)="handleBuyButtonClick()" [disabled]="products.length">Buy</button>
+      <button (click)="handleBuyButtonClick()" [disabled]="!products.length">Buy</button>
     </div>
   </div>
 </div>
