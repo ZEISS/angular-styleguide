@@ -12,7 +12,7 @@ import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switc
 import { ProductWithCount } from '@models/product';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BackToAllProductsComponent } from '@app/shared/components/back-to-all-products/back-to-all-products.component';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 
@@ -26,7 +26,7 @@ import { navigate } from '@app/shared/navigation/navigation.actions';
     ThemeSwitcherComponent,
     ReactiveFormsModule,
     BackToAllProductsComponent,
-    FaIconComponent,
+    FontAwesomeModule,
   ],
 })
 export class OrderConfirmationComponent {

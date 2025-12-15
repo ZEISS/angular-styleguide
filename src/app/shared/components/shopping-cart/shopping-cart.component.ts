@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { AppState } from '@app/reducers';
 import { navigate } from '@app/shared/navigation/navigation.actions';
 import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { ProductWithCount } from '@models/product';
@@ -20,13 +20,13 @@ import { Store } from '@ngrx/store';
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
-  imports: [FaIconComponent, NgClass, FormsModule],
+  imports: [FontAwesomeModule, NgClass, FormsModule],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShoppingCartComponent {
-  public faCartShopping: IconDefinition = faCartShopping;
+  protected readonly faCartShopping: IconDefinition = faCartShopping;
   public isCartContentVisible: boolean = false;
   public hasBeenToggled: boolean = false;
   public shoppingCartSignalStore = inject(ShoppingCartStore);

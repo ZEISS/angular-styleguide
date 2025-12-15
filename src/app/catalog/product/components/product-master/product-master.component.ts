@@ -4,13 +4,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -34,7 +28,7 @@ import { Store } from '@ngrx/store';
 export class ProductMasterComponent implements OnInit {
   public products: Product[] = [];
   private displayableContentSections: boolean[] = [];
-  faComment = faComment;
+  protected readonly faComment = faComment;
 
   private productReceiveHandler = (products: Product[]): void => {
     this.displayableContentSections = new Array(Math.round(products.length / 3)).fill(false);

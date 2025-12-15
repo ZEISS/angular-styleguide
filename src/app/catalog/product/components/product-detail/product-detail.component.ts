@@ -25,7 +25,7 @@ import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store'
 import { Product } from '@models/product';
 import { productToProductInCart } from '@models/product.mapper';
 import { BackToAllProductsComponent } from '@app/shared/components/back-to-all-products/back-to-all-products.component';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -36,7 +36,7 @@ import { faComment } from '@fortawesome/free-solid-svg-icons';
     ThemeSwitcherComponent,
     RecommendationsComponent,
     BackToAllProductsComponent,
-    FaIconComponent,
+    FontAwesomeModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-detail.component.html',
