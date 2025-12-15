@@ -24,16 +24,26 @@ import { navigate } from '@app/shared/navigation/navigation.actions';
 import { ShoppingCartStore } from '@app/shared/signal-store/shopping-cart.store';
 import { Product } from '@models/product';
 import { productToProductInCart } from '@models/product.mapper';
+import { BackToAllProductsComponent } from '@app/shared/components/back-to-all-products/back-to-all-products.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, ThemeSwitcherComponent, RecommendationsComponent],
+  imports: [
+    CommonModule,
+    ThemeSwitcherComponent,
+    RecommendationsComponent,
+    BackToAllProductsComponent,
+    FontAwesomeModule,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent {
+  protected readonly faComment = faComment;
   product$ = this.store.select(selectCurrentProductDetails);
   private loadedProduct: Product | null = null;
 
@@ -55,10 +65,6 @@ export class ProductDetailComponent {
     });
   }
 
-  backToProductOverview(): void {
-    this.store.dispatch(navigate({ url: '/' }));
-  }
-
   addToCart(): void {
     if (!this.loadedProduct) {
       return;
@@ -75,5 +81,9 @@ export class ProductDetailComponent {
 
   decreaseProductNumber(): void {
     this.productNumber.update((c) => (c > 1 ? c - 1 : 1));
+  }
+
+  public navigateToFeedback(): void {
+    this.store.dispatch(navigate({ url: '/feedback-form' }));
   }
 }

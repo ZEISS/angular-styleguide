@@ -15,8 +15,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrls: ['./theme-switcher.component.scss'],
 })
 export class ThemeSwitcherComponent implements OnInit {
-  faMoon = faMoon;
-  faSun = faSun;
+  protected readonly faMoon = faMoon;
+  protected readonly faSun = faSun;
   theme: Theme = 'light-theme';
 
   public switcherClicked() {

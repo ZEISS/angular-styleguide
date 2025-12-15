@@ -64,11 +64,14 @@ div.container {
   }
 }
 
-.back-button {
-  margin: 50px 0;
-  @include common.button-secondary;
-}
-
 .counter-button {
   @include common.button-primary;
+}
+
+.product-number {
+  padding: 0 24px;
+}
+
+.product-number-container {
+  margin-bottom: 10px;
 }

@@ -5,22 +5,23 @@
 
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { OrderConfirmationComponent } from './order-confirmation.component';
+import { navigate } from '@app/shared/navigation/navigation.actions';
+import { BackToAllProductsComponent } from '@app/shared/components/back-to-all-products/back-to-all-products.component';
 
 describe('OrderConfirmationComponent', () => {
-  let component: OrderConfirmationComponent;
-  let fixture: ComponentFixture<OrderConfirmationComponent>;
+  let component: BackToAllProductsComponent;
+  let fixture: ComponentFixture<BackToAllProductsComponent>;
   let store: MockStore;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [OrderConfirmationComponent],
+      imports: [BackToAllProductsComponent],
       providers: [provideMockStore({ initialState: {} })],
     });
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OrderConfirmationComponent);
+    fixture = TestBed.createComponent(BackToAllProductsComponent);
     component = fixture.componentInstance;
     store = TestBed.inject(MockStore);
     spyOn(store, 'dispatch');
@@ -30,5 +31,13 @@ describe('OrderConfirmationComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('backToProductOverview', () => {
+    it('should dispatch navigate action to root page', () => {
+      component.backToProductOverview();
+
+      expect(store.dispatch).toHaveBeenCalledWith(navigate({ url: '/' }));
+    });
   });
 });

@@ -7,12 +7,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from '@app/reducers';
-import { navigate } from '@app/shared/navigation/navigation.actions';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AsyncPipe } from '@angular/common';
+import { Router } from '@angular/router';
 import { ThemeSwitcherComponent } from '@app/shared/components/theme/theme-switcher.component';
 import { ProductWithCount } from '@models/product';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BackToAllProductsComponent } from '@app/shared/components/back-to-all-products/back-to-all-products.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
+import { navigate } from '@app/shared/navigation/navigation.actions';
 
 @Component({
   selector: 'app-order-confirmation',
@@ -20,10 +22,16 @@ import { ReactiveFormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './order-confirmation.component.html',
   styleUrls: ['./order-confirmation.component.scss'],
-  imports: [ThemeSwitcherComponent, ReactiveFormsModule],
+  imports: [
+    ThemeSwitcherComponent,
+    ReactiveFormsModule,
+    BackToAllProductsComponent,
+    FontAwesomeModule,
+  ],
 })
 export class OrderConfirmationComponent {
   public purchasedProducts: ProductWithCount[] = [];
+  protected readonly faComment = faComment;
 
   constructor(
     private store: Store<AppState>,
@@ -32,7 +40,7 @@ export class OrderConfirmationComponent {
     this.purchasedProducts = this.router.currentNavigation()?.extras?.state?.products;
   }
 
-  backToProductOverview() {
-    this.store.dispatch(navigate({ url: '/' }));
+  public navigateToFeedback(): void {
+    this.store.dispatch(navigate({ url: '/feedback-form' }));
   }
 }

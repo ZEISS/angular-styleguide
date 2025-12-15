@@ -5,7 +5,12 @@
 
 @if (product$ | async; as product) {
   <header>
-    <app-theme-switcher></app-theme-switcher>
+    <div class="nav-container">
+      <app-theme-switcher></app-theme-switcher>
+      <button class="feedback-button" (click)="navigateToFeedback()" title="Feedback">
+        <fa-icon [icon]="faComment"></fa-icon>
+      </button>
+    </div>
     <h1>{{ product.title }}</h1>
   </header>
 }
@@ -22,10 +27,10 @@
           <h3>Price</h3>
           <p>{{ product.price }} €</p>
 
-          <div>
+          <div class="product-number-container">
             <h3>Number of items</h3>
             <button class="counter-button" (click)="decreaseProductNumber()">-</button>
-            {{ productNumber() }}
+            <span class="product-number">{{ productNumber() }}</span>
             <button class="counter-button" (click)="increseProductNumber()">+</button>
           </div>
 
@@ -37,7 +42,7 @@
           </div>
         </div>
       </div>
-      <button class="back-button" (click)="backToProductOverview()">Back to all products</button>
+      <app-back-to-all-products />
     }
   </div>
 </div>

@@ -5,10 +5,13 @@
  */
 
 @use 'colors';
+@use 'sass:color';
 
 html,
 body {
   &.dark-theme {
+    color-scheme: #{colors.$dark};
+
     /* Main theme colors */
     --color-highlight: #{colors.$color-orange};
     --color-secondary: #{colors.$color-nobel};
@@ -28,5 +31,12 @@ body {
     /* Cart */
     --color-cart-border: #{colors.$color-white};
     --color-cart-background: #{colors.$color-dark-gray};
+
+    /* Field */
+    --color-invalid: #{colors.$color-danger};
+
+    /* Misc */
+    --color-success: #{color.scale(colors.$color-success, $lightness: 10%)};
+    --color-success-bg: #{color.scale(colors.$color-success, $lightness: -65%)};
   }
 }

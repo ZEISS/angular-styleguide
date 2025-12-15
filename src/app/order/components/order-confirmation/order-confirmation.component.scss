@@ -10,11 +10,6 @@ header {
 }
 
 div.container {
-  #back-button {
-    margin: 25px 0;
-    @include common.button-secondary;
-  }
-
   .purchased-products {
     padding: 20px;
 

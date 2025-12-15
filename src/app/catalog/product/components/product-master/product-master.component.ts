@@ -4,14 +4,10 @@
  */
 
 import { CommonModule } from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { loadProducts } from '@app/catalog/product/store/product.actions';
 import { selectProducts } from '@app/catalog/product/store/product.selectors';
 import { AppState } from '@app/reducers';
@@ -24,7 +20,7 @@ import { Store } from '@ngrx/store';
 @Component({
   selector: 'app-product-master',
   standalone: true,
-  imports: [CommonModule, ProductComponent, ThemeSwitcherComponent],
+  imports: [CommonModule, ProductComponent, ThemeSwitcherComponent, FontAwesomeModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-master.component.html',
   styleUrls: ['./product-master.component.scss'],
@@ -32,6 +28,7 @@ import { Store } from '@ngrx/store';
 export class ProductMasterComponent implements OnInit {
   public products: Product[] = [];
   private displayableContentSections: boolean[] = [];
+  protected readonly faComment = faComment;
 
   private productReceiveHandler = (products: Product[]): void => {
     this.displayableContentSections = new Array(Math.round(products.length / 3)).fill(false);
@@ -59,5 +56,9 @@ export class ProductMasterComponent implements OnInit {
 
   public isContentInTheViewport(index: number): boolean {
     return this.displayableContentSections[index / 3];
+  }
+
+  public navigateToFeedback(): void {
+    this.store.dispatch(navigate({ url: '/feedback-form' }));
   }
 }

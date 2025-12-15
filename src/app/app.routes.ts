@@ -4,11 +4,26 @@
  */
 
 import { Routes } from '@angular/router';
-import { orderRoutes } from '@app/order/order.routes';
-import { ProductDetailComponent } from './catalog/product/components/product-detail/product-detail.component';
-import { ProductMasterComponent } from './catalog/product/components/product-master/product-master.component';
+import { FeedbackFormComponent } from '@app/shared/components/feedback-form/feedback-form.component';
+import { ProductMasterComponent } from '@app/catalog/product/components/product-master/product-master.component';
+import { ProductDetailComponent } from '@app/catalog/product/components/product-detail/product-detail.component';
+import { OrderConfirmationComponent } from '@app/order/components/order-confirmation/order-confirmation.component';
 
 export const routes: Routes = [
-  { path: 'product/:id', component: ProductDetailComponent },
-  { path: '', component: ProductMasterComponent, children: orderRoutes },
+  {
+    path: 'feedback-form',
+    component: FeedbackFormComponent,
+  },
+  {
+    path: 'product/:id',
+    component: ProductDetailComponent,
+  },
+  {
+    path: '',
+    component: ProductMasterComponent,
+  },
+  {
+    path: 'order',
+    component: OrderConfirmationComponent,
+  },
 ];
